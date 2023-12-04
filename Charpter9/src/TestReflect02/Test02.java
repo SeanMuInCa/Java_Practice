@@ -18,6 +18,7 @@ public class Test02
 {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException
     {
+        //利用反射获取构造器并创建对象
         //获取字节码信息
         Class c1 = Class.forName("TestReflect02.Student");
         //这个只能拿到public构造器

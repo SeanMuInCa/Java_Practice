@@ -29,7 +29,7 @@ public class Student extends Person implements MyInterface
         return "overload ---- public i am a student";
     }
 
-    private void work()
+    private void work() throws InterruptedException
     {
         System.out.println("private i find a job");
     }
