@@ -1,0 +1,20 @@
+<application>
+  <component name="Trusted.Paths">
+    <option name="TRUSTED_PROJECT_PATHS">
+      <map>
+        <entry key="C:\Users\fengy\IdeaProjects\Charpter6" value="true" />
+        <entry key="C:\Users\fengy\IdeaProjects\Lab1" value="true" />
+        <entry key="C:\Users\fengy\IdeaProjects\Lab2" value="true" />
+        <entry key="C:\Users\fengy\IdeaProjects\Lab3" value="true" />
+        <entry key="C:\Users\fengy\IdeaProjects\Lab4" value="true" />
+        <entry key="D:\Java\BusDepot" value="true" />
+        <entry key="D:\Java\COSC601" value="true" />
+        <entry key="D:\Java\Charpter7" value="true" />
+        <entry key="D:\Java\Charpter9" value="true" />
+        <entry key="D:\Java\Lab5" value="true" />
+        <entry key="D:\Java\assign2SDC000506980" value="true" />
+        <entry key="D:\Java\demo" value="true" />
+      </map>
+    </option>
+  </component>
+</application>

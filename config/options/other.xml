@@ -1,0 +1,110 @@
+<application>
+  <component name="FileEditorProviderManager">{
+  &quot;selectedProviders&quot;: {
+    &quot;text-editor,JavaFX-Scene-Builder&quot;: &quot;text-editor&quot;
+  }
+}</component>
+  <component name="JdkInstallerHistory">
+    <option name="installedItems">
+      <installed-jdk>
+        <option name="fullText" value="Oracle OpenJDK 21.0.1" />
+        <option name="installDir" value="C:\Users\fengy\.jdks\openjdk-21.0.1" />
+        <option name="sha256" value="77ea464f4fa7cbcbffe0124af44707e8e5ad8c1ce2373f1d94a64d9b20ba0c69" />
+        <option name="url" value="https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_windows-x64_bin.zip" />
+        <option name="versionText" value="21.0.1" />
+      </installed-jdk>
+    </option>
+  </component>
+  <component name="NotRoamableUiSettings">
+    <option name="fontFace" value="Microsoft YaHei UI" />
+    <option name="fontSize" value="12.0" />
+    <option name="presentationModeIdeScale" value="1.75" />
+    <option name="overrideLafFontsWasMigrated" value="true" />
+  </component>
+  <component name="PropertyService"><![CDATA[{
+  "keyToString": {
+    "CWM_LOGGING_VERSION": "1",
+    "FileTemplates.CurrentTab": "Includes",
+    "FileTemplates.SelectedTemplate": "File Header",
+    "INSPECTION_FILTER_HISTORY": "seri",
+    "InstalledPluginsSearchHistory": "JDK\njavafx\njavaf\njava\njav",
+    "JUnit.Splitter.Proportion": "0.3396923",
+    "JUnitSupport.hidePassedTests": "false",
+    "KEYMAP": "select\ndelete\nredo",
+    "LAST_CALCULATED_COLOR_INDEX_KEY": "4",
+    "LAST_EXTRACTOR_SCRIPTS_CLEANUP_VERSION/data/extractors": "IU-232.9559.62",
+    "MarketplacePluginsSearchHistory": "Junit5\nJunit\nJ\nunit\nuni",
+    "MemberChooser.copyJavadoc": "false",
+    "MemberChooser.showClasses": "true",
+    "NextRunPlatformUpdateBuild": "IU-232.10227.8",
+    "NextRunPlatformUpdateVersion": "2023.2.5",
+    "NonModalCommitCustomization.IsApplied": "true",
+    "PROJECT_CLASS_LOADING_KEY": "true",
+    "PluginConfigurable.selectionTab": "1",
+    "RunOnceActivity.JDK_CLASS_LOADING": "true",
+    "SettingsSearchHistory": "@author\ncomment\nJDK\nLibraries\nlibrary",
+    "appcds.runOnSecondStart": "IU-232.9559.62-54a6c8b29ddb135fce954b5f632de04cf8b6ea3c6db6d710386f0a8d33039b82",
+    "build.toolwindow.Build Output.selection.state": "com.intellij.build.BuildTreeConsoleView",
+    "build.toolwindow.Sync.selection.state": "com.intellij.build.BuildTreeConsoleView",
+    "bundled.plugins.list.saved.version": "IU-232.9559.62",
+    "cn.yiiguxing.plugin.translate.version": "3.5.3",
+    "com.intellij.ide.projectWizard.generators.JavaNewProjectWizard$Step.selectedStep": "IntelliJ",
+    "com.intellij.ide.wizard.NewProjectWizardLanguageStep.selectedStep": "Java",
+    "com.intellij.openapi.roots.ui.configuration.TabbedModuleEditor.selectedEditor": "Sources",
+    "debugger.smart.chooser.counter": "3",
+    "decompiler.legal.notice.accepted": "true",
+    "defaultJdkConfigured": "true",
+    "evlsprt3.232": "24",
+    "experimental.ui.on.first.startup": "true",
+    "experimental.ui.used.version": "232.9559.62",
+    "file.gist.reindex.count": "14",
+    "fileTypeChangedCounter": "1",
+    "fontSizeToResetConsole": "13.0",
+    "fontSizeToResetEditor": "13.0",
+    "got.it.tooltip.reader.mode.got.it": "1",
+    "gotit.previous.run": "IU-232.9559.62",
+    "ide.memory.adjusted": "true",
+    "ignore.implicit.plugin.directory.path": "true",
+    "installed.kotlin.plugin.version": "232-1.9.0-IJ9559.62",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "D:/Java",
+    "migrate.android.sdk.path.to.roamable.storage": "false",
+    "migrated.non.roamable.values.from.general.settings": "true",
+    "onboarding.generation.number": "2",
+    "previousColorScheme": "_@user_Darcula",
+    "project.wizard.group": "NPW.simple-module",
+    "registry.to.advanced.settings.migration.build": "IU-232.9559.62",
+    "second.reformat.confirmed.2": "true",
+    "selected.color.option.type": "JAVA_LINE_COMMENT",
+    "settings.code.style.selected.tab.JAVA": "Imports",
+    "tasks.pass.word.conversion.enforced": "true",
+    "ts.lib.d.ts.version": "5.1.3"
+  },
+  "keyToStringList": {
+    "file.chooser.recent.files": [
+      "D:/Java"
+    ],
+    "fileTypeDetectors": [
+      "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",
+      "com.intellij.docker.dockerFile.DockerFileTypeDetector",
+      "com.intellij.profiler.ultimate.hprof.impl.HprofFileTypeDetector",
+      "com.intellij.javascript.debugger.sourcemap.SourceMapFileType$MyFileTypeDetector",
+      "com.intellij.database.vfs.DbStorageFileType$Detector",
+      "com.jetbrains.nodejs.util.NodeFileTypeDetector$JavaScriptFileTypeDetector",
+      "com.jetbrains.nodejs.util.NodeFileTypeDetector$TypeScriptFileTypeDetector",
+      "com.android.tools.idea.sqlite.fileType.SqliteFileTypeDetector",
+      "com.android.tools.idea.profilers.capture.MemoryCaptureFileType$Detector",
+      "org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector"
+    ]
+  }
+}]]></component>
+  <component name="ShownTips">{
+  &quot;shownTips&quot;: {
+    &quot;CtrlW&quot;: 1693521478028
+  },
+  &quot;proposedTips&quot;: {
+    &quot;CtrlW&quot;: 1693521476514
+  },
+  &quot;tipsOrderSeed&quot;: 1693521475434
+}</component>
+</application>

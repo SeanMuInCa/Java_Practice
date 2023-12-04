@@ -1,0 +1,695 @@
+<project version="4">
+  <component name="BookmarksManager">
+    <option name="groups">
+      <GroupState>
+        <option name="name" value="Lab5" />
+      </GroupState>
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q8Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q8.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1408">
+              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Q8re.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file>
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q4.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1144">
+              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Hex2Dec.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q7.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="902">
+              <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1034">
+              <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="726">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q9.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1188">
+              <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTypeUsageLocalSummary">
+    <fileType name="CLASS">
+      <summary usageCount="2" lastUsed="1697072028559" />
+    </fileType>
+    <fileType name="DIFF">
+      <summary usageCount="3" lastUsed="1697073520448" />
+    </fileType>
+    <fileType name="JAVA">
+      <summary usageCount="123" lastUsed="1698202089981" />
+    </fileType>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/src/Lab5/Program4.java" />
+      <option value="$PROJECT_DIR$/src/Lab5/Program3.java" />
+      <option value="$PROJECT_DIR$/src/Lab5/Program2.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q2.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q3.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q4.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q5.java" />
+      <option value="$PROJECT_DIR$/src/mytest/Atest.java" />
+      <option value="$PROJECT_DIR$/src/mytest/ArrayListTest.java" />
+      <option value="$PROJECT_DIR$/src/mytest/Loan.java" />
+      <option value="$PROJECT_DIR$/src/mytest/TestLoan.java" />
+      <option value="$PROJECT_DIR$/src/mytest/LoanTest.java" />
+      <option value="$PROJECT_DIR$/src/mytest/TestJunit.java" />
+      <option value="$PROJECT_DIR$/src/mytest/TestRunner.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q7.java" />
+      <option value="$PROJECT_DIR$/src/Lab5/Program1.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q6.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q9.java" />
+      <option value="$PROJECT_DIR$/src/Lab5/Program5Test.java" />
+      <option value="$PROJECT_DIR$/src/Lab5/Program5.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/AsterisksSquareTest.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q7Test.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q9Test.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q1.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q8Test.java" />
+      <option value="$PROJECT_DIR$/src/assign2SDC000506980/Q8.java" />
+      <option value="$PROJECT_DIR$/src/Q8re.java" />
+      <option value="$PROJECT_DIR$/src/Main.java" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LanguageUsageStatistics">
+    <language id="JAVA">
+      <summary usageCount="123" lastUsage="1698202089981" />
+    </language>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Lab5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://D:/Java/Lab5}" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Lab5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dir{file://D:/Java/Lab5}" type="462c0819:PsiDirectoryNode" />
+              <item name="dir{file://D:/Java/Lab5/src}" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunConfigurationStartHistory">
+    <history>
+      <element setting="Application.Main" />
+      <element setting="Application.Q4" />
+      <element setting="Application.Q8" />
+      <element setting="Application.Q8re" />
+      <element setting="JUnit.Q8Test" />
+      <element setting="JUnit.Q8Test.isPrime" />
+      <element setting="JUnit.Q8Test.isPallyPrime" />
+      <element setting="JUnit.Q9Test" />
+      <element setting="JUnit.Q9Test.isValid" />
+      <element setting="Application.Q3" />
+    </history>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Q9Test_isValid - 2023.10.12 at 14h 39m 57s.xml">
+      <configuration name="Q9Test.isValid" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q9Test - 2023.10.12 at 14h 40m 00s.xml">
+      <configuration name="Q9Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test_isPallyPrime - 2023.10.14 at 23h 01m 54s.xml">
+      <configuration name="Q8Test.isPallyPrime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test_isPallyPrime - 2023.10.14 at 23h 02m 14s.xml">
+      <configuration name="Q8Test.isPallyPrime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test_isPallyPrime - 2023.10.14 at 23h 02m 26s.xml">
+      <configuration name="Q8Test.isPallyPrime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test_isPallyPrime - 2023.10.14 at 23h 02m 46s.xml">
+      <configuration name="Q8Test.isPallyPrime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test_isPallyPrime - 2023.10.14 at 23h 02m 57s.xml">
+      <configuration name="Q8Test.isPallyPrime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test_isPallyPrime - 2023.10.14 at 23h 03m 18s.xml">
+      <configuration name="Q8Test.isPallyPrime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test_isPrime - 2023.10.14 at 23h 05m 19s.xml">
+      <configuration name="Q8Test.isPrime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Q8Test - 2023.10.14 at 23h 05m 50s.xml">
+      <configuration name="Q8Test" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="58707000" />
+  </component>
+  <component name="ToolWindowManager">
+    <layoutV2>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1678383" />
+      <window_info id="Commit" order="1" weight="0.25" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.1678383" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" show_stripe_button="false" weight="0.46270853" />
+      <window_info anchor="bottom" id="Services" order="5" />
+      <window_info anchor="bottom" id="Run with Parallel Runner" order="6" show_stripe_button="false" weight="0.3302257" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.46270853" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.46270853" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Translation.Wordbook" order="4" side_tool="true" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.25" />
+      <window_info anchor="right" id="Code Search" order="6" />
+      <unified_weights bottom="0.46270853" left="0.1678383" />
+    </layoutV2>
+    <recentWindows>
+      <value>Run</value>
+      <value>Project</value>
+      <value>Debug</value>
+      <value>Build</value>
+      <value>Structure</value>
+      <value>Run with Parallel Runner</value>
+    </recentWindows>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="634" y="245" key="FileChooserDialogImpl" timestamp="1696632801766">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="634" y="245" key="FileChooserDialogImpl/0.0.1707.1019@0.0.1707.1019" timestamp="1696632801766" />
+    <state width="1625" height="423" key="GridCell.Tab.0.bottom" timestamp="1697854018248">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.0.bottom/0.0.1707.1019@0.0.1707.1019" timestamp="1697854018248" />
+    <state width="1625" height="423" key="GridCell.Tab.0.center" timestamp="1697854018248">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.0.center/0.0.1707.1019@0.0.1707.1019" timestamp="1697854018248" />
+    <state width="1625" height="423" key="GridCell.Tab.0.left" timestamp="1697854018248">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.0.left/0.0.1707.1019@0.0.1707.1019" timestamp="1697854018248" />
+    <state width="1625" height="423" key="GridCell.Tab.0.right" timestamp="1697854018248">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.0.right/0.0.1707.1019@0.0.1707.1019" timestamp="1697854018248" />
+    <state width="1625" height="423" key="GridCell.Tab.1.bottom" timestamp="1697348575136">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.1.bottom/0.0.1707.1019@0.0.1707.1019" timestamp="1697348575136" />
+    <state width="1625" height="423" key="GridCell.Tab.1.center" timestamp="1697348575136">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.1.center/0.0.1707.1019@0.0.1707.1019" timestamp="1697348575136" />
+    <state width="1625" height="423" key="GridCell.Tab.1.left" timestamp="1697348575136">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.1.left/0.0.1707.1019@0.0.1707.1019" timestamp="1697348575136" />
+    <state width="1625" height="423" key="GridCell.Tab.1.right" timestamp="1697348575136">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1625" height="423" key="GridCell.Tab.1.right/0.0.1707.1019@0.0.1707.1019" timestamp="1697348575136" />
+    <state x="434" y="236" key="IDE.errors.dialog" timestamp="1696736709162">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="434" y="236" key="IDE.errors.dialog/0.0.1707.1019@0.0.1707.1019" timestamp="1696736709162" />
+    <state x="358" y="142" width="1199" height="734" key="SettingsEditor" timestamp="1696738204839">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="358" y="142" width="1199" height="734" key="SettingsEditor/0.0.1707.1019@0.0.1707.1019" timestamp="1696738204839" />
+    <state width="860" height="516" key="XDebugger.FullValuePopup" timestamp="1697073933632">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="860" height="516" key="XDebugger.FullValuePopup/0.0.1707.1019@0.0.1707.1019" timestamp="1697073933632" />
+    <state x="550" y="393" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1696738604407">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="550" y="393" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1707.1019@0.0.1707.1019" timestamp="1696738604407" />
+    <state x="624" y="264" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1697346286036">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="624" y="264" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1707.1019@0.0.1707.1019" timestamp="1697346286036" />
+    <state x="453" y="119" width="800" height="780" key="new project wizard" timestamp="1696548737259">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="453" y="119" width="800" height="780" key="new project wizard/0.0.1707.1019@0.0.1707.1019" timestamp="1696548737259" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>inString.length()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(getSize(number) &gt;= 13 &amp;&amp; getSize(number) &lt;= 16)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(getSize(number) &gt;= 13 &amp;&amp; getSize(number) &lt;= 16))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>prefixCorrect(number, 37)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Math.pow(10, length - 2))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>d * (int) Math.pow(10, length - 2))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(int) Math.pow(10, length - 1)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>sumOfOddPlaces(number)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>str.length()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>str.charAt(i)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>numberString.length()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/mytest/Atest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mytest/ArrayListTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/mytest/TestLoan.java" />
+    <entry file="file://$PROJECT_DIR$/src/mytest/LoanTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-583">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mytest/Loan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+          <folding>
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1089#1090#0" expanded="true" />
+            <element signature="e#1186#1187#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#2109#2110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mytest/TestJunit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mytest/TestRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab5/Program1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab5/Program2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab5/Program3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab5/Program4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="63" column="40" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
+          <folding>
+            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2656#2657#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lab5/Program5Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/Lab5/Program5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+          <folding>
+            <element signature="e#458#459#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../junit-jupiter-api-5.8.1.jar!/org/junit/jupiter/api/Test.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-163">
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q6.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q7Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q9Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q8Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1408">
+          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Q8re.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1144">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hex2Dec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assign2SDC000506980/Q9.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>17</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Lab5</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

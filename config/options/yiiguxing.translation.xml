@@ -1,0 +1,18 @@
+<application>
+  <component name="Translation.Cache">
+    <option name="lastTrimTime" value="1701148480765" />
+  </component>
+  <component name="Translation.States">
+    <histories>
+      <item value="Season.values()" />
+      <item value="spring" />
+      <item value="Comparetor" />
+      <item value="Program 5" />
+    </histories>
+    <option name="languageScores">
+      <map>
+        <entry key="ENGLISH" value="5" />
+      </map>
+    </option>
+  </component>
+</application>
