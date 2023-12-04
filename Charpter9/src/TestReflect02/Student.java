@@ -44,6 +44,10 @@ public class Student extends Person implements MyInterface
     {
         System.out.println("non-param constructor");
     }
+    public Student(double weight,double score){
+        this.weight = weight;
+        this.score = score;
+    }
 
     private Student(int studentId)
     {
@@ -74,6 +78,6 @@ public class Student extends Person implements MyInterface
                 ", height=" + height +
                 ", weight=" + weight +
                 ", score=" + score +
-                "} " + super.toString();
+                "} ";
     }
 }
