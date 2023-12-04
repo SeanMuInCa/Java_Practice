@@ -56,5 +56,9 @@ public class Test02
         Object obj2 = constructor1.newInstance(170.5,180.5);
         System.out.println(obj2);
 
+        //使用非public的构造器创建示例
+        constructor2.setAccessible(true);
+        Object obj3 = constructor2.newInstance(100);
+        System.out.println(obj3);
     }
 }
