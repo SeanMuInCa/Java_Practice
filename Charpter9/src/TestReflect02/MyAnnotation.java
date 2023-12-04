@@ -1,6 +1,7 @@
 package TestReflect02;
 
-import java.io.Serializable;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
  * Purpose:             TestReflect02<br />
@@ -13,14 +14,8 @@ import java.io.Serializable;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class Person implements Serializable
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyAnnotation
 {
-    private int age;
-    public String name;
-    private void eat(){
-        System.out.println("Person ---- eat");
-    }
-    public void sleep(){
-        System.out.println("Person --- sleep");
-    }
+    String value();//这是属性，神奇不
 }

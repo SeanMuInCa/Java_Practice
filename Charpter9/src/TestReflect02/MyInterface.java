@@ -1,7 +1,5 @@
 package TestReflect02;
 
-import java.io.Serializable;
-
 /**
  * Purpose:             TestReflect02<br />
  * Data Submitted:      2023/12/3 <br />
@@ -13,14 +11,8 @@ import java.io.Serializable;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class Person implements Serializable
+public interface MyInterface
 {
-    private int age;
-    public String name;
-    private void eat(){
-        System.out.println("Person ---- eat");
-    }
-    public void sleep(){
-        System.out.println("Person --- sleep");
-    }
+    //自定义接口
+    void myMethod();
 }
