@@ -16,7 +16,7 @@ public class Interview02
     public static void main(String[] args)
     {
         Father f = new Father();
-        Son s = new Son();
+        Son s = new Son();//两个独立对象，这两个对象在内存中，都有info属性，因此修改不会互相影响
         System.out.println(f.getInfo());
         System.out.println(s.getInfo());
         s.test();
