@@ -14,9 +14,7 @@ public class GF
     public static GF getInstance()
     {
         if(gf == null)
-        {
             gf = new GF();
-        }
         return gf;
     }
 }
