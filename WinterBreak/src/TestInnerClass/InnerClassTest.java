@@ -21,5 +21,15 @@ public class InnerClassTest
             }
         }.test();
     }
+    /*
+    * 为了好理解，我换成下面这个方式，就比较好说明白了
+    * new Object().toString()这个是清晰可见的
+    * new Object().test()这个不行，因为Object类里没有test方法，为了让他能调用
+    * new Object(){
+    *    public void test(){}
+    * }.test()这样就没问题了，相当于实现了一个多态的子类，去实现了一下test方法，并调用
+    *
+    *
+    * */
 }
 
