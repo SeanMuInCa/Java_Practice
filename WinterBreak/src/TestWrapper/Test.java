@@ -45,6 +45,6 @@ public void test(){
     }
     @org.junit.Test
     public void test1(){
-        
+
     }
 }
