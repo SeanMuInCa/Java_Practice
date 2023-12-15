@@ -107,9 +107,9 @@ public class TeamService
             throw new TeamException("no such member");
         }
         //没有被抛出，说明找到了，这里调整数组，删除该删除的，后面的往前挪
-        for (int j = total - 1; j >= i;j--)
+        for (int j = i; j <= total - 1;j++)
         {
-            team[j - 1] = team[j];
+            team[j] = team[j + 1];
         }
         team[total - 1] = null;
         total--;
