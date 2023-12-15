@@ -36,6 +36,9 @@ public class Designer extends Programmer
     @Override
     public String toString()
     {
-        return super.getDes()+ "\tDesigner\t" + this.getStatus() + "\t" + this.getBonus() + "\t\t\t" + this.getEquipment().getDescription();
+        return super.getDes()+ "\t" +"\tDesigner\t" + this.getStatus() + "\t" + this.getBonus() + "\t\t\t" + this.getEquipment().getDescription();
+    }
+    public String getDetails(){
+        return this.getMemberId() + "/" + this.getId() + "\t" + this.getName() + "\t" + this.getAge() + "\t" + this.getSalary() + "\t\tDesigner\t" + this.getBonus();
     }
 }

@@ -74,4 +74,8 @@ public class Employee
     {
         return getDes();
     }
+    public String getDetails()
+    {
+        return "";
+    }
 }

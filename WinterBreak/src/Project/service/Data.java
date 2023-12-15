@@ -25,8 +25,8 @@ public class Data
     public static final String[][] EMPLOYEES = {
             {"10", "1","John Doe", "23", "5000"},
             {"11", "2","Jane Doe", "23", "5000"},
-            {"12", "3","Jime Doe", "23", "5000","1500"},
-            {"13", "4","Joee Doe", "23", "5000","1500","2500"},
+            {"12", "3","Jimi Doe", "23", "5000","1500"},
+            {"13", "4","Joey Doe", "23", "5000","1500","2500"},
     };
 
     public static final String[][] EQUIPMENTS = {

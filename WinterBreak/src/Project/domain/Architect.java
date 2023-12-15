@@ -34,6 +34,9 @@ public class Architect extends Designer
     @Override
     public String toString()
     {
-        return getDes() + "\tArchitect\t" + this.getStatus() + "\t" + this.getBonus() + "\t" + this.getStock() + "\t" + this.getEquipment().getDescription();
+        return getDes() + "\t" +"\tArchitect\t" + this.getStatus() + "\t" + this.getBonus() + "\t" + this.getStock() + "\t" + this.getEquipment().getDescription();
+    }
+    public String getDetails(){
+        return this.getMemberId() + "/" + this.getId() + "\t" + this.getName() + "\t" + this.getAge() + "\t" + this.getSalary() + "\t\tArchitect\t" + this.getBonus() + "\t" + this.getStock();
     }
 }

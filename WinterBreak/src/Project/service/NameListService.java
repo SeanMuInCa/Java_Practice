@@ -92,4 +92,15 @@ public class NameListService
             System.out.println(employee);
         }
     }
+    @Test
+    public void test2()
+    {
+        try
+        {
+            Employee employee = getEmployee(5);
+            System.out.println(employee);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
