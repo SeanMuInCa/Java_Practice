@@ -28,9 +28,10 @@ class Sale3 implements Runnable
 {
     int tickets = 10;
 
+    boolean flag = true;
     public void run()
     {
-        while (true)
+        while (flag)
         {
             buy();
         }
@@ -47,6 +48,9 @@ class Sale3 implements Runnable
             }
             System.out.println(Thread.currentThread().getName() + " got " + tickets);
             tickets--;
+        }else{
+            flag = false;
         }
+
     }
 }
