@@ -65,7 +65,7 @@ class Bank
     {
     }
 
-    private static Bank instance = null;
+    private static volatile Bank instance = null;//避免指令重排
 
     public static /*synchronized*/ Bank getInstance()
     {
