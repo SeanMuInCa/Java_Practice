@@ -10,6 +10,7 @@ package TestString;
  *
  * @author Zhenghua Mu
  * @version 1.0.0
+ * 反转特定位置的字符串
  */
 public class Exe2
 {
