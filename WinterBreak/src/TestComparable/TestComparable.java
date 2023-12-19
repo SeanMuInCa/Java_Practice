@@ -24,7 +24,7 @@ public class TestComparable
         products[0] = new Product("pen", 11.0);
         products[1] = new Product("toy", 6.5);
         products[2] = new Product("cola", 3.0);
-        products[3] = new Product("laptop", 1100.0);
+        products[3] = new Product("laptop", 11.0);
         products[4] = new Product("monitor", 500.0);
 
         Arrays.sort(products);//报错，无法比较
@@ -82,7 +82,9 @@ class Product implements Comparable<Product>
     @Override
     public int compareTo(Product p)
     {
-        return name.compareTo(p.name);
-//        return Double.compare(this.price, p.price);
+//        return name.compareTo(p.name);
+        int value = Double.compare(price, p.price);
+        value = value == 0? name.compareTo(p.name) : value;
+        return value;
     }
 }
