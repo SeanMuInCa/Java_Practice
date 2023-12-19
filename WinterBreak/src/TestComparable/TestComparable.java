@@ -14,6 +14,7 @@ import java.util.Arrays;
  *
  * @author Zhenghua Mu
  * @version 1.0.0
+ * 自定义类排序，如果想从大到小排序，那么就return的时候，返回负值即可
  */
 public class TestComparable
 {
@@ -27,7 +28,7 @@ public class TestComparable
         products[3] = new Product("laptop", 11.0);
         products[4] = new Product("monitor", 500.0);
 
-        Arrays.sort(products);//报错，无法比较
+        Arrays.sort(products);//报错，无法比较,需要重写compareTo方法
         for (Product product : products)
         {
             System.out.println(product);
