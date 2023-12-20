@@ -48,7 +48,7 @@ public class StudentInfo
         }
     }
 }
-class Student{
+class Student implements Comparable<Student>{
     private String name;
     private int age;
 
@@ -100,5 +100,16 @@ class Student{
     public int hashCode()
     {
         return Objects.hash(name, age);
+    }
+
+    @Override
+    public int compareTo(Student o)
+    {
+        int value = this.age - o.age;
+        if(value == 0){
+            return this.name.compareTo(o.name);
+        }else{
+            return value;
+        }
     }
 }
