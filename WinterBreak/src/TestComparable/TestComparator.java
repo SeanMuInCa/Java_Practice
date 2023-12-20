@@ -36,7 +36,7 @@ public class TestComparator
         }
     }
 }
-class myComparator implements Comparator<Product>{
+class myComparator implements Comparator<Product>{//自定义
 
 
     @Override
