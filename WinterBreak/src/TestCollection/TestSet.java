@@ -14,6 +14,7 @@ import java.util.*;
  *
  * @author Zhenghua Mu
  * @version 1.0.0
+ * set实际是map的一种实现，set中的元素是无序的，并且不允许重复的元素。
  */
 public class TestSet
 {
