@@ -2,9 +2,7 @@ package TestCollection;
 
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Purpose:             TestCollection<br />
@@ -32,5 +30,21 @@ public class TestSet
         while (it.hasNext()){
             System.out.println(it.next());
         }
+    }
+    @Test
+    public void test1(){
+        List list = new ArrayList<>();
+        list.add("aa");
+        list.add("aa");
+        list.add("aa");
+        list.add("aa");
+        list.add("bb");
+        list.add(3);
+        list.add(new Person("w5",21));
+        System.out.println(list);
+        Set set = new HashSet<>(list);
+        System.out.println(set);
+        list = new ArrayList<>(set);
+        System.out.println(list);
     }
 }
