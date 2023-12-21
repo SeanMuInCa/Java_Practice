@@ -77,7 +77,7 @@ public class TestTreeMap
         Student s1 = new Student("raina",22);
         Student s2 = new Student("tom",33);
         Student s3 = new Student("jerry",22);
-        Student s4 = new Student("sean",24);
+        Student s4 = new Student("sean",24);//外部比较器，导致该数据无法加入
         Student s5 = new Student("vicent",27);
 
         map.put(s1,99);
