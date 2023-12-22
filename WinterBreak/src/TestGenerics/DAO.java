@@ -1,6 +1,7 @@
 package TestGenerics;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Purpose:             TestGenerics<br />
@@ -35,6 +36,10 @@ public class DAO<T>
         System.out.println("getInfo");
         return null;
     }
+    public List<T> getAll(){
+        System.out.println("getAll");
+        return null;
+    }
 }
 /*
 * ORM(object relational mapping)这里就假设有个用户表
@@ -47,6 +52,15 @@ class Customer{
     String name;
     String email;
     Date birth;
+}
+class CustomerDAO extends DAO<Customer>{//针对这个表的
+}
+class Test{
+    @org.junit.Test
+    public void test(){
+        CustomerDAO customerDAO = new CustomerDAO();
+        customerDAO.insert(new Customer());//这里就只能操作customer了
+    }
 }
 class Order{//这里也对应一个表
     int orderId;
