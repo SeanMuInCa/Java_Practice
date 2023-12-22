@@ -78,7 +78,7 @@ public class Poker
 //                }
 //            }
 //        });
-        Comparator pokerComparator = new Comparator<String>()
+        Comparator<String> pokerComparator = new Comparator<>()
         {
             @Override
             public int compare(String o1, String o2)
@@ -86,43 +86,25 @@ public class Poker
                 int value1 = 0, value2 = 0;
                 if (!o1.startsWith("Joker") && !o2.startsWith("Joker"))
                 {
-                    if (o1.substring(1).equals("J"))
+                    value1 = switch (o1.substring(1))
                     {
-                        value1 = 11;
-                    } else if (o1.substring(1).equals("Q"))
-                    {
-                        value1 = 12;
-                    } else if (o1.substring(1).equals("K"))
-                    {
-                        value1 = 13;
-                    }else if (o1.substring(1).equals("A"))
-                    {
-                        value1 = 14;
-                    }else if (o1.substring(1).equals("2"))
-                    {
-                        value1 = 15;
-                    }else{
-                        value1 = Integer.parseInt(o1.substring(1));
-                    }
+                        case "J" -> 11;
+                        case "Q" -> 12;
+                        case "K" -> 13;
+                        case "A" -> 14;
+                        case "2" -> 15;
+                        default -> Integer.parseInt(o1.substring(1));
+                    };
 
-                    if (o2.substring(1).equals("J"))
+                    value2 = switch (o2.substring(1))
                     {
-                        value2 = 11;
-                    } else if (o2.substring(1).equals("Q"))
-                    {
-                        value2 = 12;
-                    } else if (o2.substring(1).equals("K"))
-                    {
-                        value2 = 13;
-                    }else if (o2.substring(1).equals("A"))
-                    {
-                        value2 = 14;
-                    }else if (o2.substring(1).equals("2"))
-                    {
-                        value2 = 15;
-                    }else{
-                        value2 = Integer.parseInt(o2.substring(1));
-                    }
+                        case "J" -> 11;
+                        case "Q" -> 12;
+                        case "K" -> 13;
+                        case "A" -> 14;
+                        case "2" -> 15;
+                        default -> Integer.parseInt(o2.substring(1));
+                    };
                     return value1 - value2;
                 } else if (o1.startsWith("Joker") && !o2.startsWith("Joker"))
                 {
@@ -136,10 +118,10 @@ public class Poker
                 }
             }
         };
-        Collections.sort(player1, pokerComparator);
-        Collections.sort(player2, pokerComparator);
-        Collections.sort(player3, pokerComparator);
-        Collections.sort(left, pokerComparator);
+        player1.sort(pokerComparator);
+        player2.sort(pokerComparator);
+        player3.sort(pokerComparator);
+        left.sort(pokerComparator);
         System.out.println("player1: " + player1);
         System.out.println("player2: " + player2);
         System.out.println("player3: " + player3);
