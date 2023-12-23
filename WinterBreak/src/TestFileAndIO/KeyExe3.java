@@ -40,16 +40,14 @@ public class KeyExe3
         }
     }
     public static void deleteDir(File file){
-        if(file.isFile()){
-            System.out.println(file.delete() ? "deleted!" : "failed");
-        }
+
         if(file.isDirectory()){
             File[] files = file.listFiles();
             for(File f : files){
                 deleteDir(f);
             }
         }
-        file.delete();//删除自己
+        System.out.println(file.delete() ? "deleted!" : "failed");
     }
     public static long getDirectorySize(File file){
         long size = 0;
@@ -59,7 +57,7 @@ public class KeyExe3
         if(file.isDirectory()){
             File[] files = file.listFiles();
             for(File f : files){
-                size += getDirectorySize(f);
+                size += getDirectorySize(f);//这样可以累加
             }
         }
         return size;
