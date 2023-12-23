@@ -128,8 +128,8 @@ public class FileTest
     {
         /*
         * createNewFile()
-        * mkdir()
-        * mkdirs()
+        * mkdir() parent folder must exist, otherwise failed
+        * mkdirs() parent folder must exist, otherwise create all the parent folder
         * delete()
         * */
         File file1 = new File("d:\\Java","test.txt");
