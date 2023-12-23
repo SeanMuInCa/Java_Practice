@@ -21,6 +21,7 @@ public class Exe1
     {
         File file1 = new File("hello.txt");
 
+        //file1.getAbsoluteFile().getParent() 获取file1的所在目录
         File file2 = new File(file1.getAbsoluteFile().getParent(),"abc.txt");
         file2.createNewFile(); //创建文件
 
