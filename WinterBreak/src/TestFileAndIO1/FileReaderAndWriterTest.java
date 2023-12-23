@@ -40,10 +40,10 @@ public class FileReaderAndWriterTest
     @Test
     public void test1()
     {
-        File file1 = new File("d:\\Java\\test.txt");
         FileReader fr = null;
         try
         {
+            File file1 = new File("d:\\Java\\test.txt");
             fr = new FileReader(file1);
             //方式1
         /*while (fr.ready()){
@@ -70,5 +70,37 @@ public class FileReaderAndWriterTest
             }
         }
 
+    }
+    @Test
+    public void test2(){
+        //final version
+        FileReader fr = null;
+        try
+        {
+            File file1 = new File("d:\\Java\\test.txt");
+            fr = new FileReader(file1);
+            char[] buffer = new char[1024];
+            int length = fr.read(buffer);
+            while (length!= -1){
+                for (int i = 0; i < length; i++)
+                {
+                    System.out.print(buffer[i]);
+                }
+                length = fr.read(buffer);
+            }
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }finally
+        {
+            try
+            {
+                if(fr != null)
+                    fr.close();
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 }
