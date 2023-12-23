@@ -13,6 +13,7 @@ import java.io.FilenameFilter;
  *
  * @author Zhenghua Mu
  * @version 1.0.0
+ * 文件夹下是否包含指定后缀名的文件
  */
 public class Exe2
 {
@@ -23,7 +24,7 @@ public class Exe2
             @Override
             public boolean accept(File dir, String name)
             {
-                return name.contains(".txt");
+                return name.contains(".jar");
             }
         };
         File file = new File("d:\\Java");
