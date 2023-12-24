@@ -30,13 +30,15 @@ public class FileReaderAndWriterTest
         }*/
         //方式2
         int data = fr.read();
-        while (data != -1){
-            System.out.println((char)data);
+        while (data != -1)
+        {
+            System.out.println((char) data);
             data = fr.read();
         }
 //        fw.close();
         fr.close();
     }
+
     @Test
     public void test1()
     {
@@ -51,18 +53,19 @@ public class FileReaderAndWriterTest
         }*/
             //方式2
             int data = fr.read();
-            while (data != -1){
-                System.out.println((char)data);
+            while (data != -1)
+            {
+                System.out.println((char) data);
                 data = fr.read();
             }
         } catch (IOException e)
         {
             e.printStackTrace();
-        }finally
+        } finally
         {
             try
             {
-                if(fr != null)
+                if (fr != null)
                     fr.close();
             } catch (IOException e)
             {
@@ -71,8 +74,10 @@ public class FileReaderAndWriterTest
         }
 
     }
+
     @Test
-    public void test2(){
+    public void test2()
+    {
         //final version
         FileReader fr = null;
         try
@@ -81,7 +86,8 @@ public class FileReaderAndWriterTest
             fr = new FileReader(file1);
             char[] buffer = new char[1024];
             int length = fr.read(buffer);//这里返回的是读取的长度
-            while (length!= -1){
+            while (length != -1)
+            {
                 for (int i = 0; i < length; i++)
                 {
                     System.out.print(buffer[i]);
@@ -91,11 +97,11 @@ public class FileReaderAndWriterTest
         } catch (IOException e)
         {
             e.printStackTrace();
-        }finally
+        } finally
         {
             try
             {
-                if(fr != null)
+                if (fr != null)
                     fr.close();
             } catch (IOException e)
             {
@@ -105,10 +111,11 @@ public class FileReaderAndWriterTest
     }
 
     /*
-    * 写内容到一个文本里
-    * */
+     * 写内容到一个文本里
+     * */
     @Test
-    public void test3(){
+    public void test3()
+    {
 
 
         FileWriter fw = null;
@@ -121,7 +128,7 @@ public class FileReaderAndWriterTest
         } catch (IOException e)
         {
             e.printStackTrace();
-        }finally
+        } finally
         {
             try
             {
@@ -135,8 +142,10 @@ public class FileReaderAndWriterTest
             }
         }
     }
+
     @Test
-    public void test4(){
+    public void test4()
+    {
         //final version
         FileReader fr = null;
         FileWriter fw = null;
@@ -160,19 +169,26 @@ public class FileReaderAndWriterTest
                 length = fr.read(buffer);
             }*/
             int length;
-            while ((length = fr.read(buffer))!= -1){//这里返回的是读取的长度
-                fw.write(buffer,0,length);
+            while ((length = fr.read(buffer)) != -1)
+            {//这里返回的是读取的长度
+                fw.write(buffer, 0, length);
             }
         } catch (IOException e)
         {
             e.printStackTrace();
-        }finally
+        } finally
         {
             try
             {
-                if(fr != null)
+                if (fr != null)
                     fr.close();
-                if(fw!= null)
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                if (fw != null)
                     fw.close();
             } catch (IOException e)
             {
