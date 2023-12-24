@@ -80,7 +80,7 @@ public class FileReaderAndWriterTest
             File file1 = new File("d:\\Java\\test.txt");
             fr = new FileReader(file1);
             char[] buffer = new char[1024];
-            int length = fr.read(buffer);
+            int length = fr.read(buffer);//这里返回的是读取的长度
             while (length!= -1){
                 for (int i = 0; i < length; i++)
                 {
@@ -97,6 +97,83 @@ public class FileReaderAndWriterTest
             {
                 if(fr != null)
                     fr.close();
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /*
+    * 写内容到一个文本里
+    * */
+    @Test
+    public void test3(){
+
+
+        FileWriter fw = null;
+        try
+        {
+            File file2 = new File("d:\\Java\\res.txt");
+            fw = new FileWriter(file2);
+            fw.write("java");
+
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }finally
+        {
+            try
+            {
+                if (fw != null)
+                {
+                    fw.close();
+                }
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+    @Test
+    public void test4(){
+        //final version
+        FileReader fr = null;
+        FileWriter fw = null;
+        try
+        {
+            File file1 = new File("d:\\Java\\test.txt");
+            fr = new FileReader(file1);
+
+            File file2 = new File("d:\\Java\\res.txt");
+            fw = new FileWriter(file2);
+
+
+            char[] buffer = new char[1024];
+            /*int length = fr.read(buffer);//这里返回的是读取的长度
+            while (length!= -1){
+                for (int i = 0; i < length; i++)
+                {
+//                    System.out.print(buffer[i]);
+                    fw.write(buffer[i]);
+                }
+                length = fr.read(buffer);
+            }*/
+            int length;
+            while ((length = fr.read(buffer))!= -1){//这里返回的是读取的长度
+                fw.write(buffer,0,length);
+            }
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }finally
+        {
+            try
+            {
+                if(fr != null)
+                    fr.close();
+                if(fw!= null)
+                    fw.close();
             } catch (IOException e)
             {
                 e.printStackTrace();
