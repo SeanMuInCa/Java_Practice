@@ -146,7 +146,7 @@ public class FileReaderAndWriterTest
     @Test
     public void test4()
     {
-        //final version
+        //final version of text
         FileReader fr = null;
         FileWriter fw = null;
         try
@@ -157,17 +157,8 @@ public class FileReaderAndWriterTest
             File file2 = new File("d:\\Java\\res.txt");
             fw = new FileWriter(file2);
 
-
             char[] buffer = new char[1024];
-            /*int length = fr.read(buffer);//这里返回的是读取的长度
-            while (length!= -1){
-                for (int i = 0; i < length; i++)
-                {
-//                    System.out.print(buffer[i]);
-                    fw.write(buffer[i]);
-                }
-                length = fr.read(buffer);
-            }*/
+
             int length;
             while ((length = fr.read(buffer)) != -1)
             {//这里返回的是读取的长度
