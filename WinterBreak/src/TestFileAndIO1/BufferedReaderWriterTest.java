@@ -28,18 +28,26 @@ public class BufferedReaderWriterTest
             File file1 = new File("d:\\Java\\test.txt");
             fr = new FileReader(file1);
 
-            File file2 = new File("d:\\Java\\res_copy.txt");
+            File file2 = new File("d:\\Java\\res_copy1.txt");
             fw = new FileWriter(file2);
 
             br = new BufferedReader(fr);
             bw = new BufferedWriter(fw);
 
-            char[] buffer = new char[1024];
+            //方式1
+            /*char[] buffer = new char[1024];
 
             int length;
             while ((length = br.read(buffer)) != -1)
             {//这里返回的是读取的长度
                 bw.write(buffer, 0, length);
+            }*/
+            //方式2
+            String data;
+            while ((data = br.readLine())!= null)
+            {
+                bw.write(data);
+                bw.newLine();
             }
         } catch (IOException e)
         {
