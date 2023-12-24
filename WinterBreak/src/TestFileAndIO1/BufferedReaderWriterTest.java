@@ -14,29 +14,32 @@ import java.io.*;
  *
  * @author Zhenghua Mu
  * @version 1.0.0
- * 字符流同理
  */
-public class BufferedStreamTest
+public class BufferedReaderWriterTest
 {
     @Test
     public void test(){
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
-        BufferedInputStream bis = null;
-        BufferedOutputStream bos = null;
+        FileReader fr = null;
+        FileWriter fw = null;
+        BufferedReader br = null;
+        BufferedWriter bw = null;
         try
         {
-            File src = new File("d:\\Java\\原型链.png");
-            File des = new File("d:\\Java\\原型链_copy1.png");
-            fis = new FileInputStream(src);
-            fos = new FileOutputStream(des);
-            bis = new BufferedInputStream(fis);
-            bos = new BufferedOutputStream(fos);
+            File file1 = new File("d:\\Java\\test.txt");
+            fr = new FileReader(file1);
 
-            byte[] buffer = new byte[1024];
+            File file2 = new File("d:\\Java\\res_copy.txt");
+            fw = new FileWriter(file2);
+
+            br = new BufferedReader(fr);
+            bw = new BufferedWriter(fw);
+
+            char[] buffer = new char[1024];
+
             int length;
-            while((length = bis.read(buffer)) != -1){
-                bos.write(buffer, 0, length);
+            while ((length = br.read(buffer)) != -1)
+            {//这里返回的是读取的长度
+                bw.write(buffer, 0, length);
             }
         } catch (IOException e)
         {
@@ -45,21 +48,20 @@ public class BufferedStreamTest
         {
             try
             {
-                if (bis != null)
-                    bis.close();
+                if (br != null)
+                    br.close();
             } catch (IOException e)
             {
                 e.printStackTrace();
             }
             try
             {
-                if (bos != null)
-                    bos.close();
+                if (bw != null)
+                    bw.close();
             } catch (IOException e)
             {
                 e.printStackTrace();
             }
-
         }
     }
 }
