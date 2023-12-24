@@ -24,7 +24,7 @@ public class ProcessStreamTest
     {
         File file = new File("d:\\Java\\test_utf8.txt");
         FileInputStream fis = new FileInputStream(file);//字节流
-        InputStreamReader isr = new InputStreamReader(fis);//字符流
+        InputStreamReader isr = new InputStreamReader(fis);//字符流utf8默认的字符集
         //读入操作
         char[] buffer = new char[1024];
         int length;
@@ -36,5 +36,43 @@ public class ProcessStreamTest
         {
             isr.close();
         }
+    }
+
+    @Test
+    public void test1() throws IOException
+    {
+        File file = new File("d:\\Java\\test_gbk.txt");
+        FileInputStream fis = new FileInputStream(file);//字节流
+        InputStreamReader isr = new InputStreamReader(fis,"gbk");//字符流指定gbk字符集
+        //读入操作
+        char[] buffer = new char[1024];
+        int length;
+        while ((length = isr.read(buffer))!= -1)
+        {
+            System.out.println(new String(buffer, 0, length));
+        }
+        if (isr!= null)
+        {
+            isr.close();
+        }
+    }
+
+    /*
+    * 需求：将gbk文件转换为utf-8文件
+    * */
+    @Test
+    public void test2() throws IOException
+    {
+        File file = new File("d:\\Java\\test_gbk.txt");
+        File file1 = new File("d:\\Java\\test_utf8_copy.txt");
+        InputStreamReader isr = new InputStreamReader(new FileInputStream(file),"gbk");
+        OutputStreamWriter osr = new OutputStreamWriter(new FileOutputStream(file1), "utf-8");
+        char[] buffer = new char[1024];
+        int length;
+        while ((length = isr.read(buffer)) != -1){
+            osr.write(buffer,0,length);
+        }
+        osr.close();
+        isr.close();
     }
 }
