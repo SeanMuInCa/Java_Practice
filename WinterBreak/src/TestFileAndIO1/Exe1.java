@@ -67,4 +67,8 @@ class MyInput
     {
         return Integer.parseInt(readString());
     }
+    public double readDouble()
+    {
+        return Double.parseDouble(readString());
+    }
 }
