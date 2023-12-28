@@ -71,4 +71,8 @@ class MyInput
     {
         return Double.parseDouble(readString());
     }
+    public double readFloat()
+    {
+        return Float.parseFloat(readString());
+    }
 }
