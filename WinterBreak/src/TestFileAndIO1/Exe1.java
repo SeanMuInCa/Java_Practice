@@ -75,4 +75,8 @@ class MyInput
     {
         return Float.parseFloat(readString());
     }
+    public char readChar()
+    {
+        return readString().charAt(0);
+    }
 }
