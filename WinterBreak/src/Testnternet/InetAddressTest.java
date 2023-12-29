@@ -30,8 +30,8 @@ public class InetAddressTest
             System.out.println(google);
 
             //常用方法
-            System.out.println(google.getHostName());
-            System.out.println(google.getHostAddress());
+            System.out.println(google.getHostName());//域名
+            System.out.println(google.getHostAddress());//IP
         } catch (UnknownHostException e)
         {
             e.printStackTrace();
