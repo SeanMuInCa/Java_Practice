@@ -23,12 +23,13 @@ import java.util.Arrays;
  */
 public class TCPtest
 {
-    //客户端发送内容给服务器，服务端将内容打印到控制台
-    Socket clientSocket = null;
-    OutputStream msg = null;
+
 
     @Test
     public void client(){
+        //客户端发送内容给服务器，服务端将内容打印到控制台
+        Socket clientSocket = null;
+        OutputStream msg = null;
         try
         {
             //创建一个socket对象
@@ -63,14 +64,16 @@ public class TCPtest
     @Test
     public void server(){
         ServerSocket serverSocket = null;
+        Socket socket = null;
+        InputStream msg = null;
         //创建一个socket对象
         try
         {
             serverSocket = new ServerSocket(8989);
             //接收socket
-            Socket socket = serverSocket.accept();
+            socket = serverSocket.accept();
             //接收数据
-            InputStream msg = socket.getInputStream();
+            msg = socket.getInputStream();
             byte[] buffer = new byte[1024];
             int len;
             while ((len = msg.read(buffer)) != -1){
@@ -87,15 +90,18 @@ public class TCPtest
             {
                 if(msg!=null)
                     msg.close();
+                if (serverSocket != null)
+                {
+                    serverSocket.close();
+                }
+                if (socket != null)
+                {
+                    socket.close();
+                }
             } catch (IOException e)
             {
                 throw new RuntimeException(e);
             }
         }
-
-
-
-
-
     }
 }
