@@ -31,21 +31,12 @@ public class Receive extends Thread
         {
             InputStream in = socket.getInputStream();
             //接收服务端通知
-
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();//用这个防止中文
-            byte[] buffer = new byte[1024];
-            int len;
-            while ((len = in.read(buffer))!= -1)
-            {
-                baos.write(buffer, 0, len);
-            }
-            System.out.println(baos);
-            /*Scanner input = new Scanner(in);
+            Scanner input = new Scanner(in);
 
             while (input.hasNextLine()){
                 String str = input.nextLine();
                 System.out.println(str);
-            }*/
+            }
         } catch (IOException e)
         {
             throw new RuntimeException(e);

@@ -53,7 +53,7 @@ public class ChatServer
                 ip = socket.getInetAddress().getHostAddress();
 
                 //给其他客户端发”我上线了“通知
-//                sendToOther(ip + "我上线了");
+                sendToOther(ip + "我上线了");
 
                 //1接收该客户端发送的消息
                 InputStream inputStream = socket.getInputStream();
