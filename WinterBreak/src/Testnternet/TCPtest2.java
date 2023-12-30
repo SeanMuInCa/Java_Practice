@@ -25,6 +25,7 @@ public class TCPtest2
     public void client(){
         Socket clientSocket = null;
         FileInputStream fis = null;
+        BufferedInputStream bis = null;
         OutputStream ops = null;
         try
         {
@@ -32,11 +33,12 @@ public class TCPtest2
             clientSocket = new Socket(InetAddress.getLocalHost(),8989);
             File src = new File("d:\\Java\\原型链.png");
             fis = new FileInputStream(src);
+            bis = new BufferedInputStream(fis);
             ops = clientSocket.getOutputStream();
 
             byte[] buffer = new byte[1024];
             int len;
-            while ((len = fis.read(buffer)) != -1)
+            while ((len = bis.read(buffer)) != -1)
             {
                 ops.write(buffer,0,len);
             }
@@ -57,9 +59,9 @@ public class TCPtest2
             }
             try
             {
-                if (fis != null)
+                if (bis != null)
                 {
-                    fis.close();
+                    bis.close();
                 }
             } catch (IOException e)
             {
@@ -83,6 +85,7 @@ public class TCPtest2
         ServerSocket serverSocket = null;
         Socket socket = null;
         FileOutputStream fos = null;
+        BufferedOutputStream bos = null;
         InputStream is = null;
         try
         {
@@ -92,11 +95,12 @@ public class TCPtest2
 
             File dst = new File("d:\\a.png");
             fos = new FileOutputStream(dst);
+            bos = new BufferedOutputStream(fos);
             byte[] buffer = new byte[1024];
             int len;
             while ((len = is.read(buffer))!= -1)
             {
-                fos.write(buffer,0,len);
+                bos.write(buffer,0,len);
             }
         } catch (IOException e)
         {
@@ -105,7 +109,7 @@ public class TCPtest2
         {
             try
             {
-                fos.close();
+                bos.close();
             } catch (IOException e)
             {
                 throw new RuntimeException(e);
@@ -132,6 +136,5 @@ public class TCPtest2
                 throw new RuntimeException(e);
             }
         }
-
     }
 }
