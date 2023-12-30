@@ -83,11 +83,12 @@ public class TCPtest2
         ServerSocket serverSocket = null;
         Socket socket = null;
         FileOutputStream fos = null;
+        InputStream is = null;
         try
         {
             serverSocket = new ServerSocket(8989);
             socket = serverSocket.accept();
-            InputStream is = socket.getInputStream();
+            is = socket.getInputStream();
 
             File dst = new File("d:\\a.png");
             fos = new FileOutputStream(dst);
@@ -100,6 +101,36 @@ public class TCPtest2
         } catch (IOException e)
         {
             throw new RuntimeException(e);
+        }finally
+        {
+            try
+            {
+                fos.close();
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+            try
+            {
+                is.close();
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+            try
+            {
+                socket.close();
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
+            try
+            {
+                serverSocket.close();
+            } catch (IOException e)
+            {
+                throw new RuntimeException(e);
+            }
         }
 
     }
