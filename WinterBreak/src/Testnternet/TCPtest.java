@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 /**
  * Purpose:             Testnternet<br />
@@ -70,7 +71,12 @@ public class TCPtest
             Socket socket = serverSocket.accept();
             //接收数据
             InputStream msg = socket.getInputStream();
-            System.out.println(msg.read());
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = msg.read(buffer)) != -1){
+                String str = new String(buffer,0,len);
+                System.out.println(str);
+            }
         } catch (IOException e)
         {
             throw new RuntimeException(e);
