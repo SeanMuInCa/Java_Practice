@@ -378,4 +378,34 @@ AND employees.department_id = (
 										FROM employees
 										WHERE employee_id = 141
 										)
+AND employees.employee_id != 141
+UNION ALL
+SELECT employees.employee_id, employees.manager_id, employees.department_id,departments.department_name,last_name
+FROM employees JOIN departments
+ON employees.department_id = departments.department_id
+WHERE employees.manager_id = (
+										SELECT manager_id
+										FROM employees
+										WHERE employee_id = 147
+										)
+AND employees.department_id = (
+										SELECT department_id
+										FROM employees
+										WHERE employee_id = 147
+										)
+AND employees.employee_id != 147
 
+#题目：查询最低工资大于110号部门最低工资的部门id和其最低工资
+SELECT department_id, MIN(salary)
+FROM employees
+GROUP BY department_id
+HAVING MIN(salary) > (
+									SELECT MIN(salary)
+									FROM employees
+									WHERE department_id = 110
+									)
+									
+
+#题目：显式员工的employee_id,last_name和location。
+#其中，若员工department_id与location_id为1800的department_id相同，
+#则location为’Canada’，其余则为’USA’。
