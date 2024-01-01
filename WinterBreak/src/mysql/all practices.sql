@@ -409,3 +409,14 @@ HAVING MIN(salary) > (
 #题目：显式员工的employee_id,last_name和location。
 #其中，若员工department_id与location_id为1800的department_id相同，
 #则location为’Canada’，其余则为’USA’。
+SELECT employee_id,last_name, department_id,case department_id
+															WHEN  (
+															SELECT department_id
+															FROM departments
+															WHERE location_id = 1800
+															) THEN
+																'Canada'
+															ELSE
+																'USA'
+															END "location"
+FROM employees
