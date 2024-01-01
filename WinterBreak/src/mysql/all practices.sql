@@ -450,3 +450,12 @@ HAVING AVG(salary) = (
 											GROUP BY department_id
 											) t_avg_salary #这里是给这个表起个别名
 											)
+#方式2：
+SELECT department_id
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) <= ALL(#AVG(salary)本身就属于集合中的一员
+			SELECT AVG(salary) avg_sal
+			FROM employees
+			GROUP BY department_id
+			) 
