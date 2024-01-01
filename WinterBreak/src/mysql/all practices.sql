@@ -288,7 +288,7 @@ GROUP BY job_id
 SELECT MAX(salary) - MIN(salary) "diff"
 FROM employees
 
-#5. 查询各个管理者手下员工的最低工资，其中最低工资不能低于6000，没有管理者的员工不算
+#5.查询各个管理者手下员工的最低工资，其中最低工资不能低于6000，没有管理者的员工不算
 SELECT manager_id, MAX(salary), MIN(salary) "min"
 FROM employees
 WHERE manager_id is NOT NULL
@@ -303,10 +303,10 @@ GROUP BY departments.department_name, departments.location_id
 ORDER BY "avg salary" desc
 
 #7. 查询每个工种，每个部门的部门名，工种名，最低工资
-desc jobs
 
 SELECT employees.job_id,  departments.department_name, MIN(salary)
 FROM employees RIGHT JOIN departments
 ON employees.department_id = departments.department_id
 GROUP BY employees.job_id,  departments.department_name
+
 
