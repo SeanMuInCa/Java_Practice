@@ -312,13 +312,25 @@ GROUP BY employees.job_id,  departments.department_name
 #！！！子查询
 #练习，谁的工资比abel高
 #普通方式
+SELECT salary 
+FROM employees
+WHERE last_name = 'Abel' #11000
+
 select last_name,salary
 FROM employees
 WHERE salary > 11000
+
 #自联结方式
 SELECT t2.salary,t2.last_name
 FROM employees t1, employees t2
 WHERE t1.last_name = 'Abel'
 AND t2.salary > t1.salary
 
-#子查询方式
+#子查询方式,把前置条件单独查询一次，把两个查询合并，减少IO次数
+select last_name,salary
+FROM employees
+WHERE salary > (
+								SELECT salary 
+								FROM employees
+								WHERE last_name = 'Abel'
+								)
