@@ -368,32 +368,18 @@ WHERE salary = (
 SELECT employees.employee_id, employees.manager_id, employees.department_id,departments.department_name,last_name
 FROM employees JOIN departments
 ON employees.department_id = departments.department_id
-WHERE employees.manager_id = (
+WHERE employees.manager_id IN (
 										SELECT manager_id
 										FROM employees
-										WHERE employee_id = 141
+										WHERE employee_id IN (141, 174)
 										)
-AND employees.department_id = (
+AND employees.department_id IN (
 										SELECT department_id
 										FROM employees
-										WHERE employee_id = 141
+										WHERE employee_id IN (141, 174)
 										)
-AND employees.employee_id != 141
-UNION ALL
-SELECT employees.employee_id, employees.manager_id, employees.department_id,departments.department_name,last_name
-FROM employees JOIN departments
-ON employees.department_id = departments.department_id
-WHERE employees.manager_id = (
-										SELECT manager_id
-										FROM employees
-										WHERE employee_id = 147
-										)
-AND employees.department_id = (
-										SELECT department_id
-										FROM employees
-										WHERE employee_id = 147
-										)
-AND employees.employee_id != 147
+AND NOT employees.employee_id IN (141, 174)
+
 
 #题目：查询最低工资大于110号部门最低工资的部门id和其最低工资
 SELECT department_id, MIN(salary)
@@ -420,3 +406,47 @@ SELECT employee_id,last_name, department_id,case department_id
 																'USA'
 															END "location"
 FROM employees
+
+# ANY / ALL:
+#题目：返回其它job_id中比job_id为‘IT_PROG’部门**任一**工资低的员工的员工号、
+#姓名、job_id 以及salary
+SELECT employee_id,last_name,job_id,salary
+FROM employees
+WHERE salary < ANY (
+										SELECT salary
+										FROM employees
+										WHERE job_id = 'IT_PROG'
+										)
+AND job_id != 'IT_PROG'
+#题目：返回其它job_id中比job_id为‘IT_PROG’部门**所有**工资低的员工的员工号、
+#姓名、job_id 以及salary
+SELECT employee_id,last_name,job_id,salary
+FROM employees
+WHERE salary < ALL (
+										SELECT salary
+										FROM employees
+										WHERE job_id = 'IT_PROG'
+										)
+AND job_id != 'IT_PROG'
+
+#题目：查询平均工资最低的部门id,这个要品一品
+#如何查最低平均工资是多少
+SELECT MIN(avg_salary)
+FROM (#这里把这个结果当成一张新表来看待
+			SELECT department_id, AVG(salary) "avg_salary"#这里是列的别名
+			FROM employees
+			GROUP BY department_id
+			) t_avg_salary #这里是给这个表起个别名
+
+#通过最低平均工资查部门ID
+SELECT department_id
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) = (
+											SELECT MIN(avg_salary)
+											FROM (#这里把这个结果当成一张新表来看待
+											SELECT department_id, AVG(salary) "avg_salary"#这里是列的别名
+											FROM employees
+											GROUP BY department_id
+											) t_avg_salary #这里是给这个表起个别名
+											)
