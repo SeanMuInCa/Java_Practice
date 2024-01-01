@@ -334,3 +334,48 @@ WHERE salary > (
 								FROM employees
 								WHERE last_name = 'Abel'
 								)
+
+#题目：查询工资大于149号员工工资的员工的信息
+select last_name,salary
+FROM employees
+WHERE salary > (
+								SELECT salary 
+								FROM employees
+								WHERE employee_id = 149
+								)
+#题目：返回job_id与141号员工相同，salary比143号员工多的员工姓名，job_id和工资
+SELECT job_id, last_name, salary
+FROM employees
+WHERE salary > (
+								SELECT salary
+								FROM employees
+								WHERE employee_id = 143
+								)
+AND job_id = (
+							SELECT job_id
+							FROM employees
+							WHERE employee_id = 141
+							)
+#题目：返回公司工资最少的员工的last_name,job_id和salary
+SELECT last_name,job_id,salary
+FROM employees
+WHERE salary = (
+								SELECT MIN(salary)
+								FROM employees
+								)
+#题目：查询与141号员工的manager_id和department_id相同的其他员工
+#的employee_id，manager_id，department_id。
+SELECT employees.employee_id, employees.manager_id, employees.department_id,departments.department_name,last_name
+FROM employees JOIN departments
+ON employees.department_id = departments.department_id
+WHERE employees.manager_id = (
+										SELECT manager_id
+										FROM employees
+										WHERE employee_id = 141
+										)
+AND employees.department_id = (
+										SELECT department_id
+										FROM employees
+										WHERE employee_id = 141
+										)
+
