@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.function.BiPredicate;
+import java.util.function.Function;
 
 /**
  * Purpose:             TestLambda<br />
@@ -43,5 +44,19 @@ public class LambdaTest
         };
         BiPredicate<String, String> bi2 = (s1, s2) -> s1.equals(s2);
         BiPredicate<String, String> bi3 = String::equals;
+    }
+    @Test
+    public void test3(){
+        Person p = new Person("raina",14);
+        Function<Person, String> fun1 = new Function<Person, String>()
+        {
+            @Override
+            public String apply(Person person)
+            {
+                return person.getName();
+            }
+        };
+        Function<Person, String> fun2 = p1 -> p1.getName();
+        Function<Person, String> fun3 = Person::getName;
     }
 }
