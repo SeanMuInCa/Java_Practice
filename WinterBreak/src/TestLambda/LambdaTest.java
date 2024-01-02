@@ -30,7 +30,9 @@ public class LambdaTest
             }
         };
         Comparator<String> com2 = (o1, o2) -> o1.compareTo(o2);
+        System.out.println(com2.compare("a", "b"));
         Comparator<String> com3 = String::compareTo;
+        System.out.println(com3.compare("a", "b"));
     }
     @Test
     public void test2(){
@@ -43,7 +45,9 @@ public class LambdaTest
             }
         };
         BiPredicate<String, String> bi2 = (s1, s2) -> s1.equals(s2);
+        System.out.println(bi2.test("a", "b"));
         BiPredicate<String, String> bi3 = String::equals;
+        System.out.println(bi3.test("a", "b"));
     }
     @Test
     public void test3(){
@@ -57,6 +61,8 @@ public class LambdaTest
             }
         };
         Function<Person, String> fun2 = p1 -> p1.getName();
+        System.out.println(fun2.apply(p));
         Function<Person, String> fun3 = Person::getName;
+        System.out.println(fun3.apply(p));
     }
 }
