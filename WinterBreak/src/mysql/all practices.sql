@@ -459,3 +459,14 @@ HAVING AVG(salary) <= ALL(#AVG(salary)本身就属于集合中的一员
 			FROM employees
 			GROUP BY department_id
 			) 
+
+#回顾：查询员工中工资大于公司平均工资的员工的last_name,salary和其department_id
+SELECT last_name, salary, department_id
+FROM employees
+WHERE salary > (
+								SELECT AVG(salary)
+								FROM employees
+								)
+ORDER BY salary DESC
+
+
