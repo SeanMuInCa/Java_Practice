@@ -29,7 +29,7 @@ public class ConstructorTest
                 return new Person("raina",14);
             }
         };
-        Supplier<Person> supplier1 = Person::new;
+        Supplier<Person> supplier1 = Person::new;//这里的::是构造器引用，调用空构造器
 
         Function<Integer,Person> fun1 = new Function<Integer,Person>()
         {
@@ -40,6 +40,7 @@ public class ConstructorTest
             }
         };
         Function<Integer,Person> fun2 = id -> new Person(id);
-        Function<Integer,Person> fun3 = Person::new;
+        Function<Integer,Person> fun3 = Person::new;//这里的::是构造器引用，调用int id构造器
+        System.out.println(fun3.apply(13));
     }
 }
