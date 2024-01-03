@@ -17,7 +17,7 @@ public class Person
     private String name;
     private int age;
 
-    public Person(String name, int age)
+    public Person(String name, int age, int id)
     {
         this.name = name;
         this.age = age;
@@ -31,7 +31,10 @@ public class Person
     public Person(int id){
         this.id = id;
     }
-
+    public Person(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
     public int getId()
     {
         return id;

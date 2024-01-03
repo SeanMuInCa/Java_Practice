@@ -51,7 +51,7 @@ public class LambdaTest
     }
     @Test
     public void test3(){
-        Person p = new Person("raina",14);
+        Person p = new Person("raina",14,13);
         Function<Person, String> fun1 = new Function<Person, String>()
         {
             @Override

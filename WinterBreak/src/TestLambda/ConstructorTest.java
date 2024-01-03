@@ -2,6 +2,7 @@ package TestLambda;
 
 import org.junit.Test;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -26,7 +27,7 @@ public class ConstructorTest
             @Override
             public Person get()
             {
-                return new Person("raina",14);
+                return new Person("raina",14,13);
             }
         };
         Supplier<Person> supplier1 = Person::new;//这里的::是构造器引用，调用空构造器
@@ -42,5 +43,19 @@ public class ConstructorTest
         Function<Integer,Person> fun2 = id -> new Person(id);
         Function<Integer,Person> fun3 = Person::new;//这里的::是构造器引用，调用int id构造器
         System.out.println(fun3.apply(13));
+    }
+    @Test
+    public void test2(){
+        BiFunction<Integer,String,Person> fun = new BiFunction<Integer, String, Person>()
+        {
+            @Override
+            public Person apply(Integer id, String name)
+            {
+                return new Person(id, name);
+            }
+        };
+        BiFunction<Integer,String,Person> fun1 = (id, name) -> new Person(id, name);
+        BiFunction<Integer,String,Person> fun2 = Person::new;//这里的::是构造器引用，调用int id,String name构造器
+        System.out.println(fun2.apply(13, "raina"));
     }
 }
