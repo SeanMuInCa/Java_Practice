@@ -58,4 +58,18 @@ public class ConstructorTest
         BiFunction<Integer,String,Person> fun2 = Person::new;//这里的::是构造器引用，调用int id,String name构造器
         System.out.println(fun2.apply(13, "raina"));
     }
+    @Test
+    public void test3(){
+        Function<Integer, Person[]> fun1 = new Function<Integer, Person[]>()
+        {
+            @Override
+            public Person[] apply(Integer length)
+            {
+                return new Person[length];
+            }
+        };
+        Function<Integer, Person[]> fun2 = length -> new Person[length];
+        Function<Integer, Person[]> fun3 = Person[]::new;//这里的::是构造器引用，调用int length构造器
+        System.out.println(fun3.apply(10).length);
+    }
 }
