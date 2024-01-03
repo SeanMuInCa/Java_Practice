@@ -13,6 +13,7 @@ package TestLambda;
  */
 public class Person
 {
+    private int id;
     private String name;
     private int age;
 
@@ -20,11 +21,25 @@ public class Person
     {
         this.name = name;
         this.age = age;
+        this.id = id;
     }
 
     public Person()
     {
+        System.out.println("Person() constructor");
+    }
+    public Person(int id){
+        this.id = id;
+    }
 
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
     }
 
     public String getName()

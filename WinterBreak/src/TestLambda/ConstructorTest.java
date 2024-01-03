@@ -2,6 +2,7 @@ package TestLambda;
 
 import org.junit.Test;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
@@ -28,8 +29,17 @@ public class ConstructorTest
                 return new Person("raina",14);
             }
         };
+        Supplier<Person> supplier1 = Person::new;
 
-        Supplier<Person> supplier1 = () -> new Person();
-        Supplier<Person> supplier2 = Person::new;
+        Function<Integer,Person> fun1 = new Function<Integer,Person>()
+        {
+            @Override
+            public Person apply(Integer id)
+            {
+                return new Person(id);
+            }
+        };
+        Function<Integer,Person> fun2 = id -> new Person(id);
+        Function<Integer,Person> fun3 = Person::new;
     }
 }
