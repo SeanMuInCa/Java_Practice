@@ -469,4 +469,11 @@ WHERE salary > (
 								)
 ORDER BY salary DESC
 
-
+#题目：查询员工中工资大于本部门平均工资的员工的last_name,salary和其department_id
+SELECT last_name,salary,department_id
+FROM employees e1
+WHERE salary > (
+								SELECT AVG(salary)
+								FROM employees e2
+								WHERE department_id = e1.department_id
+								);
