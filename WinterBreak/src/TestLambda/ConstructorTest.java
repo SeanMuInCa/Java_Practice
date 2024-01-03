@@ -72,4 +72,18 @@ public class ConstructorTest
         Function<Integer, Person[]> fun3 = Person[]::new;//这里的::是构造器引用，调用int length构造器
         System.out.println(fun3.apply(10).length);
     }
+    @Test
+    public void test4(){
+        Runnable r = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                System.out.println("runnable");
+            }
+        };
+        Runnable r1 = () -> System.out.println("runnable");
+        Runnable r2 = System.out::println;
+
+    }
 }
