@@ -1,5 +1,7 @@
 package TestLambda;
 
+import java.util.Objects;
+
 /**
  * Purpose:             TestLambda<br />
  * Data Submitted:      2024/1/2 <br />
@@ -73,5 +75,20 @@ public class Person
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id && age == person.age && Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id, name, age);
     }
 }

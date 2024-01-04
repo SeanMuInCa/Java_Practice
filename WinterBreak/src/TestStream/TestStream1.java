@@ -17,6 +17,7 @@ import java.util.stream.Stream;
  *
  * @author Zhenghua Mu
  * @version 1.0.0
+ * stream步骤1 创建实例
  */
 public class TestStream1
 {
