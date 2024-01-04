@@ -23,6 +23,7 @@ public class TestStream2
     @Test
     public void test1(){
         List<Person> list = PersonData.getPersonList();
+        list.add(new Person("raina", 14,10));
         Stream<Person> stream = list.stream();
         stream.filter(person -> person.getAge() > 15).forEach(System.out::println);//foreach是一个终止操作
         System.out.println();
@@ -33,6 +34,11 @@ public class TestStream2
         list.stream().skip(2).forEach(System.out::println);//跳过前几个元素
 
         System.out.println();
-
+        list.add(new Person("raina", 14,10));
+        list.add(new Person("raina", 14,10));
+        list.add(new Person("raina", 14,10));
+        System.out.println(list);
+        System.out.println();
+        list.stream().distinct().forEach(System.out::println);//去重按照Hashcode和equals去重
     }
 }
