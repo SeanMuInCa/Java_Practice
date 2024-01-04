@@ -19,34 +19,13 @@ public class TestRecursive
     public void test()
     {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        System.out.println(recursiveSearch(arr, 6, 0, arr.length - 1));
+        System.out.println(binSearch(arr, 6));
         hanoi(5, 'A', 'B', 'C');
     }
 
     public static int binSearch(int[] naVals, int nSearch)
     {
-        int nLow = 0;
-        int nHigh = naVals.length - 1;
-        while (nHigh >= nLow)
-        {
-            int nMid = (nHigh + nLow) / 2;
-            //Is the element in the upper 1/2/ of the array
-            if (nSearch > naVals[nMid])
-            {
-                nLow = nMid + 1;
-            } else
-            {
-                //Is the element in the bottom 1/2 of the array.
-                if (nSearch < naVals[nMid])
-                {
-                    nHigh = nMid - 1;
-                } else
-                {
-                    return nMid;
-                }
-            }
-        }
-        return -1;
+        return recursiveSearch(naVals, nSearch, 0, naVals.length - 1);
     }
 
     public static int recursiveSearch(int[] arr, int key, int left, int right)
