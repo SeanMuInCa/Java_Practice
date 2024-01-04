@@ -50,5 +50,8 @@ public class TestStream2
         list.add("bb");
         list.add("cc");
         list.stream().map(String::toUpperCase).forEach(System.out::println);
+
+        List<Person> list1 = PersonData.getPersonList();
+        list1.stream().filter(person -> person.getName().startsWith("raina")).map(Person::getName).forEach(System.out::println);
     }
 }

@@ -30,6 +30,7 @@ public class PersonData
         personList.add(new Person("raina8", 21, 8));
         personList.add(new Person("raina9", 22, 9));
         personList.add(new Person("raina10", 23, 10));
+        personList.add(new Person("ray", 23, 11));
 
         return personList;
     }
