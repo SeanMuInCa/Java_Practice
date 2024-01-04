@@ -2,6 +2,7 @@ package TestStream;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -40,5 +41,14 @@ public class TestStream2
         System.out.println(list);
         System.out.println();
         list.stream().distinct().forEach(System.out::println);//去重按照Hashcode和equals去重
+    }
+    //映射与归约
+    @Test
+    public void test2(){
+        List<String> list = new ArrayList<>();
+        list.add("aa");
+        list.add("bb");
+        list.add("cc");
+        list.stream().map(String::toUpperCase).forEach(System.out::println);
     }
 }
