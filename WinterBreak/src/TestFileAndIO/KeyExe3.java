@@ -23,7 +23,6 @@ public class KeyExe3
     {
         File file1 = new File("D:\\迅雷下载");
         File file2 = new File("D:\\test");
-//        System.out.println(file.getAbsolutePath());
         printFileName(file1);
 //        deleteDir(file2);
         System.out.println(getDirectorySize(file1));
