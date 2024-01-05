@@ -30,5 +30,12 @@ public class TestStream3
 
         Optional<Person> first = list.stream().filter(person -> person.getAge() > 18).findFirst();
         System.out.println(first.get());
+
+        long count = list.stream().filter(person -> person.getAge() > 16).count();
+        System.out.println(list.size());
+        System.out.println(count);
+
+        System.out.println(list.stream().max((p1, p2) -> p1.getAge() - p2.getAge()).get());
+        System.out.println(list.stream().min((p1, p2) -> p1.getAge() - p2.getAge()).get());
     }
 }
