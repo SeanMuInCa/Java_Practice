@@ -44,7 +44,7 @@ public class TestStream2
         System.out.println();
         list.stream().distinct().forEach(System.out::println);//去重按照Hashcode和equals去重
     }
-    //映射与归约
+    //映射
     @Test
     public void test2(){
         List<String> list = new ArrayList<>();
