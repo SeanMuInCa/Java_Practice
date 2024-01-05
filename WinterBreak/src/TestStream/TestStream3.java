@@ -2,9 +2,7 @@ package TestStream;
 
 import org.junit.Test;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Purpose:             TestStream<br />
@@ -62,9 +60,15 @@ public class TestStream3
         list.stream().forEach(System.out::println);
         list.stream().forEach(p -> System.out.println(p));
     }
-    //归约
+    //归约 reduce
     @Test
     public void test2(){
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        System.out.println(list.stream().reduce((pre, cur) -> pre + cur).get());
+        System.out.println(list.stream().reduce(Integer::sum).get());
 
+        List<Person> list1 = PersonData.getPersonList();
+        System.out.println(list1.stream().map(person -> person.getAge()).reduce(0,(pre,cur) -> pre + cur));
+        System.out.println(list1.stream().map(Person::getAge).reduce(0,Integer::sum));
     }
 }
