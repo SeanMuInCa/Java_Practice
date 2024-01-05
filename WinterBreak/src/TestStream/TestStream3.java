@@ -29,6 +29,6 @@ public class TestStream3
         System.out.println(anyMatch);
 
         Optional<Person> first = list.stream().filter(person -> person.getAge() > 18).findFirst();
-        System.out.println(first);
+        System.out.println(first.get());
     }
 }
