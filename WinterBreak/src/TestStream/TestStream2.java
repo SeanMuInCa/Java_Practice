@@ -70,5 +70,9 @@ public class TestStream2
         Comparator<String> comparator = (o1, o2) -> -o1.compareTo(o2);
 //        Comparator<String> comparator = String::compareTo;
         Arrays.stream(arr1).sorted(comparator).forEach(System.out::println);
+
+        List<Person> list = PersonData.getPersonList();
+        Comparator<Person> com2 = (p1, p2) -> p1.getAge() - p2.getAge();
+        list.stream().sorted(com2).forEach(System.out::println);
     }
 }
