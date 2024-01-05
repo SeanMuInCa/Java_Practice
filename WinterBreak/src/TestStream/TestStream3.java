@@ -3,6 +3,7 @@ package TestStream;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Purpose:             TestStream<br />
@@ -26,5 +27,8 @@ public class TestStream3
 
         boolean anyMatch = list.stream().anyMatch(person -> person.getAge() > 20);
         System.out.println(anyMatch);
+
+        Optional<Person> first = list.stream().filter(person -> person.getAge() > 18).findFirst();
+        System.out.println(first);
     }
 }
