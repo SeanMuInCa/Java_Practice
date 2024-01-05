@@ -19,8 +19,8 @@ public class MergeSort {
             int mid = (left + right) / 2;
 
             // 递归地对左右两边进行排序
-            mergeSort(arr, left, mid);
-            mergeSort(arr, mid + 1, right);
+            mergeSort(arr, left, mid);//0,2  0,1  0,0
+            mergeSort(arr, mid + 1, right);//3,4  4,4
 
             // 合并两个已排序的子数组
             merge(arr, left, mid, right);
