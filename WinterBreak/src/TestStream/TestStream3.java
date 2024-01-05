@@ -2,6 +2,7 @@ package TestStream;
 
 import org.junit.Test;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,5 +40,25 @@ public class TestStream3
         System.out.println(list.stream().max((p1, p2) -> p1.getAge() - p2.getAge()).map(p -> p.getAge()).get());
         System.out.println(list.stream().map(Person::getAge).max((a1, a2) -> a1 - a2).get());
         System.out.println(list.stream().min((p1, p2) -> p1.getAge() - p2.getAge()).get());
+
+        //对于list遍历
+        //1.iterator
+        Iterator<Person> it = list.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+        //2for
+        for (int i = 0; i < list.size(); i++)
+        {
+            System.out.println(list.get(i));
+        }
+        //3 enhence for
+        for (Person p : list){
+            System.out.println(p);
+        }
+        //4for each
+        list.forEach(System.out::println);
+        //5stream
+        list.stream().forEach(System.out::println);
     }
 }
