@@ -23,5 +23,8 @@ public class TestStream3
     public void test1(){
         List<Person> list = PersonData.getPersonList();
         System.out.println(list.stream().allMatch(person -> person.getName().startsWith("raina")));
+
+        boolean anyMatch = list.stream().anyMatch(person -> person.getAge() > 20);
+        System.out.println(anyMatch);
     }
 }
