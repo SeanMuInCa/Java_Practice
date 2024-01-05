@@ -35,7 +35,9 @@ public class TestStream3
         System.out.println(list.size());
         System.out.println(count);
 
-        System.out.println(list.stream().max((p1, p2) -> p1.getAge() - p2.getAge()).get());
+        System.out.println(list.stream().max((p1, p2) -> p1.getAge() - p2.getAge()).get().getAge());
+        System.out.println(list.stream().max((p1, p2) -> p1.getAge() - p2.getAge()).map(p -> p.getAge()).get());
+        System.out.println(list.stream().map(Person::getAge).max((a1, a2) -> a1 - a2).get());
         System.out.println(list.stream().min((p1, p2) -> p1.getAge() - p2.getAge()).get());
     }
 }
