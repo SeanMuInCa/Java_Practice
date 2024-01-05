@@ -60,5 +60,11 @@ public class TestStream3
         list.forEach(System.out::println);
         //5stream
         list.stream().forEach(System.out::println);
+        list.stream().forEach(p -> System.out.println(p));
+    }
+    //归约
+    @Test
+    public void test2(){
+
     }
 }
