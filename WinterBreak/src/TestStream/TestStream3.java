@@ -3,6 +3,7 @@ package TestStream;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Purpose:             TestStream<br />
@@ -70,5 +71,13 @@ public class TestStream3
         List<Person> list1 = PersonData.getPersonList();
         System.out.println(list1.stream().map(person -> person.getAge()).reduce(0,(pre,cur) -> pre + cur));
         System.out.println(list1.stream().map(Person::getAge).reduce(0,Integer::sum));
+    }
+    //收集，也就是将流转换为其他形式保存下来。原来的操作都是在内存里实现的，对原始数据没有改变的
+    @Test
+    public void test3(){
+        List<Person> list = PersonData.getPersonList();
+        List<Person> collect = list.stream().filter(p -> p.getAge() > 19).collect(Collectors.toList());
+        System.out.println(collect.stream().map(p -> p.getAge()).reduce(0, (pre, cur) -> pre + cur));
+        collect.forEach(System.out::println);
     }
 }
