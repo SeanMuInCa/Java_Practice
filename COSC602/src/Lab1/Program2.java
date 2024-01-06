@@ -16,9 +16,10 @@ public class Program2
     public static void main(String[] args)
     {
         System.out.println(generateGeometric(2, 5));
+        System.out.println(generateGeometric(0, 5));
     }
     public static int generateGeometric(int i, int n){
         if(n <= 0) return 1;
-        else return i * generateGeometric(i,n - 1);
+        return i * generateGeometric(i,n - 1);
     }
 }
