@@ -57,6 +57,7 @@ public class ConstructorTest
         BiFunction<Integer,String,Person> fun1 = (id, name) -> new Person(id, name);
         BiFunction<Integer,String,Person> fun2 = Person::new;//这里的::是构造器引用，调用int id,String name构造器
         System.out.println(fun2.apply(13, "raina"));
+        System.out.println();
     }
     @Test
     public void test3(){
