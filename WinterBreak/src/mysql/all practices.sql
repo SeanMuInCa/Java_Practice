@@ -516,3 +516,14 @@ ORDER BY (
 					FROM departments dep
 					WHERE e1.department_id = dep.department_id
 					) DESC
+					
+#题目：若employees表中employee_id与job_history表中employee_id相同的数目不小于2，
+#输出这些相同id的员工的employee_id,last_name和其job_id
+
+SELECT employee_id, last_name,job_id
+FROM employees e
+WHERE 2<= (
+					SELECT COUNT(1)
+					FROM job_history j
+					WHERE e.employee_id = j.employee_id
+					)
