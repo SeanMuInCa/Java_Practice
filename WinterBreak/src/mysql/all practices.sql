@@ -487,13 +487,13 @@ WHERE salary > (
 SELECT department_id, AVG(salary)
 FROM employees
 GROUP BY department_id
-#把这个结果当成一个表来进行下一步查询
+#2.把这个结果当成一个表来进行下一步查询
 FROM (
 			SELECT department_id, AVG(salary)
 			FROM employees
 			GROUP BY department_id
 			) t_avg_salary #别名
-#加上其他限制条件
+#3.加上其他限制条件
 SELECT last_name,salary,e1.department_id
 FROM employees e1,(
 									SELECT department_id, AVG(salary) "avg_salary"#必须要起个别名
@@ -502,3 +502,17 @@ FROM employees e1,(
 									) t_avg_salary #别名
 WHERE e1.department_id = t_avg_salary.department_id
 AND e1.salary > t_avg_salary.avg_salary
+
+#题目：查询员工的id,salary,按照department_name 排序
+SELECT employee_id, salary, department_name
+FROM employees JOIN departments
+WHERE employees.department_id = departments.department_id
+ORDER BY departments.department_name DESC
+
+SELECT employee_id, salary
+FROM employees e1
+ORDER BY (
+					SELECT department_name
+					FROM departments dep
+					WHERE e1.department_id = dep.department_id
+					) DESC
