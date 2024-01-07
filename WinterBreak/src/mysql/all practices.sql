@@ -470,6 +470,8 @@ WHERE salary > (
 ORDER BY salary DESC
 
 #题目：查询员工中工资大于本部门平均工资的员工的last_name,salary和其department_id
+#每次都会把一个employee放到子查询里，去查询一下他的部门ID，并且得到部门的平均工资，再返回来
+#查询这个人工资是否大于平均工资，因此是相关性子查询
 SELECT last_name,salary,department_id
 FROM employees e1
 WHERE salary > (
