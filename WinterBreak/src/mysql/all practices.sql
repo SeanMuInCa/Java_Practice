@@ -472,10 +472,33 @@ ORDER BY salary DESC
 #题目：查询员工中工资大于本部门平均工资的员工的last_name,salary和其department_id
 #每次都会把一个employee放到子查询里，去查询一下他的部门ID，并且得到部门的平均工资，再返回来
 #查询这个人工资是否大于平均工资，因此是相关性子查询
+#方式1
 SELECT last_name,salary,department_id
 FROM employees e1
 WHERE salary > (
 								SELECT AVG(salary)
 								FROM employees e2
-								WHERE department_id = e1.department_id
+								WHERE e2.department_id = e1.department_id
 								);
+#方式2
+
+#拆解式写法
+#1. 先查询各个部门平均工资
+SELECT department_id, AVG(salary)
+FROM employees
+GROUP BY department_id
+#把这个结果当成一个表来进行下一步查询
+FROM (
+			SELECT department_id, AVG(salary)
+			FROM employees
+			GROUP BY department_id
+			) t_avg_salary #别名
+#加上其他限制条件
+SELECT last_name,salary,e1.department_id
+FROM employees e1,(
+									SELECT department_id, AVG(salary) "avg_salary"#必须要起个别名
+									FROM employees
+									GROUP BY department_id
+									) t_avg_salary #别名
+WHERE e1.department_id = t_avg_salary.department_id
+AND e1.salary > t_avg_salary.avg_salary
