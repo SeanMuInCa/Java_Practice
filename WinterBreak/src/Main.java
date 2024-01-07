@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Purpose:             <br />
  * Data Submitted:      2023/12/6 <br />
@@ -17,6 +20,12 @@ public class Main
         System.out.println("Hello world!");
 
         hanoi(3, 'A', 'B', 'C');
+        int[] arr = new int[]{1,2,3,4};
+        List<Integer> list = Arrays.asList(1, 2, 3, 4);
+        for (Integer i : list)
+        {
+
+        }
     }
 
     public static void hanoi(int n, char A, char B, char C)
