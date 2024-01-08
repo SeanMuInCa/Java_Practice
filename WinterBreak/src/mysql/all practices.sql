@@ -556,3 +556,11 @@ SELECT d.department_id,d.department_name
 FROM employees e RIGHT JOIN departments d
 ON e.`department_id` = d.`department_id`
 WHERE e.`department_id` IS NULL;
+
+#方式2 NOT EXISTS
+SELECT department_id, department_name
+FROM departments d
+WHERE NOT EXISTS (
+									SELECT * FROM employees e
+									WHERE d.department_id = e.department_id
+									)
