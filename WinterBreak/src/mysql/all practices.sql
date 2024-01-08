@@ -551,9 +551,8 @@ WHERE EXISTS ( #查到就返回true，查不到就继续，因此不需要去重
 							)
 
 #题目：查询departments表中，不存在于employees表中的部门的department_id和department_name
-SELECT department_id, department_name
-FROM departments
-WHERE NOT department_id IN (
-														SELECT department_id
-														FROM employees
-														)
+#方式1
+SELECT d.department_id,d.department_name
+FROM employees e RIGHT JOIN departments d
+ON e.`department_id` = d.`department_id`
+WHERE e.`department_id` IS NULL;
