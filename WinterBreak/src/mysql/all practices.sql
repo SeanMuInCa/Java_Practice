@@ -595,16 +595,25 @@ WHERE salary > ALL (
 SELECT employee_id,last_name
 FROM employees
 WHERE department_id IN (
-												SELECT department_id
+												SELECT DISTINCT department_id
 												FROM employees
 												WHERE last_name LIKE '%u%'
 												)
 
 #5. 查询在部门的location_id为1700的部门工作的员工的员工号
+#方式1
 SELECT last_name, employee_id,employees.department_id
 FROM employees JOIN departments
 ON employees.department_id = departments.department_id
 WHERE departments.location_id = 1700
+#方式2
+SELECT employee_id
+FROM employees
+WHERE department_id IN (
+												SELECT department_id
+												FROM departments
+												WHERE location_id = 1700
+												)
 
 #6. 查询管理者是King的员工姓名和工资
 SELECT last_name,salary
@@ -632,6 +641,13 @@ HAVING AVG(salary) <= ALL(
 													FROM employees
 													GROUP BY department_id 
 													)
+#换个思路,把查询结果当做表来处理
+SELECT MIN(avg_salary)
+FROM (
+			SELECT AVG(salary) "avg_salary"
+			FROM employees
+			GROUP BY department_id
+			) t_avg_salary
 
 #9. 查询平均工资最低的部门信息和该部门的平均工资 (相关子查询)
 SELECT department_id, AVG(salary) "avg_salary"
