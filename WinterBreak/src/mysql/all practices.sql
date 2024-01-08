@@ -599,3 +599,10 @@ WHERE department_id IN (
 												FROM employees
 												WHERE last_name LIKE '%u%'
 												)
+
+#5. 查询在部门的location_id为1700的部门工作的员工的员工号
+SELECT last_name, employee_id,employees.department_id
+FROM employees JOIN departments
+ON employees.department_id = departments.department_id
+WHERE departments.location_id = 1700
+
