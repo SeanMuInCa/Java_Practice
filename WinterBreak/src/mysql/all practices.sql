@@ -632,3 +632,21 @@ HAVING AVG(salary) <= ALL(
 													FROM employees
 													GROUP BY department_id 
 													)
+
+#9. 查询平均工资最低的部门信息和该部门的平均工资 (相关子查询)
+SELECT department_id, AVG(salary) "avg_salary"
+FROM employees
+GROUP BY department_id
+ORDER BY avg_salary
+LIMIT 1
+
+#10. 查询平均工资最高的job信息
+SELECT job_id,AVG(salary)
+FROM employees
+GROUP BY job_id
+HAVING AVG(salary) >= ALL(
+													SELECT AVG(salary)
+													FROM employees
+													GROUP BY job_id 
+													)
+
