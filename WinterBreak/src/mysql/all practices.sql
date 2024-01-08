@@ -527,3 +527,17 @@ WHERE 2<= (
 					FROM job_history j
 					WHERE e.employee_id = j.employee_id
 					)
+#6.2 EXISTS 与 NOT EXISTS关键字
+#题目：查询公司管理者的employee_id，last_name，job_id，department_id信息
+#方式1，自连接
+SELECT DISTINCT e2.employee_id,e2.last_name,e2.job_id,e2.department_id
+FROM employees e1, employees e2
+WHERE e1.manager_id = e2.employee_id
+
+#方式2，子查询
+SELECT employee_id,last_name,job_id,department_id
+FROM employees
+WHERE employee_id IN (
+										SELECT DISTINCT manager_id
+										FROM employees
+										)
