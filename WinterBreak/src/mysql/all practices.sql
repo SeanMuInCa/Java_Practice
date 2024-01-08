@@ -541,3 +541,11 @@ WHERE employee_id IN (
 										SELECT DISTINCT manager_id
 										FROM employees
 										)
+#方式3，EXISTS
+SELECT employee_id,last_name,job_id,department_id
+FROM employees t1
+WHERE EXISTS (
+							SELECT *
+							FROM employees t2
+							WHERE t1.employee_id = t2.manager_id
+							)
