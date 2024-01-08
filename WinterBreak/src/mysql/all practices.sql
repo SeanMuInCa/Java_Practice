@@ -544,8 +544,16 @@ WHERE employee_id IN (
 #方式3，EXISTS
 SELECT employee_id,last_name,job_id,department_id
 FROM employees t1
-WHERE EXISTS (
+WHERE EXISTS ( #查到就返回true，查不到就继续，因此不需要去重
 							SELECT *
 							FROM employees t2
 							WHERE t1.employee_id = t2.manager_id
 							)
+
+#题目：查询departments表中，不存在于employees表中的部门的department_id和department_name
+SELECT department_id, department_name
+FROM departments
+WHERE NOT department_id IN (
+														SELECT department_id
+														FROM employees
+														)
