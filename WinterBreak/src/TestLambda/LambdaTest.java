@@ -65,4 +65,18 @@ public class LambdaTest
         Function<Person, String> fun3 = Person::getName;
         System.out.println(fun3.apply(p));
     }
+    @Test
+    public void test4(){
+        Runnable r1 = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                System.out.println("abc");
+            }
+        };
+        Runnable r2 = () -> System.out.println();
+        r2.run();
+        r1.run();
+    }
 }
