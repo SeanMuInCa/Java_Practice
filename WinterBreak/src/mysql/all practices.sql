@@ -714,6 +714,7 @@ HAVING AVG(salary) >= ALL(
 #11. 查询平均工资高于公司平均工资的部门有哪些？
 SELECT department_id
 FROM employees
+WHERE department_id is not null #忽略了这个
 GROUP BY department_id
 HAVING AVG(salary) > (
 											SELECT AVG(salary)
@@ -801,3 +802,16 @@ WHERE department_id IN (
 												)
 
 
+#20. 查询每个国家下的部门个数大于2的国家编号（相关子查询）
+desc locations
+SELECT COUNT(1)
+FROM departments
+GROUP BY department_id
+HAVING location_id IN
+(SELECT location_id
+FROM locations
+WHERE country_id IN (
+										SELECT country_id
+										FROM countries
+										)
+)
