@@ -821,6 +821,14 @@ WHERE  2 < (
 
 #CREATE DATABASE if NOT EXISTS my_db_test
 use my_db_test
+#练习1：创建一个表employees_copy，实现对employees表的复制，包括表数据
 CREATE TABLE IF NOT EXISTS employees_copy 
 AS
 SELECT * FROM employees
+
+#练习2：创建一个表employees_blank，实现对employees表的复制，不包括表数据
+CREATE TABLE IF NOT EXISTS employees_blank
+AS
+SELECT *
+FROM employees
+WHERE employee_id > 1000 #创造一个不存在的条件，就可以
