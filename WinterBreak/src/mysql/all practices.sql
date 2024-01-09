@@ -698,7 +698,7 @@ FROM employees JOIN departments
 ON employees.department_id = departments.department_id
 GROUP BY employees.department_id
 ORDER BY avg_salary
-LIMIT 1
+LIMIT 0,1
 
 
 #10. 查询平均工资最高的job信息
@@ -711,3 +711,71 @@ HAVING AVG(salary) >= ALL(
 													GROUP BY job_id 
 													)
 
+#11. 查询平均工资高于公司平均工资的部门有哪些？
+SELECT department_id
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) > (
+											SELECT AVG(salary)
+											FROM employees
+											)
+											
+#12. 查询出公司中所有manager的详细信息
+SELECT * 
+FROM employees
+WHERE employee_id IN (
+											SELECT DISTINCT manager_id
+											FROM employees
+											)
+											
+#13. 各个部门中，最高工资中最低的那个部门的最低工资是多少？
+SELECT MIN(salary)
+FROM employees e
+WHERE department_id = (
+											SELECT e1.department_id
+											FROM employees e1
+											GROUP BY e1.department_id
+											ORDER BY MAX(salary) 
+											LIMIT 0,1
+											)
+
+#14. 查询平均工资最高的部门的manager的详细信息：last_name, department_id, email, salary
+SELECT last_name,department_id,email,salary
+FROM employees
+WHERE employee_id = (
+										SELECT manager_id
+										FROM departments
+										WHERE department_id = (
+																					SELECT department_id
+																					FROM employees
+																					GROUP BY department_id
+																					ORDER BY MAX(salary) DESC
+																					LIMIT 0,1
+																					)
+
+										)
+										
+#15. 查询部门的部门号，其中不包括job_id是"ST_CLERK"的部门号
+SELECT DISTINCT department_id
+FROM employees
+WHERE department_id != (
+								SELECT DISTINCT department_id
+								FROM employees
+								WHERE job_id = 'ST_CLERK'
+								)
+								
+#16. 选择所有没有管理者的员工的last_name
+SELECT last_name
+FROM employees
+WHERE manager_id is NULL
+
+#17. 查询员工号、姓名、雇用时间、工资，其中员工的管理者为 ‘De Haan'
+SELECT employee_id, last_name,hire_date,salary,manager_id
+FROM employees
+WHERE manager_id = (
+										SELECT employee_id
+										FROM employees
+										WHERE last_name = 'De Haan'
+										)
+										
+#18. 查询各部门中工资比本部门平均工资高的员工的员工号，姓名和工资（相关子查询）
