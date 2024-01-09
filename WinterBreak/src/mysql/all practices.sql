@@ -758,8 +758,8 @@ WHERE employee_id = (
 										
 #15. 查询部门的部门号，其中不包括job_id是"ST_CLERK"的部门号
 SELECT DISTINCT department_id
-FROM employees
-WHERE department_id != (
+FROM departments
+WHERE department_id NOT IN (
 								SELECT DISTINCT department_id
 								FROM employees
 								WHERE job_id = 'ST_CLERK'
@@ -773,7 +773,7 @@ WHERE manager_id is NULL
 #17. 查询员工号、姓名、雇用时间、工资，其中员工的管理者为 ‘De Haan'
 SELECT employee_id, last_name,hire_date,salary,manager_id
 FROM employees
-WHERE manager_id = (
+WHERE manager_id IN (
 										SELECT employee_id
 										FROM employees
 										WHERE last_name = 'De Haan'
@@ -801,17 +801,20 @@ WHERE department_id IN (
 																	)
 												)
 
+SELECT department_name
+FROM departments t1
+WHERE  5 < (
+						SELECT count(1)
+						FROM employees t2
+						WHERE t1.department_id = t2.department_id
+						)
+												
 
 #20. 查询每个国家下的部门个数大于2的国家编号（相关子查询）
-desc locations
-SELECT COUNT(1)
-FROM departments
-GROUP BY department_id
-HAVING location_id IN
-(SELECT location_id
-FROM locations
-WHERE country_id IN (
-										SELECT country_id
-										FROM countries
-										)
-)
+SELECT country_id
+FROM locations t1
+WHERE  2 < (
+						SELECT count(1)
+						FROM departments t2
+						WHERE t1.location_id = t2.location_id
+						)
