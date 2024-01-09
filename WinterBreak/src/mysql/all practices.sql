@@ -779,3 +779,10 @@ WHERE manager_id = (
 										)
 										
 #18. 查询各部门中工资比本部门平均工资高的员工的员工号，姓名和工资（相关子查询）
+SELECT employee_id,last_name,salary
+FROM employees t1
+WHERE salary > (
+								SELECT AVG(salary)
+								FROM employees t2
+								WHERE t1.department_id = t2.department_id
+								)
