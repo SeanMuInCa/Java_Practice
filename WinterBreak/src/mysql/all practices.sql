@@ -633,6 +633,7 @@ WHERE salary = (
 								)
 								
 #8. 查询平均工资最低的部门信息
+#方式1第一步
 SELECT department_id,AVG(salary)
 FROM employees
 GROUP BY department_id
@@ -641,20 +642,64 @@ HAVING AVG(salary) <= ALL(
 													FROM employees
 													GROUP BY department_id 
 													)
-#换个思路,把查询结果当做表来处理
+#第二步													
+SELECT * 
+FROM departments
+WHERE department_id = (
+											SELECT department_id
+											FROM employees
+											GROUP BY department_id
+											HAVING AVG(salary) <= ALL(
+																								SELECT AVG(salary)
+																								FROM employees
+																								GROUP BY department_id 
+																								)
+											)
+#方式2换个思路,把查询结果当做表来处理
 SELECT MIN(avg_salary)
 FROM (
 			SELECT AVG(salary) "avg_salary"
 			FROM employees
 			GROUP BY department_id
 			) t_avg_salary
-
-#9. 查询平均工资最低的部门信息和该部门的平均工资 (相关子查询)
-SELECT department_id, AVG(salary) "avg_salary"
+#接下来，再查他
+SELECT department_id
 FROM employees
 GROUP BY department_id
+HAVING AVG(salary) = (
+											SELECT MIN(avg_salary)
+											FROM (
+														SELECT AVG(salary) "avg_salary"
+														FROM employees
+														GROUP BY department_id
+														) t_avg_salary
+											)
+#最后再
+SELECT * 
+FROM departments
+WHERE department_id =(
+											SELECT department_id
+											FROM employees
+											GROUP BY department_id
+											HAVING AVG(salary) = (
+																						SELECT MIN(avg_salary)
+																						FROM (
+																									SELECT AVG(salary) "avg_salary"
+																									FROM employees
+																									GROUP BY department_id
+																									) t_avg_salary
+																						)
+											)
+
+
+#9. 查询平均工资最低的部门信息和该部门的平均工资 (相关子查询)
+SELECT employees.department_id, departments. *,AVG(salary) "avg_salary"
+FROM employees JOIN departments
+ON employees.department_id = departments.department_id
+GROUP BY employees.department_id
 ORDER BY avg_salary
 LIMIT 1
+
 
 #10. 查询平均工资最高的job信息
 SELECT job_id,AVG(salary)
