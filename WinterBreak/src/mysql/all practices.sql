@@ -818,3 +818,9 @@ WHERE  2 < (
 						FROM departments t2
 						WHERE t1.location_id = t2.location_id
 						)
+
+#CREATE DATABASE if NOT EXISTS my_db_test
+use my_db_test
+CREATE TABLE IF NOT EXISTS employees_copy 
+AS
+SELECT * FROM employees
