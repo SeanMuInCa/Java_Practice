@@ -786,3 +786,18 @@ WHERE salary > (
 								FROM employees t2
 								WHERE t1.department_id = t2.department_id
 								)
+								
+#19. 查询每个部门下的部门人数大于5的部门名称（相关子查询）
+SELECT department_name
+FROM departments
+WHERE department_id IN (
+												SELECT DISTINCT department_id
+												FROM employees t1
+												WHERE 5 < (
+																	SELECT count(1)
+																	FROM employees t2
+																	WHERE t1.department_id = t2.department_id
+																	)
+												)
+
+
