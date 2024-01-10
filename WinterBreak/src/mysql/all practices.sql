@@ -861,3 +861,23 @@ FROM myemp2;
 #说明1：查询语句中字段的别名，可以作为新创建的表的字段的名称。
 #说明2：此时的查询语句可以结构比较丰富，使用前面章节讲过的各种SELECT
 
+# 第10章_创建和管理表的课后练习
+
+#练习1：
+#1. 创建数据库test01_office,指明字符集为utf8。并在此数据库下执行下述操作
+CREATE DATABASE IF NOT EXISTS test01_office CHARACTER SET 'utf8'
+
+#2.	创建表dept01
+/*
+字段      类型
+id	 INT(7)
+NAME	 VARCHAR(25)
+*/
+CREATE TABLE IF NOT EXISTS dept01
+(
+id INT(7),
+`name` VARCHAR(25)
+)
+desc dept01
+#3.将表departments中的数据插入新表dept02中
+
