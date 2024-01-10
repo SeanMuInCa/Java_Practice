@@ -1032,3 +1032,44 @@ ADD favoriate_activity VARCHAR(100);
 RENAME TABLE employees TO employees_info;
 
 DESC employees_info;
+
+#添加数据
+/*
+INSERT语句可以同时向数据表中插入多条记录，插入时指定多个值列表，每个值列表之间用逗号分隔 开，基本语法格式如下：
+
+```mysql
+INSERT INTO table_name
+VALUES
+(value1 [,value2, …, valuen]),
+(value1 [,value2, …, valuen]),
+……
+(value1 [,value2, …, valuen]);
+```
+
+或者
+
+```mysql
+INSERT INTO table_name(column1 [, column2, …, columnn])
+VALUES
+(value1 [,value2, …, valuen]),
+(value1 [,value2, …, valuen]),
+……
+(value1 [,value2, …, valuen]);
+```
+
+使用INSERT同时插入多条记录时，MySQL会返回一些在执行单行插入时没有的额外信息，这些信息的含 义如下：
+
+* Records：表明插入的记录条数。 
+* Duplicates：表明插入时被忽略的记录，原因可能是这 些记录包含了重复的主键值。 
+* Warnings：表明有问题的数据值，例如发生数据类型转换。
+*/
+
+#更新数据
+/*
+UPDATE table_name
+SET column1=value1, column2=value2, ..., column=valuen
+[WHERE condition]
+*/
+
+#删除数据
+# DELETE FROM table_name [WHERE <condition>];
