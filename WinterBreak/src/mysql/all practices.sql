@@ -1071,5 +1071,9 @@ SET column1=value1, column2=value2, ..., column=valuen
 [WHERE condition]
 */
 
+#题目：将表中姓名中包含字符a的提薪20%
+UPDATE emp1
+SET salary = salary * 1.2
+WHERE NAME LIKE '%a%';
 #删除数据
 # DELETE FROM table_name [WHERE <condition>];
