@@ -958,7 +958,7 @@ ALTER TABLE customers
 MODIFY c_name VARCHAR(70) ;
 
 # 5、将c_contact字段改名为c_phone
-ALTER TABLE customers
+ALTER TABLE customers 
 CHANGE c_contact c_phone VARCHAR(50);
 
 # 6、增加c_gender字段到c_name后面，数据类型为char(1)
