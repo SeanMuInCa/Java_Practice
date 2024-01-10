@@ -917,3 +917,12 @@ DROP TABLE emp01
 RENAME TABLE emp02 TO emp01
 
 #9.在表dept02和emp01中添加新列test_column，并检查所作的操作
+ALTER TABLE dept02
+ADD test_column VARCHAR(10)
+SELECT * FROM emp01
+ALTER TABLE emp01
+ADD test_column VARCHAR(10)
+
+#10.直接删除表emp01中的列 department_id
+ALTER TABLE emp01
+DROP COLUMN department_id;
