@@ -901,3 +901,14 @@ dept_id INT(7)
 )
 
 #5.将列last_name的长度增加到50
+ALTER TABLE emp01
+MODIFY last_name VARCHAR(50)
+
+#6.根据表employees创建emp02
+CREATE TABLE IF NOT EXISTS emp02
+AS
+SELECT * FROM atguigudb.employees
+
+#7.删除表emp01
+DROP TABLE emp01
+
