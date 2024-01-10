@@ -912,3 +912,8 @@ SELECT * FROM atguigudb.employees
 #7.删除表emp01
 DROP TABLE emp01
 
+#8.将表emp02重命名为emp01
+
+RENAME TABLE emp02 TO emp01
+
+#9.在表dept02和emp01中添加新列test_column，并检查所作的操作
