@@ -31,6 +31,14 @@ public class TestFunc
         map.put(e3.getId(),e3);
         map.put(e4.getId(),e4);
 
-        map.forEach((id,e) -> System.out.println(e.getName()));
+        map.forEach((id,e) -> System.out.println(e));
+
+        map.replaceAll((id,e) -> {
+            if(e.getSalary() > 20000)
+                e.setSalary(25000);
+            return e;
+        });
+
+        map.forEach((id,e) -> System.out.println(e));
     }
 }
