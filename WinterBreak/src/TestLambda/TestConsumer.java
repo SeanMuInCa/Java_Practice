@@ -3,6 +3,7 @@ package TestLambda;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -26,5 +27,15 @@ public class TestConsumer
         list.add("C#");
         list.forEach(str -> System.out.println(str));
         list.forEach(System.out::println);
+    }
+    @Test
+    public void test2(){
+        HashMap<String,Integer> map = new HashMap<>();
+        map.put("no.1", 1);
+        map.put("no.2", 2);
+        map.put("no.3", 3);
+        map.put("no.4", 4);
+
+        map.forEach((key,value) -> System.out.println(key + " ---> " + value));
     }
 }
