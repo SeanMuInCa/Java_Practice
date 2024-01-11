@@ -2,6 +2,8 @@ package TestLambda;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
@@ -75,8 +77,27 @@ public class LambdaTest
                 System.out.println("abc");
             }
         };
-        Runnable r2 = () -> System.out.println();
+        Runnable r2 = () -> System.out.println("hello");
         r2.run();
         r1.run();
+    }
+    @Test
+    public void test5(){
+        String[] arr = {"hello", "Hello", "java", "Java"};
+        Arrays.sort(arr,(s1,s2) -> s1.compareToIgnoreCase(s2));
+        Arrays.sort(arr, String::compareToIgnoreCase);
+        for (String s : arr){
+            System.out.println(s);
+        }
+    }
+    @Test
+    public void test6(){
+        ArrayList<String> list = new ArrayList<>();
+        list.add("hello");
+        list.add("world");
+        list.add("java");
+
+        list.forEach(str -> System.out.println(str));
+        list.forEach(System.out::println);
     }
 }
