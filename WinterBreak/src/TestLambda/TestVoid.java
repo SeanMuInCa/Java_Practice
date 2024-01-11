@@ -11,7 +11,7 @@ package TestLambda;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class Test1
+public class TestVoid
 {
     public static void main(String[] args)
     {
