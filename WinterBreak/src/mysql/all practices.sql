@@ -1077,3 +1077,11 @@ SET salary = salary * 1.2
 WHERE NAME LIKE '%a%';
 #删除数据
 # DELETE FROM table_name [WHERE <condition>];
+
+#练习3：
+
+#1. 创建数据库test04_company
+CREATE DATABASE IF NOT EXISTS test04_company
+
+USE test04_company
+
