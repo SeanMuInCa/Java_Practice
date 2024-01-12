@@ -88,4 +88,14 @@ public class TestLambda
             }
         }
     }
+    @Test
+    public void test4(){
+        // 不使用lambda表达式为每个订单加上12%的税
+        List<Integer> costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
+
+        costBeforeTax.stream().map(cost -> cost * .11 + cost).forEach(System.out::println);
+
+        Double total = costBeforeTax.stream().map(cost -> cost * .11 + cost).reduce((pre, cur) -> pre + cur).get();
+        System.out.println(total);
+    }
 }
