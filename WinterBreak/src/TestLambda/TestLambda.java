@@ -104,4 +104,11 @@ public class TestLambda
         List<String> filtered = strList.stream().filter(x -> x.length()> 2).collect(Collectors.toList());
         System.out.printf("Original List : %s, filtered list : %s %n", strList, filtered);
     }
+    @Test
+    public void test5(){
+        // 将字符串换成大写并用逗号链接起来
+        List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
+        List<String> G7Countries = G7.stream().map(x -> x.toUpperCase()).toList();
+        G7Countries.forEach(str -> System.out.print(str + " "));
+    }
 }
