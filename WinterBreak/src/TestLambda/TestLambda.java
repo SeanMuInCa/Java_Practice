@@ -69,6 +69,10 @@ public class TestLambda
 
         filter(languages,str -> (str).startsWith("J"));
         filter(languages,str -> (str).length() > 5);
+        System.out.println("----------------");
+        Predicate<String> p1 = str -> str.startsWith("J");
+        Predicate<String> p2 = str -> str.length() > 3;
+        languages.stream().filter(p1.or(p2)).forEach(System.out::println);
     }
     public static void filter(List<String> names, Predicate<String> condition) {
         for(String  name: names)  {
