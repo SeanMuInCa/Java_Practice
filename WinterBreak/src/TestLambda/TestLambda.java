@@ -61,6 +61,7 @@ public class TestLambda
         List<String> languages = Arrays.asList("Java", "Scala", "C++", "Haskell", "Lisp");
 
         filter(languages,str -> ((String)str).startsWith("J"));
+        filter(languages,str -> ((String)str).length() > 5);
     }
     public static void filter(List<String> names, Predicate condition) {
         for(String  name: names)  {
