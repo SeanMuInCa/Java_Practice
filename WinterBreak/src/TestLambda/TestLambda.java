@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Purpose:             TestLambda<br />
@@ -97,5 +98,10 @@ public class TestLambda
 
         Double total = costBeforeTax.stream().map(cost -> cost * .11 + cost).reduce((pre, cur) -> pre + cur).get();
         System.out.println(total);
+
+        List<String> strList = Arrays.asList("Java","C++","C", "C#", "PHP");
+        // 创建一个字符串列表，每个字符串长度大于2
+        List<String> filtered = strList.stream().filter(x -> x.length()> 2).collect(Collectors.toList());
+        System.out.printf("Original List : %s, filtered list : %s %n", strList, filtered);
     }
 }
