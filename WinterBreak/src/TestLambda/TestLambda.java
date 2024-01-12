@@ -2,7 +2,9 @@ package TestLambda;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * Purpose:             TestLambda<br />
@@ -40,5 +42,17 @@ public class TestLambda
         }).start();
 
         new Thread(() -> System.out.println("new thread2")).start();
+    }
+
+    @Test
+    public void test2(){
+        List<String> features = Arrays.asList("Lambdas", "Default Method", "Stream API", "Date and Time API");
+        for (String feature : features) {
+            System.out.println(feature);
+        }
+        System.out.println("-----------------------");
+        features.forEach(str -> System.out.println(str));
+        System.out.println("-----------------------");
+        features.forEach(System.out::println);
     }
 }
