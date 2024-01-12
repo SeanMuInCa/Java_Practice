@@ -25,6 +25,8 @@ public class TestPredicate
         list.add("polo");
         list.add("ok");
 
+        System.out.println(null == null);
+
         // forEach
         list.forEach(System.out::println);
 
