@@ -108,7 +108,12 @@ public class TestLambda
     public void test5(){
         // 将字符串换成大写并用逗号链接起来
         List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
-        List<String> G7Countries = G7.stream().map(x -> x.toUpperCase()).toList();
+        List<String> G7Countries = G7.stream().map(str -> str + "!").toList();
         G7Countries.forEach(str -> System.out.print(str + " "));
+
+        // 用所有不同的数字创建一个正方形列表
+        List<Integer> numbers = Arrays.asList(9, 10, 3, 4, 7, 3, 4);
+        List<Integer> distinct = numbers.stream().distinct().collect(Collectors.toList());
+        System.out.printf("Original List : %s,  Square Without duplicates : %s %n", numbers, distinct);
     }
 }
