@@ -2,6 +2,7 @@ package TestLambda;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.function.Predicate;
  */
 public class TestLambda
 {
+    List<Person> list = new ArrayList<>();
     @Test
     public void test1(){
         new Comparator<Person>(){
@@ -43,6 +45,11 @@ public class TestLambda
         }).start();
 
         new Thread(() -> System.out.println("new thread2")).start();
+        list.add(new Person("raina",14,1));
+        list.add(new Person("raina1",15,2));
+        list.add(new Person("raina2",16,3));
+        list.add(new Person("raina3",17,4));
+        filter1(list, raina -> raina.getAge() > 15);
     }
 
     @Test
@@ -60,13 +67,20 @@ public class TestLambda
     public void test3(){
         List<String> languages = Arrays.asList("Java", "Scala", "C++", "Haskell", "Lisp");
 
-        filter(languages,str -> ((String)str).startsWith("J"));
-        filter(languages,str -> ((String)str).length() > 5);
+        filter(languages,str -> (str).startsWith("J"));
+        filter(languages,str -> (str).length() > 5);
     }
-    public static void filter(List<String> names, Predicate condition) {
+    public static void filter(List<String> names, Predicate<String> condition) {
         for(String  name: names)  {
             if(condition.test(name)) {
                 System.out.println(name + " ");
+            }
+        }
+    }
+    public static void filter1(List<Person> ps, Predicate<Person> condition) {
+        for(Person p1: ps)  {
+            if(condition.test(p1)) {
+                System.out.println(p1 + " ");
             }
         }
     }
