@@ -1086,14 +1086,26 @@ CREATE DATABASE IF NOT EXISTS test04_company
 USE test04_company
 
 #2. 按照下表给出的表结构在test04_company数据库中创建两个数据表offices和employees
-CREATE TABLE IF NOT EXISTS offices(
+CREATE TABLE IF NOT EXISTS offices2(
 officeCode INT(10) PRIMARY KEY ,
 city VARCHAR(50) NOT NULL,
 address VARCHAR(50) ,
-country VARCHAR(50) NOT NULL,
-postalCode VARCHAR(15),
-CONSTRAINT uk_off_poscode UNIQUE(postalCode)
+country VARCHAR(50) NOT NULL
 );
 
 DESC offices;
 
+CREATE TABLE employees(
+employeeNumber INT PRIMARY KEY AUTO_INCREMENT,
+lastName VARCHAR(50) NOT NULL,
+firstName VARCHAR(50) NOT NULL,
+mobile VARCHAR(25) UNIQUE,
+officeCode INT(10) NOT NULL ,
+jobTitle VARCHAR(50) NOT NULL,
+birth DATETIME NOT NULL,
+note VARCHAR(255),
+sex VARCHAR(5),
+CONSTRAINT FOREIGN KEY (officeCode) REFERENCES offices(officeCode)
+)
+
+desc employees
