@@ -1,7 +1,5 @@
 package MyLinkedList;
 
-import java.util.Enumeration;
-
 /**
  * Purpose:             MyLinkedList<br />
  * Data Submitted:      2024/1/12 <br />
@@ -13,7 +11,7 @@ import java.util.Enumeration;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public abstract class MyCollection<T> implements Enumeration<T>
+public abstract class MyCollection<T> implements Iterable<T>, Comparable<T>
 {
     //add the given data to the collection
     abstract void Add(T data);

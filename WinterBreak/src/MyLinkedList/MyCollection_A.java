@@ -1,6 +1,5 @@
 package MyLinkedList;
 
-import java.util.Enumeration;
 import java.util.Iterator;
 
 /**
@@ -13,39 +12,24 @@ import java.util.Iterator;
  *
  * @author Zhenghua Mu
  * @version 1.0.0
+ * NVMQQ-FF6TP-WV989-74RHJ-4VYM8
  */
-public abstract class MyCollection_A<T> extends MyCollection<T>
+public abstract class MyCollection_A<T> extends MyCollection<T> implements Comparable<T>
 {
-
     public abstract void Add(T data);
 
     public abstract void Clear();
 
     public abstract boolean Remove(T data);
 
-    public abstract Enumeration<T> GetEnumerator();
+    public abstract Iterator<T> getIterator();
 
-
-    public virtual
-    int Count
-
-    {
-        get
-        {
-            int count = 0;
-            foreach(T data in this)
-            {
-                count++;
-            }
-            return count;
-        }
-    }
 
     public boolean Contains(T data)
     {
         boolean found = false;
 
-        Iterator<T> list = GetEnumerator().asIterator();
+        Iterator<T> list = getIterator();
 
         while (list.hasNext())
         {
@@ -58,26 +42,20 @@ public abstract class MyCollection_A<T> extends MyCollection<T>
         return found;
     }
 
-    public String ToString()
+    @Override
+    public String toString()
     {
         StringBuilder sb = new StringBuilder("[");
         String sep = ", ";
-        foreach(T data in this)
+        for (T data : this)
         {
-            sb.Append(data + sep);
+            sb.append(data + sep);
         }
-        if (this.Count > 0)
+        if (this.getCount() > 0)
         {
-            sb.Remove(sb.Length - sep.Length, sep.Length);
+            sb.delete(sb.length() - sep.length(), sb.length() - 1);
         }
-        sb.Append(']');
-        return sb.ToString();
-    }
-
-    IEnumerator IEnumerable.
-
-    GetEnumerator()
-    {
-        return GetEnumerator();
+        sb.append(']');
+        return sb.toString();
     }
 }
