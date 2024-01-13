@@ -1096,3 +1096,4 @@ CONSTRAINT uk_off_poscode UNIQUE(postalCode)
 );
 
 DESC offices;
+
