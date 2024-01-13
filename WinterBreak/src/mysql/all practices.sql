@@ -1109,3 +1109,12 @@ CONSTRAINT FOREIGN KEY (officeCode) REFERENCES offices(officeCode)
 )
 
 desc employees
+
+#3. 将表employees的mobile字段修改到officeCode字段后面
+ALTER TABLE employees
+MODIFY  mobile VARCHAR(25) AFTER officeCode
+
+#4. 将表employees的birth字段改名为employee_birth
+ALTER TABLE employees
+CHANGE birth employee_birth DATETIME 
+
