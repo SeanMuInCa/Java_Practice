@@ -98,7 +98,7 @@ public class Textbook
     @Test
     public void test3(){
         //hanoi
-        hanoi(3,'A','B','C');
+        hanoi(4,'A','B','C');
     }
     public void hanoi(int n, char fromTower, char auxTower, char targetTower){
         if(n == 1){
@@ -108,5 +108,43 @@ public class Textbook
             System.out.println("Move disk " + n + " from " + fromTower + " to " + targetTower);
             hanoi(n - 1, auxTower, fromTower, targetTower);
         }
+    }
+    @Test
+    public void test4(){
+        System.out.println(factorial(5));
+        System.out.println(tailRecFactorial(5));
+    }
+    public int factorial(int n){
+        if(n == 1) return 1;
+        return n * factorial(n - 1);
+    }
+    public int tailRecFactorial(int n){
+        return tailRecFactorial(n, 1);
+    }
+
+    private int tailRecFactorial(int n, int res)
+    {
+        if(n == 1) return res;
+        return tailRecFactorial(n - 1, res * n);
+    }
+    @Test
+    public void test5(){
+        int n = 7;
+        System.out.println(fib(n));
+        System.out.println(tailRecFib(n));
+    }
+    public int fib(int n){
+        if(n == 0) return 0;
+        if(n == 1) return 1;
+        return fib(n - 1) + fib(n - 2);
+    }
+    public int tailRecFib(int n){
+        return tailRecFib(n, 0, 1);
+    }
+
+    private int tailRecFib(int n, int result, int next)
+    {
+        if(n == 0) return result;
+        return tailRecFib(n - 1, next, result + next);
     }
 }
