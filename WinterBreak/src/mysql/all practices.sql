@@ -1139,7 +1139,7 @@ desc employees_info
 1. 视图的理解
 
 ① 视图，可以看做是一个虚拟表，本身是不存储数据的。
-  视图的本质，就可以看做是存储起来的SELECT语句
+  视图的本质，***就可以看做是存储起来的SELECT语句***
   
 ② 视图中SELECT语句中涉及到的表，称为基表
 
@@ -1153,3 +1153,12 @@ desc employees_info
 
 
 */
+
+use atguigudb
+
+create VIEW view_employee
+AS
+SELECT employee_id, last_name,salary
+from employees
+
+SELECT * FROM view_employee
