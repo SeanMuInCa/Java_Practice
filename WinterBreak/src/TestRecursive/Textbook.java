@@ -2,6 +2,7 @@ package TestRecursive;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.util.Arrays;
 
 /**
@@ -76,5 +77,22 @@ public class Textbook
         if(key < arr[mid]) return recBinarySearch(arr,key, 0, mid - 1);
         else if (key == arr[mid]) return mid;
         else return recBinarySearch(arr,key,mid + 1, right);
+    }
+    @Test
+    public void test2(){
+        File file = new File("d:\\Java");
+        System.out.println(getSize(file) + " Bytes");
+    }
+    public long getSize(File file){
+        long size = 0;
+        if(file.isDirectory()){// recursive call
+            File[] files = file.listFiles();
+            for(File f : files){
+                size += getSize(f);
+            }
+        }else{
+            size += file.length(); //base case
+        }
+        return size;
     }
 }
