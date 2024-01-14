@@ -95,4 +95,18 @@ public class Textbook
         }
         return size;
     }
+    @Test
+    public void test3(){
+        //hanoi
+        hanoi(3,'A','B','C');
+    }
+    public void hanoi(int n, char fromTower, char auxTower, char targetTower){
+        if(n == 1){
+            System.out.println("Move disk " + n + " from " + fromTower + " to " + targetTower);
+        }else{
+            hanoi(n - 1, fromTower, targetTower, auxTower);
+            System.out.println("Move disk " + n + " from " + fromTower + " to " + targetTower);
+            hanoi(n - 1, auxTower, fromTower, targetTower);
+        }
+    }
 }
