@@ -1183,4 +1183,16 @@ SELECT * FROM atguigudb.`departments`;
 SELECT * FROM employees;
 
 SELECT * FROM departments;
+#1. 创建存储过程
 
+#类型1：无参数无返回值
+
+#举例1：创建存储过程select_all_data()，查看 employees 表的所有数据
+DELIMITER $
+CREATE PROCEDURE select_all_data()
+BEGIN
+SELECT * from employees;
+END
+DELIMITER ;
+
+CALL select_all_data();
