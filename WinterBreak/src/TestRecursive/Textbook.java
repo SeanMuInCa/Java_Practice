@@ -82,6 +82,7 @@ public class Textbook
     public void test2(){
         File file = new File("d:\\Java");
         System.out.println(getSize(file) + " Bytes");
+        System.out.println(getCount(file) + " files");
     }
     public long getSize(File file){
         long size = 0;
@@ -94,6 +95,18 @@ public class Textbook
             size += file.length(); //base case
         }
         return size;
+    }
+    public int getCount(File file){
+        int count = 0;
+        if(file.isDirectory()){
+            for (File listFile : file.listFiles())
+            {
+                count += getCount(listFile);
+            }
+        }else {
+            count++;
+        }
+        return count;
     }
     @Test
     public void test3(){
