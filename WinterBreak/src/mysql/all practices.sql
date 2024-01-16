@@ -1226,3 +1226,15 @@ SELECT @ms
 #类型3：带 IN
 #举例5：创建存储过程show_someone_salary()，查看“emps”表的某个员工的薪资，
 #并用IN参数empname输入员工姓名。
+
+CREATE PROCEDURE show_someone_salary(IN emp_name VARCHAR(20))
+BEGIN
+	SELECT salary from employees
+	WHERE last_name = emp_name;
+END
+
+#调用方式1
+CALL show_someone_salary('Abel');
+#调用方式2
+SET @empname := 'Abel';
+CALL show_someone_salary(@empname);
