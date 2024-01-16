@@ -1162,3 +1162,25 @@ SELECT employee_id, last_name,salary
 from employees
 
 SELECT * FROM view_employee
+
+#第15章_存储过程与存储函数
+
+#0.准备工作
+
+CREATE DATABASE dbtest15;
+
+USE dbtest15;
+
+CREATE TABLE employees
+AS
+SELECT * 
+FROM atguigudb.`employees`;
+
+CREATE TABLE departments
+AS
+SELECT * FROM atguigudb.`departments`;
+
+SELECT * FROM employees;
+
+SELECT * FROM departments;
+
