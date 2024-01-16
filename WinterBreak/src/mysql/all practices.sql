@@ -1276,4 +1276,5 @@ END
 SET @empname = 'Ernst';
 CALL show_mgr_name(@empname);
 
+
 SELECT * from employees
