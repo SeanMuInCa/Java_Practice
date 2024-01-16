@@ -1194,5 +1194,35 @@ BEGIN
 SELECT * from employees;
 END
 DELIMITER ;
-
+#调用
 CALL select_all_data();
+
+#举例3：创建存储过程show_max_salary()，用来查看“emps”表的最高薪资值。
+
+CREATE PROCEDURE show_max_salary()
+BEGIN
+SELECT MAX(salary) from employees;
+END
+
+
+call show_max_salary()
+
+#类型2：带 OUT
+#举例4：创建存储过程show_min_salary()，查看“emps”表的最低薪资值。并将最低薪资
+#通过OUT参数“ms”输出
+desc employees
+
+CREATE PROCEDURE show_min_salary(OUT ms DOUBLE)
+BEGIN
+	SELECT MIN(salary) INTO ms
+	FROM employees;
+END
+
+call show_min_salary(@ms)#定义变量
+
+#查看变量
+SELECT @ms
+
+#类型3：带 IN
+#举例5：创建存储过程show_someone_salary()，查看“emps”表的某个员工的薪资，
+#并用IN参数empname输入员工姓名。
