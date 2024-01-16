@@ -1259,3 +1259,21 @@ SELECT @empsalary;
 #类型5：带 INOUT
 #举例7：创建存储过程show_mgr_name()，查询某个员工领导的姓名，并用INOUT参数“empname”输入员工姓名，
 #输出领导的姓名。
+
+
+CREATE PROCEDURE show_mgr_name(INOUT empname VARCHAR(25))
+BEGIN
+	SELECT last_name
+	FROM employees
+	WHERE employee_id = (
+											SELECT manager_id 
+											FROM employees
+											WHERE last_name = empname
+											);
+END
+
+#调用
+SET @empname = 'Ernst';
+CALL show_mgr_name(@empname);
+
+SELECT * from employees
