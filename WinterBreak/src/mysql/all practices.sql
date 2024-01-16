@@ -1238,3 +1238,24 @@ CALL show_someone_salary('Abel');
 #调用方式2
 SET @emp_name := 'Abel';
 CALL show_someone_salary(@emp_name);
+
+#类型4：带 IN 和 OUT
+#举例6：创建存储过程show_someone_salary2()，查看“emps”表的某个员工的薪资，
+#并用IN参数empname输入员工姓名，用OUT参数empsalary输出员工薪资。
+desc employees
+CREATE PROCEDURE show_someone_salary4(IN empname VARCHAR(20), OUT empsalary DOUBLE(8,2))
+BEGIN
+	SELECT salary INTO empsalary
+	FROM employees
+	WHERE last_name = empname;
+END
+
+#调用
+SET @empname = 'Abel';
+CALL show_someone_salary4(@empname,@empsalary);
+
+SELECT @empsalary;
+
+#类型5：带 INOUT
+#举例7：创建存储过程show_mgr_name()，查询某个员工领导的姓名，并用INOUT参数“empname”输入员工姓名，
+#输出领导的姓名。
