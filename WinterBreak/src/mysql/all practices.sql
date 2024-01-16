@@ -1236,5 +1236,5 @@ END
 #调用方式1
 CALL show_someone_salary('Abel');
 #调用方式2
-SET @empname := 'Abel';
-CALL show_someone_salary(@empname);
+SET @emp_name := 'Abel';
+CALL show_someone_salary(@emp_name);
