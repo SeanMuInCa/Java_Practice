@@ -91,6 +91,7 @@ public class DiscardPile
     {
         //TODO Take a copy of the provided card and add to the discard pile.   This card should now be 
         //on the top of the discard pile.
-        cards.push(c);
+        Card copy_c = c.clone();
+        cards.push(copy_c);
     }
 }
