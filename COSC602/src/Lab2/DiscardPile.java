@@ -48,7 +48,10 @@ public class DiscardPile
          * Clear the discard pile
          * Put the saved top card back in the discard pile
          */
-        if(!cards.isEmpty()) cards.pop();
+        Card c= cards.pop();
+        deck.addAll(cards.toArray(cards.toArray(new Card[0])));
+        cards.clear();
+        cards.push(c);
     }
 
     /**
