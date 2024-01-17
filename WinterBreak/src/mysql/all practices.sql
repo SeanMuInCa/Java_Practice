@@ -1284,3 +1284,17 @@ SELECT * from employees
 # 举例1：创建存储函数，名称为email_by_name()，参数定义为空，
 #该函数查询Abel的email，并返回，数据类型为字符串型。
 
+CREATE FUNCTION email_by_name()
+RETURNS VARCHAR(25)
+	DETERMINISTIC
+	CONTAINS SQL
+	READS SQL DATA
+BEGIN
+	RETURN(
+				SELECT email FROM employees
+				WHERE last_name = 'Abel'
+				);
+END
+
+#调用
+SELECT email_by_name()
