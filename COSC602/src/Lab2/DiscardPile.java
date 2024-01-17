@@ -1,5 +1,4 @@
 package Lab2;
-import java.util.LinkedList;
 import java.util.Stack;
 
 import java.util.Iterator;
@@ -49,8 +48,15 @@ public class DiscardPile
          * Put the saved top card back in the discard pile
          */
         Card c= cards.pop();
-        deck.addAll(cards.toArray(cards.toArray(new Card[0])));
-        cards.clear();
+        Card[] temp = new Card[cards.size()];
+        Iterator<Card> it = cards.iterator();
+        int index = 0;
+        while (it.hasNext()){
+            temp[index] = it.next();
+            index++;
+        }
+        deck.addAll(temp);//i have another way for this. deck.addAll(cards.toArray(new Card[0])),but i saw
+        cards.clear();    // the iterator is already import, so i changed it to iterator.
         cards.push(c);
     }
 
