@@ -23,8 +23,7 @@ public class Card implements Comparable<Card>, Cloneable
     /**
      * Each possible character value for rank, two through ace
      */
-//    public static final String RANKS = "23456789tjqka";
-    public static final String RANKS = "2345";
+    public static final String RANKS = "23456789tjqka";
 
     /**
      * Suit in words.  Each element in this array  should be in 
