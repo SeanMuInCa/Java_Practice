@@ -1278,3 +1278,9 @@ CALL show_mgr_name(@empname);
 
 
 SELECT * from employees
+
+#2.存储函数
+
+# 举例1：创建存储函数，名称为email_by_name()，参数定义为空，
+#该函数查询Abel的email，并返回，数据类型为字符串型。
+
