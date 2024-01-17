@@ -62,14 +62,14 @@ public class FullHouseChallenge
     public boolean isThereAWinner()
     {
         boolean result = false;
-        /*for( Player p : players )
+        for( Player p : players )
         {
             if ( p.isWinner() )
             {
                 result = true;
                 System.out.println("Congratulations! " + p.getName() + " you win!!!!");
             }
-        }*/
+        }
         return result;
     }
     

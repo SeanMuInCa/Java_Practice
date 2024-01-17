@@ -12,6 +12,23 @@ import java.util.Iterator;
  * @version 1.0
  */
 
+/**
+ * Purpose:             Lab2<br />
+ * Data Submitted:      2024/1/16 <br />
+ * Assignment Number:    Lab2<br />
+ * Course Name:         COSC602  <br />
+ * Instructor:          George Ding  <br />
+ * File Path:          Lab2 <br />
+ *
+ * @author Zhenghua Mu
+ * @version 1.0.0
+ * @Description This game is about one human player plays "full house" with computer player.
+ * at the beginning of the game, each one get 5 cards. and there are 41 cards in deck and
+ * one card in discard pile.
+ * for each turn, the player can take a look at the top card of the discard pile, and have to decide to get
+ * a new card from deck or discard pile. and also to remove a card
+ * from hand. until one of the players get the "full house" will win the game.
+ */
 public class DiscardPile
 {
     /**
