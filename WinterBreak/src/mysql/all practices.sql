@@ -1332,4 +1332,5 @@ BEGIN
 END
 
 #调用
-SELECT count_by_id(110)
+SET @dept_id = 50
+SELECT count_by_id(@dept_id)
