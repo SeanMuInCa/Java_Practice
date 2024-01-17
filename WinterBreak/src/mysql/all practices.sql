@@ -1309,9 +1309,27 @@ RETURNS VARCHAR(25)
 BEGIN
 	RETURN(
 				SELECT email FROM employees
-				WHERE last_name = empid
+				WHERE employee_id = empid
 				);
 END
 
 #调用
 SELECT email_by_id(102)
+
+
+#举例3：创建存储函数count_by_id()，参数传入dept_id，该函数查询dept_id部门的
+#员工人数，并返回，数据类型为整型。
+CREATE FUNCTION count_by_id(dept_id INT)
+RETURNS INT
+	DETERMINISTIC
+	CONTAINS SQL
+	READS SQL DATA
+BEGIN
+	RETURN(
+				SELECT count(1) FROM employees
+				WHERE department_id = dept_id
+				);
+END
+
+#调用
+SELECT count_by_id(110)
