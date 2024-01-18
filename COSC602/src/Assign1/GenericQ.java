@@ -19,7 +19,6 @@ public class GenericQ
 {
     public static <E> E[] removeDuplicates(E[] aVals)
     {
-        //todo not solve yet
         int count = 0;
         for (int i = 0; i < aVals.length; i++)
         {
@@ -38,16 +37,10 @@ public class GenericQ
         for (int i = 1; i < aVals.length; i++)
         {
             if(!contains(array, aVals[i])){
-                addElement(array, aVals[i], index);
-                index++;
+                array[index++] = aVals[i];
             }
         }
         return array;
-    }
-
-    private static <E> void addElement(E[] array, E element, int index)
-    {
-        array[index] = element;
     }
 
     private static <E> boolean contains(E[] array, E element)
@@ -60,16 +53,6 @@ public class GenericQ
             }
         }
         return false;
-    }
-
-    @Test
-    public void test1()
-    {
-        Integer[] arr = {1,2,3,4,5,1,2,3,4,5,1,2,3,4};
-        String[] arr1 = {"aa", "bb", "cc", "aa"};
-        System.out.println(Arrays.toString(removeDuplicates(arr)));
-        selectionSort(arr1);
-        System.out.println(Arrays.toString(arr1));
     }
 
     public static <T extends Comparable<T>> T getSmallest(List<T> list)
