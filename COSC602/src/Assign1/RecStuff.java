@@ -1,6 +1,7 @@
 package Assign1;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -35,7 +36,6 @@ public class RecStuff
 
         char singleKey = sKey.charAt(sKey.length() - 1);
         int index = sPhrase.lastIndexOf(singleKey);
-
         if (index == -1) return sPhrase;
 
         String newStr = sPhrase.substring(0, index) + sPhrase.substring(index + 1);
@@ -133,11 +133,85 @@ public class RecStuff
 
     }
 
+    public static void modifiedMergeSort(int[] arr)
+    {
+        /*if(arr.length > 80) mergeSort(arr);
+        else bubbleSort(arr);*/
+        mergeSort(arr);
+    }
+
+    private static void bubbleSort(int[] arr)
+    {
+        for (int i = arr.length - 1; i > 0; i--)
+        {
+            boolean sorted = true;
+            for (int j = 0; j < i; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    swap(arr, j, j + 1);
+                    sorted = false;
+                }
+            }
+            if (sorted) break;
+        }
+    }
+    private static void swap(int[] arr, int highPos, int right)
+    {
+        int temp = arr[highPos];
+        arr[highPos] = arr[right];
+        arr[right] = temp;
+    }
+    private static void mergeSort(int[] arr)
+    {
+        //base case
+        if(arr.length <= 1) return;
+
+        int mid = arr.length / 2;
+
+        int[] leftPart = new int[mid];
+        int[] rightPart = new int[arr.length - mid];
+
+        System.arraycopy(arr,0,leftPart,0,mid);
+        System.arraycopy(arr,mid,rightPart,0,arr.length - mid);
+
+        mergeSort(leftPart);
+        mergeSort(rightPart);
+
+        merge(arr, leftPart, rightPart);
+    }
+
+    private static void merge(int[] arr, int[] leftPart, int[] rightPart)
+    {
+        int i = 0, j = 0,k=0;
+        for (; (i < leftPart.length && j < rightPart.length); )
+        {
+            if(leftPart[i] < rightPart[j]){
+                arr[k] = leftPart[i];
+                i++;
+            }else {
+                arr[k] = rightPart[j];
+                j++;
+            }
+            k++;
+        }
+    }
+
+
     public static void main(String[] args)
     {
         System.out.println(reverseStr("Hello World"));
         System.out.println(removeLast("The sly moon is high in the sky", new StringBuffer("ken")));
         System.out.println(Bin2Dec("0010 0110"));
         replaceAll("D:\\test","abc","raina");
+        /*int[] arr = {1,2,3,4,5,5,4,2,1,12,23,52,1,54};
+        modifiedMergeSort(arr);
+        System.out.println(Arrays.toString(arr));*/
+
+        int[] arrL = {1,2,3,4};
+        int[] arrR = {1,2,3,4};
+        int[] arr1 = new int[8];
+        merge(arr1,arrL,arrR);
+        System.out.println(Arrays.toString(arr1));
     }
 }
