@@ -74,4 +74,11 @@ public class GenericQ
         list.add(34);
         System.out.println(getSmallest(list));
     }
+    public static <E extends Number> double sum(List<E> list){
+        double sum = 0;
+        for (E e : list){
+            sum += (Double) e;
+        }
+        return sum / list.size();
+    }
 }
