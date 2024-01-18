@@ -2,9 +2,7 @@ package Assign1;
 
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Purpose:             Assign1<br />
@@ -40,7 +38,7 @@ public class GenericQ
         {
             for (int j = 1; j < aVals.length; j++)
             {
-                if(array[i].equals(aVals[j])) break;
+                if (array[i].equals(aVals[j])) break;
             }
         }
         return array;
@@ -52,5 +50,22 @@ public class GenericQ
         Integer[] arr = {1, 1, 3, 1};
         String[] arr1 = {"aa", "bb", "cc", "aa"};
         System.out.println(Arrays.toString(removeDuplicates(arr)));
+    }
+
+    public static <T extends Comparable<T>> T getSmallest(List<T> list)
+    {
+        Iterator<T> iterator = list.iterator();
+        T min = iterator.next();
+        while (iterator.hasNext())
+        {
+            T next = iterator.next();
+            if (min.compareTo(next) < 0)
+                min = next;
+        }
+        return min;
+    }
+    @org.junit.Test
+    public void test2(){
+
     }
 }
