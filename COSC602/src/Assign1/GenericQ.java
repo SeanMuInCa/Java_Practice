@@ -74,11 +74,21 @@ public class GenericQ
         list.add(34);
         System.out.println(getSmallest(list));
     }
-    public static <E extends Number> double sum(List<E> list){
-        double sum = 0;
+    public static <E extends Number> double getAverage(List<E> list){
+        double sum = 0.0;
         for (E e : list){
-            sum += (Double) e;
+            sum += e.doubleValue();
         }
         return sum / list.size();
+    }
+    @org.junit.Test
+    public void test3(){
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(55);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(34);
+        System.out.println(getAverage(list));
     }
 }
