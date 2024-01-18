@@ -1,8 +1,12 @@
 package Assign1;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Purpose:             Assign1<br />
@@ -85,56 +89,34 @@ public class RecStuff
         BufferedWriter bw = null;
         try
         {
-            fr = new FileReader(f);
-            fw = new FileWriter(new File("D:\\test\\fixed.txt"));
+            /*fr = new FileReader(f);
 
-            br = new BufferedReader(fr);
-            bw = new BufferedWriter(fw);
 
-            //方式1
-            /*char[] buffer = new char[1024];
+            br = new BufferedReader(fr);*/
 
-            int length;
-            while ((length = br.read(buffer)) != -1)
-            {//这里返回的是读取的长度
-                bw.write(buffer, 0, length);
-            }*/
-            //方式2
-            String data;
-            while ((data = br.readLine())!= null)
-            {
-                data = data.replaceAll(sOldWord, sNewWord);
-                bw.write(data);
-                bw.newLine();
+
+            List<String> strings = Files.readAllLines(Paths.get(f.getPath()));
+            for(String str : strings){
+                str.replaceAll(sOldWord,sNewWord);
             }
+            fw = new FileWriter(f);
+            bw = new BufferedWriter(fw);
+            for(String str : strings){
+                bw.write(str);
+            }
+
         } catch (IOException e)
         {
             e.printStackTrace();
-        } finally
-        {
-            try
-            {
-                if (br != null)
-                    br.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                if (bw != null)
-                    bw.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
         }
+
 
 
     }
 
     public static void modifiedMergeSort(int[] arr)
     {
+        //todo not test yet
         /*if(arr.length > 80) mergeSort(arr);
         else bubbleSort(arr);*/
         mergeSort(arr);
