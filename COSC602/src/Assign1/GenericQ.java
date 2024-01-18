@@ -19,6 +19,7 @@ public class GenericQ
 {
     public static <E> E[] removeDuplicates(E[] aVals)
     {
+        //todo not solve yet
         int count = 0;
         for (int i = 0; i < aVals.length; i++)
         {
