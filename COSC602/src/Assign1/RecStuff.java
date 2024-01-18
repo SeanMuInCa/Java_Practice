@@ -195,6 +195,18 @@ public class RecStuff
             }
             k++;
         }
+        if(i < leftPart.length){
+            for (;i < leftPart.length;i++){
+                arr[k] = leftPart[i];
+                k++;
+            }
+        }
+        if(j < rightPart.length){
+            for (;j < rightPart.length;j++){
+                arr[k] = rightPart[j];
+                k++;
+            }
+        }
     }
 
 
@@ -204,14 +216,14 @@ public class RecStuff
         System.out.println(removeLast("The sly moon is high in the sky", new StringBuffer("ken")));
         System.out.println(Bin2Dec("0010 0110"));
         replaceAll("D:\\test","abc","raina");
-        /*int[] arr = {1,2,3,4,5,5,4,2,1,12,23,52,1,54};
+        int[] arr = {1,2,3,4,5,5,4,2,1,12,23,52,1,54};
         modifiedMergeSort(arr);
-        System.out.println(Arrays.toString(arr));*/
+        System.out.println(Arrays.toString(arr));
 
-        int[] arrL = {1,2,3,4};
+        /*int[] arrL = {1,2};
         int[] arrR = {1,2,3,4};
-        int[] arr1 = new int[8];
+        int[] arr1 = new int[6];
         merge(arr1,arrL,arrR);
-        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr1));*/
     }
 }
