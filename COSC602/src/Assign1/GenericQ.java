@@ -33,24 +33,41 @@ public class GenericQ
             }
         }
         E[] array = (E[]) new Object[aVals.length - count];
-        Arrays.sort(aVals);
         array[0] = aVals[0];
-        for (int i = 1; i < array.length; i++)
+        int index = 1;
+        for (int i = 1; i < aVals.length; i++)
         {
-            for (int j = 1; j < aVals.length; j++)
-            {
-                if (array[i].equals(aVals[j])) break;
+            if(!contains(array, aVals[i])){
+                addElement(array, aVals[i], index);
+                index++;
             }
         }
         return array;
     }
 
+    private static <E> void addElement(E[] array, E element, int index)
+    {
+        array[index] = element;
+    }
+
+    private static <E> boolean contains(E[] array, E element)
+    {
+        for (int i = 0; i < array.length; i++)
+        {
+            if(array[i] == null) return false;
+            if(array[i].equals(element)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Test
     public void test1()
     {
-        Integer[] arr = {1, 1, 3, 1};
+        Integer[] arr = {1,2,3,4,5,1,2,3,4,5,1,2,3,4};
         String[] arr1 = {"aa", "bb", "cc", "aa"};
-//        System.out.println(Arrays.toString(removeDuplicates(arr)));
+        System.out.println(Arrays.toString(removeDuplicates(arr)));
         selectionSort(arr1);
         System.out.println(Arrays.toString(arr1));
     }
