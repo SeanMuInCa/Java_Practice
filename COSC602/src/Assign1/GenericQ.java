@@ -49,7 +49,9 @@ public class GenericQ
     {
         Integer[] arr = {1, 1, 3, 1};
         String[] arr1 = {"aa", "bb", "cc", "aa"};
-        System.out.println(Arrays.toString(removeDuplicates(arr)));
+//        System.out.println(Arrays.toString(removeDuplicates(arr)));
+        InsertionSort(arr1);
+        System.out.println(Arrays.toString(arr1));
     }
 
     public static <T extends Comparable<T>> T getSmallest(List<T> list)
@@ -64,8 +66,10 @@ public class GenericQ
         }
         return min;
     }
+
     @org.junit.Test
-    public void test2(){
+    public void test2()
+    {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(55);
         list.add(2);
@@ -74,15 +78,20 @@ public class GenericQ
         list.add(34);
         System.out.println(getSmallest(list));
     }
-    public static <E extends Number> double getAverage(List<E> list){
+
+    public static <E extends Number> double getAverage(List<E> list)
+    {
         double sum = 0.0;
-        for (E e : list){
+        for (E e : list)
+        {
             sum += e.doubleValue();
         }
         return sum / list.size();
     }
+
     @org.junit.Test
-    public void test3(){
+    public void test3()
+    {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(55);
         list.add(2);
@@ -90,5 +99,23 @@ public class GenericQ
         list.add(4);
         list.add(34);
         System.out.println(getAverage(list));
+    }
+
+    public static <E extends Comparable<E>> void selectionSort(E[] arr)
+    {
+
+    }
+    public static <E extends Comparable<E>> void InsertionSort(E[] arr)
+    {
+        for (int i = 1; i < arr.length; i++)
+        {
+            while ((i > 0) && (arr[i - 1].compareTo(arr[i]) > 0 ))
+            {
+                E temp = arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = temp;
+                i--;
+            }
+        }
     }
 }
