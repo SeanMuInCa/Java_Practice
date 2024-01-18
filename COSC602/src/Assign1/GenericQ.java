@@ -50,7 +50,7 @@ public class GenericQ
         Integer[] arr = {1, 1, 3, 1};
         String[] arr1 = {"aa", "bb", "cc", "aa"};
 //        System.out.println(Arrays.toString(removeDuplicates(arr)));
-        InsertionSort(arr1);
+        selectionSort(arr1);
         System.out.println(Arrays.toString(arr1));
     }
 
@@ -67,18 +67,6 @@ public class GenericQ
         return min;
     }
 
-    @org.junit.Test
-    public void test2()
-    {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(55);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(34);
-        System.out.println(getSmallest(list));
-    }
-
     public static <E extends Number> double getAverage(List<E> list)
     {
         double sum = 0.0;
@@ -89,21 +77,24 @@ public class GenericQ
         return sum / list.size();
     }
 
-    @org.junit.Test
-    public void test3()
-    {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(55);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(34);
-        System.out.println(getAverage(list));
-    }
-
     public static <E extends Comparable<E>> void selectionSort(E[] arr)
     {
+        int n = arr.length;
 
+        for (int i = 0; i < n - 1; i++) {
+            // find the minimum element
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j].compareTo(arr[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+
+            // swap
+            E temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
     }
     public static <E extends Comparable<E>> void InsertionSort(E[] arr)
     {
