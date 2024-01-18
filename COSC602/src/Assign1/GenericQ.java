@@ -59,13 +59,19 @@ public class GenericQ
         while (iterator.hasNext())
         {
             T next = iterator.next();
-            if (min.compareTo(next) < 0)
+            if (min.compareTo(next) > 0)
                 min = next;
         }
         return min;
     }
     @org.junit.Test
     public void test2(){
-
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(55);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(34);
+        System.out.println(getSmallest(list));
     }
 }
