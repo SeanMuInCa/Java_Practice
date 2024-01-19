@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -22,17 +21,21 @@ public class TextBook
 {
     @Test
     public void test1(){
+        String str1, str2 = null;
         File sourceFile = new File("d:\\test\\a.txt");
-        File targetFile = new File("d:\\test\\b.txt");
-        try( Scanner input = new Scanner(sourceFile);
-             PrintWriter output = new PrintWriter(targetFile);)
+        try( Scanner input = new Scanner(sourceFile) )
         {
            while (input.hasNext())
            {
-               String str1 = input.nextLine();
-               String str2 = str1.replaceAll("abc","raina");
-               output.println(str2);
+               str1 = input.nextLine();
+               str2 = str1.replaceAll("abc","raina");
+
            }
+            boolean delete = sourceFile.delete();
+            System.out.println(delete);
+           /*input.close();
+           PrintWriter output = new PrintWriter(sourceFile);
+           output.println(str2);*/
         } catch (FileNotFoundException e)
         {
             e.printStackTrace();
