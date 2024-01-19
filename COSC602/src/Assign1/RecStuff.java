@@ -1,12 +1,7 @@
 package Assign1;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Random;
 
 /**
  * Purpose:             Assign1<br />
@@ -111,12 +106,30 @@ public class RecStuff
 
     }
 
+    /**
+     * as my test methods below, i use four sizes of array to test both mergeSort
+     * same computer same test methods.
+     * Here is what I learn from the results:
+     * Our new merge sort method is more efficient when the size is less than 1,000,000,
+     * and it's very clear. after 1,000,000 size, they both seems not much different in this size.
+     *  Here is the data:
+     * new method:
+     * The 10,000 size arr execution times is 1,321,300 nano seconds
+     * The 100,000 size arr execution times is 9,722,100 nano seconds
+     * The 1,000,000 size arr execution times is 107,892,400 nano seconds
+     * The 10,000,000 size arr execution times is 1,096,443,500 nano seconds
+     *
+     * old method:
+     * The 10,000 size arr execution times is 1,429,800 nano seconds
+     * The 100,000 size arr execution times is 10,311,300 nano seconds
+     * The 1,000,000 size arr execution times is 102,378,000 nano seconds
+     * The 10,000,000 size arr execution times is 1,057,083,000 nano seconds
+     * @param arr
+     */
     public static void modifiedMergeSort(int[] arr)
     {
-        //todo not test yet
-        /*if(arr.length > 80) mergeSort(arr);
-        else bubbleSort(arr);*/
-        mergeSort(arr);
+        if(arr.length > 80) mergeSort(arr);
+        else bubbleSort(arr);
     }
 
     private static void bubbleSort(int[] arr)
@@ -191,18 +204,35 @@ public class RecStuff
 
     public static void main(String[] args)
     {
-        System.out.println(reverseStr("Hello World"));
-        System.out.println(removeLast("The sly moon is high in the sky", new StringBuffer("ken")));
-        System.out.println(Bin2Dec("0010 0110"));
-        replaceAll("D:\\test","abc","raina");
-        int[] arr = {1,2,3,4,5,5,4,2,1,12,23,52,1,54};
-        modifiedMergeSort(arr);
-        System.out.println(Arrays.toString(arr));
+        int arraySize1 = 10000;
+        int arraySize2 = 100000;
+        int arraySize3 = 1000000;
+        int arraySize4 = 10000000;
+        int[] arr1 = generateRandomArray(arraySize1);
+        int[] arr2 = generateRandomArray(arraySize2);
+        int[] arr3 = generateRandomArray(arraySize3);
+        int[] arr4 = generateRandomArray(arraySize4);
 
-        /*int[] arrL = {1,2};
-        int[] arrR = {1,2,3,4};
-        int[] arr1 = new int[6];
-        merge(arr1,arrL,arrR);
-        System.out.println(Arrays.toString(arr1));*/
+        displayTime(arr1,arraySize1);
+        displayTime(arr2,arraySize2);
+        displayTime(arr3,arraySize3);
+        displayTime(arr4,arraySize4);
+
+    }
+    private static int[] generateRandomArray(int size) {
+        int[] array = new int[size];
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(size);
+        }
+
+        return array;
+    }
+    private static void displayTime(int[] arr, int size){
+        long start = System.nanoTime();
+        modifiedMergeSort(arr);
+        long end = System.nanoTime();
+        System.out.println("The " + size + " size arr execution times is " + (end - start) + " nano seconds");
     }
 }
