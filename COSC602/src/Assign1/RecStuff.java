@@ -69,48 +69,45 @@ public class RecStuff
 
     public static void replaceAll(String sPath, String sOldWord, String sNewWord)
     {
-        File file = new File("D:\\test\\a.txt");
-        overrideWord(file,sOldWord,sNewWord);
-        /*for (File f : file.listFiles()){
+        File file = new File(sPath);
+        for (File f : file.listFiles()){
             if(f.isDirectory()){
                 replaceAll(f.getPath(),sOldWord,sNewWord);
             }else{
-                overrideWord(f,sOldWord,sNewWord);
+                if(f.getName().endsWith("txt"))
+                    overrideWord(f,sOldWord,sNewWord);
             }
-        }*/
+        }
     }
 
     private static void overrideWord(File f, String sOldWord, String sNewWord)
     {
-        //todo not solve yet
         FileReader fr = null;
         FileWriter fw = null;
         BufferedReader br = null;
         BufferedWriter bw = null;
         try
         {
-            /*fr = new FileReader(f);
 
+            fr = new FileReader(f);
+            br = new BufferedReader(fr);
 
-            br = new BufferedReader(fr);*/
-
-
-            List<String> strings = Files.readAllLines(Paths.get(f.getPath()));
-            for(String str : strings){
-                str.replaceAll(sOldWord,sNewWord);
+            String oneLineData;
+            String res = "";
+            while ((oneLineData = br.readLine())!= null)
+            {
+                res = res.concat(oneLineData + "\n");
             }
+            br.close();
+            res = res.replaceAll(sOldWord,sNewWord);
             fw = new FileWriter(f);
             bw = new BufferedWriter(fw);
-            for(String str : strings){
-                bw.write(str);
-            }
-
+            bw.write(res);
+            bw.close();
         } catch (IOException e)
         {
             e.printStackTrace();
         }
-
-
 
     }
 
