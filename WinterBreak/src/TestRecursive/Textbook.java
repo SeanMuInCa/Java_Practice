@@ -160,4 +160,24 @@ public class Textbook
         if(n == 0) return result;
         return tailRecFib(n - 1, next, result + next);
     }
+    @Test
+    public void test(){
+        System.out.println(pow(2, 8));
+    }
+    public static int pow(int x, int y)
+    {
+        if(x == 0 || x == 1) return x;
+        if(y > 1)
+        {
+            int b = y / 2;
+            int a = x * x;
+            if(y % 2 ==1)//odd
+            {
+                return pow(a,b) * x;
+            }else return pow(a,b);//even
+        } else if (y == 0)
+        {
+            return 1;
+        }else return x;//y==1
+    }
 }
