@@ -35,13 +35,14 @@ public class SingleLinked implements Iterable
         Node newNode = new Node(element, null);
         if(first == null){
             first = newNode;
-            return;
         }else recAdd(first,element);
     }
 
-    private void recAdd(Node first, Object element)
+    private void recAdd(Node cur, Object data)
     {
-
+        if(cur.next == null)
+            cur.next = new Node(data,null);
+        else recAdd(cur.next, data);
     }
 
     @Override
