@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class SingleLinked implements Iterable
 {
     private Node first;
-    public void add(Object element)
+    /*public void add(Object element)
     {
         Node newNode = new Node(element, null);
         if(first == null){
@@ -29,6 +29,18 @@ public class SingleLinked implements Iterable
             node = node.next;
         }
         node.next = newNode;
+
+    }*/
+    public void add(Object element){
+        Node newNode = new Node(element, null);
+        if(first == null){
+            first = newNode;
+            return;
+        }else recAdd(first,element);
+    }
+
+    private void recAdd(Node first, Object element)
+    {
 
     }
 
