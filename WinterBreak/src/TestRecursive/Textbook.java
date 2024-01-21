@@ -180,4 +180,21 @@ public class Textbook
             return 1;
         }else return x;//y==1
     }
+
+    /**
+     * 删除非空目录
+     * @param dir file对象
+     */
+    public static void deleteDir(File dir)
+    {
+        if(dir != null && dir.isDirectory())
+        {
+            File[] files = dir.listFiles();
+            for (File f : files)
+            {
+                deleteDir(f);
+            }
+        }
+        dir.delete();
+    }
 }
