@@ -84,6 +84,12 @@ public class Textbook
         System.out.println(getSize(file) + " Bytes");
         System.out.println(getCount(file) + " files");
     }
+
+    /**
+     * 文件夹大小
+     * @param file 文件夹
+     * @return 文件夹大小
+     */
     public long getSize(File file){
         long size = 0;
         if(file.isDirectory()){// recursive call
@@ -96,6 +102,12 @@ public class Textbook
         }
         return size;
     }
+
+    /**
+     * 文件数
+     * @param file 文件夹
+     * @return 文件夹文件数量
+     */
     public int getCount(File file){
         int count = 0;
         if(file.isDirectory()){
@@ -164,6 +176,13 @@ public class Textbook
     public void test(){
         System.out.println(pow(2, 8));
     }
+
+    /**
+     * x的y次方
+     * @param x 底数
+     * @param y 指数
+     * @return 结果
+     */
     public static int pow(int x, int y)
     {
         if(x == 0 || x == 1) return x;
