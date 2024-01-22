@@ -1,5 +1,7 @@
 package MyLinkedList;
 
+import java.util.Arrays;
+
 /**
  * Purpose:             MyLinkedList<br />
  * Data Submitted:      2024/1/18 <br />
@@ -165,6 +167,10 @@ public class OneWayLinkedList<E>
     public int size() {
         return total;
     }
+
+    /**
+     * 反转链表
+     */
     public void reverse()
     {
         if(head != null)
@@ -184,5 +190,19 @@ public class OneWayLinkedList<E>
                 node = node.next;
             }
         }
+    }
+    public static void main(String[] args) {
+        OneWayLinkedList<Integer> list = new OneWayLinkedList<>();
+        for (int i = 1; i <= 5; i++) {
+            list.add(i);
+        }
+
+        Object[] all = list.getAll();
+        System.out.println(Arrays.toString(all));
+
+        list.reverse();
+
+        all = list.getAll();
+        System.out.println(Arrays.toString(all));
     }
 }
