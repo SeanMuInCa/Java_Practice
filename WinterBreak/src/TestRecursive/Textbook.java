@@ -223,4 +223,17 @@ public class Textbook
         }
         dir.delete();
     }
+    public static void printDigits(int num)
+    {
+        if(num < 10)
+            System.out.print(num + " ");
+        else {
+            printDigits(num / 10);
+            System.out.print(num % 10 + " ");
+        }
+    }
+    @Test
+    public void test6(){
+        printDigits(1234);
+    }
 }
