@@ -28,6 +28,12 @@ public class Textbook
 
         System.out.println(recBinarySearch(arr, 11));
     }
+
+    /**
+     * 递归打印多少次消息
+     * @param times 次数
+     * @param msg 字符串
+     */
     public void printMSG(int times, String msg){
         if(times == 1) System.out.println(msg);
         else {
@@ -35,6 +41,7 @@ public class Textbook
             printMSG(times - 1, msg);
         }
     }
+    //递归判断是否是回文
     public boolean isPalindromes(String str){
         if(str.length() <= 1) return true; //base case
         else if(str.charAt(0) != str.charAt(str.length() - 1)) return false;//base case
