@@ -165,4 +165,24 @@ public class OneWayLinkedList<E>
     public int size() {
         return total;
     }
+    public void reverse()
+    {
+        if(head != null)
+        {
+            Node<E>[] all = new Node[total];
+            Node<E> node = head;
+            for (int i = 0; i < all.length; i++)
+            {
+                all[i] = node;
+                node = node.next;
+            }
+            head = all[all.length - 1];
+            node = head;
+            for (int i = all.length - 2; i >= 0 ; i--)
+            {
+                node.next = all[i];
+                node = node.next;
+            }
+        }
+    }
 }
