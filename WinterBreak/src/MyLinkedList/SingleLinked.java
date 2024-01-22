@@ -15,7 +15,7 @@ import java.util.Iterator;
  */
 public class SingleLinked implements Iterable
 {
-    private Node first;
+    private Node head;
     /*public void add(Object element)
     {
         Node newNode = new Node(element, null);
@@ -32,16 +32,16 @@ public class SingleLinked implements Iterable
 
     }*/
     public void add(Object element){
-        Node newNode = new Node(element, null);
-        if(first == null){
-            first = newNode;
-        }else recAdd(first,element);
+        Node newNode = new Node(element);
+        if(head == null){
+            head = newNode;
+        }else recAdd(head,element);
     }
 
     private void recAdd(Node cur, Object data)
     {
         if(cur.next == null)
-            cur.next = new Node(data,null);
+            cur.next = new Node(data);
         else recAdd(cur.next, data);
     }
 
@@ -56,6 +56,11 @@ public class SingleLinked implements Iterable
         Object data;
         Node next;
 
+        public Node(Object data)
+        {
+            this(data,null);
+        }
+
         public Node(Object data, Node next)
         {
             this.data = data;
@@ -64,7 +69,7 @@ public class SingleLinked implements Iterable
     }
     private class Itr implements Iterator
     {
-        Node node = first;
+        Node node = head;
 
         @Override
         public boolean hasNext()
@@ -81,7 +86,6 @@ public class SingleLinked implements Iterable
         }
     }
     public static void main(String[] args) {
-        //高内聚低耦合
         SingleLinked link = new SingleLinked();
         link.add("张三");
         link.add("李四");
