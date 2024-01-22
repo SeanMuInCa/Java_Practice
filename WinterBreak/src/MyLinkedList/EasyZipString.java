@@ -15,17 +15,24 @@ import java.util.LinkedList;
  */
 public class EasyZipString
 {
+    public static void main(String[] args)
+    {
+        String str = "AAAABCCDEEEEEF";
+        System.out.println(zipString(str));
+
+    }
     /**
      * 实现简易字符串压缩算法，其中连续出现2次以上（含2次）的字母转换为字母和出现的次数。
      * 例如：AAAABCCDEEEEE,压缩之后为A4BC2DE5。
      * @param str 输入字符串
      */
-    public static void zipString(String str){
+    public static String zipString(String str){
+        String res = "";
         LinkedList<String> list = new LinkedList<>();
         int count = 0;
         for (int i = 0; i < str.length(); i++)
         {
-            if(list.size() == 0)
+            if(list.isEmpty())
             {
                 list.addLast(str.charAt(i) + "");
                 count++;
@@ -49,9 +56,10 @@ public class EasyZipString
         {
             list.addLast(count + "");
         }
-        while (list.size() != 0)
+        while (!list.isEmpty())
         {
-            System.out.println(list.pollFirst());
+            res += list.pollFirst();
         }
+        return res;
     }
 }
