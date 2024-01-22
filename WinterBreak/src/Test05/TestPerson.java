@@ -18,8 +18,12 @@ public class TestPerson
         {
             person.eat();
             person.toilet();
-            if (person instanceof Man) ((Man) person).smoke();
-            if (person instanceof Woman) ((Woman) person).makeup();
+            if (person instanceof Man man) {
+                man.smoke();
+            }
+            if (person instanceof Woman woman) {
+                woman.makeup();
+            }
         }
     }
 

@@ -29,7 +29,6 @@ abstract class Template
         long end = System.currentTimeMillis();
         System.out.println("Time: " + (end - start));
     }
-
     public abstract void method();
 }
 
