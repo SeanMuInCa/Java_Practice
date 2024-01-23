@@ -11,10 +11,15 @@ package BinaryTree;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class Node
-{
-    int data;
-    Node left;
-    Node right;
-
+public class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode() {}
+    TreeNode(int val) { this.val = val; }
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
 }
