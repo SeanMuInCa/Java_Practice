@@ -241,22 +241,33 @@ public class OneWayLinkedList<E>
         recReverse(cur.next, cur);
 
         // Update the next pointer of the current node to point to its previous node
+        Node<E> nextNode = cur.next;
         cur.next = pre;
-        pre = cur;
-        cur = cur.next;
+        head = nextNode;
     }
     public Node<E> reverseList(Node<E> head)
     {
-        Node<E> pre = null;
-        Node<E> cur = head;
-        while (cur != null)
-        {
-            Node<E> nextNode = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = nextNode;
+        if (head.next == null) return head;
+        Node<E> last = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+    Node<E> successor = null;
+    public Node<E> reverseN(Node<E> head, int n)
+    {
+        if (n == 1) {
+            // 记录第 n + 1 个节点
+            successor = head.next;
+            return head;
         }
-        return pre;
+        // 以 head.next 为起点，需要反转前 n - 1 个节点
+        Node<E> last = reverseN(head.next, n - 1);
+
+        head.next.next = head;
+        // 让反转之后的 head 节点和后面的节点连起来
+        head.next = successor;
+        return last;
     }
 
     /**
@@ -308,11 +319,10 @@ public class OneWayLinkedList<E>
     }
     public static void main(String[] args) {
         OneWayLinkedList<Integer> list = new OneWayLinkedList<>();
-//        for (int i = 1; i <= 5; i++) {
-//            list.add(i);
-//        }
-        list.add(1);
-        list.add(2);
+        for (int i = 1; i <= 5; i++) {
+            list.add(i);
+        }
+
         /*Object[] all = list.getAll();
         System.out.println(Arrays.toString(all));
 
