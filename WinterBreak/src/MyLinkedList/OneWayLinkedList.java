@@ -141,11 +141,14 @@ public class OneWayLinkedList<E>
 
     private void recUpdate(Node<E> cur, E oldValue, E value)
     {
-        if(cur.next.data.equals(oldValue))
+        if(cur != null && cur.next != null)
         {
-            cur.next.data = value;
-        }else {
-            recUpdate(cur.next,oldValue,value);
+            if(cur.next.data.equals(oldValue))
+            {
+                cur.next.data = value;
+            }else {
+                recUpdate(cur.next,oldValue,value);
+            }
         }
     }
     /*public void update(E oldValue, E value)
@@ -288,8 +291,8 @@ public class OneWayLinkedList<E>
 
         all = list.getAll();
         System.out.println(Arrays.toString(all));*/
-        list.delete(6);
-//        list.update(6,0);
+//        list.delete(6);
+        list.update(6,0);
         Iterator<Integer> it = list.iterator();
         while (it.hasNext())
             System.out.print(it.next() + " ");
