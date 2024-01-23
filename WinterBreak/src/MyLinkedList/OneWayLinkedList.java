@@ -23,16 +23,19 @@ public class OneWayLinkedList<E>
         Node<E> next;
         E data;
 
-        public Node(Node<E> next, E data)
+        public Node(E data){
+            this(data,null);
+        }
+        public Node(E data, Node<E> next)
         {
             this.next = next;
             this.data = data;
         }
     }
 
-    public void add(E e)
+    /*public void add(E e)
     {
-        Node<E> newNode = new Node<>(null, e);
+        Node<E> newNode = new Node<>(e);
         if (head == null)
         {
             head = newNode;
@@ -46,6 +49,21 @@ public class OneWayLinkedList<E>
             node.next = newNode;
         }
         total++;
+    }*/
+
+    public void add(E e)
+    {
+        total++;
+        if(head == null)
+            head = new Node<>(e);
+        else recAdd(head, e);
+    }
+
+    private void recAdd(Node<E> cur, E e)
+    {
+        if(cur.next == null)
+            cur.next = new Node<>(e);
+        else recAdd(cur.next, e);
     }
 
     public void delete(E e)
@@ -204,5 +222,6 @@ public class OneWayLinkedList<E>
 
         all = list.getAll();
         System.out.println(Arrays.toString(all));
+        System.out.println(list.total);
     }
 }
