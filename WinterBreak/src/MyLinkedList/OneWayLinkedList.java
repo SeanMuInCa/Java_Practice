@@ -1,6 +1,6 @@
 package MyLinkedList;
 
-import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Purpose:             MyLinkedList<br />
@@ -68,6 +68,25 @@ public class OneWayLinkedList<E>
 
     public void delete(E e)
     {
+        if(head.data.equals(e))
+        {
+            head = head.next;
+        }else {
+            recDelete(head, e);
+        }
+        total--;
+    }
+
+    private void recDelete(Node<E> cur, E e)
+    {
+        if(cur.next.data.equals(e))
+        {
+            cur.next = cur.next.next;
+        }else
+            recDelete(cur.next, e);
+    }
+    /*public void delete(E e)
+    {
         Node<E> node = head;
         Node<E> find = null;
         Node<E> last = null;
@@ -103,9 +122,9 @@ public class OneWayLinkedList<E>
             }
             total--;
         }
-    }
+    }*/
 
-    public void update(E oldValue, E value)
+    /*public void update(E oldValue, E value)
     {
         Node<E> node = head;
         Node<E> find = null;
@@ -136,7 +155,7 @@ public class OneWayLinkedList<E>
         {
             find.data = value;
         }
-    }
+    }*/
 
     public boolean contains(E e)
     {
@@ -209,19 +228,47 @@ public class OneWayLinkedList<E>
             }
         }
     }
+
+    public Itr iterator()
+    {
+        return new Itr();
+    }
+    private class Itr implements Iterator<E>
+    {
+        Node<E> node = head;
+
+        @Override
+        public boolean hasNext()
+        {
+            return node != null;
+        }
+
+        @Override
+        public E next()
+        {
+            E data = node.data;
+            node = node.next;
+            return data;
+        }
+    }
     public static void main(String[] args) {
         OneWayLinkedList<Integer> list = new OneWayLinkedList<>();
         for (int i = 1; i <= 5; i++) {
             list.add(i);
         }
 
-        Object[] all = list.getAll();
+        /*Object[] all = list.getAll();
         System.out.println(Arrays.toString(all));
 
         list.reverse();
 
         all = list.getAll();
-        System.out.println(Arrays.toString(all));
-        System.out.println(list.total);
+        System.out.println(Arrays.toString(all));*/
+        list.delete(3);
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext())
+            System.out.print(it.next() + " ");
+        System.out.println();
+        System.out.println(list.size());
     }
 }
