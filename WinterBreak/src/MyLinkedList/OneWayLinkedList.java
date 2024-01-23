@@ -71,19 +71,23 @@ public class OneWayLinkedList<E>
         if(head.data.equals(e))
         {
             head = head.next;
+            total--;
         }else {
             recDelete(head, e);
         }
-        total--;
     }
 
     private void recDelete(Node<E> cur, E e)
     {
-        if(cur.next.data.equals(e))
+        if(cur != null && cur.next != null)
         {
-            cur.next = cur.next.next;
-        }else
-            recDelete(cur.next, e);
+            if(cur.next.data.equals(e))
+            {
+                cur.next = cur.next.next;
+                total--;
+            }else
+                recDelete(cur.next, e);
+        }
     }
     /*public void delete(E e)
     {
@@ -124,6 +128,26 @@ public class OneWayLinkedList<E>
         }
     }*/
 
+    public void update(E oldValue, E value)
+    {
+        if(head.data.equals(oldValue))
+        {
+            head.data = value;
+        } else
+        {
+            recUpdate(head, oldValue,value);
+        }
+    }
+
+    private void recUpdate(Node<E> cur, E oldValue, E value)
+    {
+        if(cur.next.data.equals(oldValue))
+        {
+            cur.next.data = value;
+        }else {
+            recUpdate(cur.next,oldValue,value);
+        }
+    }
     /*public void update(E oldValue, E value)
     {
         Node<E> node = head;
@@ -264,7 +288,8 @@ public class OneWayLinkedList<E>
 
         all = list.getAll();
         System.out.println(Arrays.toString(all));*/
-        list.delete(3);
+        list.delete(6);
+//        list.update(6,0);
         Iterator<Integer> it = list.iterator();
         while (it.hasNext())
             System.out.print(it.next() + " ");
