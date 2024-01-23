@@ -231,6 +231,33 @@ public class OneWayLinkedList<E>
     public int size() {
         return total;
     }
+    public void recReverse(Node<E> cur, Node<E> pre){
+        // Base case: end of the list
+        if (cur == null) {
+            return;
+        }
+
+        // Reverse the rest of the list after the current node
+        recReverse(cur.next, cur);
+
+        // Update the next pointer of the current node to point to its previous node
+        cur.next = pre;
+        pre = cur;
+        cur = cur.next;
+    }
+    public Node<E> reverseList(Node<E> head)
+    {
+        Node<E> pre = null;
+        Node<E> cur = head;
+        while (cur != null)
+        {
+            Node<E> nextNode = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = nextNode;
+        }
+        return pre;
+    }
 
     /**
      * 反转链表
@@ -253,6 +280,7 @@ public class OneWayLinkedList<E>
                 node.next = all[i];
                 node = node.next;
             }
+            node.next = null;
         }
     }
 
@@ -280,10 +308,11 @@ public class OneWayLinkedList<E>
     }
     public static void main(String[] args) {
         OneWayLinkedList<Integer> list = new OneWayLinkedList<>();
-        for (int i = 1; i <= 5; i++) {
-            list.add(i);
-        }
-
+//        for (int i = 1; i <= 5; i++) {
+//            list.add(i);
+//        }
+        list.add(1);
+        list.add(2);
         /*Object[] all = list.getAll();
         System.out.println(Arrays.toString(all));
 
@@ -292,7 +321,11 @@ public class OneWayLinkedList<E>
         all = list.getAll();
         System.out.println(Arrays.toString(all));*/
 //        list.delete(6);
-        list.update(6,0);
+//        list.update(6,0);
+//        list.reverse();
+//        System.out.println(list.head.next.data);
+//        list.recReverse(list.head,null);
+        list.head = list.reverseList(list.head);
         Iterator<Integer> it = list.iterator();
         while (it.hasNext())
             System.out.print(it.next() + " ");
