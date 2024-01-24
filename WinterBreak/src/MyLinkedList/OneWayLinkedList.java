@@ -33,6 +33,7 @@ public class OneWayLinkedList<E>
         }
     }
 
+
     /*public void add(E e)
     {
         Node<E> newNode = new Node<>(e);
@@ -51,6 +52,29 @@ public class OneWayLinkedList<E>
         total++;
     }*/
 
+    /**
+     * 获取第几个元素
+     * @param index
+     * @return
+     */
+    public Node<E> get(int index)
+    {
+        if(index < 0 || index > total - 1)
+        {
+            return null;
+        }
+        Node<E> cur = head;
+        while (index > 0)
+        {
+            cur = cur.next;
+            index--;
+        }
+        return cur;
+    }
+
+    /**
+     * 头部加入节点
+     */
     public void addToHead(E e)
     {
         if(head == null)
@@ -357,6 +381,7 @@ public class OneWayLinkedList<E>
 //        list.recReverse(list.head,null);
 //        list.head = list.reverseList(list.head);
         list.addToHead(0);
+        System.out.println(list.get(0));
         Iterator<Integer> it = list.iterator();
         while (it.hasNext())
             System.out.print(it.next() + " ");
