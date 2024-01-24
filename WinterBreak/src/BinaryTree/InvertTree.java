@@ -13,16 +13,16 @@ package BinaryTree;
  */
 public class InvertTree
 {
-    public TreeNode invertTree(TreeNode root){
+    public <E> TreeNode<E> invertTree(TreeNode<E> root){
         if(root == null) return null;
-        TreeNode temp = root.left;
+        TreeNode<E> temp = root.left;
         root.left = root.right;
         root.right = temp;
         invertTree(root.left);
         invertTree(root.right);
         return root;
     }
-    public int count(TreeNode root)
+    public <E> int count(TreeNode<E> root)
     {
         if(root == null)
             return 0;
