@@ -1,5 +1,9 @@
 package BinaryTree;
 
+import java.util.List;
+import java.util.Stack;
+import java.util.Vector;
+
 /**
  * Purpose:             BinaryTree<br />
  * Data Submitted:      2024/1/23 <br />
@@ -21,8 +25,31 @@ public class TextBook
         root.right = new TreeNode<>(100);
         System.out.println(search(56, root));
         insert(78,root);
-        System.out.println(root.right.data);
+        List<Integer> preorder = preorder(root);
+        System.out.println(preorder);
     }
+    public static List<Integer> preorder(TreeNode<Integer> root){
+        List<Integer> list = new Vector<>();
+        return preorder(root, list);
+    }
+
+    private static List<Integer> preorder(TreeNode<Integer> root, List<Integer> list)
+    {
+        Stack<TreeNode> st = new Stack<>();
+        st.push(root);
+        while (!st.empty())
+        {
+            TreeNode<Integer> temp = st.pop();
+            if(temp != null)
+            {
+                list.add(temp.data);
+            }else continue;
+            if(temp.right != null) st.push(temp.right);
+            if(temp.left != null) st.push(temp.left);
+        }
+        return list;
+    }
+
     public static boolean search(Integer e, TreeNode<Integer> root)
     {
         TreeNode<Integer> cur = root;
