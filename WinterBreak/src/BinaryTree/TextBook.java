@@ -37,6 +37,19 @@ public class TextBook
         }
         return false;
     }
+    public boolean searchRec(Integer e, TreeNode<Integer> root)
+    {
+        if (root == null) {
+            return false;
+        }
+        if(root.data > e)
+        {
+            return searchRec(e, root.left);
+        } else if (root.data < e)
+        {
+            return searchRec(e, root.right);
+        }else return true;
+    }
     public static void insert(Integer e, TreeNode<Integer> root)
     {
         if(e > root.data && root.right != null)
