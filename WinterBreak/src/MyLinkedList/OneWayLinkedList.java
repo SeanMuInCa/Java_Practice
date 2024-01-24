@@ -288,6 +288,7 @@ public class OneWayLinkedList<E>
     }
     public Node<E> reverseList(Node<E> head)
     {
+        if (head == null) return null;
         if (head.next == null) return head;
         Node<E> last = reverseList(head.next);
         head.next.next = head;
