@@ -13,6 +13,7 @@ package BinaryTree;
  */
 public class TextBook
 {
+    //todo 这里有点不清楚，我得捋一下
     public static void main(String[] args)
     {
         TreeNode<Integer> root = new TreeNode<>(60);
