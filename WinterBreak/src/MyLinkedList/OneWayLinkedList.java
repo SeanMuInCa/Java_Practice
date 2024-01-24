@@ -51,6 +51,26 @@ public class OneWayLinkedList<E>
         total++;
     }*/
 
+    public void addToHead(E e)
+    {
+        if(head == null)
+        {
+            head = new Node<>(e);
+        }else
+        {
+            Node<E> newNode = new Node<>(e);
+            /*Node<E> temp = head;
+            head = newNode;
+            head.next = temp;*/
+            newNode.next = head;
+            head = newNode;
+            total++;
+        }
+    }
+    /**
+     * 尾部插入节点
+     * @param e
+     */
     public void add(E e)
     {
         total++;
@@ -243,7 +263,7 @@ public class OneWayLinkedList<E>
         // Update the next pointer of the current node to point to its previous node
         Node<E> nextNode = cur.next;
         cur.next = pre;
-        head = nextNode;
+        cur = nextNode;
     }
     public Node<E> reverseList(Node<E> head)
     {
@@ -335,7 +355,8 @@ public class OneWayLinkedList<E>
 //        list.reverse();
 //        System.out.println(list.head.next.data);
 //        list.recReverse(list.head,null);
-        list.head = list.reverseList(list.head);
+//        list.head = list.reverseList(list.head);
+        list.addToHead(0);
         Iterator<Integer> it = list.iterator();
         while (it.hasNext())
             System.out.print(it.next() + " ");
