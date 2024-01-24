@@ -19,6 +19,8 @@ public class TextBook
         root.left = new TreeNode<>(55);
         root.right = new TreeNode<>(100);
         System.out.println(search(56, root));
+        insert(78,root);
+        System.out.println(root.right.data);
     }
     public static boolean search(Integer e, TreeNode<Integer> root)
     {
@@ -34,6 +36,23 @@ public class TextBook
             }else return true;
         }
         return false;
+    }
+    public static void insert(Integer e, TreeNode<Integer> root)
+    {
+        if(e > root.data && root.right != null)
+        {
+            insert(e,root.right);
+        }else if(e > root.data && root.right == null)
+        {
+            root.right = new TreeNode<>(e);
+        }
+        if(e < root.data && root.left != null)
+        {
+            insert(e,root.left);
+        }else if(e < root.data && root.left == null)
+        {
+            root.left = new TreeNode<>(e);
+        }
     }
 
     static class TreeNode<E> {
