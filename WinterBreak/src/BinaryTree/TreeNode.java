@@ -15,6 +15,7 @@ public class TreeNode<E> {
     E data;
     TreeNode<E> left;
     TreeNode<E> right;
+    TreeNode(){};
     TreeNode(E data) { this.data = data; }
     TreeNode(E data, TreeNode<E> left, TreeNode<E> right) {
         this.data = data;
