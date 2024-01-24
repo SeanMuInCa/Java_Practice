@@ -278,16 +278,13 @@ public class OneWayLinkedList<E>
     public void recReverse(Node<E> cur, Node<E> pre){
         // Base case: end of the list
         if (cur == null) {
+            head = pre;
             return;
         }
 
-        // Reverse the rest of the list after the current node
         recReverse(cur.next, cur);
 
-        // Update the next pointer of the current node to point to its previous node
-        Node<E> nextNode = cur.next;
         cur.next = pre;
-        cur = nextNode;
     }
     public Node<E> reverseList(Node<E> head)
     {
@@ -378,10 +375,10 @@ public class OneWayLinkedList<E>
 //        list.update(6,0);
 //        list.reverse();
 //        System.out.println(list.head.next.data);
-//        list.recReverse(list.head,null);
+        list.recReverse(list.head,null);
 //        list.head = list.reverseList(list.head);
-        list.addToHead(0);
-        System.out.println(list.get(0));
+//        list.addToHead(0);
+//        System.out.println(list.get(0));
         Iterator<Integer> it = list.iterator();
         while (it.hasNext())
             System.out.print(it.next() + " ");
