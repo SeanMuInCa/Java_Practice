@@ -25,8 +25,8 @@ public class TextBook
         root.right = new TreeNode<>(100);
         System.out.println(search(56, root));
         insert(78,root);
-        List<Integer> preorder = preorder(root);
-        System.out.println(preorder);
+        System.out.println(preorder(root));
+        System.out.println(inorder(root));
     }
     public static List<Integer> preorder(TreeNode<Integer> root){
         List<Integer> list = new Vector<>();
@@ -50,6 +50,30 @@ public class TextBook
         return list;
     }
 
+    public static List<Integer> inorder(TreeNode<Integer> root){
+        List<Integer> list = new Vector<>();
+        return inorder(root, list);
+    }
+
+    private static List<Integer> inorder(TreeNode<Integer> root, List<Integer> list)
+    {
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode<Integer> cur = root;
+        while (cur != null || !st.empty())
+        {
+           if(cur != null)
+           {
+               st.push(cur);
+               cur = cur.left;
+           }else
+           {
+               cur = st.pop();
+               list.add(cur.data);
+               cur = cur.right;
+           }
+        }
+        return list;
+    }
     public static boolean search(Integer e, TreeNode<Integer> root)
     {
         TreeNode<Integer> cur = root;
