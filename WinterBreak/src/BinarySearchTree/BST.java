@@ -84,6 +84,57 @@ public class BST<E> implements Tree<E>
     {
         return new TreeNode<>(e);
     }
+    @Override
+    public void inorder()
+    {
+        inorder(root);
+    }
+
+    protected void inorder(TreeNode<E> root)
+    {
+        if(root == null) return;
+        inorder(root.left);
+        System.out.println(root.data + " ");
+        inorder(root.right);
+    }
+    @Override
+    public void postorder()
+    {
+        postorder(root);
+    }
+
+    protected void postorder(TreeNode<E> root)
+    {
+        if(root == null) return;
+        inorder(root.left);
+        inorder(root.right);
+        System.out.println(root.data + " ");
+    }
+
+    @Override
+    public void preorder()
+    {
+        preorder(root);
+    }
+
+    protected void preorder(TreeNode<E> root)
+    {
+        if(root == null) return;
+        System.out.println(root.data + " ");
+        inorder(root.left);
+        inorder(root.right);
+    }
+
+    @Override
+    public int getSize()
+    {
+        return size;
+    }
+
+    public TreeNode<E> getRoot()
+    {
+        return root;
+    }
     public static class TreeNode<E>
     {
         protected E data;
