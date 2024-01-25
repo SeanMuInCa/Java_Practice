@@ -94,7 +94,7 @@ public class BST<E> implements Tree<E>
     {
         if(root == null) return;
         inorder(root.left);
-        System.out.println(root.data + " ");
+        System.out.print(root.data + " ");
         inorder(root.right);
     }
     @Override
@@ -108,7 +108,7 @@ public class BST<E> implements Tree<E>
         if(root == null) return;
         inorder(root.left);
         inorder(root.right);
-        System.out.println(root.data + " ");
+        System.out.print(root.data + " ");
     }
 
     @Override
@@ -120,7 +120,7 @@ public class BST<E> implements Tree<E>
     protected void preorder(TreeNode<E> root)
     {
         if(root == null) return;
-        System.out.println(root.data + " ");
+        System.out.print(root.data + " ");
         inorder(root.left);
         inorder(root.right);
     }
