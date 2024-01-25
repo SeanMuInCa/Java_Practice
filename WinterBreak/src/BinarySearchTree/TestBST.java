@@ -42,5 +42,10 @@ public class TestBST
         {
             System.out.print(path.get(i).data + " ");
         }
+        System.out.println();
+        Integer[] numbers = {2,4,1,5,7,9,6};
+        BST<Integer> integerBST = new BST<>(numbers);
+        System.out.print("Inorder: ");
+        integerBST.inorder();
     }
 }
