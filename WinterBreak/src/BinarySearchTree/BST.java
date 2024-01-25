@@ -33,6 +33,7 @@ public class BST<E> implements Tree<E>
             add(objects[i]);
         }
     }
+    @Override
     public boolean search(E e)
     {
         TreeNode<E> cur = root;
@@ -49,6 +50,40 @@ public class BST<E> implements Tree<E>
         return false;
     }
 
+    @Override
+    public boolean insert(E e)
+    {
+        if(root == null)
+        {
+            root = createNewNode(e);
+        }else
+        {
+            TreeNode<E> parent = null;
+            TreeNode<E> cur = root;
+            while (cur != null)
+            {
+                if(c.compare(e, cur.data) < 0)
+                {
+                    parent = cur;
+                    cur = cur.left;
+                } else if (c.compare(e, cur.data) > 0)
+                {
+                    parent = cur;
+                    cur = cur.right;
+                }else return false;
+            }
+            if(c.compare(e, parent.data) < 0)
+                parent.left = createNewNode(e);
+            else
+                parent.right = createNewNode(e);
+        }
+        size++;
+        return true;
+    }
+    protected TreeNode<E> createNewNode(E e)
+    {
+        return new TreeNode<>(e);
+    }
     public static class TreeNode<E>
     {
         protected E data;
