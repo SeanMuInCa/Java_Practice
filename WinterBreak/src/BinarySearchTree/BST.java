@@ -1,7 +1,5 @@
 package BinarySearchTree;
 
-import BinaryTree.TreeNode;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -212,6 +210,12 @@ public class BST<E> implements Tree<E>
     {
         return new InorderIterator();
     }
+    @Override
+    public void clear()
+    {
+        root = null;
+        size = 0;
+    }
     private class InorderIterator implements Iterator<E>
     {
         private ArrayList<E> list = new ArrayList<>();
@@ -234,11 +238,21 @@ public class BST<E> implements Tree<E>
             return current < list.size();
         }
         @Override
+        public E next()
+        {
+            return list.get(current++);
+        }
+        @Override
         public void remove()
         {
+            if(current == 0) throw new IllegalStateException();
 
+            delete(list.get(--current));
+            list.clear();
+            inorder();
         }
     }
+
     public static class TreeNode<E>
     {
         protected E data;
