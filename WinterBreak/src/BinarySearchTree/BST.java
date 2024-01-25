@@ -204,6 +204,33 @@ public class BST<E> implements Tree<E>
         size--;
         return true;
     }
+    public TreeNode<E> deleteNode(TreeNode<E> root, E key)
+    {
+        if(root == null) return root;
+        if(root.data.equals(key))
+        {
+            if(root.left == null)
+            {
+                return root.right;
+            } else if (root.right == null)
+            {
+                return root.left;
+            }else
+            {
+                TreeNode<E> temp = root.right;
+                while (temp.left != null)
+                {
+                    temp = temp.left;
+                }
+                temp.left = root.left;
+                root = root.right;
+                return root;
+            }
+        }
+//        if()
+        //todo compare
+        return root;
+    }
 
     @Override
     public Iterator<E> iterator()
