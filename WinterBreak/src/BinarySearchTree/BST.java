@@ -106,8 +106,8 @@ public class BST<E> implements Tree<E>
     protected void postorder(TreeNode<E> root)
     {
         if(root == null) return;
-        inorder(root.left);
-        inorder(root.right);
+        postorder(root.left);
+        postorder(root.right);
         System.out.print(root.data + " ");
     }
 
@@ -121,8 +121,8 @@ public class BST<E> implements Tree<E>
     {
         if(root == null) return;
         System.out.print(root.data + " ");
-        inorder(root.left);
-        inorder(root.right);
+        preorder(root.left);
+        preorder(root.right);
     }
 
     @Override

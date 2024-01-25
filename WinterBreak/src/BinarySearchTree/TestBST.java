@@ -28,11 +28,11 @@ public class TestBST
         System.out.print("Inorder: ");
         tree.inorder();
         System.out.println();
-        System.out.print("Preorder: ");
-        tree.preorder();
-        System.out.println();
         System.out.print("Postorder: ");
         tree.postorder();
+        System.out.println();
+        System.out.print("Preorder: ");
+        tree.preorder();
         System.out.println();
 
         System.out.println(tree.getSize());
