@@ -46,5 +46,39 @@ public interface Tree<E> extends Collection<E>
     {
         return getSize();
     }
-
+    public default boolean containsAll(Collection<?> c)
+    {
+        //todo
+        return false;
+    }
+    @Override
+    public default boolean addAll(Collection<? extends E> c)
+    {
+        //todo
+        return false;
+    }
+    @Override
+    public default boolean removeAll(Collection<?> c)
+    {
+        //todo
+        return false;
+    }
+    @Override
+    public default boolean retainAll(Collection<?> c)
+    {
+        //todo
+        return false;
+    }
+    @Override
+    public default Object[] toArray()
+    {
+        //todo
+        return null;
+    }
+    @Override
+    public default <T> T[] toArray(T[] array)
+    {
+        //todo
+        return null;
+    }
 }
