@@ -227,8 +227,8 @@ public class BST<E> implements Tree<E>
                 return root;
             }
         }
-//        if()
-        //todo compare
+        if(c.compare(root.data, key) > 0) root.left = deleteNode(root.left, key);
+        if(c.compare(root.data, key) < 0) root.right = deleteNode(root.right, key);
         return root;
     }
 
