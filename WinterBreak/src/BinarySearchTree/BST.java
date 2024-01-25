@@ -4,6 +4,7 @@ import BinaryTree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 
 /**
  * Purpose:             BinarySearchTree<br />
@@ -204,6 +205,39 @@ public class BST<E> implements Tree<E>
         }
         size--;
         return true;
+    }
+
+    @Override
+    public Iterator<E> iterator()
+    {
+        return new InorderIterator();
+    }
+    private class InorderIterator implements Iterator<E>
+    {
+        private ArrayList<E> list = new ArrayList<>();
+        private int current = 0;
+        public InorderIterator(){
+            inorder();
+        }
+        private void inorder(){
+            inorder(root);
+        }
+        private void inorder(TreeNode<E> root){
+            if (root == null) return;
+            inorder(root.left);
+            list.add(root.data);
+            inorder(root.right);
+        }
+        @Override
+        public boolean hasNext()
+        {
+            return current < list.size();
+        }
+        @Override
+        public void remove()
+        {
+
+        }
     }
     public static class TreeNode<E>
     {
