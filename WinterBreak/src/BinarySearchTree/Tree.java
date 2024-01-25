@@ -1,6 +1,7 @@
 package BinarySearchTree;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * Purpose:             BinarySearchTree<br />
@@ -54,14 +55,22 @@ public interface Tree<E> extends Collection<E>
     @Override
     public default boolean addAll(Collection<? extends E> c)
     {
-        //todo
-        return false;
+        boolean flag = true;
+        for (int i = 0; i < c.size(); i++)
+        {
+            if(add((E) c.toArray()[i])) flag = false;
+        }
+        return flag;
     }
     @Override
     public default boolean removeAll(Collection<?> c)
     {
-        //todo
-        return false;
+        boolean flag = true;
+        for (int i = 0; i < c.size(); i++)
+        {
+            if(remove((E) c.toArray()[i])) flag = false;
+        }
+        return flag;
     }
     @Override
     public default boolean retainAll(Collection<?> c)
@@ -72,8 +81,14 @@ public interface Tree<E> extends Collection<E>
     @Override
     public default Object[] toArray()
     {
-        //todo
-        return null;
+        int index = 0;
+        Object[] arr = new Object[size()];
+        Iterator<E> iterator = this.iterator();
+        while (iterator.hasNext() && index < size())
+        {
+            arr[index++] = iterator.next();
+        }
+        return arr;
     }
     @Override
     public default <T> T[] toArray(T[] array)
