@@ -73,6 +73,7 @@ public class BST<E> implements Tree<E>
     }
     public boolean isBalance(TreeNode<E> root)
     {
+        //only for fun, if it's a full tree, then different way to do this
         if(root == null) return true;
         int lefts = getDepth(root.left);
         int rights = getDepth(root.right);
