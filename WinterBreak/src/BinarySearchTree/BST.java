@@ -209,6 +209,7 @@ public class BST<E> implements Tree<E>
         if(root == null) return root;
         if(root.data.equals(key))
         {
+            size--;
             if(root.left == null)
             {
                 return root.right;
@@ -229,6 +230,7 @@ public class BST<E> implements Tree<E>
         }
         if(c.compare(root.data, key) > 0) root.left = deleteNode(root.left, key);
         if(c.compare(root.data, key) < 0) root.right = deleteNode(root.right, key);
+
         return root;
     }
 

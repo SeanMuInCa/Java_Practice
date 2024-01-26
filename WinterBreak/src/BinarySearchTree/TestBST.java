@@ -1,5 +1,7 @@
 package BinarySearchTree;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 
 /**
@@ -17,7 +19,8 @@ public class TestBST
 {
     public static void main(String[] args)
     {
-        BST<String> tree = new BST<>();tree.insert("George");
+        BST<String> tree = new BST<>();
+        tree.insert("George");
         tree.insert("Michael");
         tree.insert("Tom");
         tree.insert("Adam");
@@ -43,9 +46,46 @@ public class TestBST
             System.out.print(path.get(i).data + " ");
         }
         System.out.println();
-        Integer[] numbers = {2,4,1,5,7,9,6};
+        Integer[] numbers = {2, 4, 1, 5, 7, 9, 6};
         BST<Integer> integerBST = new BST<>(numbers);
         System.out.print("Inorder: ");
         integerBST.inorder();
+    }
+
+    @Test
+    public void test1()
+    {
+        BST<String> tree = new BST<>();
+        tree.insert("George");
+        tree.insert("Michael");
+        tree.insert("Tom");
+        tree.insert("Adam");
+        tree.insert("Jones");
+        tree.insert("Peter");
+        tree.insert("Daniel");
+        printTree(tree);
+
+        System.out.println("\nAfter delete George:");
+        tree.root = tree.deleteNode(tree.root, "George");
+        printTree(tree);
+        System.out.println("\nAfter delete Adam:");
+        tree.delete("Adam");
+        printTree(tree);
+        System.out.println("\nAfter delete Michael:");
+        tree.delete("Michael");
+        printTree(tree);
+    }
+
+    public static void printTree(BST tree)
+    {
+        // Traverse tree
+        System.out.print("Inorder (sorted): ");
+        tree.inorder();
+        System.out.print("\nPostorder: ");
+        tree.postorder();
+        System.out.print("\nPreorder: ");
+        tree.preorder();
+        System.out.print("\nThe number of nodes is " + tree.getSize());
+        System.out.println();
     }
 }
