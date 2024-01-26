@@ -66,9 +66,9 @@ public class BST<E> implements Tree<E>
         int leftMinDepth = getMinDepth(root.left);
         int rightMinDepth = getMinDepth(root.right);
         if(root.left == null && root.right != null)
-            return getMinDepth(root.right) + 1;
+            return rightMinDepth + 1;
         else if(root.right == null && root.left != null)
-            return getMinDepth(root.left) + 1;
+            return leftMinDepth + 1;
         else return Math.min(leftMinDepth,rightMinDepth) + 1;
     }
     @Override
