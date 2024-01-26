@@ -50,6 +50,16 @@ public class BST<E> implements Tree<E>
         return false;
     }
 
+    public int getDepth(TreeNode<E> root)
+    {
+        if(root == null) return 0;
+        //后序遍历
+        /*int leftDepth = getDepth(root.left);
+        int rightDepth = getDepth(root.right);
+        int depth = 1 + Math.max(leftDepth, rightDepth);
+        return depth;*/
+        return Math.max(getDepth(root.left), getDepth(root.right)) + 1;
+    }
     @Override
     public boolean insert(E e)
     {

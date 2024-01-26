@@ -66,7 +66,7 @@ public class TestBST
         tree.insert("Daniel");
         printTree(tree);
 
-        System.out.println("\nAfter delete George:");
+        /*System.out.println("\nAfter delete George:");
         tree.root = tree.deleteNode(tree.root, "George");
         printTree(tree);
         System.out.println("\nAfter delete Adam:");
@@ -74,10 +74,11 @@ public class TestBST
         printTree(tree);
         System.out.println("\nAfter delete Michael:");
         tree.delete("Michael");
-        printTree(tree);
+        printTree(tree);*/
+        System.out.println(tree.getDepth(tree.root));
     }
 
-    public static void printTree(BST tree)
+    public static void printTree(BST<String> tree)
     {
         // Traverse tree
         System.out.print("Inorder (sorted): ");
