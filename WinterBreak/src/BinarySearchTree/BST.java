@@ -146,6 +146,13 @@ public class BST<E> implements Tree<E>
         preorder(root.right);
     }
 
+    public int getNodes(TreeNode<E> root)
+    {
+        if(root == null) return 0;
+        int leftNodes = getNodes(root.left);
+        int rightNodes = getNodes(root.right);
+        return 1 + leftNodes + rightNodes;
+    }
     @Override
     public int getSize()
     {
