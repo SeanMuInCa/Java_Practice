@@ -76,6 +76,7 @@ public class TestBST
         tree.delete("Michael");
         printTree(tree);*/
         System.out.println(tree.getDepth(tree.root));
+        System.out.println(tree.getMinDepth(tree.root));
     }
 
     public static void printTree(BST<String> tree)

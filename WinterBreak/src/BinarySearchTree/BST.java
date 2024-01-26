@@ -60,6 +60,17 @@ public class BST<E> implements Tree<E>
         return depth;*/
         return Math.max(getDepth(root.left), getDepth(root.right)) + 1;
     }
+    public int getMinDepth(TreeNode<E> root)
+    {
+        if(root == null) return 0;
+        int leftMinDepth = getMinDepth(root.left);
+        int rightMinDepth = getMinDepth(root.right);
+        if(root.left == null && root.right != null)
+            return getMinDepth(root.right) + 1;
+        else if(root.right == null && root.left != null)
+            return getMinDepth(root.left) + 1;
+        else return Math.min(leftMinDepth,rightMinDepth) + 1;
+    }
     @Override
     public boolean insert(E e)
     {
