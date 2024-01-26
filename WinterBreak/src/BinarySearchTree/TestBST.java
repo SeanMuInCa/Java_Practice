@@ -11,7 +11,8 @@ import java.util.ArrayList;
  * Course Name:         COSC602  <br />
  * Instructor:          George Ding  <br />
  * File Path:          BinarySearchTree <br />
- *
+ * Postorder: Jones Peter Tom Michael Daniel Adam
+ * Preorder: Adam Daniel Michael Jones Tom Peter
  * @author Zhenghua Mu
  * @version 1.0.0
  */
