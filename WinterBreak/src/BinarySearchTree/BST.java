@@ -71,6 +71,13 @@ public class BST<E> implements Tree<E>
             return leftMinDepth + 1;
         else return Math.min(leftMinDepth,rightMinDepth) + 1;
     }
+    public boolean isBalance(TreeNode<E> root)
+    {
+        if(root == null) return true;
+        int lefts = getDepth(root.left);
+        int rights = getDepth(root.right);
+        return Math.abs(lefts - rights) <= 1;
+    }
     @Override
     public boolean insert(E e)
     {

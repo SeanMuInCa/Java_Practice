@@ -78,6 +78,7 @@ public class TestBST
         System.out.println(tree.getDepth(tree.root));
         System.out.println(tree.getMinDepth(tree.root));
         System.out.println(tree.getNodes(tree.root));
+        System.out.println(tree.isBalance(tree.root));
     }
 
     public static void printTree(BST<String> tree)
