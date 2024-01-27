@@ -35,7 +35,10 @@ public class A
             bw = new BufferedWriter(new FileWriter(new File(s)));
             for (Person p : list)
             {
-                bw.write(p.toString());//I modified the toString() to add the comma, i hope that is ok
+                String lName = p.getName().split(",")[0];
+                String fName = p.getName().split(",")[1];
+                String str = (fName +"," + lName + "," + p.getAge() + "," + p.getSin());
+                bw.write(str);
                 bw.newLine();
             }
         }catch (IOException e)

@@ -116,6 +116,11 @@ public class Person
     @Override
     public String toString()
     {
-        return firstName + "," + lastName + "," + age + "," + sin;
+        return "Person{" +
+                "age=" + age +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", sin=" + sin +
+                '}';
     }
 }
