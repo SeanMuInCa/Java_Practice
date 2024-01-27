@@ -46,6 +46,16 @@ public class Person {
     }
 
     public void setAge(int age) {
+        if(age < 0 || age > 100)
+        {
+            try
+            {
+                throw new IllegalArgumentException("The age is not in reasonable range!");
+            }catch (IllegalArgumentException e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }
         this.age = age;
     }
 
@@ -66,6 +76,16 @@ public class Person {
     }
 
     public void setProvince(String province) {
+        try
+        {
+            if(province.length() != 2)
+            {
+                throw new IllegalArgumentException("Invalid input");
+            } else if ()
+            {
+                
+            }
+        }
         this.province = province;
     }
 }
