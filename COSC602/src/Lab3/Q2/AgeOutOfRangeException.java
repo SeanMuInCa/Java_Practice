@@ -1,4 +1,4 @@
-package Lab3;
+package Lab3.Q2;
 
 /**
  * Purpose:             Lab3<br />
@@ -11,14 +11,15 @@ package Lab3;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class TestPerson2
+public class AgeOutOfRangeException extends Exception
 {
-    public static void main(String[] args) {
+    public AgeOutOfRangeException()
+    {
+        super("The age is out of reasonable range!");
+    }
 
-        //create a couple Person objects
-        Person p = new Person("Joe","Smith");
-
-
-
+    public AgeOutOfRangeException(String message)
+    {
+        super(message);
     }
 }

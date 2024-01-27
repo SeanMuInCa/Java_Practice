@@ -1,4 +1,4 @@
-package Lab3;
+package Lab3.Q1;
 
 public class TestPerson {
 

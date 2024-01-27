@@ -1,4 +1,4 @@
-package Lab3;
+package Lab3.Q2;
 
 /**
  * Purpose:             Lab3<br />
@@ -11,14 +11,14 @@ package Lab3;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class DataNotFoundException extends Exception
+public class DataLengthNotFormatException extends Exception
 {
-    public DataNotFoundException()
+    public DataLengthNotFormatException()
     {
-        super("Data not found!");
+        super("The data you input does not match!");
     }
 
-    public DataNotFoundException(String message)
+    public DataLengthNotFormatException(String message)
     {
         super(message);
     }
