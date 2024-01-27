@@ -195,6 +195,21 @@ public class OneWayLinkedList<E>
             }
         }
     }
+    public E replaceAt(int index, E data)
+    {
+        Node<E> replaced = recReplace(index,head,data);
+        return replaced.data;
+    }
+
+    private Node<E> recReplace(int index, Node<E> cur, E data)
+    {
+        if (index == 0)
+        {
+            cur.data = data;
+        }
+        else recReplace(index - 1, cur.next, data);
+        return cur;
+    }
     /*public void update(E oldValue, E value)
     {
         Node<E> node = head;
@@ -364,7 +379,10 @@ public class OneWayLinkedList<E>
         for (int i = 1; i <= 5; i++) {
             list.add(i);
         }
-
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext())
+            System.out.print(it.next() + " ");
+        System.out.println();
         /*Object[] all = list.getAll();
         System.out.println(Arrays.toString(all));
 
@@ -376,11 +394,12 @@ public class OneWayLinkedList<E>
 //        list.update(6,0);
 //        list.reverse();
 //        System.out.println(list.head.next.data);
-        list.recReverse(list.head,null);
+//        list.recReverse(list.head,null);
 //        list.head = list.reverseList(list.head);
 //        list.addToHead(0);
 //        System.out.println(list.get(0));
-        Iterator<Integer> it = list.iterator();
+        list.replaceAt(4,10);
+        it = list.iterator();
         while (it.hasNext())
             System.out.print(it.next() + " ");
         System.out.println();
