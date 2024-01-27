@@ -1,5 +1,8 @@
 package Lab3;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Person {
 
     private int age;
@@ -26,7 +29,7 @@ public class Person {
     //    YT - Yukon
 
     // {"AB","BC","MB","NB","NL","NS","ON","PE","QC","SK","NT","NU","YT"}
-
+    public static final String[] provinces = {"AB","BC","MB","NB","NL","NS","ON","PE","QC","SK","NT","NU","YT"};
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -76,15 +79,19 @@ public class Person {
     }
 
     public void setProvince(String province) {
+        List<String> list = Arrays.asList(provinces);
         try
         {
             if(province.length() != 2)
             {
                 throw new IllegalArgumentException("Invalid input");
-            } else if ()
+            } else if (!list.contains(province.toUpperCase()))
             {
-                
+                throw new IllegalArgumentException("Not an exist province");
             }
+        }catch (IllegalArgumentException e)
+        {
+            System.out.println(e.getMessage());
         }
         this.province = province;
     }
