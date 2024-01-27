@@ -80,6 +80,11 @@ public class TestBST
         System.out.println(tree.getNodes(tree.root));
         System.out.println(tree.isBalance(tree.root));
         System.out.println(tree.getRoot().data);
+        ArrayList<BST.TreeNode<String>> michael = tree.path("Peter");
+        for (BST.TreeNode<String> n : michael)
+        {
+            System.out.println(n.data);
+        }
     }
 
     public static void printTree(BST<String> tree)
