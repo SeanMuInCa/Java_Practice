@@ -1,5 +1,7 @@
 package BinarySearchTree;
 
+import java.util.Scanner;
+
 /**
  * Purpose:             BinarySearchTree<br />
  * Data Submitted:      2024/1/27 <br />
@@ -15,7 +17,10 @@ public class HuffmanCode
 {
     public static void main(String[] args)
     {
-        String str = "welcome";
+//        String str = "Welcome";
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter text: ");
+        String str = input.nextLine();
         int[] counts = getCharacterFrequency(str);
 
         System.out.printf("%-15s%-15s%-15s%-15s\n", "ASCII Code", "Character", "Frequency", "Code");
