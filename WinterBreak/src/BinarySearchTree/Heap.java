@@ -31,6 +31,23 @@ public class Heap<E>
     }
     public void add(E newObject)
     {
+        list.add(newObject);
+        int curIndex = list.size() - 1;
+
+        while (curIndex > 0)
+        {
+            int parentIndex = (curIndex - 1) / 2;
+            if(c.compare(list.get(curIndex), list.get(parentIndex)) > 0)
+            {
+                E temp = list.get(parentIndex);
+                list.set(curIndex, list.get(parentIndex));
+                list.set(parentIndex,temp);
+            }else break;
+
+            curIndex = parentIndex;
+        }
+    }
+    public E remove(){
 
     }
 }
