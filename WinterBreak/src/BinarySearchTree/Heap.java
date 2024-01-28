@@ -43,7 +43,7 @@ public class Heap<E>
             int parentIndex = (curIndex - 1) / 2;
             if (c.compare(list.get(curIndex), list.get(parentIndex)) > 0)
             {
-                E temp = list.get(parentIndex);
+                E temp = list.get(curIndex);
                 list.set(curIndex, list.get(parentIndex));
                 list.set(parentIndex, temp);
             } else break;
