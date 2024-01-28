@@ -1,7 +1,5 @@
 package BinarySearchTree;
 
-import org.w3c.dom.Node;
-
 /**
  * Purpose:             BinarySearchTree<br />
  * Data Submitted:      2024/1/27 <br />
@@ -107,6 +105,7 @@ public class HuffmanCode
             int weight;
             Node left;
             Node right;
+            String code = "";
             public Node(){}
             public Node(int weight, char element){
                 this.weight = weight;
