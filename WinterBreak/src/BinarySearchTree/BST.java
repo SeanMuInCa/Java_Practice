@@ -3,6 +3,7 @@ package BinarySearchTree;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Purpose:             BinarySearchTree<br />
@@ -79,6 +80,21 @@ public class BST<E> implements Tree<E>
         int rights = getDepth(root.right);
         return Math.abs(lefts - rights) <= 1;
     }
+    public List<String> binaryTreePaths(TreeNode root)
+    {
+        List<String> res = new ArrayList<>();
+        if(root == null) return res;
+        List<String> paths = new ArrayList<>();
+        travelsal(root, paths, res);
+        return res;
+    }
+
+    private void travelsal(TreeNode root, List<String> paths, List<String> res)
+    {
+        paths.add((String) root.data);
+        if()
+    }
+
     @Override
     public boolean insert(E e)
     {
