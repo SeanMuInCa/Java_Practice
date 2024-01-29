@@ -80,7 +80,7 @@ public class BST<E> implements Tree<E>
         int rights = getDepth(root.right);
         return Math.abs(lefts - rights) <= 1;
     }
-    public List<String> binaryTreePaths(TreeNode root)
+    public List<String> binaryTreePaths(TreeNode<E> root)
     {
         List<String> res = new ArrayList<>();
         if(root == null) return res;
@@ -89,12 +89,12 @@ public class BST<E> implements Tree<E>
         return res;
     }
 
-    private void traversal(TreeNode root, List<String> paths, List<String> res)
+    private void traversal(TreeNode<E> root, List<String> paths, List<String> res)
     {
         paths.add((String) root.data);
         if(root.left == null && root.right == null)
         {
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < paths.size() - 1; i++)
             {
                 sb.append(paths.get(i)).append("->");
