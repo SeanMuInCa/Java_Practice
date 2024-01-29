@@ -85,14 +85,34 @@ public class BST<E> implements Tree<E>
         List<String> res = new ArrayList<>();
         if(root == null) return res;
         List<String> paths = new ArrayList<>();
-        travelsal(root, paths, res);
+        traversal(root, paths, res);
         return res;
     }
 
-    private void travelsal(TreeNode root, List<String> paths, List<String> res)
+    private void traversal(TreeNode root, List<String> paths, List<String> res)
     {
         paths.add((String) root.data);
-        if()
+        if(root.left == null && root.right == null)
+        {
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < paths.size() - 1; i++)
+            {
+                sb.append(paths.get(i)).append("->");
+            }
+            sb.append(paths.get(paths.size() - 1));
+            res.add(sb.toString());
+            return;
+        }
+        if(root.left != null)
+        {
+            traversal(root.left,paths,res);
+            paths.remove(paths.size() - 1);
+        }
+        if(root.right != null)
+        {
+            traversal(root.right,paths,res);
+            paths.remove(paths.size() - 1);
+        }
     }
 
     @Override

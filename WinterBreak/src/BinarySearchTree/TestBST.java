@@ -85,6 +85,7 @@ public class TestBST
         {
             System.out.println(n.data);
         }
+
     }
 
     public static void printTree(BST<String> tree)
