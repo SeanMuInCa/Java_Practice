@@ -85,7 +85,7 @@ public class TestBST
         {
             System.out.println(n.data);
         }
-
+        System.out.println(tree.binaryTreePaths(tree.root));
     }
 
     public static void printTree(BST<String> tree)
