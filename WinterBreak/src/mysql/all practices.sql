@@ -1204,7 +1204,6 @@ BEGIN
 SELECT MAX(salary) from employees;
 END
 
-
 call show_max_salary()
 
 #类型2：带 OUT
@@ -1215,7 +1214,7 @@ desc employees
 CREATE PROCEDURE show_min_salary(OUT ms DOUBLE)
 BEGIN
 	SELECT MIN(salary) INTO ms
-	FROM employees;
+	FROM employees; 
 END
 
 call show_min_salary(@ms)#定义变量
