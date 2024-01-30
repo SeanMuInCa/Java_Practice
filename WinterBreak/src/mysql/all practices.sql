@@ -1437,3 +1437,12 @@ SET @a = 3,@b = 5;
 CALL dvalue(@a,@b);
 
 SELECT @a,@b;
+
+#7. 删除题目5的存储过程
+
+DROP PROCEDURE IF EXISTS beauty_limit;
+
+#8. 查看题目6中存储过程的信息
+
+SHOW CREATE PROCEDURE dvalue;
+
