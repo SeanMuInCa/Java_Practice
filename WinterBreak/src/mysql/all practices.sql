@@ -1456,3 +1456,15 @@ BEGIN
 END
 
 SELECT get_count();
+
+#有参有返回
+#2. 创建函数ename_salary(),根据员工姓名，返回它的工资
+
+CREATE FUNCTION ename_salary_name(e_name VARCHAR(20))
+RETURNS DOUBLE
+BEGIN
+	RETURN (SELECT salary from employees WHERE last_name = e_name);
+END
+
+SELECT ename_salary_name('Abel');
+
