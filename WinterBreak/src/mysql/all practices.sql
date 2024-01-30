@@ -1407,3 +1407,20 @@ CALL date_diff('2002,11,8','2001,10,9',@d);
 SELECT @d;
 
 #4. 创建存储过程format_date(),实现传入一个日期，格式化成xx年xx月xx日并返回
+
+CREATE PROCEDURE format_date(IN d DATE, OUT fd VARCHAR(20))
+BEGIN
+	SELECT DATE_FORMAT(d,'%y年%m月%d日') INTO fd;
+END
+
+CALL format_date(NOW(),@d);
+SELECT @d;
+
+#5. 创建存储过程beauty_limit()，根据传入的起始索引和条目数，查询女神表的记录
+
+CREATE PROCEDURE beauty_limit(IN s INT, IN num INT)
+BEGIN
+	SELECT * FROM beauty LIMIT s, num;
+END
+
+CALL beauty_limit(1,3);
