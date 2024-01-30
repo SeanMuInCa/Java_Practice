@@ -1366,4 +1366,32 @@ END
 
 CALL insert_user("abc","123")
 
+#2. 创建存储过程get_phone(),实现传入女神编号，返回女神姓名和女神电话
+CREATE TABLE beauty(
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(15) NOT NULL,
+phone VARCHAR(15) UNIQUE,
+birth DATE
+);
 
+INSERT INTO beauty(NAME,phone,birth)
+VALUES
+('朱茵','13201233453','1982-02-12'),
+('孙燕姿','13501233653','1980-12-09'),
+('田馥甄','13651238755','1983-08-21'),
+('邓紫棋','17843283452','1991-11-12'),
+('刘若英','18635575464','1989-05-18'),
+('杨超越','13761238755','1994-05-11');
+
+
+SELECT * FROM beauty;
+
+CREATE PROCEDURE get_phone(IN b_id INT, OUT b_name VARCHAR(15), OUT b_phone VARCHAR(15))
+BEGIN
+	SELECT `name`, phone INTO b_name, b_phone
+	FROM beauty
+	WHERE id = b_id;
+END
+
+CALL get_phone(1,@n,@p);
+SELECT @n,@p;
