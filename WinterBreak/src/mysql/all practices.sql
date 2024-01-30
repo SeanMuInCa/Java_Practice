@@ -1478,6 +1478,11 @@ BEGIN
 																				SELECT department_id from departments
 																				WHERE department_name = d_name
 																				));
+# RETURN( SELECT avg(salary) 
+					#from employees e join departments d
+					#on e.department_id = d.department_id
+					#WHERE d.department_name = d_name
+															#);
 END
 
 SELECT dept_sal('Marketing')
