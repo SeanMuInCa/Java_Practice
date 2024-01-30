@@ -1468,3 +1468,19 @@ END
 
 SELECT ename_salary_name('Abel');
 
+#3. 创建函数dept_sal() ,根据部门名，返回该部门的平均工资
+CREATE FUNCTION dept_sal(d_name VARCHAR(20))
+RETURNS DOUBLE
+BEGIN
+	RETURN (SELECT avg(salary) from employees
+									GROUP BY employees.department_id
+									HAVING department_id = (
+																				SELECT department_id from departments
+																				WHERE department_name = d_name
+																				));
+END
+
+SELECT dept_sal('Marketing')
+
+#4. 创建函数add_float()，实现传入两个float，返回二者之和
+
