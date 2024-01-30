@@ -89,6 +89,7 @@ public class BST<E> implements Tree<E>
         int mid = 0;
         if(root.left != null && root.left.left == null && root.left.right == null)
             mid = (int)root.left.data;
+        System.out.println(mid +" "+lefts +" "+ rights);
         return mid + lefts + rights;
     }
     public List<String> binaryTreePaths(TreeNode<E> root)

@@ -16,13 +16,17 @@ public class TestBSTInt
     public static void main(String[] args)
     {
         BST<Integer> tree = new BST<>();
-        tree.insert(55);
+        tree.insert(30);
         tree.insert(67);
         tree.insert(78);
         tree.insert(35);
         tree.insert(46);
         tree.insert(33);
         tree.insert(23);
+        tree.insert(13);
+        tree.insert(11);
+        tree.insert(12);
+        tree.insert(14);
         printTree(tree);
         System.out.println(tree.binaryTreePaths(tree.root));
         System.out.println(tree.sumOfLeftLeaves(tree.root));
