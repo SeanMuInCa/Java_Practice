@@ -1424,3 +1424,16 @@ BEGIN
 END
 
 CALL beauty_limit(1,3);
+
+#创建带inout模式参数的存储过程
+#6. 传入a和b两个值，最终a和b都翻倍并返回
+CREATE PROCEDURE dvalue(INOUT a INT, INOUT b INT)
+BEGIN
+	SET a = a * 2;
+	SET b = b * 2;
+END
+
+SET @a = 3,@b = 5;
+CALL dvalue(@a,@b);
+
+SELECT @a,@b;
