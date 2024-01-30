@@ -52,8 +52,8 @@ public class Bagpack
         {
             for (int i = 0; i < index; i++)
             {
-                if(selects[i] == true){
-                    System.out.println(weights[i] + " ");
+                if(selects[i]){
+                    System.out.print(weights[i] + " ");
                 }
             }
             System.out.println();
