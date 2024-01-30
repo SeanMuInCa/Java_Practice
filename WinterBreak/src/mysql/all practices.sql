@@ -1484,3 +1484,11 @@ SELECT dept_sal('Marketing')
 
 #4. 创建函数add_float()，实现传入两个float，返回二者之和
 
+CREATE FUNCTION add_float(a FLOAT, b FLOAT)
+RETURNS FLOAT
+BEGIN
+	RETURN(SELECT a + b);
+END
+
+set @a = 1, @b = 3;
+SELECT add_float(2,5);
