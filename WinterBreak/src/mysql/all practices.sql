@@ -1333,3 +1333,19 @@ END
 #调用
 SET @dept_id = 50
 SELECT count_by_id(@dept_id)
+
+#3. 存储过程、存储函数的查看
+
+#方式1. 使用SHOW CREATE语句查看存储过程和函数的创建信息
+
+SHOW CREATE PROCEDURE show_mgr_name;
+
+SHOW CREATE FUNCTION count_by_id;
+
+#方式2. 使用SHOW STATUS语句查看存储过程和函数的状态信息
+
+SHOW PROCEDURE STATUS;
+
+SHOW PROCEDURE STATUS LIKE 'show_max_salary';
+
+SHOW FUNCTION STATUS LIKE 'email_by_id';
