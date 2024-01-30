@@ -1446,3 +1446,13 @@ DROP PROCEDURE IF EXISTS beauty_limit;
 
 SHOW CREATE PROCEDURE dvalue;
 
+#无参有返回
+#1. 创建函数get_count(),返回公司的员工个数
+
+CREATE FUNCTION get_count()
+RETURNS INT
+BEGIN
+	RETURN (SELECT count(1) FROM employees);
+END
+
+SELECT get_count();
