@@ -1252,7 +1252,7 @@ END
 #调用
 SET @empname = 'Abel';
 CALL show_someone_salary4(@empname,@empsalary);
-
+ 
 SELECT @empsalary;
 
 #类型5：带 INOUT
@@ -1300,7 +1300,7 @@ SELECT email_by_name()
 
 #举例2：创建存储函数，名称为email_by_id()，参数传入emp_id，该函数查询emp_id的email，
 #并返回，数据类型为字符串型。
-CREATE FUNCTION email_by_id(empid INT)
+CREATE FUNCTION email_by_id(emp_id INT)
 RETURNS VARCHAR(25)
 	DETERMINISTIC
 	CONTAINS SQL
@@ -1308,7 +1308,7 @@ RETURNS VARCHAR(25)
 BEGIN
 	RETURN(
 				SELECT email FROM employees
-				WHERE employee_id = empid
+				WHERE employee_id = emp_id
 				);
 END
 
