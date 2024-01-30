@@ -1349,3 +1349,21 @@ SHOW PROCEDURE STATUS;
 SHOW PROCEDURE STATUS LIKE 'show_max_salary';
 
 SHOW FUNCTION STATUS LIKE 'email_by_id';
+
+#1. 创建存储过程insert_user(),实现传入用户名和密码，插入到admin表中
+CREATE TABLE admin(
+id INT PRIMARY KEY AUTO_INCREMENT,
+user_name VARCHAR(15) NOT NULL,
+pwd VARCHAR(25) NOT NULL
+
+);
+
+CREATE PROCEDURE insert_user(IN u_name VARCHAR(15), IN u_pwd VARCHAR(15))
+BEGIN
+	INSERT INTO admin(user_name,pwd)
+	VALUES(u_name,u_pwd);
+END
+
+CALL insert_user("abc","123")
+
+
