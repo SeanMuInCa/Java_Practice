@@ -1395,3 +1395,15 @@ END
 
 CALL get_phone(1,@n,@p);
 SELECT @n,@p;
+
+#3. 创建存储过程date_diff()，实现传入两个女神生日，返回日期间隔大小
+
+CREATE PROCEDURE date_diff(IN date1 DATE, IN date2 DATE, OUT diff INT)
+BEGIN
+	SELECT DATEDIFF(date1, date2) INTO diff;
+END
+
+CALL date_diff('2002,11,8','2001,10,9',@d);
+SELECT @d;
+
+#4. 创建存储过程format_date(),实现传入一个日期，格式化成xx年xx月xx日并返回
