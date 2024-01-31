@@ -225,7 +225,7 @@ public class Textbook
     public void test()
     {
         System.out.println(pow(2, 8));
-        System.out.println(pow(0));
+        System.out.println(pow(3));
 
     }
 
@@ -274,7 +274,7 @@ public class Textbook
     {
         if (x == 0) return 1;
 //        if(x == 1) return 2;
-        else return 2 * pow(x - 1);
+        else return pow(x - 1) << 1;
     }
 
     /**
@@ -297,19 +297,28 @@ public class Textbook
 
     public static void printDigits(int num)
     {
-        if (num < 10)
-            System.out.print(num + " ");
-        else
+        if(num > 0)
         {
+
             printDigits(num / 10);
             System.out.print(num % 10 + " ");
         }
     }
 
+    public static void printBackDigits(int num)
+    {
+        if (num > 0)
+        {
+            System.out.print(num % 10 + " ");
+            printBackDigits(num / 10);
+        }
+    }
     @Test
     public void test6()
     {
         printDigits(1234);
+        System.out.println();
+        printBackDigits(1234);
     }
 
 
