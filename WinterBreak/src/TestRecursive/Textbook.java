@@ -225,6 +225,8 @@ public class Textbook
     public void test()
     {
         System.out.println(pow(2, 8));
+        System.out.println(pow(0));
+
     }
 
     /**
@@ -250,7 +252,12 @@ public class Textbook
             return 1;
         } else return x;//y==1
     }
-
+    public static int pow(int x)
+    {
+        if(x == 0) return 1;
+//        if(x == 1) return 2;
+        else return 2 * pow(x - 1);
+    }
     /**
      * 删除非空目录
      *
