@@ -229,6 +229,23 @@ public class Textbook
 
     }
 
+    public static <E extends Comparable<E>> void insertionSort(E[] Arr)
+    {
+        //First for loop
+        for (int i = 1; i < Arr.length; i++)
+        {
+            E iCurrElem = Arr[i];
+            int j;
+            //Second for loop for change de value
+            for (j = i - 1; j >= 0 && Arr[j].compareTo(iCurrElem) > 0; j--)
+            {
+                Arr[j + 1] = Arr[j];
+            }
+            Arr[j + 1] = iCurrElem;
+        }
+        System.out.print(Arrays.toString(Arr));
+    }
+
     /**
      * x的y次方
      *
@@ -252,12 +269,14 @@ public class Textbook
             return 1;
         } else return x;//y==1
     }
+
     public static int pow(int x)
     {
-        if(x == 0) return 1;
+        if (x == 0) return 1;
 //        if(x == 1) return 2;
         else return 2 * pow(x - 1);
     }
+
     /**
      * 删除非空目录
      *
