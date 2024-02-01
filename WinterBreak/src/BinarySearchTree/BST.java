@@ -161,6 +161,23 @@ public class BST<E> implements Tree<E>
     {
         return new TreeNode<>(e);
     }
+    public TreeNode<E> insert(TreeNode<E> root, E data)
+    {
+        if(root == null)
+        {
+            TreeNode<E> node = new TreeNode<>(data);
+            return node;
+        }
+        if(c.compare(root.data,data) < 0)
+        {
+            root = insert(root.right,data);
+        }
+        if(c.compare(root.data,data) > 0)
+        {
+            root = insert(root.left,data);
+        }
+        return root;
+    }
     @Override
     public void inorder()
     {
