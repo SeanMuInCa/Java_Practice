@@ -66,6 +66,7 @@ public class Array
         }
         return newArr == null ? array : newArr;
     }
+    //快指针移动，查找不符合的元素，并给到慢指针，让慢指针去更新数组
     public static int[] delete2(int[] array, int key)
     {
         int fast = 0;
@@ -83,12 +84,33 @@ public class Array
         return newArr;
     }
 
+    //数组每个元素平方后再排序，这里可能有负数
+    public static int[] afterSquare(int[] array)
+    {
+        int[] newArr = new int[array.length];
+        int right = array.length - 1;
+        int left = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            if(array[i] > array[right])
+            {
+                newArr[right--] = array[i] * array[i];
+            }else {
+                newArr[right] = array[right] * array[right];
+                right--;
+            }
+        }
+        return newArr;
+    }
     public static void main(String[] args)
     {
-        int[] arr = {1,2,3,4,5,6,7,3};
+        int[] arr = {1,2,3,4,5,6,7};
         System.out.println(BinarySearch(arr, 4));
 //        System.out.println(BinarySearchR(arr, 4));
-        int[] newArr = delete2(arr,3);
-        System.out.println(Arrays.toString(newArr));
+        /*int[] newArr = delete2(arr,3);
+        System.out.println(Arrays.toString(newArr));*/
+        System.out.println(Arrays.toString(arr));
+        int[] newArr1 = afterSquare(arr);
+        System.out.println(Arrays.toString(newArr1));
     }
 }
