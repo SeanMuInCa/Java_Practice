@@ -35,7 +35,7 @@ public class ArrayBinarySearch
     public int BinarySearchR(int[] array, int target)
     {
         int left = 0;
-        int right = array.length - 1;
+        int right = array.length;//不包含右
         int mid = (left + right) / 2;
         while (left < right)//这里是1小于还是小于等于，要看是否包含右边边界值
         {
