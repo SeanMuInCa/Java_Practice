@@ -27,12 +27,20 @@ ORDER BY c.category_name ASC, p.product_name ASC;
 
 #5. Determine which products that have been ordered by more than 10 unique customers.
 
-SELECT * FROM customer_order
-ORDER BY customer_id
-GROUP BY customer_id
+SELECT o.product_id,c.customer_id  FROM customer_order c
+JOIN order_detail o on c.order_id = o.order_id
+GROUP BY o.product_id
+
+
 
 
 #6. For each order, calculate the subtotal. Include the order_id, date_ordered, and subtotal (calculated field). Order the list by the subtotal highest to lowest and only show the top 20 results.
+
+
+SELECT c.order_id,c.order_date,(quantity * price) subtotal
+FROM order_detail o JOIN product p ON o.product_id = p.product_id
+										JOIN customer_order c ON c.order_id = o.order_id
+
 
 
 #7. Select the names of all employees and their total dollar amount of sales (customer orders) they have placed. Order by the highest sales.
