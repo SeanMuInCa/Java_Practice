@@ -51,7 +51,7 @@ public class Array
         }
         return - left - 1;
     }
-    public static int[] delete1(int[] array, int key)
+    public static int[] delete1(int[] array, int key)//有问题，重复的值没法删除
     {
         int[] newArr = null;
         for (int i = 0; i < array.length; i++)
@@ -66,13 +66,29 @@ public class Array
         }
         return newArr == null ? array : newArr;
     }
+    public static int[] delete2(int[] array, int key)
+    {
+        int fast = 0;
+        int slow = 0;
+        for (; fast < array.length; fast++)
+        {
+            if(array[fast] != key)
+            {
+                array[slow] = array[fast];
+                slow++;
+            }
+        }
+        int[] newArr = new int[slow];
+        System.arraycopy(array,0,newArr,0,newArr.length);
+        return newArr;
+    }
 
     public static void main(String[] args)
     {
-        int[] arr = {1,2,3,4,5,6,7};
+        int[] arr = {1,2,3,4,5,6,7,3};
         System.out.println(BinarySearch(arr, 4));
-        System.out.println(BinarySearchR(arr, 4));
-        int[] newArr = delete1(arr,0);
+//        System.out.println(BinarySearchR(arr, 4));
+        int[] newArr = delete2(arr,3);
         System.out.println(Arrays.toString(newArr));
     }
 }
