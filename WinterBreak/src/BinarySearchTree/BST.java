@@ -318,9 +318,15 @@ public class BST<E> implements Tree<E>
         size--;
         return true;
     }
+    public boolean recDelete(E e)
+    {
+        int size = size();
+        root = deleteNode(root,e);
+        return size > size();
+    }
     public TreeNode<E> deleteNode(TreeNode<E> root, E key)
     {
-        if(root == null) return root;
+        if(root == null) return null;
         if(root.data.equals(key))
         {
             size--;

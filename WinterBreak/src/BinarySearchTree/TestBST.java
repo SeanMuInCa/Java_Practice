@@ -66,7 +66,7 @@ public class TestBST
         tree.insert("Daniel");
         tree.recInsert("Sean");
         printTree(tree);
-
+        System.out.println(tree.recDelete("Raina"));
         /*System.out.println("\nAfter delete George:");
         tree.root = tree.deleteNode(tree.root, "George");
         printTree(tree);
