@@ -11,7 +11,7 @@ package Algrithm.Array;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class ArrayBinarySearch
+public class Array
 {
     //左右边界都包含的情况下
     public int BinarySearch(int[] array, int target)
@@ -48,5 +48,20 @@ public class ArrayBinarySearch
             }else return mid;
         }
         return - left - 1;
+    }
+    public int delete1(int[] array, int key)
+    {
+        int[] newArr = null;
+        for (int i = 0; i < array.length; i++)
+        {
+            if(array[i] == key)
+            {
+                newArr = new int[array.length - 1];
+                System.arraycopy(array,0,newArr,0,i);
+                System.arraycopy(array,i+1,newArr,i+1,array.length - i);
+                break;
+            }
+        }
+        return newArr == null ? 0 : newArr.length;
     }
 }
