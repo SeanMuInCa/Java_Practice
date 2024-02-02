@@ -20,9 +20,10 @@ public class Array
     {
         int left = 0;
         int right = array.length - 1;
-        int mid = (left + right) / 2;
+
         while (left <= right)//这里是1小于还是小于等于，要看是否包含右边边界值
         {
+            int mid = (left + right) / 2;
             if(array[mid] > target)
             {
                 right = mid - 1;
@@ -88,24 +89,27 @@ public class Array
     public static int[] afterSquare(int[] array)
     {
         int[] newArr = new int[array.length];
-        int right = array.length - 1;
-        int left = 0;
-        for (int i = 0; i < array.length; i++)
+        int k = array.length - 1;
+        for (int i = 0,j = array.length - 1; i <= j ; )
         {
-            if(array[i] > array[right])
+            int a = array[i] * array[i];
+            int b = array[j] * array[j];
+            if(a > b)
             {
-                newArr[right--] = array[i] * array[i];
-            }else {
-                newArr[right] = array[right] * array[right];
-                right--;
+                newArr[k--] = a;
+                i++;
+            }else
+            {
+                newArr[k--] = b;
+                j--;
             }
         }
         return newArr;
     }
     public static void main(String[] args)
     {
-        int[] arr = {1,2,3,4,5,6,7};
-        System.out.println(BinarySearch(arr, 4));
+        int[] arr = {-10,-9,2,3,4,5,6,7};
+        System.out.println(BinarySearch(arr, -9));
 //        System.out.println(BinarySearchR(arr, 4));
         /*int[] newArr = delete2(arr,3);
         System.out.println(Arrays.toString(newArr));*/
