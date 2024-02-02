@@ -131,6 +131,7 @@ public class Array
     //示例:
     //
     //输入: 3 输出: [ [ 1, 2, 3 ], [ 8, 9, 4 ], [ 7, 6, 5 ] ]
+    //循环不要变规则，找到规律进行循环
     public static int[][] generateMatrix(int n) {
         int loop = 0;  // 控制循环次数
         int[][] res = new int[n][n];
