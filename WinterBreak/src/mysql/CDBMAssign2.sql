@@ -90,6 +90,15 @@ SELECT customer.*,
 
 # 10. Select the names of all customers who have placed orders that include a product with product_id 42. Use a correlated query.
 
+SELECT customer_name
+FROM customer
+WHERE customer_id IN(
+		SELECT customer_order.customer_id
+		FROM customer_order JOIN order_detail
+		WHERE customer_order.order_id = order_detail.order_id
+		AND order_detail.product_id = 42
+);
+
 
 
 
