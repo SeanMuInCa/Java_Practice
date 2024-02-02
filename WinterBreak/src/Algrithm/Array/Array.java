@@ -106,8 +106,8 @@ public class Array
         }
         return newArr;
     }
-    //minimum subarray length
-    public int minSubArrayLen(int target, int[] nums)
+    //最小的连续子数组，注意是连续的，因此才会这么做
+    public static int minSubArrayLen(int target, int[] nums)
     {
         int sum = 0;
         int left = 0;
@@ -125,7 +125,7 @@ public class Array
     }
     public static void main(String[] args)
     {
-        int[] arr = {-10,-9,2,3,4,5,6,7};
+        int[] arr = {2,3,4,5,6,7};
         System.out.println(BinarySearch(arr, -9));
 //        System.out.println(BinarySearchR(arr, 4));
         /*int[] newArr = delete2(arr,3);
@@ -133,5 +133,6 @@ public class Array
         System.out.println(Arrays.toString(arr));
         int[] newArr1 = afterSquare(arr);
         System.out.println(Arrays.toString(newArr1));
+        System.out.println(minSubArrayLen(10,arr));
     }
 }
