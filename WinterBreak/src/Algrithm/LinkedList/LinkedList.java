@@ -20,7 +20,7 @@ public class LinkedList
 
         // 因为删除可能涉及到头节点，所以设置dummy节点，统一操作
         ListNode dummy = new ListNode(-1, head);
-        ListNode pre = dummy;
+        /*ListNode pre = dummy;
         ListNode cur = head;
         while (cur != null) {
             if (cur.val == val) {
@@ -29,6 +29,15 @@ public class LinkedList
                 pre = cur;
             }
             cur = cur.next;
+        }*/
+        ListNode cur = dummy;
+        while (cur.next != null)
+        {
+            if(cur.next.val == val)
+            {
+                cur.next = cur.next.next;
+            }
+            else cur = cur.next;
         }
         return dummy.next;
     }
@@ -43,7 +52,7 @@ public class LinkedList
         ListNode cur = head;
         while (cur != null)
         {
-            while (cur.next != null && cur.next.val == val)
+            while (cur.next != null && cur.next.val == val)//这里没有用if的原因，是因为中间可能有重复元素
             {
                 cur.next = cur.next.next;
             }
