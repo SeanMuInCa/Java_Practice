@@ -68,20 +68,28 @@ ORDER BY result.res DESC;
 SELECT product_name FROM product
 WHERE product_id IN (
 	SELECT product_id FROM order_detail
-)
+);
 
 
 #9. Select all the customer information and create a calculated a field called loyalty_program that categorizes customer with 10 or more orders as "gold", those with 5 to 9 as "silver", and everyone else with at least one order as "bronze". Customers with zero orders should have a NULL value.
 
-SELECT * 
-FROM customer JOIN (
-	SELECT COUNT(*) ordered
-	FROM customer_order
-	GROUP BY customer_id
-	) helper
-ON customer.customer_id = helper.customer_id
+SELECT customer.*,  
+	CASE WHEN helper.ordered >= 10 THEN "gold"
+			 WHEN helper.ordered >= 5 THEN "silver"
+			 WHEN helper.ordered >= 1 THEN "bronze"
+			 ELSE "NULL"
+	END "loyalty_program"
+	FROM customer LEFT JOIN (
+		SELECT COUNT(*) ordered ,customer_id 
+		FROM customer_order
+		GROUP BY customer_id
+		) helper
+	ON customer.customer_id = helper.customer_id;
 
 
 
 # 10. Select the names of all customers who have placed orders that include a product with product_id 42. Use a correlated query.
+
+
+
 
