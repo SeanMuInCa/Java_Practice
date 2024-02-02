@@ -106,6 +106,23 @@ public class Array
         }
         return newArr;
     }
+    //minimum subarray length
+    public int minSubArrayLen(int target, int[] nums)
+    {
+        int sum = 0;
+        int left = 0;
+        int res = Integer.MAX_VALUE;
+        for (int right = 0; right < nums.length; right++)
+        {
+            sum += nums[right];
+            while (sum >= target)
+            {
+                res = Math.min(res,right - left + 1);
+                sum -= nums[left];
+            }
+        }
+        return res == Integer.MAX_VALUE ? 0 : res;
+    }
     public static void main(String[] args)
     {
         int[] arr = {-10,-9,2,3,4,5,6,7};
