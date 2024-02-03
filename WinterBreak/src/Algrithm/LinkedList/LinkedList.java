@@ -1,5 +1,7 @@
 package Algrithm.LinkedList;
 
+import java.util.Iterator;
+
 /**
  * Purpose:             Algrithm.LinkedList<br />
  * Data Submitted:      2024/2/2 <br />
@@ -11,8 +13,10 @@ package Algrithm.LinkedList;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class LinkedList
+public class LinkedList implements Iterable
 {
+    private ListNode head;
+    int size = 0;
     //虚拟头节点
     public ListNode delete1(ListNode head, int val)
     {
@@ -36,6 +40,7 @@ public class LinkedList
             if(cur.next.val == val)
             {
                 cur.next = cur.next.next;
+                size--;
             }
             else cur = cur.next;
         }
@@ -55,10 +60,95 @@ public class LinkedList
             while (cur.next != null && cur.next.val == val)//这里没有用if的原因，是因为中间可能有重复元素
             {
                 cur.next = cur.next.next;
+                size--;
             }
             cur = cur.next;
         }
 
         return head;
+    }
+
+    public void addTop(int val)
+    {
+        if(head == null)
+        {
+            head = new ListNode(val);
+        }
+        else
+        {
+            ListNode newNode = new ListNode(val);
+            newNode.next = head;
+            head = newNode;
+        }
+        size++;
+    }
+    public void add(int val)
+    {
+        if(head == null)
+        {
+            head = new ListNode(val);
+        }
+        else
+        {
+            ListNode cur = head;
+            ListNode newNode = new ListNode(val);
+            while (cur.next != null)
+            {
+                cur = cur.next;
+            }
+            cur.next = newNode;
+        }
+        size++;
+    }
+    public ListNode get(int index)
+    {
+        if(index < 0 || index > this.getSize())
+        {
+            return null;
+        }
+        ListNode cur = head;
+        for (int i = 0; i < index; i++)
+        {
+            cur = cur.next;
+        }
+        return cur;
+    }
+    public int getSize(){ return size;}
+    public static void main(String[] args)
+    {
+        LinkedList list = new LinkedList();
+
+        list.add( 3);
+        list.add( 1);
+        list.add( 2);
+
+        for (Object o : list) {
+            System.out.print(o + " ");
+        }
+        System.out.println();
+        System.out.println(list.get(3));
+    }
+
+    @Override
+    public Iterator iterator()
+    {
+
+        return new Iterator()
+        {
+            ListNode node = head;
+            @Override
+            public boolean hasNext()
+            {
+                return node != null;
+            }
+
+            @Override
+            public Object next()
+            {
+                Object data = node.val;
+                node = node.next;
+                return data;
+            }
+        };
     }
 }
