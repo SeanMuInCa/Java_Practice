@@ -113,20 +113,43 @@ public class LinkedList implements Iterable
         }
         return cur;
     }
+    public void insert(int val, int index)
+    {
+        if(index == 0)
+        {
+            ListNode newNode = new ListNode(val);
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+        ListNode cur = head;
+        for (int i = 0; i < index - 1; i++)
+        {
+            cur = cur.next;
+        }
+        ListNode newNode = new ListNode(val);
+        newNode.next = cur.next;
+        cur.next = newNode;
+        size++;
+    }
     public int getSize(){ return size;}
     public static void main(String[] args)
     {
         LinkedList list = new LinkedList();
 
-        list.add( 3);
         list.add( 1);
         list.add( 2);
+        list.add( 3);
 
         for (Object o : list) {
             System.out.print(o + " ");
         }
         System.out.println();
-        System.out.println(list.get(3));
+        list.insert(5,0);
+        for (Object o : list) {
+            System.out.print(o + " ");
+        }
+
     }
 
     @Override
