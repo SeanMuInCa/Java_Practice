@@ -45,6 +45,10 @@ public class SingleLinked implements Iterable
         else recAdd(cur.next, data);
     }
 
+    public void delete(String val)
+    {
+        head = delete1(head,val);
+    }
     public Node delete1(Node head, String val)
     {
         if (head == null)  return null;
@@ -118,8 +122,7 @@ public class SingleLinked implements Iterable
         link.add("李四");
         link.add("王五");
         link.add("赵六");
-        Node head = link.delete1(link.head, "张三");
-        link.head = head;
+        link.delete("张三");
         for (Object o : link) {
             System.out.println(o);
         }
