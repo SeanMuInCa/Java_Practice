@@ -102,7 +102,7 @@ public class LinkedList implements Iterable
     }
     public ListNode get(int index)
     {
-        if(index < 0 || index > this.getSize())
+        if(index < 0 || index > this.getSize() - 1)
         {
             return null;
         }
