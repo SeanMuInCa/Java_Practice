@@ -45,6 +45,33 @@ public class SingleLinked implements Iterable
         else recAdd(cur.next, data);
     }
 
+    public Node delete1(Node head, String val)
+    {
+        if (head == null)  return null;
+
+        // 因为删除可能涉及到头节点，所以设置dummy节点，统一操作
+        Node dummy = new Node(-1, head);
+        /*Node pre = dummy;
+        Node cur = head;
+        while (cur != null) {
+            if (cur.data == val) {
+                pre.next = cur.next;
+            } else {
+                pre = cur;
+            }
+            cur = cur.next;
+        }*/
+        Node cur = dummy;
+        while (cur.next != null)
+        {
+            if(cur.next.data.equals(val))
+            {
+                cur.next = cur.next.next;
+            }
+            cur = cur.next;
+        }
+        return dummy.next;
+    }
     @Override
     public Itr iterator()
     {
@@ -91,7 +118,8 @@ public class SingleLinked implements Iterable
         link.add("李四");
         link.add("王五");
         link.add("赵六");
-
+        Node head = link.delete1(link.head, "张三");
+        link.head = head;
         for (Object o : link) {
             System.out.println(o);
         }
