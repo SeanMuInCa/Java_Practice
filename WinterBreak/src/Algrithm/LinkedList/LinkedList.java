@@ -149,7 +149,16 @@ public class LinkedList implements Iterable
     }
     public void reverse()
     {
-        head = twoPointerReverse();
+//        head = twoPointerReverse();
+        head = recReverse(head,null);
+    }
+
+    private ListNode recReverse(ListNode cur, ListNode pre)
+    {
+        if(cur == null) return pre;
+        ListNode temp = cur.next;
+        cur.next = pre;
+        return recReverse(temp,cur);
     }
 
     private ListNode twoPointerReverse()
@@ -168,6 +177,14 @@ public class LinkedList implements Iterable
         return pre;
     }
 
+    public void swapNeighbourNodes()
+    {
+        if(size <= 1) return;
+        ListNode cur = head;
+        ListNode pre = null;
+
+
+    }
     public int getSize(){ return size;}
     public static void main(String[] args)
     {
@@ -192,6 +209,11 @@ public class LinkedList implements Iterable
         }
         System.out.println();
         list.reverse();
+        for (Object o : list) {
+            System.out.print(o + " ");
+        }
+        System.out.println();
+        list.swapNeighbourNodes();
         for (Object o : list) {
             System.out.print(o + " ");
         }
