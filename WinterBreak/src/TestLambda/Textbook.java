@@ -3,7 +3,9 @@ package TestLambda;
 import org.junit.Test;
 
 import java.util.Comparator;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * Purpose:             TestLambda<br />
@@ -46,6 +48,27 @@ public class Textbook
     }
     @Test
     public void test3(){
-        
+        Function<Integer,Integer> f = new Function<Integer, Integer>()
+        {
+            @Override
+            public Integer apply(Integer integer)
+            {
+                return integer * 2;
+            }
+        };
+
+        Function<Integer,Integer> f1 = i -> i * 2;
+
+        BiFunction<Integer,Integer,Integer> f2 = new BiFunction<Integer, Integer, Integer>()
+        {
+            @Override
+            public Integer apply(Integer integer, Integer integer2)
+            {
+                return integer * integer2;
+            }
+        };
+        BiFunction<String,String,String> f3 = (s1,s2) -> s1.concat(s2);
+
+        BiFunction<String,String,String> f4 = String::concat;
     }
 }
