@@ -17,10 +17,11 @@ public class LinkedList implements Iterable
 {
     private ListNode head;
     int size = 0;
+
     //虚拟头节点
     public ListNode delete1(ListNode head, int val)
     {
-        if (head == null)  return null;
+        if (head == null) return null;
 
         // 因为删除可能涉及到头节点，所以设置dummy节点，统一操作
         ListNode dummy = new ListNode(-1, head);
@@ -37,12 +38,11 @@ public class LinkedList implements Iterable
         ListNode cur = dummy;
         while (cur.next != null)
         {
-            if(cur.next.val == val)
+            if (cur.next.val == val)
             {
                 cur.next = cur.next.next;
                 size--;
-            }
-            else cur = cur.next;
+            } else cur = cur.next;
         }
         return dummy.next;
     }
@@ -70,11 +70,10 @@ public class LinkedList implements Iterable
 
     public void addTop(int val)
     {
-        if(head == null)
+        if (head == null)
         {
             head = new ListNode(val);
-        }
-        else
+        } else
         {
             ListNode newNode = new ListNode(val);
             newNode.next = head;
@@ -82,13 +81,13 @@ public class LinkedList implements Iterable
         }
         size++;
     }
+
     public void add(int val)
     {
-        if(head == null)
+        if (head == null)
         {
             head = new ListNode(val);
-        }
-        else
+        } else
         {
             ListNode cur = head;
             ListNode newNode = new ListNode(val);
@@ -100,9 +99,10 @@ public class LinkedList implements Iterable
         }
         size++;
     }
+
     public ListNode get(int index)
     {
-        if(index < 0 || index > this.getSize() - 1)
+        if (index < 0 || index > this.getSize() - 1)
         {
             return null;
         }
@@ -113,9 +113,10 @@ public class LinkedList implements Iterable
         }
         return cur;
     }
+
     public void insert(int val, int index)
     {
-        if(index == 0)
+        if (index == 0)
         {
             ListNode newNode = new ListNode(val);
             newNode.next = head;
@@ -132,9 +133,10 @@ public class LinkedList implements Iterable
         cur.next = newNode;
         size++;
     }
+
     public void delete(int index)
     {
-        if(index == 0)
+        if (index == 0)
         {
             head = head.next;
         } else
@@ -147,10 +149,11 @@ public class LinkedList implements Iterable
             cur.next = cur.next.next;
         }
     }
+
     public void deleteFromLast(int num)
     {
-        if(num > size) return;
-        ListNode dummy = new ListNode(-1,head);
+        if (num > size) return;
+        ListNode dummy = new ListNode(-1, head);
         ListNode fast = dummy;
         ListNode slow = dummy;
         int steps = num + 1;
@@ -166,24 +169,25 @@ public class LinkedList implements Iterable
         slow.next = slow.next.next;
         size--;
     }
+
     public void reverse()
     {
 //        head = twoPointerReverse();
-        head = recReverse(head,null);
+        head = recReverse(head, null);
     }
 
     private ListNode recReverse(ListNode cur, ListNode pre)
     {
-        if(cur == null) return pre;
+        if (cur == null) return pre;
         ListNode temp = cur.next;
         cur.next = pre;
-        return recReverse(temp,cur);
+        return recReverse(temp, cur);
     }
 
     private ListNode twoPointerReverse()
     {
-        if(this.size <= 0) return null;
-        if(this.size == 1) return head;
+        if (this.size <= 0) return null;
+        if (this.size == 1) return head;
         ListNode pre = null;
         ListNode cur = head;
         while (cur != null)
@@ -216,6 +220,7 @@ public class LinkedList implements Iterable
         }
         head = dumyhead.next;
     }
+
     public void swap()
     {
         head = recSwap(head);
@@ -223,7 +228,7 @@ public class LinkedList implements Iterable
 
     private ListNode recSwap(ListNode head)
     {
-        if(head == null || head.next == null) return head;
+        if (head == null || head.next == null) return head;
         ListNode next = head.next;
 
         ListNode newNode = recSwap(next.next);
@@ -232,63 +237,96 @@ public class LinkedList implements Iterable
         head.next = newNode;
         return next;
     }
+
     //determine the linkedlist has a circle or  not
     public boolean isThereCircle(ListNode fast, ListNode slow)
     {
-        while (fast.next != null && slow != null)
+        while (fast != null && fast.next != null)
         {
             fast = fast.next.next;
             slow = slow.next;
-            if(fast == slow) return true;
+            if (fast == slow) return true;
         }
         return false;
     }
 
-    public int getSize(){ return size;}
+    public ListNode findCircleEntrance()
+    {
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {// 有环
+                ListNode index1 = fast;
+                ListNode index2 = head;
+                // 两个指针，从头结点和相遇结点，各走一步，直到相遇，相遇点即为环入口
+                while (index1 != index2) {
+                    index1 = index1.next;
+                    index2 = index2.next;
+                }
+                return index1;
+            }
+        }
+        return null;
+    }
+
+    public int getSize()
+    {
+        return size;
+    }
+
     public static void main(String[] args)
     {
         LinkedList list = new LinkedList();
 
-        list.add( 1);
-        list.add( 2);
-        list.add( 3);
-        list.add( 4);
-        list.add( 6);
-        list.add( 7);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(6);
+        list.add(7);
 
-        for (Object o : list) {
+        for (Object o : list)
+        {
             System.out.print(o + " ");
         }
         System.out.println();
-        list.insert(5,0);
-        for (Object o : list) {
+        list.insert(5, 0);
+        for (Object o : list)
+        {
             System.out.print(o + " ");
         }
         System.out.println();
         list.delete(1);
-        for (Object o : list) {
+        for (Object o : list)
+        {
             System.out.print(o + " ");
         }
         System.out.println();
         list.reverse();
-        for (Object o : list) {
+        for (Object o : list)
+        {
             System.out.print(o + " ");
         }
         System.out.println();
         list.swapNeighbourNodes();
-        for (Object o : list) {
+        for (Object o : list)
+        {
             System.out.print(o + " ");
         }
         System.out.println();
         list.swap();
-        for (Object o : list) {
+        for (Object o : list)
+        {
             System.out.print(o + " ");
         }
         System.out.println();
         System.out.println(list.getSize());
         System.out.println();
         list.deleteFromLast(1);
-        for (Object o : list) {
+        for (Object o : list)
+        {
             System.out.print(o + " ");
         }
     }
@@ -300,6 +338,7 @@ public class LinkedList implements Iterable
         return new Iterator()
         {
             ListNode node = head;
+
             @Override
             public boolean hasNext()
             {
