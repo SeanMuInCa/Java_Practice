@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * Purpose:             TestLambda<br />
@@ -38,6 +39,16 @@ public class LambdaTest
     }
     @Test
     public void test2(){
+        Predicate<String> bi = new Predicate<String>()
+        {
+            @Override
+            public boolean test(String s)
+            {
+                return s.startsWith("s");
+            }
+        };
+        Predicate<String> b = s -> s.startsWith("s");
+        System.out.println(b.test("start"));
         BiPredicate<String,String> bi1 = new BiPredicate<String, String>()
         {
             @Override
@@ -84,7 +95,7 @@ public class LambdaTest
     @Test
     public void test5(){
         String[] arr = {"hello", "Hello", "java", "Java"};
-        Arrays.sort(arr,(s1,s2) -> s1.compareToIgnoreCase(s2));
+        Arrays.sort(arr, String::compareToIgnoreCase);
         Arrays.sort(arr, String::compareToIgnoreCase);
         for (String s : arr){
             System.out.println(s);
