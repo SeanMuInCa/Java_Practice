@@ -1,5 +1,6 @@
 package Algrithm.Hash;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -38,8 +39,40 @@ public class WithArray
         return Arrays.stream(alphabet).allMatch(i -> i == 0);
     }
 
+    //判断两个数组有重复的没,数组长度不大于1000
+    public static int[] getDuplication(int[] arr1, int[] arr2)
+    {
+        if (arr1 == null || arr1.length == 0 || arr2 == null || arr2.length == 0) {
+            return null;
+        }
+        int index = 0;
+        int[] temp = new int[1001];
+        int[] res = null;
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < arr1.length; i++)
+        {
+            temp[arr1[i]] = 1;
+        }
+        for (int i = 0; i < arr2.length; i++)
+        {
+            if(temp[arr2[i]] == 1)
+            {
+                list.add(arr2[i]);
+                temp[arr2[i]] = 0;//重新赋值回去，防止重复
+            }
+        }
+        res = new int[list.size()];
+        for (Integer i : list)
+        {
+            res[index++] = i;
+        }
+        return res;
+    }
     public static void main(String[] args)
     {
         System.out.println(theyBothEqual("abca", "bcaa"));
+        int[] arr1 = {1,2,3,4,4};
+        int[] arr2 = {4,4,6,7,8};
+        System.out.println(Arrays.toString(getDuplication(arr1, arr2)));
     }
 }
