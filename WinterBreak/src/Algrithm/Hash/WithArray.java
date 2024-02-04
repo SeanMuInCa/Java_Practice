@@ -68,11 +68,32 @@ public class WithArray
         }
         return res;
     }
+    //两数之和
+    public static int[] twoSum(int[] arr, int target)
+    {
+        ArrayList<Integer> res = new ArrayList();
+        for (int i = 0; i < arr.length; i++)
+        {
+            int find = target - arr[i];
+            for (int j = i; j < arr.length; j++)
+            {
+                if(arr[j] == find)
+                {
+                    res.add(arr[i]);
+                    res.add(arr[j]);
+                    return res.stream().mapToInt(x -> x).toArray();
+                }
+            }
+        }
+        return new int[0];
+    }
     public static void main(String[] args)
     {
         System.out.println(theyBothEqual("abca", "bcaa"));
         int[] arr1 = {1,2,3,4,4};
         int[] arr2 = {4,4,6,7,8};
         System.out.println(Arrays.toString(getDuplication(arr1, arr2)));
+        System.out.println(Arrays.toString(twoSum(arr1, 9)));
+
     }
 }
