@@ -68,7 +68,7 @@ public class WithArray
         }
         return res;
     }
-    //两数之和
+    //两数之和，这个方式的问题是，没有对重复元素进行判断，单纯遍历，浪费了很多资源
     public static int[] twoSum(int[] arr, int target)
     {
         ArrayList<Integer> res = new ArrayList();
