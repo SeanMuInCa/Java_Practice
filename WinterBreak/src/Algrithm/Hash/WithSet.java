@@ -34,6 +34,7 @@ public class WithSet
                 res.add(arr2[i]);
             }
         }
+        int[] array = res.stream().mapToInt(x -> x).toArray();
         return res;
     }
 
