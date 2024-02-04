@@ -149,6 +149,7 @@ public class LinkedList implements Iterable
     }
     public void deleteFromLast(int num)
     {
+        if(num > size) return;
         ListNode dummy = new ListNode(-1,head);
         ListNode fast = dummy;
         ListNode slow = dummy;
