@@ -179,11 +179,23 @@ public class LinkedList implements Iterable
 
     public void swapNeighbourNodes()
     {
-        if(size <= 1) return;
-        ListNode cur = head;
-        ListNode pre = null;
-
-
+        ListNode dumyhead = new ListNode(-1); // 设置一个虚拟头结点
+        dumyhead.next = head; // 将虚拟头结点指向head，这样方便后面做删除操作
+        ListNode cur = dumyhead;
+        ListNode temp; // 临时节点，保存两个节点后面的节点
+        ListNode firstnode; // 临时节点，保存两个节点之中的第一个节点
+        ListNode secondnode; // 临时节点，保存两个节点之中的第二个节点
+        while (cur.next != null && cur.next.next != null)
+        {
+            temp = cur.next.next.next;
+            firstnode = cur.next;
+            secondnode = cur.next.next;
+            cur.next = secondnode;       // 步骤一
+            secondnode.next = firstnode; // 步骤二
+            firstnode.next = temp;      // 步骤三
+            cur = firstnode; // cur移动，准备下一轮交换
+        }
+        head = dumyhead.next;
     }
     public int getSize(){ return size;}
     public static void main(String[] args)
@@ -193,6 +205,9 @@ public class LinkedList implements Iterable
         list.add( 1);
         list.add( 2);
         list.add( 3);
+        list.add( 4);
+        list.add( 6);
+        list.add( 7);
 
         for (Object o : list) {
             System.out.print(o + " ");
@@ -217,6 +232,8 @@ public class LinkedList implements Iterable
         for (Object o : list) {
             System.out.print(o + " ");
         }
+        System.out.println();
+        System.out.println(list.getSize());
     }
 
     @Override
