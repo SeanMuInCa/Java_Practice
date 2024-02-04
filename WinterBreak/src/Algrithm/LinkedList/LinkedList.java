@@ -197,6 +197,23 @@ public class LinkedList implements Iterable
         }
         head = dumyhead.next;
     }
+    public void swap()
+    {
+        head = recSwap(head);
+    }
+
+    private ListNode recSwap(ListNode head)
+    {
+        if(head == null || head.next == null) return head;
+        ListNode next = head.next;
+
+        ListNode newNode = recSwap(next.next);
+
+        next.next = head;
+        head.next = newNode;
+        return next;
+    }
+
     public int getSize(){ return size;}
     public static void main(String[] args)
     {
@@ -229,6 +246,11 @@ public class LinkedList implements Iterable
         }
         System.out.println();
         list.swapNeighbourNodes();
+        for (Object o : list) {
+            System.out.print(o + " ");
+        }
+        System.out.println();
+        list.swap();
         for (Object o : list) {
             System.out.print(o + " ");
         }
