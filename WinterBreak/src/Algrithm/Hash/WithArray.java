@@ -21,6 +21,7 @@ public class WithArray
     //简单想，可以用两个循环来解决这个题。
     public static boolean theyBothEqual(String s1, String s2)
     {
+        if(s1.length() != s2.length()) return false;
         int[] alphabet = new int[26];
         for (int i = 0; i < s1.length(); i++)
         {
@@ -30,17 +31,15 @@ public class WithArray
         }
         for (int i = 0; i < s2.length(); i++)
         {
-            char c = s1.charAt(i);
+            char c = s2.charAt(i);
             int index = c - 'a';
             alphabet[index]--;
         }
-        if(Arrays.stream(alphabet).filter()) {}
-
-        return false;
+        return Arrays.stream(alphabet).allMatch(i -> i == 0);
     }
 
     public static void main(String[] args)
     {
-        theyBothEqual("abc","abc");
+        System.out.println(theyBothEqual("abca", "bcaa"));
     }
 }
