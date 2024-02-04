@@ -18,6 +18,7 @@ import java.util.function.*;
  */
 public class Textbook
 {
+    //Comparator, Consumer, Function, BiFunction, Supplier, Predicate
     @Test
     public void test1(){
         Comparator c = new Comparator()
@@ -93,5 +94,16 @@ public class Textbook
             }
         };
         Predicate<String> p1 = s -> s.equals("a");
+
+        BiPredicate<Integer,Integer> p2 = new BiPredicate<Integer, Integer>()
+        {
+            @Override
+            public boolean test(Integer integer, Integer integer2)
+            {
+                return integer > integer2;
+            }
+        };
+
+        BiPredicate<String,String> p3 = (s1,s2) -> s1.length() > s2.length();
     }
 }
