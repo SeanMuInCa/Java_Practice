@@ -147,6 +147,24 @@ public class LinkedList implements Iterable
             cur.next = cur.next.next;
         }
     }
+    public void deleteFromLast(int num)
+    {
+        ListNode dummy = new ListNode(-1,head);
+        ListNode fast = dummy;
+        ListNode slow = dummy;
+        int steps = num + 1;
+        while (steps-- > 0)
+        {
+            fast = fast.next;
+        }
+        while (fast != null)
+        {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        size--;
+    }
     public void reverse()
     {
 //        head = twoPointerReverse();
@@ -256,6 +274,11 @@ public class LinkedList implements Iterable
         }
         System.out.println();
         System.out.println(list.getSize());
+        System.out.println();
+        list.deleteFromLast(1);
+        for (Object o : list) {
+            System.out.print(o + " ");
+        }
     }
 
     @Override
