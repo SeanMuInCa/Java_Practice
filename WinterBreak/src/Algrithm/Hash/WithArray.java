@@ -75,12 +75,12 @@ public class WithArray
         for (int i = 0; i < arr.length; i++)
         {
             int find = target - arr[i];
-            for (int j = i; j < arr.length; j++)
+            for (int j = i + 1; j < arr.length; j++)
             {
                 if(arr[j] == find)
                 {
-                    res.add(arr[i]);
-                    res.add(arr[j]);
+                    res.add(i);//return index
+                    res.add(j);
                     return res.stream().mapToInt(x -> x).toArray();
                 }
             }
@@ -90,10 +90,10 @@ public class WithArray
     public static void main(String[] args)
     {
         System.out.println(theyBothEqual("abca", "bcaa"));
-        int[] arr1 = {1,2,3,4,4};
+        int[] arr1 = {3,2,4};
         int[] arr2 = {4,4,6,7,8};
         System.out.println(Arrays.toString(getDuplication(arr1, arr2)));
-        System.out.println(Arrays.toString(twoSum(arr1, 9)));
+        System.out.println(Arrays.toString(twoSum(arr1, 6)));
 
     }
 }
