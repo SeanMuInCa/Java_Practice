@@ -232,6 +232,17 @@ public class LinkedList implements Iterable
         head.next = newNode;
         return next;
     }
+    //determine the linkedlist has a circle or  not
+    public boolean isThereCircle(ListNode fast, ListNode slow)
+    {
+        while (fast.next != null && slow != null)
+        {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) return true;
+        }
+        return false;
+    }
 
     public int getSize(){ return size;}
     public static void main(String[] args)
