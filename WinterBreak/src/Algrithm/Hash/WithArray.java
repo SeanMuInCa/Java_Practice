@@ -87,6 +87,11 @@ public class WithArray
         }
         return new int[0];
     }
+    //三数之和等于0
+    public static int[][] threeSum(int[] arr)
+    {
+
+    }
     public static void main(String[] args)
     {
         System.out.println(theyBothEqual("abca", "bcaa"));
