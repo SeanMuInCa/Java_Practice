@@ -109,3 +109,19 @@ FROM Customer AS c
 GROUP BY e.EmployeeId, c.company;
 
 SELECT * FROM v_employee_report
+
+CREATE VIEW v_track_information AS
+SELECT 
+	t.TrackId,
+    t.Name AS track_name,
+    al.Title AS album_title,
+    g.Name AS genre,
+    t.Composer,
+    t.UnitPrice,
+    ar.Name AS artist
+FROM Track AS t
+	JOIN Album AS al ON al.AlbumId = t.AlbumId
+    JOIN Artist AS ar ON ar.ArtistId = al.ArtistId
+    JOIN Genre AS g ON g.GenreId = t.GenreId;
+
+SELECT * FROM v_track_information
