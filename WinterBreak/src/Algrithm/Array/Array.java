@@ -18,6 +18,7 @@ public class Array
     //左右边界都包含的情况下
     public static int BinarySearch(int[] array, int target)
     {
+        Arrays.sort(array);
         int left = 0;
         int right = array.length - 1;
 
@@ -37,6 +38,7 @@ public class Array
     //有边界不包含
     public static int BinarySearchR(int[] array, int target)
     {
+        Arrays.sort(array);
         int left = 0;
         int right = array.length;//不包含右
         int mid = (left + right) / 2;
