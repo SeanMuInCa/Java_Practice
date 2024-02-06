@@ -13,15 +13,32 @@ package Algrithm.String;
  */
 public class AlgrithmInString
 {
-    private static String recReverse(String str)
+    public static String recReverse(String str)
     {
         if(str.isEmpty()) return "";
         return recReverse(str.substring(1)) + str.charAt(0);
     }
+    public static void twoPointersReverse(String str)
+    {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left <= right)
+        {
+            char a = str.charAt(left);
+            char b = str.charAt(right);
+            char temp = a;
+            a = b;
+            b = temp;
+            left++;
+            right--;
+        }
+    }
 
     public static void main(String[] args)
     {
-        String str = "ab";
-        System.out.println(recReverse(str));
+        String str = "abcdefg";
+//        System.out.println(recReverse(str));
+        twoPointersReverse(str);
+        System.out.println(str);
     }
 }
