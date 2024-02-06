@@ -93,12 +93,15 @@ SELECT customer.*,
 SELECT customer_name
 FROM customer
 WHERE customer_id IN(
-		SELECT customer_order.customer_id
-		FROM customer_order JOIN order_detail
-		WHERE customer_order.order_id = order_detail.order_id
-		AND order_detail.product_id = 42
-);
-
+		SELECT customer_id
+		FROM customer_order c
+		WHERE EXISTS (
+				SELECT * 
+				FROM order_detail o
+				WHERE c.order_id = o.order_id
+				AND o.product_id = '42'
+			)
+		);	
 
 
 
