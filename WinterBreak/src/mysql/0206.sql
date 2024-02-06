@@ -48,3 +48,64 @@ SELECT *,
  FROM produce;
  
 SELECT * FROM v_produce;
+
+CREATE OR REPLACE VIEW answers AS
+SELECT name FROM artist
+WHERE ArtistId IN(
+		SELECT ArtistId FROM album
+		WHERE AlbumId IN(
+			SELECT AlbumId FROM track 
+			WHERE GenreId = 1
+		)
+);
+CREATE OR REPLACE VIEW answers AS
+SELECT a.name, al.Title, t.name AS "trackName"
+FROM artist a JOIN album al ON a.ArtistId = al.ArtistId
+JOIN track t ON t.AlbumId = al.AlbumId
+JOIN genre g ON g.GenreId = t.GenreId
+WHERE g.name = 'Rock'
+GROUP BY a.name
+
+SELECT * FROM answers
+
+
+CREATE VIEW v_customer_reports AS
+SELECT
+	FirstName,
+    LastName,
+    SUM(i.Total) AS total_purchases,
+    country,
+    i.InvoiceId,
+    i.InvoiceDate
+FROM Customer AS c
+	JOIN Invoice AS i ON c.CustomerId = i.CustomerId
+GROUP BY c.CustomerId
+ORDER BY total_purchases DESC;
+
+SELECT * FROM v_customer_reports
+
+SELECT a.name, al.Title, t.name AS "trackName"
+FROM artist a JOIN album al ON a.ArtistId = al.ArtistId
+JOIN track t ON t.AlbumId = al.AlbumId
+JOIN genre g ON g.GenreId = t.GenreId
+
+SELECT A
+
+CREATE VIEW v_employee_report AS
+SELECT
+	e.FirstName,
+    e.LastName,
+    e.Title,
+    e.HireDate,
+    CONCAT(e2.FirstName, " ", e2.LastName) AS reportsTo,
+    c.company,
+    COUNT(DISTINCT(c.CustomerId)) AS num_of_customers,
+    COUNT(DISTINCT(InvoiceId)) AS num_of_invoices,
+    SUM(total)
+FROM Customer AS c
+	JOIN Invoice AS i ON c.CustomerId = i.CustomerId
+    JOIN Employee AS e ON c.SupportRepId = e.EmployeeId
+    JOIN Employee AS e2 ON e.ReportsTo = e2.EmployeeId
+GROUP BY e.EmployeeId, c.company;
+
+SELECT * FROM v_employee_report
