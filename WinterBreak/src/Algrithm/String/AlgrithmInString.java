@@ -1,5 +1,7 @@
 package Algrithm.String;
 
+import java.util.Arrays;
+
 /**
  * Purpose:             Algrithm.String<br />
  * Data Submitted:      2024/2/5 <br />
@@ -18,27 +20,26 @@ public class AlgrithmInString
         if(str.isEmpty()) return "";
         return recReverse(str.substring(1)) + str.charAt(0);
     }
-    public static void twoPointersReverse(String str)
+    public static String twoPointersReverse(String str)
     {
+        char[] s = str.toCharArray();
         int left = 0;
         int right = str.length() - 1;
-        while (left <= right)
+        while (left < right)
         {
-            char a = str.charAt(left);
-            char b = str.charAt(right);
-            char temp = a;
-            a = b;
-            b = temp;
+            char temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
             left++;
             right--;
         }
+        return Arrays.toString(s);
     }
 
     public static void main(String[] args)
     {
         String str = "abcdefg";
 //        System.out.println(recReverse(str));
-        twoPointersReverse(str);
-        System.out.println(str);
+        System.out.println(twoPointersReverse(str));
     }
 }
