@@ -125,3 +125,23 @@ FROM Track AS t
     JOIN Genre AS g ON g.GenreId = t.GenreId;
 
 SELECT * FROM v_track_information
+
+CREATE VIEW v_track_sales AS
+SELECT 
+	t.TrackId,
+    t.Name AS track_name,
+    al.Title AS album_title,
+    g.Name AS genre,
+    t.Composer,
+    t.UnitPrice,
+    ar.Name AS artist,
+    SUM(i.Quantity) AS num_sales,
+    SUM(i.Quantity * t.UnitPrice) AS total_sales
+FROM Track AS t
+	JOIN Album AS al ON al.AlbumId = t.AlbumId
+    JOIN Artist AS ar ON ar.ArtistId = al.ArtistId
+    JOIN Genre AS g ON g.GenreId = t.GenreId
+    JOIN InvoiceLine AS i ON i.TrackId = t.TrackId
+GROUP BY t.TrackId;
+
+SELECT * FROM v_track_sales;
