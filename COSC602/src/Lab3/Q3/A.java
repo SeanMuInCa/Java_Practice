@@ -81,7 +81,6 @@ public class A
             p.setAge(age);
             p.setSin(sin);
             list.add(p);
-            num--;
-        }while (num != 0);
+        }while (num-- != 0);
     }
 }
