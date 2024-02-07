@@ -139,7 +139,7 @@ public class AlgrithmInString
     private static void getNext(int[] next, String s) {
         int j = 0;
         next[0] = 0;
-        for (int i = 1; i < s.length(); i++) {
+        for (int i = 1; i < s.length(); i++) {//核心，这里获取前缀表，这个地方需要多看几遍视频
             while (j > 0 && s.charAt(j) != s.charAt(i))
                 j = next[j - 1];
             if (s.charAt(j) == s.charAt(i))
@@ -153,5 +153,6 @@ public class AlgrithmInString
 //        System.out.println(recReverse(str));
         System.out.println(twoPointersReverse(str));
         System.out.println(reverseWords(" the   sky   is   blue"));
+        System.out.println(strStr("aabaabaafa", "aabaaf"));
     }
 }
