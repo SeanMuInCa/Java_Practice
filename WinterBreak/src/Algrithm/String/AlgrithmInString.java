@@ -72,6 +72,7 @@ public class AlgrithmInString
         StringBuilder sb = removeSpace(s);
         // 2.反转整个字符串
         reverseString(sb, 0, sb.length() - 1);
+//        sb.reverse();
         // 3.反转各个单词
         reverseEachWord(sb);
         return sb.toString();
@@ -88,14 +89,12 @@ public class AlgrithmInString
             }
             start++;
         }
-        // System.out.println("ReverseWords.removeSpace returned: sb = [" + sb + "]");
         return sb;
     }
     /**
      * 反转字符串指定区间[start, end]的字符
      */
     public static void reverseString(StringBuilder sb, int start, int end) {
-        // System.out.println("ReverseWords.reverseString() called with: sb = [" + sb + "], start = [" + start + "], end = [" + end + "]");
         while (start < end) {
             char temp = sb.charAt(start);
             sb.setCharAt(start, sb.charAt(end));
@@ -103,7 +102,6 @@ public class AlgrithmInString
             start++;
             end--;
         }
-        // System.out.println("ReverseWords.reverseString returned: sb = [" + sb + "]");
     }
 
     private static void reverseEachWord(StringBuilder sb) {
@@ -124,6 +122,6 @@ public class AlgrithmInString
         String str = "abcdefg";
 //        System.out.println(recReverse(str));
         System.out.println(twoPointersReverse(str));
-        System.out.println(reverseWords("the sky is blue"));
+        System.out.println(reverseWords(" the   sky   is   blue"));
     }
 }
