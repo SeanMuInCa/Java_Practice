@@ -59,10 +59,28 @@ public class AlgrithmInString
         return new String(ch);
     }
 
+    public static String reverseWords(String str)
+    {
+        StringBuilder sb = new StringBuilder(str.trim()).reverse();
+        StringBuilder res = new StringBuilder();
+        int left = 0;
+        int right = sb.length() - 1;
+        for (int i = 0; i < sb.length(); i++)
+        {
+            if(sb.charAt(i) == ' ' || i == right)
+            {
+                res.append(recReverse(sb.substring(left,i)));
+                left = i;
+            }
+        }
+
+        return res.toString().trim();
+    }
     public static void main(String[] args)
     {
         String str = "abcdefg";
 //        System.out.println(recReverse(str));
         System.out.println(twoPointersReverse(str));
+        System.out.println(reverseWords("the sky is blue"));
     }
 }
