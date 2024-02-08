@@ -16,6 +16,7 @@ public class TestQueue
 {
     public boolean isValid(String s)
     {
+        if(s.length() % 2 == 1) return false;//如果是奇数，那么一定不匹配
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++)
         {
