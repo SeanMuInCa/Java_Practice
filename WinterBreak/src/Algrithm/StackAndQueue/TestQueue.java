@@ -34,6 +34,35 @@ public class TestQueue
         }
         return stack.isEmpty();
     }
+
+    /**
+     * Input: s = "abbaca"
+     * Output: "ca"
+     * Explanation:
+     * For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal,
+     * and this is the only possible move.  The result of this move is that the string is "aaca",
+     * of which only "aa" is possible, so the final string is "ca".
+     * @param s string
+     * @return string without duplication
+     */
+    public static String removeDuplicates(String s)
+    {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++)
+        {
+            if(stack.isEmpty() || !stack.contains(s.charAt(i)))
+            {
+                stack.push(s.charAt(i));
+            }else
+            {
+                if(s.charAt(i) == stack.peek())
+                {
+                    stack.pop();
+                }
+            }
+        }
+        return stack.toString();
+    }
     public static void main(String[] args)
     {
         MyQueue q = new MyQueue();
@@ -45,5 +74,6 @@ public class TestQueue
         System.out.println(q.peek());
         System.out.println(q.pop());
         System.out.println(q.empty());
+        System.out.println(removeDuplicates("abbaca"));
     }
 }
