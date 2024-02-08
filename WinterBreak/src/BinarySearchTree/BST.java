@@ -268,6 +268,20 @@ public class BST<E> implements Tree<E>
         }
         return list;
     }
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        // 如果两个节点都为空，则相等
+        if (p == null && q == null) {
+            return true;
+        }
+
+        // 如果其中一个节点为空，另一个不为空，或者两个节点的值不相等，则不相等
+        if (p == null || q == null || p.data != q.data) {
+            return false;
+        }
+
+        // 递归比较左子树和右子树
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
     @Override
     public boolean delete(E e)
     {
