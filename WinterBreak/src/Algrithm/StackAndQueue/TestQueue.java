@@ -58,10 +58,17 @@ public class TestQueue
                 if(s.charAt(i) == stack.peek())
                 {
                     stack.pop();
+                }else {
+                    stack.push(s.charAt(i));
                 }
             }
         }
-        return stack.toString();
+        StringBuilder res = new StringBuilder();
+        for (Character i : stack)
+        {
+            res.append(i);
+        }
+        return res.toString();
     }
     public static void main(String[] args)
     {
@@ -74,6 +81,6 @@ public class TestQueue
         System.out.println(q.peek());
         System.out.println(q.pop());
         System.out.println(q.empty());
-        System.out.println(removeDuplicates("abbaca"));
+        System.out.println(removeDuplicates("abbbabaaa"));
     }
 }
