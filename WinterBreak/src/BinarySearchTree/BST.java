@@ -268,7 +268,7 @@ public class BST<E> implements Tree<E>
         }
         return list;
     }
-    public boolean isSameTree(TreeNode p, TreeNode q) {
+    public boolean isSameTree(TreeNode<E> p, TreeNode<E> q) {
         // 如果两个节点都为空，则相等
         if (p == null && q == null) {
             return true;
