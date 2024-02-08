@@ -147,6 +147,12 @@ public class AlgrithmInString
             next[i] = j;
         }
     }
+    public static boolean repeatedSubstringPattern(String s)
+    {
+        String concat = s.concat(s);
+        String substring = concat.substring(1, concat.length() - 1);
+        return substring.contains(s);
+    }
     public static void main(String[] args)
     {
         String str = "abcdefg";
@@ -154,5 +160,6 @@ public class AlgrithmInString
         System.out.println(twoPointersReverse(str));
         System.out.println(reverseWords(" the   sky   is   blue"));
         System.out.println(strStr("aabaabaafa", "aabaaf"));
+        System.out.println(repeatedSubstringPattern("abcabcabcabc"));
     }
 }
