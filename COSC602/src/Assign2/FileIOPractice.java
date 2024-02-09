@@ -1,50 +1,44 @@
 package Assign2;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import Assign2.Apple;
 
-/**
- * Purpose:             Assign2<br />
- * Data Submitted:      2024/2/8 <br />
- * Assignment Number:    Assign2<br />
- * Course Name:         COSC602  <br />
- * Instructor:          George Ding  <br />
- * File Path:          Assign2 <br />
- *
- * @author Zhenghua Mu
- * @version 1.0.0
- */
-public class FileIOPractice
-{
-    public static void loadCSV(String path)
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class FileIOPractice{
+
+    public static void main(String[] args) {
+        ArrayList<Apple> obList = readFile("Apples.csv");
+
+        for (Apple a : obList)
+        {
+            System.out.println(a);
+        }
+        //To-Do use forEach method to print the apples read from the file.
+
+    }
+
+    public static ArrayList<Apple> readFile(String sName)
     {
-        BufferedReader br = null;
+        ArrayList<Apple> list = new ArrayList<>();
         try
         {
-            br = new BufferedReader(new FileReader(new File("Apples.csv")));
-            String oneLineData = "";
-            br.readLine();
-            while ((oneLineData = br.readLine()) != null)
+            BufferedReader bis = new BufferedReader(new FileReader(new File(sName)));
+            String oneLineData;
+            bis.readLine();
+            while ((oneLineData = bis.readLine()) != null)
             {
 
+                String[] result = oneLineData.split(",");
+                Apple apple = new Apple(Integer.parseInt(result[0]),result[1],result[2],Double.parseDouble(result[3]),Double.parseDouble(result[4]));
+                list.add(apple);
             }
+
         }catch (IOException e)
         {
-            System.out.println(e.getMessage());
-        }finally
-        {
-            if(br != null)
-            {
-                try
-                {
-                    br.close();
-                } catch (IOException e)
-                {
-                    System.out.println(e.getMessage());
-                }
-            }
+            e.printStackTrace();
         }
+        return list;
     }
 }
