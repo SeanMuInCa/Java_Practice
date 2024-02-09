@@ -23,7 +23,7 @@ public class FileIOPractice
         BufferedReader br = null;
         try
         {
-            br = new BufferedReader(new FileReader(new File("Apples.csv0")));
+            br = new BufferedReader(new FileReader(new File("Apples.csv")));
             String oneLineData = "";
             br.readLine();
             while ((oneLineData = br.readLine()) != null)
