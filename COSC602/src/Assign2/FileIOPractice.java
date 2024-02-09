@@ -1,10 +1,8 @@
 package Assign2;
 
-import Assign2.Apple;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class FileIOPractice{
 
@@ -15,10 +13,26 @@ public class FileIOPractice{
         {
             System.out.println(a);
         }
-        //To-Do use forEach method to print the apples read from the file.
-
+        System.out.println();
+        System.out.println(Arrays.toString(findUniqueAppleNames(obList)));
     }
 
+    public static String[] findUniqueAppleNames (ArrayList<Apple> obList)
+    {
+        Set<String> set = new HashSet<>();
+        for (Apple a : obList)
+        {
+            set.add(a.getName());
+        }
+        String[] arr = new String[set.size()];
+        Iterator<String> it = set.iterator();
+        int index = 0;
+        while (it.hasNext())
+        {
+            arr[index++] = it.next();
+        }
+        return arr;
+    }
     public static ArrayList<Apple> readFile(String sName)
     {
         ArrayList<Apple> list = new ArrayList<>();
@@ -37,7 +51,7 @@ public class FileIOPractice{
 
         }catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return list;
     }
