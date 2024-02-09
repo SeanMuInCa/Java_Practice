@@ -79,7 +79,7 @@ public class TestBST
         System.out.println(tree.getDepth(tree.root));
         System.out.println(tree.getMinDepth(tree.root));
         System.out.println(tree.getNodes(tree.root));
-        System.out.println(tree.isBalance(tree.root));
+        System.out.println(tree.isBalanced(tree.root));
         System.out.println(tree.getRoot().data);
         ArrayList<BST.TreeNode<String>> michael = tree.path("Peter");
         for (BST.TreeNode<String> n : michael)
