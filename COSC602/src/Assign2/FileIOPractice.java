@@ -20,8 +20,25 @@ public class FileIOPractice{
         {
             System.out.println(a);
         }
+        System.out.println();
+        for (Apple a : filterByMinWeigh(obList,125))
+        {
+            System.out.println(a);
+        }
     }
 
+    public static ArrayList<Apple> filterByMinWeigh(ArrayList<Apple> obAList, double dMinWeight)
+    {
+        ArrayList<Apple> list = new ArrayList<>();
+        for (Apple a : obAList)
+        {
+            if(a.getWeight() > dMinWeight)
+            {
+                list.add(a);
+            }
+        }
+        return list;
+    }
     public static ArrayList<Apple> filterByColor(ArrayList<Apple> obAList, String sColor)
     {
         if (sColor.isEmpty()) return null;
