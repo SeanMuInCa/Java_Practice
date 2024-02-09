@@ -15,8 +15,26 @@ public class FileIOPractice{
         }
         System.out.println();
         System.out.println(Arrays.toString(findUniqueAppleNames(obList)));
+        System.out.println();
+        for (Apple a : filterByColor(obList,"red"))
+        {
+            System.out.println(a);
+        }
     }
 
+    public static ArrayList<Apple> filterByColor(ArrayList<Apple> obAList, String sColor)
+    {
+        if (sColor.isEmpty()) return null;
+        ArrayList<Apple> list = new ArrayList<>();
+        for (Apple a : obAList)
+        {
+            if(sColor.equalsIgnoreCase(a.getColor()))
+            {
+                list.add(a);
+            }
+        }
+        return list;
+    }
     public static String[] findUniqueAppleNames (ArrayList<Apple> obList)
     {
         Set<String> set = new HashSet<>();
