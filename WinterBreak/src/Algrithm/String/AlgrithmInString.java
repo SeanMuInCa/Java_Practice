@@ -149,6 +149,8 @@ public class AlgrithmInString
     }
     public static boolean repeatedSubstringPattern(String s)
     {
+        //if s is a repeated string, then s + s without head and tail must contain at least one of s.
+        //made by 1st s tail and 2nd s head.
         String concat = s.concat(s);
         String substring = concat.substring(1, concat.length() - 1);
         return substring.contains(s);
