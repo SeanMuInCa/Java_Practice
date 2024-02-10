@@ -3,6 +3,7 @@ package Assign2;
 
 import java.io.*;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class FileIOPractice{
@@ -30,6 +31,15 @@ public class FileIOPractice{
         for (Apple a : filterApple(obList, new PredicateByColor("red")))
         {
             System.out.println(a);
+        }
+        System.out.println();
+        foreach(obList, (Apple a)-> System.out.printf("%3.1f ",a.getWeight()));
+    }
+    public static <T> void foreach(List<T> obList, Consumer<T> obFunc)
+    {
+        for (T t: obList)
+        {
+            obFunc.accept(t);
         }
     }
     public static ArrayList<Apple> filterApple(ArrayList<Apple> obAList, Predicate<Apple> oper)
