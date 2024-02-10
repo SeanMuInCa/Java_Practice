@@ -3,6 +3,7 @@ package Assign2;
 
 import java.io.*;
 import java.util.*;
+import java.util.function.Predicate;
 
 public class FileIOPractice{
 
@@ -25,6 +26,23 @@ public class FileIOPractice{
         {
             System.out.println(a);
         }
+        System.out.println();
+        for (Apple a : filterApple(obList, new PredicateByColor("red")))
+        {
+            System.out.println(a);
+        }
+    }
+    public static ArrayList<Apple> filterApple(ArrayList<Apple> obAList, Predicate<Apple> oper)
+    {
+        ArrayList<Apple> list = new ArrayList<>();
+        for (Apple a : obAList)
+        {
+            if(oper.test(a))
+            {
+                list.add(a);
+            }
+        }
+        return list;
     }
 
     public static ArrayList<Apple> filterByMinWeigh(ArrayList<Apple> obAList, double dMinWeight)
