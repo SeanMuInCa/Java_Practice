@@ -4,6 +4,7 @@ package Assign2;
 import java.io.*;
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class FileIOPractice{
@@ -34,6 +35,18 @@ public class FileIOPractice{
         }
         System.out.println();
         foreach(obList, (Apple a)-> System.out.printf("%3.1f ",a.getWeight()));
+        System.out.println();
+        List<Double> obWeights = map(obList, (Apple a)->a.getWeight());
+        foreach(obWeights, (Double d)-> System.out.printf("%3.1f ",d));
+    }
+    public static <T, R> List<R> map(List<T> obList, Function<T, R> obFunc)
+    {
+        List<R> list = new ArrayList<>();
+        for (T t : obList)
+        {
+            list.add(obFunc.apply(t));
+        }
+        return list;
     }
     public static <T> void foreach(List<T> obList, Consumer<T> obFunc)
     {
