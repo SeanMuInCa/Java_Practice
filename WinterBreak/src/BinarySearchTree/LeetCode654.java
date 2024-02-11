@@ -38,8 +38,8 @@ public class LeetCode654
         int[] right = new int[nums.length - index - 1];
         System.arraycopy(nums,0,left,0,index);
         System.arraycopy(nums,index + 1,right,0, right.length);
-        constructMaximumBinaryTree(left);
-        constructMaximumBinaryTree(right);
+        root.left = constructMaximumBinaryTree(left);
+        root.right = constructMaximumBinaryTree(right);
 
         return root;
     }
