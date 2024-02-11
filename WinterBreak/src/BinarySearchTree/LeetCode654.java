@@ -36,13 +36,34 @@ public class LeetCode654
         TreeNode root = new TreeNode(maxVal);
         int[] left = new int[index];
         int[] right = new int[nums.length - index - 1];
-        System.arraycopy(nums,0,left,0,index);
+        System.arraycopy(nums,0,left,0,index);//cause slow
         System.arraycopy(nums,index + 1,right,0, right.length);
         root.left = constructMaximumBinaryTree(left);
         root.right = constructMaximumBinaryTree(right);
 
         return root;
     }
+    public TreeNode constructMaximumBinaryTree1(int[] nums)
+    {
+        return build(nums,0,nums.length - 1);//better solution, don't need to create new array
+    }
 
+    private TreeNode build(int[] nums, int left, int right)
+    {
+        if(left > right) return null;
+        int maxVal = Integer.MIN_VALUE;
+        int index = 0;
+        for (int i = left; i <= right; i++) {
+            if (nums[i] > maxVal) {
+                maxVal = nums[i];
+                index = i;
+            }
+        }
+        TreeNode root = new TreeNode(maxVal);
+        root.left = build(nums,left,index - 1);
+        root.right = build(nums, index + 1, right);
+
+        return root;
+    }
 
 }
