@@ -1,6 +1,8 @@
 package TestCollection;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Purpose:             TestCollection<br />
@@ -18,15 +20,21 @@ public class ImmutableDemo1
     //不可变的集合list，set,map都有of方法
     public static void main(String[] args)
     {
-
+        //Map<Integer,String> map = new HashMap<>();
         //不可修改
         List<String> family = List.of("raina", "rainba", "rainma");
-        for (String s : family)
+        /*for (int i = 0; i < family.size(); i++)
         {
-            System.out.println(s);
-        }
+            map.put(i, family.get(i));
+        }*/
+        Map<Integer,String> map = family.stream().collect(Collectors.toMap(family::indexOf, str -> str));
+
         //family.add("zzs");
-
-
+        //Map<Integer, String> map = Map.of(1, "zs", 2, "ls");
+        map.forEach((k,v) ->
+        {
+            System.out.println(k);
+            System.out.println(v);
+        });
     }
 }
