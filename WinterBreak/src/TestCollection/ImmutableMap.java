@@ -46,9 +46,14 @@ public class ImmutableMap
         //获取entry
         Set<Map.Entry<Integer, String>> entries = map.entrySet();
         //转成数组
-        Map.Entry<Integer,String>[] array = entries.toArray(new Map.Entry[0]);
-        Map<Integer, String> newmap = Map.ofEntries(array);
+        Map.Entry<Integer,String>[] array = entries.toArray(new Map.Entry[0]);//会自动根据数据量变长，因此写几都可以
+        Map<Integer, String> newmap = Map.ofEntries(array);//可变参数底层就是数组
         newmap.forEach((k,v) -> System.out.println(k));
         //newmap.put(33,"aaa"); immutable
+
+        //只需一句话即可 java10以后
+
+        Map<Integer, String> immtableMap = Map.copyOf(map);
+        //immtableMap.put(33,"aaa");
     }
 }
