@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 public class ImmutableDemo1
 {
     //不可变的集合list，set,map都有of方法
+    //map.of只能10对数据
+    //map.ofEntries可以不限制
     public static void main(String[] args)
     {
         //Map<Integer,String> map = new HashMap<>();
