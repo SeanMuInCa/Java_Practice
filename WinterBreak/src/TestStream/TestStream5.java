@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Purpose:             TestStream<br />
@@ -37,5 +38,18 @@ public class TestStream5
         System.out.println();
         //skip
         list.stream().skip(2).forEach(System.out::println);
+        System.out.println();
+        //distinct去重
+        list.add("raina");
+        System.out.println(list);
+        list.stream().distinct().forEach(System.out::println);
+        System.out.println();
+        //concat
+        Stream.concat(list.stream(), List.of("aa", "bb", "cc").stream()).forEach(System.out::println);
+    }
+    //终结方法
+    @Test
+    public void test1(){
+
     }
 }
