@@ -39,13 +39,22 @@ public class TestStream5
         //skip
         list.stream().skip(2).forEach(System.out::println);
         System.out.println();
-        //distinct去重
+        //distinct去重 这个是依赖hash和equals所以要重写这两个方法
         list.add("raina");
         System.out.println(list);
         list.stream().distinct().forEach(System.out::println);
         System.out.println();
         //concat
-        Stream.concat(list.stream(), List.of("aa", "bb", "cc").stream()).forEach(System.out::println);
+        Stream.concat(list.stream(), Stream.of("aa", "bb", "cc")).forEach(System.out::println);
+
+        //map
+        List<String> list2 = new ArrayList<>();
+        list2.add("raina-14");
+        list2.add("rainma-39");
+        list2.add("rainba-42");
+        list2.add("flily-5");
+        System.out.println();
+        list2.stream().map(s -> s.split("-")).map(strings -> Integer.parseInt(strings[1])).forEach(System.out::println);
     }
     //终结方法
     @Test
