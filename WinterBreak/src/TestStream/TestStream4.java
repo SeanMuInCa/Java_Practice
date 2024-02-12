@@ -3,7 +3,9 @@ package TestStream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Purpose:             TestStream<br />
@@ -40,5 +42,17 @@ public class TestStream4
         {
             System.out.println(s);
         }*/
+    }
+    @Test
+    public void test2(){
+        //注意，map不能直接用stream
+        Map<Integer,String> map = new HashMap<>();
+        map.put(1,"a");
+        map.put(2,"b");
+        map.put(3,"c");
+
+        map.keySet().stream().forEach(s -> System.out.println(s));
+        map.values().stream().forEach(s -> System.out.println(s));
+        map.entrySet().stream().forEach(s -> System.out.println(s));
     }
 }
