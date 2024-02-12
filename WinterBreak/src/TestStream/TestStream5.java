@@ -3,6 +3,7 @@ package TestStream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -59,6 +60,24 @@ public class TestStream5
     //终结方法
     @Test
     public void test1(){
+        //foreach count toArray collect
+        List<String> list = new ArrayList<>();
+        list.add("raina");
+        list.add("rainba");
+        list.add("rainma");
+        list.add("flily");
 
+        System.out.println(list.stream().count());
+        System.out.println();
+        /*list.stream().toArray(new IntFunction<String[]>()
+        {
+            @Override
+            public String[] apply(int value)
+            {
+                return new String[value];
+            }
+        });*/
+        String[] array = list.stream().toArray(value -> new String[value]);
+        System.out.println(Arrays.toString(array));
     }
 }
