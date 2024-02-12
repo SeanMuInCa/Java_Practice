@@ -34,10 +34,11 @@ public class TestStream4
             System.out.println(s);
         }
         System.out.println();
-        List<String> rain1 = list.stream().filter(s -> s.startsWith("r") && s.length() > 5).toList();
-        for (String s : rain1)
+        //List<String> rain1 = list.stream().filter(s -> s.startsWith("r") && s.length() > 5).toList();
+        list.stream().filter(s -> s.startsWith("rain")).filter(s -> s.length() > 5).forEach(System.out::println);
+        /*for (String s : rain1)
         {
             System.out.println(s);
-        }
+        }*/
     }
 }
