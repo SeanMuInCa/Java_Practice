@@ -2,10 +2,7 @@ package TestStream;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -106,6 +103,13 @@ public class TestStream5
         Set<String> list2 = list.stream().filter(s -> Integer.parseInt(s.split("-")[2]) < 15).collect(Collectors.toSet());
         System.out.println(list2);
 
-
+        //收集到map
+        Map<String, Integer> list3 = list.stream().filter(s -> s.split("-")[1].equals("female"))
+                .collect(Collectors.toMap(s -> s.split("-")[0], s -> Integer.parseInt(s.split("-")[2])));
+        list3.forEach((k,v) ->{
+            System.out.print(k);
+            System.out.print("---->" + v);
+            System.out.println();
+        });
     }
 }
