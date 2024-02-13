@@ -245,7 +245,6 @@ public class AVLTree
         oldroot.left = getRRbalance(oldroot.left);
         oldroot.height = Math.max(getHeight(oldroot.left), getHeight(oldroot.right)) + 1;
         return getLLbalance(oldroot);
-
     }
 
     /*          (不平衡出现在右左节点)
@@ -260,17 +259,8 @@ public class AVLTree
 
     private node getRLbanlance(node oldroot)
     {//右左深
-//      node newroot=oldroot.right.left;
-//      oldroot.right.left=newroot.right;
-//      newroot.right=oldroot.right;
-//      oldroot.right=newroot.left;
-//      newroot.left=oldroot;
-//      oldroot.height=Math.max(getHeight(oldroot.left),getHeight(oldroot.right))+1;
-//      newroot.right.height=Math.max(getHeight(newroot.right.left),getHeight(newroot.right.right))+1;
-//      newroot.height=Math.max(getHeight(oldroot.left),getHeight(newroot.right))+1;//原来的root的高度需要从新金酸
         oldroot.right = getLLbalance(oldroot.right);
         oldroot.height = Math.max(getHeight(oldroot.left), getHeight(oldroot.right)) + 1;
         return getRRbalance(oldroot);
-
     }
 }
