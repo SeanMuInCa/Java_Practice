@@ -107,8 +107,7 @@ public class TestStream5
         Map<String, Integer> list3 = list.stream().filter(s -> s.split("-")[1].equals("female"))
                 .collect(Collectors.toMap(s -> s.split("-")[0], s -> Integer.parseInt(s.split("-")[2])));
         list3.forEach((k,v) ->{
-            System.out.print(k);
-            System.out.print("---->" + v);
+            System.out.print(k + "---->" + v);
             System.out.println();
         });
     }
