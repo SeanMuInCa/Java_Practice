@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -22,7 +24,8 @@ public class TestStream5
 {
     //中间方法
     @Test
-    public void test(){
+    public void test()
+    {
         List<String> list = new ArrayList<>();
         list.add("raina");
         list.add("rainba");
@@ -57,10 +60,12 @@ public class TestStream5
         System.out.println();
         list2.stream().map(s -> s.split("-")).map(strings -> Integer.parseInt(strings[1])).forEach(System.out::println);
     }
+
     //终结方法
     @Test
-    public void test1(){
-        //foreach count toArray collect
+    public void test1()
+    {
+        //foreach count toArray
         List<String> list = new ArrayList<>();
         list.add("raina");
         list.add("rainba");
@@ -79,5 +84,28 @@ public class TestStream5
         });*/
         String[] array = list.stream().toArray(value -> new String[value]);
         System.out.println(Arrays.toString(array));
+    }
+
+    @Test
+    public void test2()
+    {
+        //collect 收集到list,map,set里
+        List<String> list = new ArrayList<>();
+        list.add("raina-female-14");
+        list.add("rainba-male-42");
+        list.add("rainma-female-39");
+        list.add("flily-female-5");
+
+        //收集到list
+        list.stream().filter(s->s.split("-")[1].equals("female")).forEach(System.out::println);
+        List<String> list1 = list.stream().filter(s -> s.split("-")[1].equals("female")).collect(Collectors.toList());
+        System.out.println(list1);
+
+        System.out.println();
+        //收集到set
+        Set<String> list2 = list.stream().filter(s -> Integer.parseInt(s.split("-")[2]) < 15).collect(Collectors.toSet());
+        System.out.println(list2);
+
+
     }
 }
