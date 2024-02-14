@@ -32,7 +32,20 @@ JOIN student_mark AS s
 ON o.student = s.student
 GROUP BY s.student
 
-
+SELECT * FROM student_mark
+SELECT 
+    s1.student,
+    ROUND(s1.mark * s1.weight,2) AS assignment1_mark,
+    ROUND(s2.mark * s2.weight,2) AS assignment2_mark,
+    ROUND(s3.mark * s3.weight,2) AS midterm_mark,
+    ROUND(s4.mark * s4.weight,2) AS final_mark,
+    ROUND(s5.mark * s5.weight,2) AS lab_mark
+FROM student_mark AS s1
+JOIN student_mark AS s2 ON s1.student = s2.student AND s2.assignment = 'Assignment 2'
+JOIN student_mark AS s3 ON s1.student = s3.student AND s3.assignment = 'Midterm'
+JOIN student_mark AS s4 ON s1.student = s4.student AND s4.assignment = 'Final'
+JOIN student_mark AS s5 ON s1.student = s5.student AND s5.assignment = 'Lab'
+WHERE s1.assignment = 'Assignment 1';
 #4. The current table is not normalized and the structure limits what we 
 #can do. For example, it would be difficult to create a report with all 
 #the student information on one line. Begin the process of normalizing 
