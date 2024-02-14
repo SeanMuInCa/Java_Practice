@@ -26,6 +26,14 @@ SELECT * FROM overall_scores;
 #3. Join the view created above to the student_mark table so the resulting 
 #query shows the students name, the assignment, their mark on the #assignment, and their final grade.
 
+SELECT  s.*, o.`final score`
+FROM overall_scores AS o
+JOIN student_mark AS s
+ON o.student = s.student
+GROUP BY s.student
+
 
 #4. The current table is not normalized and the structure limits what we #can do. For example, it would be difficult to create a report with all #the student information on one line. Begin the process of normalizing #this table by creating a student table that assigns ids to the students.
 #Then create a procedure that adds the students in the student_mark table #to the student table.
+
+
