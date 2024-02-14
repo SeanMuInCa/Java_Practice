@@ -15,14 +15,14 @@ package BinarySearchTree;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class AVLTree
+public class AVLTree<E extends Comparable<E>>
 {
 
-    class node
+    static class node<E>
     {
-        int value;
-        node left;
-        node right;
+        E value;
+        node<E> left;
+        node<E> right;
         int height;
 
         public node()
@@ -30,13 +30,13 @@ public class AVLTree
 
         }
 
-        public node(int value)
+        public node(E value)
         {
             this.value = value;
             this.height = 0;
         }
 
-        public node(int value, node left, node right)
+        public node(E value, node<E> left, node<E> right)
         {
             this.value = value;
             this.left = left;
@@ -45,27 +45,27 @@ public class AVLTree
         }
     }
 
-    node root;// 根
+    node<E> root;// 根
 
     public AVLTree()
     {
         this.root = null;
     }
 
-    public boolean isContains(int x)// 是否存在
+    public boolean contains(E x)// 是否存在
     {
-        node current = root;
+        node<E> current = root;
         if (root == null)
         {
             return false;
         }
-        while (current.value != x && current != null)
+        while (!current.value.equals(x) && current != null)
         {
-            if (x < current.value)
+            if (x.compareTo(current.value) < 0)
             {
                 current = current.left;
             }
-            if (x > current.value)
+            if (x.compareTo(current.value) > 0)
             {
                 current = current.right;
             }
@@ -82,7 +82,7 @@ public class AVLTree
         return false;
     }
 
-    public int getHeight(node t)
+    public int getHeight(node<E> t)
     {
         if (t == null)
         {
@@ -92,9 +92,9 @@ public class AVLTree
         //return 1+Math.max(getHeight(t.left), getHeight(t.right));这种效率太低
     }
 
-    public void cengxu(node t)
+    public void cengxu(node<E> t)
     {//层序遍历
-        Queue<node> q1 = new ArrayDeque<node>();
+        Queue<node<E>> q1 = new ArrayDeque<node<E>>();
         if (t == null)
             return;
         if (t != null)
@@ -103,7 +103,7 @@ public class AVLTree
         }
         while (!q1.isEmpty())
         {
-            node t1 = q1.poll();
+            node<E> t1 = q1.poll();
             if (t1.left != null)
                 q1.add(t1.left);
             if (t1.right != null)
@@ -113,7 +113,7 @@ public class AVLTree
         System.out.println();
     }
 
-    public void inorder(node t)//中序遍历 中序遍历：左子树---> 根结点 ---> 右子树
+    public void inorder(node<E> t)//中序遍历 中序遍历：左子树---> 根结点 ---> 右子树
     {//为了测试改成中后都行
         if (t != null)
         {
@@ -124,7 +124,7 @@ public class AVLTree
         }
     }
 
-    public void preorder(node t)//前序递归 前序遍历：根结点 ---> 左子树 ---> 右子树
+    public void preorder(node<E> t)//前序递归 前序遍历：根结点 ---> 左子树 ---> 右子树
     {
         if (t != null)
         {
@@ -134,7 +134,7 @@ public class AVLTree
         }
     }
 
-    public void postorder(node t)//后序递归 后序遍历： 左子树 ---> 右子树 --->根结点
+    public void postorder(node<E> t)//后序递归 后序遍历： 左子树 ---> 右子树 --->根结点
     {
         if (t != null)
         {
@@ -144,14 +144,14 @@ public class AVLTree
         }
     }
 
-    public void insert(int value)
+    public void insert(E value)
     {
         root = insert(value, root);
     }
 
-    public node insert(int x, node t)//插入   t是root的引用
+    public node<E> insert(E x, node<E> t)//插入   t是root的引用
     {
-        node a1 = new node(x);
+        node<E> a1 = new node<>(x);
         //if(root==null) {root=a1;return root;}
         if (t == null)
         {
@@ -160,7 +160,7 @@ public class AVLTree
         //插入操作。递归实现
         else if (t != null)
         {
-            if (x < t.value)
+            if (x.compareTo(t.value) < 0)
             {
                 t.left = insert(x, t.left);
             } else
@@ -176,7 +176,7 @@ public class AVLTree
         return balance(t);//因为java对象传参机制，需要克隆，不可直接t=xx 否则变换
     }
 
-    private node balance(node t)
+    private node<E> balance(node<E> t)
     {
         // TODO Auto-generated method stub
         //if(t==null)return null;
@@ -215,10 +215,10 @@ public class AVLTree
      *                     E
      */
 
-    private node getRRbalance(node oldroot)
+    private node<E> getRRbalance(node<E> oldroot)
     {//右右深，需要左旋
         // TODO Auto-generated method stub
-        node newroot = oldroot.right;
+        node<E> newroot = oldroot.right;
         oldroot.right = newroot.left;
         newroot.left = oldroot;
         oldroot.height = Math.max(getHeight(oldroot.left), getHeight(oldroot.right)) + 1;
@@ -229,10 +229,10 @@ public class AVLTree
     /*
      * 右旋同理
      */
-    private node getLLbalance(node oldroot)
+    private node<E> getLLbalance(node<E> oldroot)
     {//LL小，需要右旋转
         // TODO Auto-generated method stub
-        node newroot = oldroot.left;
+        node<E> newroot = oldroot.left;
         oldroot.left = newroot.right;
         newroot.right = oldroot;
         oldroot.height = Math.max(getHeight(oldroot.left), getHeight(oldroot.right)) + 1;
@@ -240,7 +240,7 @@ public class AVLTree
         return newroot;
     }
 
-    private node getLRbanlance(node oldroot)
+    private node<E> getLRbanlance(node<E> oldroot)
     {
         oldroot.left = getRRbalance(oldroot.left);
         oldroot.height = Math.max(getHeight(oldroot.left), getHeight(oldroot.right)) + 1;
@@ -257,7 +257,7 @@ public class AVLTree
      *           E     F
      */
 
-    private node getRLbanlance(node oldroot)
+    private node<E> getRLbanlance(node<E> oldroot)
     {//右左深
         oldroot.right = getLLbalance(oldroot.right);
         oldroot.height = Math.max(getHeight(oldroot.left), getHeight(oldroot.right)) + 1;
