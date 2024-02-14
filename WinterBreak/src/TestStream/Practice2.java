@@ -27,8 +27,9 @@ public class Practice2
         list.add("rainba 42");
         list.add("rainma 39");
         list.add("flily 5");
-
+        //大于十岁的组成一个map
         Map<String, Integer> collect = list.stream()
+                .filter(s -> Integer.parseInt(s.split(" ")[1]) > 10)
                 .collect(Collectors.toMap(s -> s.split(" ")[0],
                         s -> Integer.parseInt(s.split(" ")[1])));
         System.out.println(collect);
