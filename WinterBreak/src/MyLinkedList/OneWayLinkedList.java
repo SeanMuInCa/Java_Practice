@@ -195,10 +195,9 @@ public class OneWayLinkedList<E>
             }
         }
     }
-    public E replaceAt(int index, E data)
+    public void replaceAt(int index, E data)
     {
         Node<E> replaced = recReplace(index,head,data);
-        return replaced.data;
     }
 
     private Node<E> recReplace(int index, Node<E> cur, E data)
