@@ -33,7 +33,7 @@ ON o.student = s.student
 
 
 
-#this was i thought should look like, so i keep it, took me three hours to do it.
+#this was i thought the answer should look like, so i keep it for fun, took me three hours to do it.
 
 SELECT 
     s1.student,
@@ -66,9 +66,11 @@ CREATE TABLE students(
     PRIMARY KEY(student_id)
 );
 
+#add the student_id to table student_mark, and link to new table
 ALTER TABLE student_mark ADD student_id INT;
 ALTER TABLE student_mark ADD FOREIGN KEY(student_id) REFERENCES students(student_id);
 
+#fill the students table with name
 DROP PROCEDURE IF EXISTS add_student;
 DELIMITER $
 CREATE PROCEDURE add_student()
@@ -111,3 +113,42 @@ END $
 DELIMITER ;
 
 CALL add_student();
+
+
+#fill the student_id in the student_mark table
+DELIMITER $
+CREATE PROCEDURE add_student_id()
+BEGIN
+		-- variable to hold our current student name
+    DECLARE current_student_name VARCHAR(255);
+    -- variable to hold the new id
+    DECLARE s_id INT;
+    -- variable to hold the student name so we can update the new id
+    DECLARE s_name VARCHAR(255);
+    
+    -- check if the cursor is done
+    DECLARE done INT DEFAULT FALSE;
+    -- CURSOR
+    DECLARE student_cursor CURSOR FOR SELECT student FROM student_mark;
+    -- handler
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    
+    
+    -- open cursor
+    OPEN student_cursor;
+		-- while loop
+		WHILE NOT done DO
+			-- get a result from cursor
+            FETCH student_cursor INTO current_student_name;
+            -- get the id from type
+            SELECT student_id INTO s_id FROM students WHERE student_name = current_student_name;
+            -- update the table
+            UPDATE student_mark SET student_id = s_id WHERE current_student_name = student;
+        END WHILE;
+    -- CLOSE CURSOR
+    CLOSE student_cursor;
+END $
+DELIMITER ;
+
+CALL add_student_id()
+
