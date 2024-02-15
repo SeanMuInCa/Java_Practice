@@ -82,65 +82,65 @@ public class AVLTree<E extends Comparable<E>>
         return false;
     }
 
-    public int getHeight(node<E> t)
+    public int getHeight(node<E> node)
     {
-        if (t == null)
+        if (node == null)
         {
             return -1;
         }//
-        return t.height;
+        return node.height;
         //return 1+Math.max(getHeight(t.left), getHeight(t.right));这种效率太低
     }
 
-    public void cengxu(node<E> t)
+    public void cengxu(node<E> node)
     {//层序遍历
         Queue<node<E>> q1 = new ArrayDeque<node<E>>();
-        if (t == null)
+        if (node == null)
             return;
-        if (t != null)
+        if (node != null)
         {
-            q1.add(t);
+            q1.add(node);
         }
         while (!q1.isEmpty())
         {
-            node<E> t1 = q1.poll();
-            if (t1.left != null)
-                q1.add(t1.left);
-            if (t1.right != null)
-                q1.add(t1.right);
-            System.out.print(t1.value + " ");
+            node<E> node1 = q1.poll();
+            if (node1.left != null)
+                q1.add(node1.left);
+            if (node1.right != null)
+                q1.add(node1.right);
+            System.out.print(node1.value + " ");
         }
         System.out.println();
     }
 
-    public void inorder(node<E> t)//中序遍历 中序遍历：左子树---> 根结点 ---> 右子树
+    public void inorder(node<E> node)//中序遍历 中序遍历：左子树---> 根结点 ---> 右子树
     {//为了测试改成中后都行
-        if (t != null)
+        if (node != null)
         {
-            inorder(t.left);
-            System.out.print(t.value + " ");//访问完左节点访问当前节点
-            inorder(t.right);
+            inorder(node.left);
+            System.out.print(node.value + " ");//访问完左节点访问当前节点
+            inorder(node.right);
             //System.out.print(t.value+" ");//访问完左节点访问当前节点
         }
     }
 
-    public void preorder(node<E> t)//前序递归 前序遍历：根结点 ---> 左子树 ---> 右子树
+    public void preorder(node<E> node)//前序递归 前序遍历：根结点 ---> 左子树 ---> 右子树
     {
-        if (t != null)
+        if (node != null)
         {
-            System.out.print(t.value + " ");//当前节点
-            preorder(t.left);
-            preorder(t.right);
+            System.out.print(node.value + " ");//当前节点
+            preorder(node.left);
+            preorder(node.right);
         }
     }
 
-    public void postorder(node<E> t)//后序递归 后序遍历： 左子树 ---> 右子树 --->根结点
+    public void postorder(node<E> node)//后序递归 后序遍历： 左子树 ---> 右子树 --->根结点
     {
-        if (t != null)
+        if (node != null)
         {
-            postorder(t.left);
-            postorder(t.right);
-            System.out.print(t.value + " ");//当前节点
+            postorder(node.left);
+            postorder(node.right);
+            System.out.print(node.value + " ");//当前节点
         }
     }
 
@@ -149,59 +149,59 @@ public class AVLTree<E extends Comparable<E>>
         root = insert(value, root);
     }
 
-    public node<E> insert(E x, node<E> t)//插入   t是root的引用
+    public node<E> insert(E x, node<E> node)//插入   t是root的引用
     {
         node<E> a1 = new node<>(x);
         //if(root==null) {root=a1;return root;}
-        if (t == null)
+        if (node == null)
         {
             return a1;
         }
         //插入操作。递归实现
-        else if (t != null)
+        else if (node != null)
         {
-            if (x.compareTo(t.value) < 0)
+            if (x.compareTo(node.value) < 0)
             {
-                t.left = insert(x, t.left);
+                node.left = insert(x, node.left);
             } else
             {
-                t.right = insert(x, t.right);
+                node.right = insert(x, node.right);
             }
         }
         /*
          * 更新当前节点的高度，因为整个插入只有被插入的一方有影响，
          * 所以递归会更新好最底层的，上层可直接调用
          */
-        t.height = Math.max(getHeight(t.left), getHeight(t.right)) + 1;//不要写成递归， 递归效率低
-        return balance(t);//因为java对象传参机制，需要克隆，不可直接t=xx 否则变换
+        node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;//不要写成递归， 递归效率低
+        return balance(node);//因为java对象传参机制，需要克隆，不可直接t=xx 否则变换
     }
 
-    private node<E> balance(node<E> t)
+    private node<E> balance(node<E> node)
     {
         // TODO Auto-generated method stub
         //if(t==null)return null;
-        int leftHeight = getHeight(t.left);
-        int rightHeight = getHeight(t.right);
+        int leftHeight = getHeight(node.left);
+        int rightHeight = getHeight(node.right);
         if (Math.abs(leftHeight - rightHeight) <= 1)//不需要平衡滴
         {
-            return t;
+            return node;
         } else if (leftHeight < rightHeight)//右侧大
         {
-            if (getHeight(t.right.left) < getHeight(t.right.right))//RR需要左旋
+            if (getHeight(node.right.left) < getHeight(node.right.right))//RR需要左旋
             {
-                return getRRbalance(t);
+                return getRRbalance(node);
             } else
             {
-                return getRLbanlance(t);
+                return getRLbanlance(node);
             }
         } else
         {
-            if (getHeight(t.left.left) > getHeight(t.left.right))//ll 左左
+            if (getHeight(node.left.left) > getHeight(node.left.right))//ll 左左
             {
-                return getLLbalance(t);
+                return getLLbalance(node);
             } else
             {
-                return getLRbanlance(t);
+                return getLRbanlance(node);
             }
         }
     }
