@@ -25,7 +25,7 @@ public class Tickets2
     }
 }
 class Sale1 extends Thread{
-    static int tickets = 100;
+    static int tickets = 10;
     @Override
     public void run()
     {
