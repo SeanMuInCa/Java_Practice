@@ -25,9 +25,13 @@ public class Test
         thread.start();
         Thread thread1 = new Thread(t1);
         thread1.start();
+        Thread thread2 = new Thread(thread);
+        thread2.start();
         for (int i = 0; i < 10; i++)
         {
             System.out.println(Thread.currentThread().getName() + i);
+            System.out.println(Thread.currentThread().isAlive());
         }
+        System.out.println(Thread.currentThread().isAlive());
     }
 }
