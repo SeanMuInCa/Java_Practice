@@ -53,12 +53,15 @@ public class ControlBox extends HBox{
         o.setText(operator);
         c.setText("");
     }
-    public boolean checkAnswer()
+    public boolean checkAnswer(String result)
     {
 
-        return "2".equals(c.getText());
+        return result.equals(c.getText());
     }
 
+    public String getResult(){
+        return c.getText();
+    }
     public String getOperand(int min, int max)
     {
         return "" + ((int)(Math.random() * (max - min)) + min);

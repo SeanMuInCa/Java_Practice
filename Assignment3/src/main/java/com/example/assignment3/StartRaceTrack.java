@@ -83,8 +83,8 @@ public class StartRaceTrack extends Application
         {
             if (e.getCode() == KeyCode.ENTER)
             {
-
-                if (obControl.checkAnswer())
+                //System.out.println(obControl.getResult());
+                if (obControl.checkAnswer(obControl.getResult()))
                 {
                     obTrack.speedUp();
                 } else
@@ -144,7 +144,7 @@ public class StartRaceTrack extends Application
     private void run()
     {
         obControl.setDisable(false);
-        obTrack2.setDx(10);
+        obTrack2.setDx(3);
         miStart.setDisable(true);
         miPause.setDisable(false);
     }
