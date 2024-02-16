@@ -31,7 +31,7 @@ public class CarPane extends Pane {
         obStart.setStyle("-fx-fill: green");
         getChildren().add(obStart);
 
-        obFinish = new Rectangle(1100,0,10,100);
+        obFinish = new Rectangle(w - 100,0,10,100);
         obFinish.setStyle("-fx-fill: Red");
         getChildren().add(obFinish);
 
@@ -113,7 +113,10 @@ public class CarPane extends Pane {
 
     public void setW(double w) {
         this.w = w;
-
+        getChildren().remove(obFinish);
+        obFinish = new Rectangle(w - 100,0,10,100);
+        obFinish.setStyle("-fx-fill: Red");
+        getChildren().add(obFinish);
         this.obCar.setX(baseX);
     }
 

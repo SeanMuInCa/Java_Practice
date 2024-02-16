@@ -100,11 +100,13 @@ public class StartRaceTrack extends Application
         obTrack.raceFinishedProperty().addListener(e -> {
             obTrack.resetRace();
             obTrack2.resetRace();
+            obControl.setDisable(true);
         });
 
         obTrack2.raceFinishedProperty().addListener(e -> {
             obTrack.resetRace();
             obTrack2.resetRace();
+            obControl.setDisable(true);
         });
 
         obStage.setScene(obScene);
