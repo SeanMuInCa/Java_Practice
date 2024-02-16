@@ -48,7 +48,7 @@ public class ControlBox extends HBox{
     {
         return "" + ((int)(Math.random() * (max - min)) + min);
     }
-    private String getOperator()
+    public String getOperator()
     {
         String operator = "";
         int x = (int)(Math.random() * 3) % 3;

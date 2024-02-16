@@ -85,6 +85,8 @@ public class StartRaceTrack extends Application
                 }else {
                     obTrack.slowDown();
                 }
+                obControl = new ControlBox();
+                obPane.setBottom(obControl);
             }
         });
         obControl.setDisable(true);
@@ -108,6 +110,7 @@ public class StartRaceTrack extends Application
             obTrack2.resetRace();
             obControl.setDisable(true);
         });
+
 
         obStage.setScene(obScene);
 
