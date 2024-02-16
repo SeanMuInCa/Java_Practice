@@ -107,6 +107,7 @@ public class StartRaceTrack extends Application
         //Register the listener when the current game is finished
         obTrack.raceFinishedProperty().addListener(e ->
         {
+            System.out.println(e);
             obTrack.resetRace();
             obTrack2.resetRace();
             obControl.setDisable(true);
@@ -115,6 +116,7 @@ public class StartRaceTrack extends Application
 
         obTrack2.raceFinishedProperty().addListener(e ->
         {
+            System.out.println(e);
             obTrack.resetRace();
             obTrack2.resetRace();
             obControl.setDisable(true);
@@ -165,7 +167,6 @@ public class StartRaceTrack extends Application
         //Set event handler for start menu item
         miStart.setOnAction(e ->
         {
-
             run();
         });
         //Set event handler for pause menu item
@@ -252,6 +253,8 @@ public class StartRaceTrack extends Application
         obButtonRestart.setOnAction(t -> {
             dialogStage.close();
             new StartRaceTrack();
+            miStart.setDisable(false);
+            miPause.setDisable(true);
         });
         Scene dialogScene = new Scene(dialogBox, 350, 200);
 
