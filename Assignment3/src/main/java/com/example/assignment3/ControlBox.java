@@ -18,14 +18,17 @@ public class ControlBox extends HBox{
     private Label e;  //equal sign
     double width;
     double height;
+    private int res;
 
     public ControlBox()
     {
-        a = new Label(" 1 ");
-        b = new Label(" 1 ");
-        o = new Label(" + ");
+        a = new Label();
+        b = new Label();
+        o = new Label();
+
         e = new Label(" = ");
         c = new TextField();
+        initQuestion();
         width = 200;
         height = 50;
         this.setAlignment(Pos.CENTER);
@@ -45,18 +48,24 @@ public class ControlBox extends HBox{
         {
             a.setText(getOperand(1,12));
             b.setText(getOperand(1,12));
+            res = Integer.parseInt(a.getText()) * Integer.parseInt(b.getText());
         }else
         {
             a.setText(getOperand(1,100));
             b.setText(getOperand(1,100));
+            if("-".equals(operator))
+            {
+                res = Integer.parseInt(a.getText()) - Integer.parseInt(b.getText());
+            }else res = Integer.parseInt(a.getText()) + Integer.parseInt(b.getText());
         }
         o.setText(operator);
         c.setText("");
+
     }
     public boolean checkAnswer(String result)
     {
 
-        return result.equals(c.getText());
+        return res == Integer.parseInt(c.getText());
     }
 
     public String getResult(){
