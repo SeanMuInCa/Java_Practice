@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -75,6 +76,18 @@ public class StartRaceTrack extends Application
         obControl = new ControlBox();
         obPane.setBottom(obControl);
 
+        obControl.setOnKeyReleased(e->{
+            if(e.getCode() == KeyCode.ENTER)
+            {
+                if(obControl.checkAnswer())
+                {
+                    obTrack.speedUp();
+                }else {
+                    obTrack.slowDown();
+                }
+            }
+        });
+        obControl.setDisable(true);
 
         Scene obScene = new Scene(obPane, 1200, 400);
         //Bind tracks' width with the scene
@@ -129,9 +142,17 @@ public class StartRaceTrack extends Application
 
         //Set event handler for start menu item
         miStart.setOnAction(e ->{
-            obTrack2.setDx(10);
+            obControl.setDisable(false);
+            obTrack2.setDx(2);
             miStart.setDisable(true);
             miPause.setDisable(false);
+        });
+        //Set event handler for pause menu item
+        miPause.setOnAction(e ->{
+            obTrack2.setDx(0);
+            obTrack.setDx(0);
+            miStart.setDisable(false);
+            miPause.setDisable(true);
         });
 
         miExit.setOnAction(e -> obMainStage.close());
