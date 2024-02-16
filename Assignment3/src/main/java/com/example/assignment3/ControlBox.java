@@ -38,6 +38,21 @@ public class ControlBox extends HBox{
         this.getChildren().add(c);
     }
 
+    public void initQuestion()
+    {
+        String operator = getOperator();
+        if(operator.equals("*"))
+        {
+            a.setText(getOperand(1,12));
+            b.setText(getOperand(1,12));
+        }else
+        {
+            a.setText(getOperand(1,100));
+            b.setText(getOperand(1,100));
+        }
+        o.setText(operator);
+        c.setText("");
+    }
     public boolean checkAnswer()
     {
 

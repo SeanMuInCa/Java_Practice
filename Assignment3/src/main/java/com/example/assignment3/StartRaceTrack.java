@@ -75,18 +75,19 @@ public class StartRaceTrack extends Application
         // Create and add the game control, and the menu bar to the obPane
         obControl = new ControlBox();
         obPane.setBottom(obControl);
-
+        //obControl.initQuestion();
+        //todo add a timer and after 5 sec no answer re new
         obControl.setOnKeyReleased(e->{
             if(e.getCode() == KeyCode.ENTER)
             {
+
                 if(obControl.checkAnswer())
                 {
                     obTrack.speedUp();
                 }else {
                     obTrack.slowDown();
                 }
-                obControl = new ControlBox();
-                obPane.setBottom(obControl);
+                obControl.initQuestion();
             }
         });
         obControl.setDisable(true);

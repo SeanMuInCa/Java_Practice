@@ -107,6 +107,7 @@ public class CarPane extends Pane {
     {
         if(this.dx>=1)
             this.dx--;
+        System.out.println("My Speed is " + dx);
     }
 
 
