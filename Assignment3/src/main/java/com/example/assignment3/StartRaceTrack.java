@@ -1,4 +1,5 @@
 package com.example.assignment3;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -68,7 +69,7 @@ public class StartRaceTrack extends Application
 
         //A border pane, top area for menu bar, bottom for the game control, center for tracks/cars
         BorderPane obPane = new BorderPane(obCarBox);
-        obPane.setPadding(new Insets(10,0,10,0));
+        obPane.setPadding(new Insets(10, 0, 10, 0));
 
         obPane.setTop(createMenuBar());
 
@@ -77,14 +78,17 @@ public class StartRaceTrack extends Application
         obPane.setBottom(obControl);
         //obControl.initQuestion();
         //todo add a timer and after 5 sec no answer re new
-        obControl.setOnKeyReleased(e->{
-            if(e.getCode() == KeyCode.ENTER)
+        //todo why 2nd time not finish?
+        obControl.setOnKeyReleased(e ->
+        {
+            if (e.getCode() == KeyCode.ENTER)
             {
 
-                if(obControl.checkAnswer())
+                if (obControl.checkAnswer())
                 {
                     obTrack.speedUp();
-                }else {
+                } else
+                {
                     obTrack.slowDown();
                 }
                 obControl.initQuestion();
@@ -94,22 +98,27 @@ public class StartRaceTrack extends Application
 
         Scene obScene = new Scene(obPane, 1200, 400);
         //Bind tracks' width with the scene
-        obScene.widthProperty().addListener(e -> {
+        obScene.widthProperty().addListener(e ->
+        {
             obTrack.setW(obScene.getWidth());
             obTrack2.setW(obScene.getWidth());
         });
 
         //Register the listener when the current game is finished
-        obTrack.raceFinishedProperty().addListener(e -> {
+        obTrack.raceFinishedProperty().addListener(e ->
+        {
             obTrack.resetRace();
             obTrack2.resetRace();
             obControl.setDisable(true);
+            createResult(obTrack);
         });
 
-        obTrack2.raceFinishedProperty().addListener(e -> {
+        obTrack2.raceFinishedProperty().addListener(e ->
+        {
             obTrack.resetRace();
             obTrack2.resetRace();
             obControl.setDisable(true);
+            createResult(obTrack2);
         });
 
 
@@ -130,6 +139,13 @@ public class StartRaceTrack extends Application
 
         return obBar;
     }
+    private void run()
+    {
+        obControl.setDisable(false);
+        obTrack2.setDx(10);
+        miStart.setDisable(true);
+        miPause.setDisable(false);
+    }
 
     private Menu createFileMenu()
     {
@@ -147,14 +163,14 @@ public class StartRaceTrack extends Application
 
 
         //Set event handler for start menu item
-        miStart.setOnAction(e ->{
-            obControl.setDisable(false);
-            obTrack2.setDx(2);
-            miStart.setDisable(true);
-            miPause.setDisable(false);
+        miStart.setOnAction(e ->
+        {
+
+            run();
         });
         //Set event handler for pause menu item
-        miPause.setOnAction(e ->{
+        miPause.setOnAction(e ->
+        {
             obTrack2.setDx(0);
             obTrack.setDx(0);
             miStart.setDisable(false);
@@ -185,7 +201,7 @@ public class StartRaceTrack extends Application
             VBox dialogBox = new VBox(40);
 
             dialogBox.setPadding(new Insets(30, 30, 30, 30));
-            dialogBox.getChildren().add( new Text("This game is developed by:\n\n       George Ding\n     " +
+            dialogBox.getChildren().add(new Text("This game is developed by:\n\n       George Ding\n     " +
                     "  SDC Instructor\n      Saskatchewan Polytechnic\n      SK, Canada"));
 
 
@@ -208,4 +224,41 @@ public class StartRaceTrack extends Application
         return mnHelp;
     }
 
+    private void createResult(CarPane car)
+    {
+        final Stage dialogStage = new Stage();
+
+        dialogStage.setTitle("Result of the race!");
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
+        dialogStage.initOwner(obMainStage);
+
+        VBox dialogBox = new VBox(40);
+
+        dialogBox.setPadding(new Insets(30, 30, 30, 30));
+
+        dialogBox.getChildren().add(new Text(car == obTrack2 ? "Computer Win" : "You Win"));
+
+
+        HBox obHBox = new HBox(40);
+        Button obButtonClose = new Button("Close");
+        Button obButtonRestart = new Button("Restart");
+
+        obHBox.getChildren().add(obButtonClose);
+        obHBox.getChildren().add(obButtonRestart);
+
+        dialogBox.getChildren().add(obHBox);
+
+        obButtonClose.setOnAction(t -> dialogStage.close());
+        obButtonRestart.setOnAction(t -> {
+            dialogStage.close();
+            new StartRaceTrack();
+        });
+        Scene dialogScene = new Scene(dialogBox, 350, 200);
+
+        dialogStage.setScene(dialogScene);
+
+        dialogStage.show();
+
+
+    }
 }
