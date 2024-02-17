@@ -44,7 +44,7 @@ public class ControlBox extends HBox{
     public void initQuestion()
     {
         String operator = getOperator();
-        if(operator.equals("*"))
+        if(operator.equals(" * "))
         {
             a.setText(getOperand(1,12));
             b.setText(getOperand(1,12));
@@ -81,9 +81,9 @@ public class ControlBox extends HBox{
         int x = (int)(Math.random() * 3) % 3;
         switch (x)
         {
-            case 0 -> operator = "+";
-            case 1 -> operator = "-";
-            case 2 -> operator = "*";
+            case 0 -> operator = " + ";
+            case 1 -> operator = " - ";
+            case 2 -> operator = " * ";
         }
         return operator;
     }

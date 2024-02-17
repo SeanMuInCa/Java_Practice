@@ -26,6 +26,7 @@ public class StartRaceTrack extends Application
 
     Timeline obTimeRace;
     Timeline obTimeRace2;
+    Timeline answer;
 
     ControlBox obControl;
     Stage obMainStage;
@@ -79,6 +80,11 @@ public class StartRaceTrack extends Application
         //obControl.initQuestion();
         //todo add a timer and after 5 sec no answer re new
         //todo why 2nd time not finish?
+        answer = new Timeline(new KeyFrame(Duration.seconds(5), t -> {
+            System.out.println("every 5 seconds");
+            obControl.initQuestion();
+        }));
+        answer.setCycleCount(Timeline.INDEFINITE);
         obControl.setOnKeyReleased(e ->
         {
             if (e.getCode() == KeyCode.ENTER)
@@ -147,6 +153,7 @@ public class StartRaceTrack extends Application
         obTrack2.setDx(3);
         miStart.setDisable(true);
         miPause.setDisable(false);
+        answer.play();
     }
 
     private Menu createFileMenu()
@@ -176,6 +183,7 @@ public class StartRaceTrack extends Application
             obTrack.setDx(0);
             miStart.setDisable(false);
             miPause.setDisable(true);
+            answer.pause();
         });
 
         miExit.setOnAction(e -> obMainStage.close());
