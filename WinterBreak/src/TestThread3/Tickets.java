@@ -13,6 +13,7 @@ package TestThread3;
  */
 public class Tickets
 {
+    //todo 这里没有解决同步问题，后续再看
     public static void main(String[] args)
     {
         SellTickets1 s1 = new SellTickets1();
@@ -21,6 +22,8 @@ public class Tickets
         new Thread(s1).start();
         new Thread(s1).start();
         new Thread(s1).start();
+        //都会出现问题，不管是继承方式，还是接口方式
+        //必须要加锁才能解决这个问题
     }
 }
 class SellTickets extends Thread
