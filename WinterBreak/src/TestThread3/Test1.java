@@ -28,7 +28,7 @@ public class Test1
                     int n = 10;
                     while (n > 0)
                     {
-                        System.out.println(n--);
+                        System.out.println(Thread.currentThread().getName() + n--);
                         Thread.sleep(1000);
                     }
                 } catch (InterruptedException e)
@@ -44,7 +44,7 @@ public class Test1
                 int n = 10;
                 while (n-- > 0)
                 {
-                    System.out.println(n + 1);
+                    System.out.println(Thread.currentThread().getName() + (n + 1));
                     Thread.sleep(1000);
                 }
                 System.out.println("finish");
@@ -54,5 +54,6 @@ public class Test1
             }
         };
         t2.run();
+        t1.run();
     }
 }
