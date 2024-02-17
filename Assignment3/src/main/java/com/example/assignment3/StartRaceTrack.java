@@ -93,8 +93,9 @@ public class StartRaceTrack extends Application
             if (e.getCode() == KeyCode.ENTER)
             {
                 //System.out.println(obControl.getResult());
-                if (obControl.checkAnswer(obControl.getResult()))
+                if (obControl.checkAnswer(obControl.getResult().trim()))
                 {
+                    System.out.println("jiasu");
                     obTrack.speedUp();
                 } else
                 {
@@ -168,7 +169,7 @@ public class StartRaceTrack extends Application
         miStart = new MenuItem("Start");
 
         miPause = new MenuItem("Pause");
-
+        miPause.setDisable(true);
 
         miRestart = new MenuItem("ReStart");
         miRestart.setVisible(false);
@@ -279,7 +280,7 @@ public class StartRaceTrack extends Application
 
         dialogBox.getChildren().add(obHBox);
 
-        obButtonClose.setOnAction(t -> dialogStage.close());
+        obButtonClose.setOnAction(t -> obMainStage.close());
         obButtonRestart.setOnAction(t -> {
             dialogStage.close();
             new StartRaceTrack();

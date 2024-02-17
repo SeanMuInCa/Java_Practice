@@ -64,7 +64,8 @@ public class ControlBox extends HBox{
     }
     public boolean checkAnswer(String result)
     {
-
+        System.out.println(result);
+        System.out.println(c.getText());
         return res == Integer.parseInt(c.getText());
     }
 
