@@ -15,18 +15,37 @@ public class Tickets
 {
     public static void main(String[] args)
     {
-        SellTickets s1 = new SellTickets();
-        SellTickets s2 = new SellTickets();
-        SellTickets s3 = new SellTickets();
-        s1.start();
-        s2.start();
-        s3.start();
+        SellTickets1 s1 = new SellTickets1();
+        //SellTickets1 s2 = new SellTickets1();
+        //SellTickets1 s3 = new SellTickets1();
+        new Thread(s1).start();
+        new Thread(s1).start();
+        new Thread(s1).start();
     }
 }
 class SellTickets extends Thread
 {
     private static int num = 10;
 
+    @Override
+    public void run()
+    {
+        while (num > 0)
+        {
+            System.out.println("Counter " + Thread.currentThread().getName() + " " + (num--));
+            try
+            {
+                Thread.sleep(50);
+            } catch (InterruptedException e)
+            {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+}
+class SellTickets1 implements Runnable
+{
+    private int num = 10;
     @Override
     public void run()
     {
