@@ -16,6 +16,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class StartRaceTrack extends Application
 {
     //ImageView obCar ;
@@ -161,7 +163,7 @@ public class StartRaceTrack extends Application
 
     private Menu createFileMenu()
     {
-
+        AtomicInteger speed = new AtomicInteger();
         Menu mnFile = new Menu("File");
         miStart = new MenuItem("Start");
 
@@ -185,6 +187,7 @@ public class StartRaceTrack extends Application
         //Set event handler for pause menu item
         miPause.setOnAction(e ->
         {
+            speed.set(obTrack.getDx());
             obTrack2.setDx(0);
             obTrack.setDx(0);
             miStart.setDisable(true);
@@ -192,11 +195,12 @@ public class StartRaceTrack extends Application
             miRestart.setVisible(true);
             answer.stop();
             obControl.setDisable(true);
+            System.out.println(speed);
         });
         miRestart.setOnAction(e -> {
             run();
-            obTrack.setDx(obTrack.getDx());
-            obTrack2.setDx(obTrack2.getDx());
+            obTrack.setDx(speed.get());
+            //obTrack2.setDx(obTrack2.getDx());
             miStart.setDisable(true);
             miPause.setVisible(true);
             miRestart.setVisible(false);
