@@ -34,6 +34,7 @@ public class StartRaceTrack extends Application
 
     MenuItem miStart;
     MenuItem miPause;
+    MenuItem miRestart;
 
     @Override
     public void start(final Stage obStage) throws Exception
@@ -152,7 +153,7 @@ public class StartRaceTrack extends Application
     private void run()
     {
         obControl.setDisable(false);
-        obTrack2.setDx(3);
+        obTrack2.setDx(2);
         miStart.setDisable(true);
         miPause.setDisable(false);
         answer.play();
@@ -160,17 +161,20 @@ public class StartRaceTrack extends Application
 
     private Menu createFileMenu()
     {
+
         Menu mnFile = new Menu("File");
         miStart = new MenuItem("Start");
 
         miPause = new MenuItem("Pause");
 
 
+        miRestart = new MenuItem("ReStart");
+        miRestart.setVisible(false);
         SeparatorMenuItem obSpacer = new SeparatorMenuItem();
 
         MenuItem miExit = new MenuItem("Exit");
 
-        mnFile.getItems().addAll(miStart, miPause, obSpacer, miExit);
+        mnFile.getItems().addAll(miStart, miPause, miRestart,obSpacer, miExit);
 
 
         //Set event handler for start menu item
@@ -183,9 +187,21 @@ public class StartRaceTrack extends Application
         {
             obTrack2.setDx(0);
             obTrack.setDx(0);
-            miStart.setDisable(false);
-            miPause.setDisable(true);
-            answer.pause();
+            miStart.setDisable(true);
+            miPause.setVisible(false);
+            miRestart.setVisible(true);
+            answer.stop();
+            obControl.setDisable(true);
+        });
+        miRestart.setOnAction(e -> {
+            run();
+            obTrack.setDx(obTrack.getDx());
+            obTrack2.setDx(obTrack2.getDx());
+            miStart.setDisable(true);
+            miPause.setVisible(true);
+            miRestart.setVisible(false);
+            obControl.initQuestion();
+            answer.play();
         });
 
         miExit.setOnAction(e -> obMainStage.close());
