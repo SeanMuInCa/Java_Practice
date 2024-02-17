@@ -53,11 +53,12 @@ public class ControlBox extends HBox{
         {
             a.setText(getOperand(1,100));
             b.setText(getOperand(1,100));
-            if("-".equals(operator))
+            if(" - ".equals(operator))
             {
                 res = Integer.parseInt(a.getText()) - Integer.parseInt(b.getText());
             }else res = Integer.parseInt(a.getText()) + Integer.parseInt(b.getText());
         }
+        System.out.println(res);
         o.setText(operator);
         c.setText("");
 

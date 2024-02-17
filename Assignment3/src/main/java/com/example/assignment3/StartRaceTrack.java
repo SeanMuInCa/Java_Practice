@@ -99,6 +99,7 @@ public class StartRaceTrack extends Application
                     obTrack.speedUp();
                 } else
                 {
+                    System.out.println("jiansu");
                     obTrack.slowDown();
                 }
                 answer.stop();
