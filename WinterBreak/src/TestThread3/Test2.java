@@ -21,7 +21,7 @@ public class Test2
             int n = 10;
             while (n-- > 0)
             {
-                System.out.println(n + 1);
+                System.out.println((n + 1) + Thread.currentThread().getName());
                 try
                 {
                     Thread.sleep(1000);
@@ -33,11 +33,11 @@ public class Test2
         };
         t1.start();//真正意义上的多线程
         Some1 t2 = new Some1();
-        new Thread(t2).start();
-        new Thread(t23).start();
+        new Thread(t2).start();//包了一层
+        new Thread(t23).start();//包了一层
         for (int i = 0; i < 10; i++)
         {
-            System.out.println(i);
+            System.out.println(Thread.currentThread().getName() + i);
             Thread.sleep(1000);
         }
     }
