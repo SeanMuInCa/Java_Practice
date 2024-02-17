@@ -97,6 +97,8 @@ public class StartRaceTrack extends Application
                 {
                     obTrack.slowDown();
                 }
+                answer.stop();
+                answer.play();
                 obControl.initQuestion();
             }
         });
