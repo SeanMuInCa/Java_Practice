@@ -16,7 +16,25 @@ public class Test2
     public static void main(String[] args) throws InterruptedException
     {
         Some t1 = new Some();
-        t1.start();
+        Runnable t23 = () ->
+        {
+            int n = 10;
+            while (n-- > 0)
+            {
+                System.out.println(n + 1);
+                try
+                {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e)
+                {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+        t1.start();//真正意义上的多线程
+        Some1 t2 = new Some1();
+        new Thread(t2).start();
+        new Thread(t23).start();
         for (int i = 0; i < 10; i++)
         {
             System.out.println(i);
@@ -24,6 +42,7 @@ public class Test2
         }
     }
 }
+
 class Some extends Thread
 {
     @Override
@@ -41,6 +60,26 @@ class Some extends Thread
         } catch (InterruptedException e)
         {
             throw new RuntimeException(e);
+        }
+    }
+}
+class Some1 implements Runnable
+{
+
+    @Override
+    public void run()
+    {
+        int n = 10;
+        while (n-- > 0)
+        {
+            System.out.println((n + 1) + Thread.currentThread().getName());
+            try
+            {
+                Thread.sleep(1000);
+            } catch (InterruptedException e)
+            {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
