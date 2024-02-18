@@ -13,26 +13,43 @@ package TestThread3;
  */
 public class TestExit
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
 
-        Runnable t1 = () ->
-        {
-            int n = 0;
-            boolean flag = true;
-            while (flag)
-            {
-                System.out.println(Thread.currentThread().getName() + n++);
-                try
-                {
-                    Thread.sleep(50);
-                } catch (InterruptedException e)
-                {
-                    throw new RuntimeException(e);
-                }
-            }
-        };
-        new Thread(t1).start();
+        Th thread = new Th();
+        thread.start();
+        Thread.sleep(3000);
+        thread.setFlag(false);//叫停线程
+    }
+}
+class Th extends Thread
+{
+    int n = 0;
+    boolean flag = true;
+    @Override
+    public void run()
+    {
 
+        while (flag)
+        {
+            System.out.println(Thread.currentThread().getName() + n++);
+            try
+            {
+                Thread.sleep(50);
+            } catch (InterruptedException e)
+            {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public boolean isFlag()
+    {
+        return flag;
+    }
+
+    public void setFlag(boolean flag)
+    {
+        this.flag = flag;
     }
 }
