@@ -13,7 +13,7 @@ package TestThread3;
  */
 public class Tickets
 {
-    //todo 这里没有解决同步问题，后续再看
+
     public static void main(String[] args)
     {
         SellTickets1 s1 = new SellTickets1();
@@ -38,7 +38,7 @@ class SellTickets extends Thread
             System.out.println("Counter " + Thread.currentThread().getName() + " " + (num--));
             try
             {
-                Thread.sleep(50);
+                Thread.sleep(100);
             } catch (InterruptedException e)
             {
                 throw new RuntimeException(e);
@@ -50,17 +50,20 @@ class SellTickets1 implements Runnable
 {
     private int num = 10;
     @Override
-    public void run()
+    public  void run()
     {
-        while (num > 0)
+        synchronized (this)
         {
-            System.out.println("Counter " + Thread.currentThread().getName() + " " + (num--));
-            try
+            while (num > 0)
             {
-                Thread.sleep(50);
-            } catch (InterruptedException e)
-            {
-                throw new RuntimeException(e);
+                System.out.println("Counter " + Thread.currentThread().getName() + " " + (num--));
+                try
+                {
+                    Thread.sleep(50);
+                } catch (InterruptedException e)
+                {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
