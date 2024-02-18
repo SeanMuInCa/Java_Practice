@@ -81,8 +81,7 @@ public class StartRaceTrack extends Application
         obControl = new ControlBox();
         obPane.setBottom(obControl);
         //obControl.initQuestion();
-        //todo add a timer and after 5 sec no answer re new
-        //todo why 2nd time not finish?
+
         answer = new Timeline(new KeyFrame(Duration.seconds(5), t -> {
             System.out.println("every 5 seconds");
             obControl.initQuestion();
@@ -163,6 +162,18 @@ public class StartRaceTrack extends Application
         answer.play();
     }
 
+    private void showRestart(){
+        miRestart.setVisible(true);
+    }
+    private void hideRestart(){
+        miRestart.setVisible(false);
+    }
+    private void showPause(){
+        miPause.setVisible(true);
+    }
+    private void hidePause(){
+        miPause.setVisible(false);
+    }
     private Menu createFileMenu()
     {
         AtomicInteger speed = new AtomicInteger();
@@ -173,7 +184,7 @@ public class StartRaceTrack extends Application
         miPause.setDisable(true);
 
         miRestart = new MenuItem("ReStart");
-        miRestart.setVisible(false);
+        hideRestart();
         SeparatorMenuItem obSpacer = new SeparatorMenuItem();
 
         MenuItem miExit = new MenuItem("Exit");
@@ -193,8 +204,8 @@ public class StartRaceTrack extends Application
             obTrack2.setDx(0);
             obTrack.setDx(0);
             miStart.setDisable(true);
-            miPause.setVisible(false);
-            miRestart.setVisible(true);
+            hidePause();
+            showRestart();
             answer.stop();
             obControl.setDisable(true);
             System.out.println(speed);
@@ -204,8 +215,8 @@ public class StartRaceTrack extends Application
             obTrack.setDx(speed.get());
             //obTrack2.setDx(obTrack2.getDx());
             miStart.setDisable(true);
-            miPause.setVisible(true);
-            miRestart.setVisible(false);
+            showPause();
+            hideRestart();
             obControl.initQuestion();
             answer.play();
         });
