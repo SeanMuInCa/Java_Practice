@@ -33,9 +33,11 @@ public class TestJoinYield
         for (int i = 0; i < 20; i++)
         {
             System.out.println("hi " + i);
+            Thread.sleep(500);
             if(i == 4)
             {
-                thread1.join();
+                thread1.join();//一定能成功插队
+                //Thread.yield();//取决于CPU，不一定能成功，本意是让位给其他线程
             }
         }
     }
