@@ -22,7 +22,7 @@ public class TestExit
 
         Th t2 = new Th();
         t2.start();
-        t2.join();
+        //t2.join();
         //thread.interrupt();
         //thread.setFlag(false);//叫停线程
         //和interrupt不同，
