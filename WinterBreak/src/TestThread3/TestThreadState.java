@@ -22,7 +22,7 @@ public class TestThreadState
 
         while (Thread.State.TERMINATED != t.getState())
         {
-            Thread.sleep(1000);
+            Thread.sleep(1000);//sleep 方法会进入timed-waiting状态
             System.out.println(t.getName() + " " + t.getState());
             if(x++ == 5)
             {
