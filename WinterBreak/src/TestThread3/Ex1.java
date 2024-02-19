@@ -47,7 +47,7 @@ public class Ex1
 
     private static int generateNum()
     {
-        return (int)(Math.random() * 100);
+        return ((int)(Math.random() * 100) + 1);
     }
     private static void setFlag(){
 
