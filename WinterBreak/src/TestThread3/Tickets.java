@@ -63,7 +63,7 @@ class SellTickets extends Thread
 
 class SellTickets1 implements Runnable
 {
-    private int num = 100;
+    private int num = 10;
     boolean flag = true;
 
     @Override
@@ -86,7 +86,7 @@ class SellTickets1 implements Runnable
         System.out.println("Counter " + Thread.currentThread().getName() + " " + (num--));
         try
         {
-            Thread.sleep(50);
+            Thread.sleep(100);
             //Thread.yield();
         } catch (InterruptedException e)
         {
