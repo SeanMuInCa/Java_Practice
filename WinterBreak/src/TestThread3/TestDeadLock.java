@@ -15,7 +15,7 @@ public class TestDeadLock
 {
     public static void main(String[] args)
     {
-        DeadLock t1 = new DeadLock(true);
+        DeadLock t1 = new DeadLock(false);
         DeadLock t2 = new DeadLock(false);
         t1.start();
         t2.start();
@@ -34,7 +34,7 @@ class DeadLock extends Thread
     @Override
     public void run()
     {
-        if(flag)
+        if(flag)//典型死锁，各不相让
         {
             synchronized (o1)
             {
