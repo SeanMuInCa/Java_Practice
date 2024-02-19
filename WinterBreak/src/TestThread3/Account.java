@@ -22,6 +22,7 @@ public class Account implements Runnable
         if (number <= 0)
         {
             flag = false;
+            System.out.println("余额不足");
             return;
         }
         number -= 1000;
