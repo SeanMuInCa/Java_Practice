@@ -16,7 +16,7 @@ public class TestDeadLock
     public static void main(String[] args)
     {
         DeadLock t1 = new DeadLock(false);
-        DeadLock t2 = new DeadLock(false);
+        DeadLock t2 = new DeadLock(true);
         t1.start();
         t2.start();
     }
@@ -39,6 +39,7 @@ class DeadLock extends Thread
             synchronized (o1)
             {
                 System.out.println(Thread.currentThread().getName() + " o1");
+                System.out.println(Thread.currentThread().getState());
                 synchronized (o2)
                 {
                     System.out.println(Thread.currentThread().getName() + " o2");
@@ -48,6 +49,7 @@ class DeadLock extends Thread
             synchronized (o2)
             {
                 System.out.println(Thread.currentThread().getName() + " o2 in else");
+                System.out.println(Thread.currentThread().getState());
                 synchronized (o1)
                 {
                     System.out.println(Thread.currentThread().getName() + " o1 in else");
