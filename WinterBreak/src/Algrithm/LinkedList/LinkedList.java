@@ -177,18 +177,20 @@ public class LinkedList implements Iterable
         head.next = null;
         return last;
     }
-    ListNode target = null;
+    //这个节点就是目标反转节点的下一个节点
+    ListNode targetNext = null;
     public ListNode reverseN(ListNode head, int n)
     {
         if(n == 1)
         {
-            target = head.next;
+            //如果反转的就是头
+            targetNext = head.next;
             return head;
         }
         ListNode last = reverseN(head.next, n - 1);
-
+        //链表反转最后的结果，都是头和下一个互相指，因此需要反转一下
         head.next.next = head;
-        head.next = target;
+        head.next = targetNext;
         return last;
     }
     public void reverse()
