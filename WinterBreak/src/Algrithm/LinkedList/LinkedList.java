@@ -169,7 +169,14 @@ public class LinkedList implements Iterable
         slow.next = slow.next.next;
         size--;
     }
-
+    public ListNode reverse(ListNode head)
+    {
+        if(head.next == null) return head;
+        ListNode last = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
     public void reverse()
     {
 //        head = twoPointerReverse();
