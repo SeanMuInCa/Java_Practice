@@ -49,8 +49,5 @@ public class Ex1
     {
         return ((int)(Math.random() * 100) + 1);
     }
-    private static void setFlag(){
-
-    }
 }
 
