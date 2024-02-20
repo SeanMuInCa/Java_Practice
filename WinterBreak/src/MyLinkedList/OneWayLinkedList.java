@@ -350,6 +350,14 @@ public class OneWayLinkedList<E>
             node.next = null;
         }
     }
+    public Node reverse(Node head)
+    {
+        if(head.next == null) return head;
+        Node last = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
 
     public Itr iterator()
     {
@@ -403,5 +411,10 @@ public class OneWayLinkedList<E>
             System.out.print(it.next() + " ");
         System.out.println();
         System.out.println(list.size());
+        list.head = list.reverse(list.head);
+        it = list.iterator();
+        while (it.hasNext())
+            System.out.print(it.next() + " ");
+        System.out.println();
     }
 }
