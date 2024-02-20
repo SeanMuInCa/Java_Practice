@@ -177,6 +177,20 @@ public class LinkedList implements Iterable
         head.next = null;
         return last;
     }
+    ListNode target = null;
+    public ListNode reverseN(ListNode head, int n)
+    {
+        if(n == 1)
+        {
+            target = head.next;
+            return head;
+        }
+        ListNode last = reverseN(head.next, n - 1);
+
+        head.next.next = head;
+        head.next = target;
+        return last;
+    }
     public void reverse()
     {
 //        head = twoPointerReverse();
