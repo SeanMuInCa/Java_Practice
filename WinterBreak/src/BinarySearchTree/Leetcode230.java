@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class Leetcode230
 {
+    //find the smallest k
     public int kthSmallest(TreeNode<Integer> root, int k) {
         List<TreeNode<Integer>> list = new ArrayList<>();
         traversal(root,list);
