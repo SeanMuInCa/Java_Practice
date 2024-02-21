@@ -294,6 +294,7 @@ public class LinkedList implements Iterable
         return null;
     }
 
+
     public int getSize()
     {
         return size;
