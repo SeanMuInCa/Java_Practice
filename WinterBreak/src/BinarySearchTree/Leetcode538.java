@@ -13,5 +13,19 @@ package BinarySearchTree;
  */
 public class Leetcode538
 {
-
+    TreeNode<Integer> convertBST(TreeNode<Integer> root)
+    {
+        traversal(root);
+        return root;
+    }
+    int sum = 0;
+    void traversal(TreeNode<Integer> root)
+    {
+        if(root == null) return;
+        //倒叙一下
+        traversal(root.right);
+        sum += root.val;
+        root.val = sum;
+        traversal(root.left);
+    }
 }
