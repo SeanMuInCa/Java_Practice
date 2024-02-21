@@ -93,6 +93,7 @@ public class TestStream5
         list.add("rainma-female-39");
         list.add("flily-female-5");
 
+        System.out.println(list.stream().distinct().count());
         //收集到list
         list.stream().filter(s->s.split("-")[1].equals("female")).forEach(System.out::println);
         List<String> list1 = list.stream().filter(s -> s.split("-")[1].equals("female")).collect(Collectors.toList());
