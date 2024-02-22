@@ -277,7 +277,7 @@ public class MyHashSet<E> implements Collection<E>
     @Override
     public String toString()
     {
-        ArrayList<E> list = new ArrayList<>();
+        ArrayList<E> list = setToList();
         StringBuilder builder = new StringBuilder("[");
 
         for (int i = 0; i < list.size() - 1; i++)
