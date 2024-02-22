@@ -13,7 +13,7 @@ import java.util.Iterator;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class LinkedList implements Iterable
+public class LinkedList<E> implements Iterable
 {
     private ListNode head;
     int size = 0;
@@ -302,7 +302,7 @@ public class LinkedList implements Iterable
 
     public static void main(String[] args)
     {
-        LinkedList list = new LinkedList();
+        LinkedList list = new LinkedList<>();
 
         list.add(1);
         list.add(2);
