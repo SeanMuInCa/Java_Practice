@@ -1,5 +1,6 @@
 package MyHash;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -193,7 +194,7 @@ public class MyHashSet<E> implements Collection<E>
     private class MyHashSetIterator implements java.util.Iterator<E>
     {
         // Store the elements in a li
-        private java.util.ArrayList<E> list;
+        private ArrayList<E> list;
         private int current = 0; // Point to the current element in list
         private MyHashSet<E> set;
 
@@ -220,11 +221,77 @@ public class MyHashSet<E> implements Collection<E>
         {
             return list.get(current++);
         }
+
         // Remove the current element returned by the last next()
-        public void remove()  // Left as an exercis151 // You need to remove the element from the se152 // You also need to remove it from the lis153 }
+        public void remove()
         {
+            // Left as an exercise
+            // You need to remove the element from the set
+            // You also need to remove it from the list }
         }
     }
 
+    private void removeElements()
+    {
+        for (int i = 0; i < capacity; i++)
+        {
+            if (table[i] != null)
+            {
+                table[i].clear();
+            }
+        }
+    }
+
+    /**
+     * Rehash the set
+     */
+    private void rehash()
+    {
+        java.util.ArrayList<E> list = setToList(); // Copy to a list
+        capacity <<= 1; // Same as capacity *= 2. <= is more efficient
+        table = new LinkedList[capacity]; // Create a new hash table
+        size = 0;
+
+        for (E element : list)
+        {
+            add(element); // Add from the old table to the new table
+        }
+    }
+
+    private ArrayList<E> setToList()
+    {
+        ArrayList<E> list = new ArrayList<>();
+        for (int i = 0; i < capacity; i++)
+        {
+            if (table[i] != null)
+            {
+                for (E e : table[i])
+                {
+                    list.add(e);
+                }
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public String toString()
+    {
+        ArrayList<E> list = new ArrayList<>();
+        StringBuilder builder = new StringBuilder("[");
+
+        for (int i = 0; i < list.size() - 1; i++)
+        {
+            builder.append(list.get(i) + ", ");
+        }
+
+        // Add the last element in the list to the string builder
+        if (list.isEmpty())
+            builder.append("]");
+        else
+            builder.append(list.get(list.size() - 1) + "]");
+
+        return builder.toString();
+    }
 
 }
