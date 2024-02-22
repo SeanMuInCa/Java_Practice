@@ -27,17 +27,17 @@ public class MyHashSet<E> implements Collection<E>
 
     public MyHashSet()
     {
-        this(DEFAULT_INITIAL_CAPACITY,DEFAULT_MAX_LOAD_FACTOR);
+        this(DEFAULT_INITIAL_CAPACITY, DEFAULT_MAX_LOAD_FACTOR);
     }
 
     public MyHashSet(int capacity)
     {
-        this(capacity,DEFAULT_MAX_LOAD_FACTOR);
+        this(capacity, DEFAULT_MAX_LOAD_FACTOR);
     }
 
     public MyHashSet(int initialCapacity, float loadFactorThreshold)
     {
-        if(initialCapacity > MAXIMUM_CAPACITY)
+        if (initialCapacity > MAXIMUM_CAPACITY)
             this.capacity = MAXIMUM_CAPACITY;
         else this.capacity = trimToPowerOf2(initialCapacity);
 
@@ -71,13 +71,14 @@ public class MyHashSet<E> implements Collection<E>
     public boolean contains(Object e)
     {
         int index = hash(e.hashCode());
-        if(table[index] != null)
+        if (table[index] != null)
         {
             LinkedList<E> bucket = table[index];
             return bucket.contains(e);
         }
         return false;
     }
+
 
     private int hash(int hashCode)
     {
@@ -111,13 +112,48 @@ public class MyHashSet<E> implements Collection<E>
     @Override
     public boolean add(E e)
     {
-        return false;
+        if (contains(e)) // Duplicate element not stored
+            return false;
+
+        if (size + 1 > capacity * loadFactorThreshold)
+        {
+            if (capacity == MAXIMUM_CAPACITY) throw new RuntimeException("Exceeding maximum capacity");
+
+            rehash();
+        }
+
+        int bucketIndex = hash(e.hashCode());
+
+        // Create a linked list for the bucket if not already created
+        if (table[bucketIndex] == null)
+        {
+            table[bucketIndex] = new LinkedList<E>();
+        }
+
+        // Add e to hashTable[index]
+        table[bucketIndex].add(e);
+
+        size++; // Increase size
+
+        return true;
     }
 
     @Override
-    public boolean remove(Object o)
+    public boolean remove(Object e)
     {
-        return false;
+        if (!contains(e))
+            return false;
+
+        int bucketIndex = hash(e.hashCode());
+        if (table[bucketIndex] != null)
+        {
+            LinkedList<E> bucket = table[bucketIndex];
+            bucket.remove(e);
+        }
+
+        size--; // Decrease size
+
+        return true;
     }
 
     @Override
@@ -150,4 +186,45 @@ public class MyHashSet<E> implements Collection<E>
         size = 0;
         removeElements();
     }
+
+    /**
+     * Inner class for iterator
+     */
+    private class MyHashSetIterator implements java.util.Iterator<E>
+    {
+        // Store the elements in a li
+        private java.util.ArrayList<E> list;
+        private int current = 0; // Point to the current element in list
+        private MyHashSet<E> set;
+
+        /**
+         * Create a list from the set
+         */
+        public MyHashSetIterator(MyHashSet<E> set)
+        {
+            this.set = set;
+            list = setToList();
+        }
+
+        @Override
+        /** Next element for traversing?*/
+        public boolean hasNext()
+        {
+            return current < list.size();
+        }
+
+
+        @Override
+        /** Get current element and move cursor to the next */
+        public E next()
+        {
+            return list.get(current++);
+        }
+        // Remove the current element returned by the last next()
+        public void remove()  // Left as an exercis151 // You need to remove the element from the se152 // You also need to remove it from the lis153 }
+        {
+        }
+    }
+
+
 }
