@@ -1,6 +1,5 @@
 package MyMap;
 
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -19,7 +18,7 @@ public interface MyMap<K,V>
     public void clear();
     public boolean containsKey(K key);
     public boolean containsValue(V value);
-    public Set<Map.Entry<K,V>> entrySet();
+    public Set<Entry<K,V>> entrySet();
     public V get(K key);
     public boolean isEmpty();
     public Set<K> keySet();
