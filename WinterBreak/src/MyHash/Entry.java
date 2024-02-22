@@ -1,4 +1,4 @@
-package MyMap;
+package MyHash;
 
 /**
  * Purpose:             MyMap<br />

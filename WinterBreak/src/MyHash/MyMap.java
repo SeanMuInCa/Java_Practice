@@ -1,4 +1,4 @@
-package MyMap;
+package MyHash;
 
 import java.util.Set;
 
