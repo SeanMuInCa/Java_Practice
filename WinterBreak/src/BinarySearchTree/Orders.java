@@ -36,6 +36,12 @@ public class Orders
         {
             System.out.println(node.data);
         }
+        System.out.println();
+        List<TreeNode<Integer>> list3 = inorder(root);
+        for (TreeNode node : list3)
+        {
+            System.out.println(node.data);
+        }
     }
     public static <E> ArrayList<TreeNode<E>> preorder(TreeNode<E> cur)
     {
@@ -92,6 +98,28 @@ public class Orders
 
         }
         Collections.reverse(list);
+        return list;
+    }
+    public static <E> ArrayList<TreeNode<E>> inorder(TreeNode<E> root)
+    {
+        ArrayList<TreeNode<E>> list = new ArrayList<>();
+        Stack<TreeNode<E>> stack = new Stack<>();
+        if(root == null) return null;
+        TreeNode<E> cur = root;
+        while (cur != null || !stack.isEmpty())
+        {
+            if(cur != null)
+            {
+                stack.push(cur);
+                cur = cur.left;
+            }else {
+                cur = stack.pop();
+                list.add(cur);
+                cur = cur.right;
+            }
+        }
+
+
         return list;
     }
     public static class TreeNode<E>
