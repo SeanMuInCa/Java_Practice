@@ -1,9 +1,6 @@
 package BinarySearchTree;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Purpose:             BinarySearchTree<br />
@@ -16,7 +13,7 @@ import java.util.Stack;
  * @author Zhenghua Mu
  * @version 1.0.0
  */
-public class Orders
+public class OrdersIterator
 {
     public static void main(String[] args)
     {
@@ -42,13 +39,20 @@ public class Orders
         {
             System.out.println(node.data);
         }
+        System.out.println();
+        List<TreeNode<Integer>> list4 = breathorder(root);
+        for (TreeNode node : list4)
+        {
+            System.out.println(node.data);
+        }
     }
+
     public static <E> ArrayList<TreeNode<E>> preorder(TreeNode<E> cur)
     {
         ArrayList<TreeNode<E>> list = new ArrayList<>();
         Stack<TreeNode<E>> stack = new Stack<>();
 
-        if(cur == null) return list;
+        if (cur == null) return list;
         stack.push(cur);
         while (!stack.isEmpty())
         {
@@ -57,17 +61,14 @@ public class Orders
             {
                 node = stack.pop();
                 list.add(node);
-            }
-            else continue;
+            } else continue;
 
-            if(node.right != null)
+            if (node.right != null)
                 stack.push(node.right);
 
-            if(node.left != null)
+            if (node.left != null)
                 stack.push(node.left);
-            //System.out.println(stack.size());
         }
-
         return list;
     }
 
@@ -76,7 +77,7 @@ public class Orders
         ArrayList<TreeNode<E>> list = new ArrayList<>();
         Stack<TreeNode<E>> stack = new Stack<>();
 
-        if(cur == null) return list;
+        if (cur == null) return list;
         stack.push(cur);
         while (!stack.isEmpty())
         {
@@ -85,43 +86,58 @@ public class Orders
             {
                 node = stack.pop();
                 list.add(node);
-            }
-            else continue;
+            } else continue;
 
-            if(node.left != null)
+            if (node.left != null)
                 stack.push(node.left);
-            if(node.right != null)
+            if (node.right != null)
                 stack.push(node.right);
-
-
-            //System.out.println(stack.size());
-
         }
         Collections.reverse(list);
         return list;
     }
+
     public static <E> ArrayList<TreeNode<E>> inorder(TreeNode<E> root)
     {
         ArrayList<TreeNode<E>> list = new ArrayList<>();
         Stack<TreeNode<E>> stack = new Stack<>();
-        if(root == null) return null;
+        if (root == null) return null;
         TreeNode<E> cur = root;
         while (cur != null || !stack.isEmpty())
         {
-            if(cur != null)
+            if (cur != null)
             {
                 stack.push(cur);
                 cur = cur.left;
-            }else {
+            } else
+            {
                 cur = stack.pop();
                 list.add(cur);
                 cur = cur.right;
             }
         }
-
-
         return list;
     }
+
+    public static <E> ArrayList<TreeNode<E>> breathorder(TreeNode<E> root)
+    {
+        ArrayList<TreeNode<E>> list = new ArrayList<>();
+        Queue<TreeNode<E>> queue = new LinkedList<>();
+        if (root == null) return null;
+        queue.add(root);
+        while (!queue.isEmpty())
+        {
+            TreeNode<E> node = queue.poll();
+            if (node != null)
+            {
+                list.add(node);
+                queue.add(node.left);
+                queue.add(node.right);
+            }
+        }
+        return list;
+    }
+
     public static class TreeNode<E>
     {
         protected E data;
