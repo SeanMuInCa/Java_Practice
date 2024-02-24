@@ -1,6 +1,7 @@
 package Algrithm.LinkedList;
 
 import java.util.Iterator;
+import java.util.Stack;
 
 /**
  * Purpose:             Algrithm.LinkedList<br />
@@ -169,19 +170,22 @@ public class LinkedList<E> implements Iterable
         slow.next = slow.next.next;
         size--;
     }
+
     public ListNode reverse(ListNode head)
     {
-        if(head.next == null) return head;
+        if (head.next == null) return head;
         ListNode last = reverse(head.next);
         head.next.next = head;
         head.next = null;
         return last;
     }
+
     //这个节点就是目标反转节点的下一个节点
     ListNode targetNext = null;
+
     public ListNode reverseN(ListNode head, int n)
     {
-        if(n == 1)
+        if (n == 1)
         {
             //如果反转的就是头
             targetNext = head.next;
@@ -193,6 +197,7 @@ public class LinkedList<E> implements Iterable
         head.next = targetNext;
         return last;
     }
+
     public void reverse()
     {
 //        head = twoPointerReverse();
@@ -277,14 +282,17 @@ public class LinkedList<E> implements Iterable
     {
         ListNode fast = head;
         ListNode slow = head;
-        while (fast != null && fast.next != null) {
+        while (fast != null && fast.next != null)
+        {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast) {// 有环
+            if (slow == fast)
+            {// 有环
                 ListNode index1 = fast;
                 ListNode index2 = head;
                 // 两个指针，从头结点和相遇结点，各走一步，直到相遇，相遇点即为环入口
-                while (index1 != index2) {
+                while (index1 != index2)
+                {
                     index1 = index1.next;
                     index2 = index2.next;
                 }
@@ -294,21 +302,56 @@ public class LinkedList<E> implements Iterable
         return null;
     }
 
+    /**
+     * delete all targets
+     *
+     * @param target
+     */
     public void deleteTarget(int target)
     {
-        if(head.val == target)
+        if (head.val == target)
         {
             head = head.next;
         }
         ListNode cur = head;
         while (cur != null && cur.next != null)
         {
-            if(cur.next.val == target)
+            if (cur.next.val == target)
             {
                 cur.next = cur.next.next;
             }
             cur = cur.next;
         }
+    }
+
+    public static boolean isPalindrome(LinkedList list)
+    {
+        if (list == null || list.size == 0)
+        {
+            return false; // 空链表不是回文链表
+        }
+        Stack stack = new Stack();
+        int index = list.size / 2;
+        int rest = list.size % 2;
+        for (int i = 0; i < index; i++)
+        {
+            if (list.get(i) != null)
+            {
+                stack.push(list.get(i).val);
+            }
+        }
+        int pivot = (rest == 1) ? index + 1 : index;
+        System.out.println(pivot);
+        while (!stack.isEmpty())
+        {
+            if (!(stack.peek().equals(list.get(pivot).val)))
+            {
+                return false;
+            }
+            stack.pop();
+            pivot++;
+        }
+        return true;
     }
 
     public int getSize()
@@ -323,11 +366,12 @@ public class LinkedList<E> implements Iterable
         list.add(1);
         list.add(2);
         list.add(3);
-        list.add(4);
-        list.add(6);
+        //list.add(3);
+        list.add(2);
         list.add(1);
 
-        list.deleteTarget(1);
+        //list.deleteTarget(1);
+        System.out.println(isPalindrome(list));
         for (Object o : list)
         {
             System.out.print(o + " ");
