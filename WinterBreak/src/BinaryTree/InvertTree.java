@@ -28,4 +28,11 @@ public class InvertTree
             return 0;
         return 1 + count(root.left) + count(root.right);
     }
+    public <E> void travels(TreeNode<E> root)
+    {
+        if(root == null) return;
+        travels(root.left);
+        System.out.println(root.data);
+        travels(root.right);
+    }
 }
