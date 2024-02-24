@@ -294,6 +294,22 @@ public class LinkedList<E> implements Iterable
         return null;
     }
 
+    public void deleteTarget(int target)
+    {
+        if(head.val == target)
+        {
+            head = head.next;
+        }
+        ListNode cur = head;
+        while (cur != null && cur.next != null)
+        {
+            if(cur.next.val == target)
+            {
+                cur.next = cur.next.next;
+            }
+            cur = cur.next;
+        }
+    }
 
     public int getSize()
     {
@@ -309,13 +325,14 @@ public class LinkedList<E> implements Iterable
         list.add(3);
         list.add(4);
         list.add(6);
-        list.add(7);
+        list.add(1);
 
+        list.deleteTarget(1);
         for (Object o : list)
         {
             System.out.print(o + " ");
         }
-        System.out.println();
+        /*System.out.println();
         list.insert(5, 0);
         for (Object o : list)
         {
@@ -352,7 +369,7 @@ public class LinkedList<E> implements Iterable
         for (Object o : list)
         {
             System.out.print(o + " ");
-        }
+        }*/
     }
 
     @Override
