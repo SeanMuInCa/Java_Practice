@@ -55,6 +55,7 @@ public class BST<E> implements Tree<E>
 
     /**
      * 最大层数
+     *
      * @param root
      * @return
      */
@@ -96,26 +97,27 @@ public class BST<E> implements Tree<E>
 
     /**
      * 给定一个节点的子树高度
+     *
      * @param node
      * @return
      */
     public int getHeight(TreeNode<E> node)
     {
-        if(node == null) return 0;
+        if (node == null) return 0;
         int lefts = getHeight(node.left);
-        if(lefts == -1) return -1;
+        if (lefts == -1) return -1;
         int rights = getHeight(node.right);
-        if(rights == -1) return -1;
+        if (rights == -1) return -1;
 
         int res = Math.abs(lefts - rights);
-
-        return res > 1 ? -1 : res;
+        if (res > 1) return -1;
+        else return (1 + Math.max(lefts, rights));
     }
 
     public int sumOfLeftLeaves(TreeNode<E> root)
     {
         if (root == null) return 0;
-        if (root.left == null && root.right== null) return 0;
+        if (root.left == null && root.right == null) return 0;
         int lefts = sumOfLeftLeaves(root.left);
 
         int mid = 0;
@@ -136,10 +138,10 @@ public class BST<E> implements Tree<E>
         return res;
     }
 
-    private void traversal(TreeNode<E> root, List<String> paths, List<String> res)
+    private void traversal(TreeNode<E> cur, List<String> paths, List<String> res)
     {
-        paths.add(root.data.toString());
-        if (root.left == null && root.right == null)
+        paths.add(cur.data.toString());
+        if (cur.left == null && cur.right == null)
         {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < paths.size() - 1; i++)
@@ -150,14 +152,14 @@ public class BST<E> implements Tree<E>
             res.add(sb.toString());
             return;
         }
-        if (root.left != null)
+        if (cur.left != null)
         {
-            traversal(root.left, paths, res);
+            traversal(cur.left, paths, res);
             paths.remove(paths.size() - 1);
         }
-        if (root.right != null)
+        if (cur.right != null)
         {
-            traversal(root.right, paths, res);
+            traversal(cur.right, paths, res);
             paths.remove(paths.size() - 1);
         }
     }
@@ -329,29 +331,37 @@ public class BST<E> implements Tree<E>
         // 递归比较左子树和右子树
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
-    public boolean isSymmetric1(TreeNode root) {
+
+    public boolean isSymmetric1(TreeNode root)
+    {
         return compare(root.left, root.right);
     }
 
     /**
      * 比较是否是对称二叉树
+     *
      * @param left
      * @param right
      * @return
      */
-    private boolean compare(TreeNode left, TreeNode right) {
+    private boolean compare(TreeNode left, TreeNode right)
+    {
 
-        if (left == null && right != null) {
+        if (left == null && right != null)
+        {
             return false;
         }
-        if (left != null && right == null) {
+        if (left != null && right == null)
+        {
             return false;
         }
 
-        if (left == null && right == null) {
+        if (left == null && right == null)
+        {
             return true;
         }
-        if (left.data != right.data) {
+        if (left.data != right.data)
+        {
             return false;
         }
         // 比较外侧
