@@ -53,6 +53,11 @@ public class BST<E> implements Tree<E>
         return false;
     }
 
+    /**
+     * 最大层数
+     * @param root
+     * @return
+     */
     public int getDepth(TreeNode<E> root)
     {
         if (root == null) return 0;
@@ -78,14 +83,33 @@ public class BST<E> implements Tree<E>
 
     public boolean isBalanced(TreeNode<E> root)
     {
-        if (root == null) return true;
+        /*if (root == null) return true;
         int lefts = getDepth(root.left);
         int rights = getDepth(root.right);
         if (Math.abs(lefts - rights) > 1)
         {
             return false;
         }
-        return isBalanced(root.left) && isBalanced(root.right);
+        return isBalanced(root.left) && isBalanced(root.right);*/
+        return getHeight(root) != -1;
+    }
+
+    /**
+     * 给定一个节点的子树高度
+     * @param node
+     * @return
+     */
+    public int getHeight(TreeNode<E> node)
+    {
+        if(node == null) return 0;
+        int lefts = getHeight(node.left);
+        if(lefts == -1) return -1;
+        int rights = getHeight(node.right);
+        if(rights == -1) return -1;
+
+        int res = Math.abs(lefts - rights);
+
+        return res > 1 ? -1 : res;
     }
 
     public int sumOfLeftLeaves(TreeNode<E> root)
