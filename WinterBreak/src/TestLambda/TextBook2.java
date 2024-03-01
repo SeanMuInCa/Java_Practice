@@ -1,10 +1,7 @@
 package TestLambda;
 
 import java.util.Comparator;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 /**
  * Purpose:             TestLambda<br />
@@ -67,5 +64,13 @@ public class TextBook2
     };
     BiFunction<String,String,Integer> bi2 = (s1,s2) -> s1.compareTo(s2);
 
-
+    Supplier<String> s1 = new Supplier<String>()
+    {
+        @Override
+        public String get()
+        {
+            return null;
+        }
+    };
+    Supplier<String> s2 = () -> "";
 }
