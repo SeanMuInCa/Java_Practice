@@ -3,7 +3,7 @@ package Class0304_junit;
 /**
  *
  * Purpose:  This class stores all the information about an account.   Each
- * account is assigned a unique identifier.  A class variable is used to 
+ * account is assigned a unique identifier.  A class variable is used to
  * ensure each account gets a unique id.
  * @author CST Instructor
  */
@@ -20,16 +20,15 @@ public class Account
     private float balance;
 
     /**
-     * Constructor for the Account class.  Throw an exception if 
-     * balance specified is negative.   
+     * Constructor for the Account class.  Throw an exception if
+     * balance specified is negative.
      * @param balance    Starting balance for account
      * @param acctId    Unique account identifier
      */
     public Account( float balance, long acctId )
     {
-        this.accountId = acctId;
-        if(balance < 0) throw new IllegalArgumentException("wrong input");
-        this.balance = balance;
+        accountId = acctId;
+        setBalance( balance );
     }
 
     /**
@@ -40,6 +39,11 @@ public class Account
      */
     public void deposit( float amount )
     {
+        if ( amount < 0 )
+        {
+            throw new IllegalArgumentException("Cannot deposit a negative amount" );
+        }
+        balance += amount;
     }
 
     /**
@@ -50,7 +54,7 @@ public class Account
 
     public long getAccountId()
     {
-        return 0;
+        return accountId;
     }
 
     /**
@@ -72,7 +76,14 @@ public class Account
      */
     public boolean withdraw( float amount )
     {
-        return false;
+        boolean result = false;
+        if ( amount <= balance )
+        {
+            //enough money so can withdraw
+            result = true;
+            balance -= amount;
+        }
+        return result;
     }
 
     /**
@@ -83,7 +94,10 @@ public class Account
      */
     public void setBalance( float balance )
     {
-        if(balance < 0) throw new IllegalArgumentException("wrong input");
+        if ( balance < 0 )
+        {
+            throw new IllegalArgumentException("Balance cannot be negative");
+        }
         this.balance = balance;
     }
 }
