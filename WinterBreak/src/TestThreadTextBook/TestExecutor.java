@@ -23,7 +23,8 @@ public class TestExecutor
 
         executor.execute(new PrintChar('a',100));
         executor.execute(new PrintChar('b',100));
-        executor.execute(new PrintNum(100));
+        executor.execute(new PrintChar('c',100));
+//        executor.execute(new PrintNum(100));
 
         executor.shutdown();
     }
@@ -65,7 +66,7 @@ class PrintNum implements Runnable{
             for (int i = 1; i <= lastNum; i++)
             {
                 System.out.print(" " + i);
-                if(i == 50) t4.join();
+                if(i == 20) t4.join();
                 //Thread.yield();
             }
         } catch (InterruptedException e)
