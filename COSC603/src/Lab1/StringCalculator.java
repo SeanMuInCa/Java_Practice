@@ -61,7 +61,7 @@ public class StringCalculator
         if (!negatives.isEmpty())
         {
             throw new RuntimeException("Negatives are not allowed: " +
-                    negatives.toString());
+                    negatives);
         }
 
         return sum;

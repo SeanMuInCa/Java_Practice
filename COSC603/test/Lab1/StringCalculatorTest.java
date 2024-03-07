@@ -35,7 +35,8 @@ class StringCalculatorTest
     @Test
     public final void whenNonNumberIsUsedThenExceptionIsThrown()
     {
-        RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
+        RuntimeException thrown = assertThrows(RuntimeException.class, () ->
+        {
             StringCalculator.add("1,X");
         });
         //System.out.println(thrown.getMessage());
@@ -92,7 +93,8 @@ class StringCalculatorTest
     @Test
     public final void whenNegativeNumberIsUsedThenRuntimeExceptionIsThrown()
     {
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+        RuntimeException e = assertThrows(RuntimeException.class, () ->
+        {
             StringCalculator.add("3,-6,15,18,46,33");
         });
         assertEquals("Negatives are not allowed: [-6]",
@@ -104,10 +106,10 @@ class StringCalculatorTest
     {
         RuntimeException exception = null;
 
-        try {
+        try
+        {
             StringCalculator.add("3,-6,15,-18,46,33");
-        }
-        catch (RuntimeException e)
+        } catch (RuntimeException e)
         {
             exception = e;
         }
@@ -133,10 +135,34 @@ class StringCalculatorTest
     // The following format should be allowed: "//[delimiter]\n"
     // Example: "//[--]\n1--2--3" should return 6
 
+    @Test
+    public final void whenDelimiterIsMoreThanOneCharacterThenItShouldBeAllowed()
+    {
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[ ]\n1 2 3"));
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[-]\n1-2-3"));
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[--]\n1--2--3"));
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[~!@#$%^&*()_+]\n1~!@#$%^&*()_+2~!@#$%^&*()_+3"));
+    }
+
     // Requirement 10: Allow multiple delimiters
     // The following format should be allowed: "//[delim1][delim2]\n"
     // Example: "//[-][%]\n1-2%3" should return 6
 
+    @Test
+    public final void whenMoreThanOneDelimiterTheyShouldBeAllowed()
+    {
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[-][%]\n1-2%3"));
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[-][-]\n1-2-3"));
+        assertEquals(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11,
+                StringCalculator.add("//[~][!][#][$][%][^][&][*][(][)]\n1~2!3@4#5$6%7^8&9(10)11"));
+    }
     // Requirement 11: Make sure that you can also handle multiple delimiters
     // with length longer than one character
+
+    @Test
+    public final void whenMultipleDelimitersWithLengthLongerThanOneCharacterThenShouldBeAllowed()
+    {
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[--][%%]\n1--2%%3"));
+        assertEquals(1 + 2 + 3, StringCalculator.add("//[-%][%-]\n1-%2%-3"));
+    }
 }
