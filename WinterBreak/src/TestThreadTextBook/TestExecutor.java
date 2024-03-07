@@ -23,8 +23,8 @@ public class TestExecutor
 
         executor.execute(new PrintChar('a',100));
         executor.execute(new PrintChar('b',100));
-        executor.execute(new PrintChar('c',100));
-//        executor.execute(new PrintNum(100));
+//        executor.execute(new PrintChar('c',100));
+        executor.execute(new PrintNum(100));
 
         executor.shutdown();
     }
@@ -44,7 +44,7 @@ class PrintChar implements Runnable{
     {
         for (int i = 0; i < times; i++)
         {
-            System.out.print(charToPrint);
+            System.out.println(Thread.currentThread().getName() + charToPrint);
         }
     }
 }
@@ -59,14 +59,19 @@ class PrintNum implements Runnable{
     @Override
     public void run()
     {
-        Thread t4 = new Thread(new PrintChar('c',40));
-        t4.start();
+
         try
         {
             for (int i = 1; i <= lastNum; i++)
             {
-                System.out.print(" " + i);
-                if(i == 20) t4.join();
+                System.out.println(Thread.currentThread().getName() + " " + i);
+                if(i == 20)
+                {
+                    //单独的线程，不是线程池里的线程在打印
+                    Thread t4 = new Thread(new PrintChar('z',40));
+                    t4.start();
+                    t4.join();
+                }
                 //Thread.yield();
             }
         } catch (InterruptedException e)
