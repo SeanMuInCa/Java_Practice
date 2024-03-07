@@ -79,7 +79,7 @@ public class ThreadCooperation
                     newDeposit.await();
                 }
                 balance -= amount;
-                System.out.println("\t\t\tWithdraw " + amount + "\t\t" + getBalance());
+                System.out.println("\t\t\tWithdraw " + amount + "\t\t\t\t" + getBalance());
             }catch (InterruptedException e)
             {
                 System.out.println(e.getMessage());
@@ -96,7 +96,8 @@ public class ThreadCooperation
                 balance += amount;
                 System.out.println("Deposit " + amount + "\t\t\t\t\t\t\t" + getBalance());
 
-                newDeposit.signalAll();
+//                newDeposit.signalAll();
+                newDeposit.signal();
             }finally
             {
                 lock.unlock();
