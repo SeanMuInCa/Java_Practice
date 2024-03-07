@@ -31,7 +31,7 @@ public class AccountWithoutSync
 
         while (!executor.isTerminated())
         {
-            System.out.println(" Balance? " + account.getBalance());
+            System.out.println("Balance? " + account.getBalance());
         }
     }
     private static class AddAPennyTask implements Runnable
