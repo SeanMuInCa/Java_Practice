@@ -76,5 +76,47 @@ public class ConsumerProducer
         private static Lock lock = new ReentrantLock();
         private static Condition notEmpty = lock.newCondition();
         private static Condition notFull = lock.newCondition();
+        public void write(int value)
+        {
+            lock.lock();
+            try
+            {
+                while (queue.size() == CAPACITY)
+                {
+                    System.out.println("wait for notFull condition");
+                    notFull.await();
+                }
+                queue.offer(value);
+                notEmpty.signal();
+            }catch (InterruptedException e)
+            {
+                System.out.println(e.getMessage());
+            }finally
+            {
+                lock.unlock();
+            }
+        }
+        public int read()
+        {
+            int value = 0;
+            lock.lock();
+            try
+            {
+                while (queue.isEmpty())
+                {
+                    System.out.println("\t\t\twait for notEmpty condition");
+                    notEmpty.await();
+                }
+                value = queue.remove();
+                notFull.signal();
+            }catch (InterruptedException e)
+            {
+                System.out.println(e.getMessage());
+            }finally
+            {
+                lock.unlock();
+                return value;
+            }
+        }
     }
 }
