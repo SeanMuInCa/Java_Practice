@@ -128,7 +128,7 @@ public class WithArray
     public static void main(String[] args)
     {
         System.out.println(theyBothEqual("abca", "bcaa"));
-        int[] arr1 = {3,2,4};
+        int[] arr1 = {3,2,4,3};
         int[] arr2 = {4,4,6,7,8};
         System.out.println(Arrays.toString(getDuplication(arr1, arr2)));
         System.out.println(Arrays.toString(twoSum(arr1, 6)));

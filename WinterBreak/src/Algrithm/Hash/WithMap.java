@@ -70,13 +70,38 @@ public class WithMap
     }
 
 
+    public static int maxEqualFreq(int[] nums) {
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        Map<Integer, Integer> countMap = new HashMap<>();
+        int maxFreq = 0;
+        int result = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            int freq = freqMap.getOrDefault(num, 0) + 1;
+            freqMap.put(num, freq);
+            maxFreq = Math.max(maxFreq, freq);
+            countMap.put(freq, countMap.getOrDefault(freq, 0) + 1);
+
+            int countOfMaxFreq = countMap.get(maxFreq);
+            int totalCount = maxFreq * countOfMaxFreq;
+
+            if (totalCount == (maxFreq - 1) * (countOfMaxFreq - 1) || totalCount == maxFreq * (countOfMaxFreq - 1) + 1) {
+                result = Math.max(result, i + 1);
+            }
+        }
+
+        return result;
+    }
     public static void main(String[] args)
     {
-        int[] arr1 = {1,2};
+        int[] arr1 = {1,2,3,4,5};
         int[] arr2 = {-2,-1};
         int[] arr3 = {-1,2};
         int[] arr4 = {0,2};
-        System.out.println(Arrays.toString(twoSum(arr1, 8)));
-        System.out.println(sumOfFour(arr1,arr2,arr3,arr4));
+        int[] nums = {1,2,2,3,4};
+        System.out.println(Arrays.toString(twoSum(arr1, 5)));
+        System.out.println(maxEqualFreq(nums));
+        //System.out.println(sumOfFour(arr1,arr2,arr3,arr4));
     }
 }
