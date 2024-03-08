@@ -34,6 +34,7 @@ public class AccountWithoutSync
             System.out.println("Balance? " + account.getBalance());
         }
     }
+
     private static class AddAPennyTask implements Runnable
     {
         @Override
@@ -42,7 +43,8 @@ public class AccountWithoutSync
             account.deposit(1);
         }
     }
-    private static class Account{
+
+        private static class Account{
         private int balance = 0;
         public int getBalance(){
             return balance;
@@ -60,4 +62,29 @@ public class AccountWithoutSync
             balance = newBalance;
         }
     }
+//    private static class Account
+//    {
+//        private static Semaphore semaphore = new Semaphore(1);//效率超级低
+//        private int balance = 0;
+//        public int getBalance()
+//        {
+//            return balance;
+//        }
+//        public void deposit(int amount)
+//        {
+//            try
+//            {
+//                semaphore.acquire();
+//                int newBalance = balance + amount;
+//                Thread.sleep(500);
+//                balance = newBalance;
+//            }catch (InterruptedException e)
+//            {
+//                System.out.println(e.getMessage());
+//            }finally
+//            {
+//                semaphore.release();
+//            }
+//        }
+//    }
 }
