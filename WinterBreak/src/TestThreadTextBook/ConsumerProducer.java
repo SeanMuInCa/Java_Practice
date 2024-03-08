@@ -60,7 +60,7 @@ public class ConsumerProducer
             {
                 while (true)
                 {
-                    System.out.println("\t\tConsumer reads " + buffer.read());
+                    System.out.println("\t\t\t\t\tConsumer reads " + buffer.read());
                     Thread.sleep((int) (Math.random() * 10000));
                 }
             }catch (InterruptedException e)
@@ -104,7 +104,7 @@ public class ConsumerProducer
             {
                 while (queue.isEmpty())
                 {
-                    System.out.println("\t\t\twait for notEmpty condition");
+                    System.out.println("\t\t\t\t\twait for notEmpty condition");
                     notEmpty.await();
                 }
                 value = queue.remove();
