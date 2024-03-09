@@ -125,6 +125,17 @@ public class WithArray
         }
         return result;
     }
+
+    //在一个哈希表里找值
+    public static boolean findKey(int[] arr, int key)
+    {
+        int[] temp = new int[100];
+        for (int i = 0; i < arr.length; i++)
+        {
+            temp[arr[i]]++;
+        }
+        return temp[key] > 0;
+    }
     public static void main(String[] args)
     {
         System.out.println(theyBothEqual("abca", "bcaa"));
@@ -132,6 +143,6 @@ public class WithArray
         int[] arr2 = {4,4,6,7,8};
         System.out.println(Arrays.toString(getDuplication(arr1, arr2)));
         System.out.println(Arrays.toString(twoSum(arr1, 6)));
-
+        System.out.println(findKey(arr1, 1));
     }
 }
