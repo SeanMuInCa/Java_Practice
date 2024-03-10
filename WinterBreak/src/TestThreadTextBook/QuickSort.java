@@ -66,15 +66,19 @@ public class QuickSort
 
     public static void main(String[] args)
     {
-        int[] list = {2,3,2,5,6,1,-2,3,14,12};
+        int[] list = new int[7000000];
+        for (int i = 0; i < list.length; i++)
+        {
+            list[i] = (int)(Math.random() * 10000000);
+        }
         long startTime = System.currentTimeMillis();
         quickSort(list);
         long endTime = System.currentTimeMillis();
         System.out.println("\nSequential time is " + (endTime - startTime) + " milliseconds");
         System.out.println();
-        for (int i : list)
+        /*for (int i : list)
         {
             System.out.print(i + " ");
-        }
+        }*/
     }
 }
