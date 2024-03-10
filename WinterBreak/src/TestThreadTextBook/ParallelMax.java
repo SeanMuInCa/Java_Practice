@@ -20,6 +20,7 @@ public class ParallelMax
     {
         final int N = 9000000;
         int[] list = new int[N];
+//        int[] list = new int[]{1,2,5,4,3};
         for (int i = 0; i < list.length; i++)
         {
             list[i] = i;
@@ -40,7 +41,7 @@ public class ParallelMax
 
     private static class MaxTask extends RecursiveTask<Integer>
     {
-        private final static int THRESHOLD = 1000;
+        private final static int THRESHOLD = 1000;//超过这个就用二分
         private int[] list;
         private int low;
         private int high;
