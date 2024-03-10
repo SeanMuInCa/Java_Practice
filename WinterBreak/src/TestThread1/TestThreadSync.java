@@ -1,5 +1,8 @@
 package TestThread1;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Purpose:             TestThread1<br />
  * Data Submitted:      2023/12/16 <br />
@@ -28,21 +31,25 @@ class Sale2 implements Runnable
 {
     int tickets = 10;
 
+    Lock lock = new ReentrantLock();
+
     public void run()
     {
+
+        l:
         while (true)
         {
             try
             {
-                Thread.sleep(5);
+                Thread.sleep(500);
             } catch (InterruptedException e)
             {
                 throw new RuntimeException(e);
             }
-            synchronized (this){
-
-                if (tickets > 0)
-                {
+//            synchronized (this){
+            lock.lock();
+            if (tickets > 0)
+            {
                     /*try
                     {
                         Thread.sleep(10);
@@ -50,13 +57,14 @@ class Sale2 implements Runnable
                     {
                         e.printStackTrace();
                     }*/
-                    System.out.println(Thread.currentThread().getName() + " got " + tickets);
-                    tickets--;
-                } else
-                {
-                    break;
-                }
+                System.out.println(Thread.currentThread().getName() + " got " + tickets);
+                tickets--;
+            } else
+            {
+                break l;
             }
+            lock.unlock();
+//            }
         }
     }
 }
