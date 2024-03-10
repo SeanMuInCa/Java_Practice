@@ -15,7 +15,7 @@ public class TestThreadSyncMethod
 {
     public static void main(String[] args)
     {
-        Sale2 t1 = new Sale2();
+        Sale3 t1 = new Sale3();
 
         new Thread(t1).start();
         new Thread(t1).start();
@@ -27,7 +27,6 @@ public class TestThreadSyncMethod
 class Sale3 implements Runnable
 {
     int tickets = 10;
-
     boolean flag = true;
     public void run()
     {
@@ -41,7 +40,7 @@ class Sale3 implements Runnable
         {
             try
             {
-                Thread.sleep(10);
+                Thread.sleep(1000);
             } catch (InterruptedException e)
             {
                 e.printStackTrace();
