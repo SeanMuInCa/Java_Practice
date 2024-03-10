@@ -21,7 +21,7 @@ public class Test2
             int n = 10;
             while (n-- > 0)
             {
-                System.out.println((n + 1) + Thread.currentThread().getName());
+                System.out.println(Thread.currentThread().getName() + " " + (n + 1));
                 try
                 {
                     Thread.sleep(1000);
@@ -53,7 +53,7 @@ class Some extends Thread
             int n = 10;
             while (n-- > 0)
             {
-                System.out.println(Thread.currentThread().getName() + (n + 1));
+                System.out.println(Thread.currentThread().getName() +" " + (n + 1));
                 Thread.sleep(1000);
             }
             System.out.println("finish");
@@ -65,14 +65,13 @@ class Some extends Thread
 }
 class Some1 implements Runnable
 {
-
     @Override
     public void run()
     {
         int n = 10;
         while (n-- > 0)
         {
-            System.out.println((n + 1) + Thread.currentThread().getName());
+            System.out.println(Thread.currentThread().getName() + " " + (n + 1));
             try
             {
                 Thread.sleep(1000);

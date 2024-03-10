@@ -28,12 +28,13 @@ public class Test1
                     int n = 10;
                     while (n > 0)
                     {
-                        System.out.println(Thread.currentThread().getName() + n--);
+                        System.out.println(Thread.currentThread().getName());
+                        n--;
                         Thread.sleep(1000);
                     }
                 } catch (InterruptedException e)
                 {
-                    throw new RuntimeException(e);
+                    System.out.println(e.getMessage());
                 }
             }
         };
@@ -44,7 +45,7 @@ public class Test1
                 int n = 10;
                 while (n-- > 0)
                 {
-                    System.out.println(Thread.currentThread().getName() + (n + 1));
+                    System.out.println(Thread.currentThread().getName());
                     Thread.sleep(1000);
                 }
                 System.out.println("finish");
@@ -53,8 +54,10 @@ public class Test1
                 throw new RuntimeException(e);
             }
         };
-        t2.run();
+        /*t2.run();
         t1.run();
-        //这样根本不是多线程，不能直接调用run，否则都是主线程在调用，变成串行方式了
+        //这样根本不是多线程，不能直接调用run，否则都是主线程在调用，变成串行方式了*/
+        new Thread(t1).start();
+        new Thread(t2).start();
     }
 }
