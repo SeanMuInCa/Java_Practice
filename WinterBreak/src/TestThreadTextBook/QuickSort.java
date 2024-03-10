@@ -67,7 +67,11 @@ public class QuickSort
     public static void main(String[] args)
     {
         int[] list = {2,3,2,5,6,1,-2,3,14,12};
+        long startTime = System.currentTimeMillis();
         quickSort(list);
+        long endTime = System.currentTimeMillis();
+        System.out.println("\nSequential time is " + (endTime - startTime) + " milliseconds");
+        System.out.println();
         for (int i : list)
         {
             System.out.print(i + " ");
