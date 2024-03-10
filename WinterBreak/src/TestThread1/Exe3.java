@@ -1,7 +1,5 @@
 package TestThread1;
 
-import java.util.Stack;
-
 /**
  * Purpose:             TestThread1<br />
  * Data Submitted:      2023/12/16 <br />
@@ -19,23 +17,9 @@ public class Exe3
     public static void main(String[] args)
     {
         Bank[] banks = new Bank[2];
-        Thread t1 = new Thread()
-        {
-            @Override
-            public void run()
-            {
-                banks[0] = Bank.getInstance();
-            }
-        };
+        Thread t1 = new Thread(() -> banks[0] = Bank.getInstance());
 
-        Thread t2 = new Thread()
-        {
-            @Override
-            public void run()
-            {
-                banks[1] = Bank.getInstance();
-            }
-        };
+        Thread t2 = new Thread(() -> banks[1] = Bank.getInstance());
         t1.start();
         t2.start();
 
@@ -89,5 +73,11 @@ class Bank
             }
         }
         return instance;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Bank{}";
     }
 }
