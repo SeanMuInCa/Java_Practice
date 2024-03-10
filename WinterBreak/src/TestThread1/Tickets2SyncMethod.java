@@ -43,7 +43,7 @@ class Sale4 extends Thread
         {
             try
             {
-                Thread.sleep(10);
+                Thread.sleep(1000);
             } catch (InterruptedException e)
             {
                 e.printStackTrace();

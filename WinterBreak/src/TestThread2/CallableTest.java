@@ -44,7 +44,7 @@ class NumThread implements Callable<Object>{
                 System.out.println(Thread.currentThread().getName() + " " + i);
                 sum += i;
             }
-            Thread.sleep(100);
+            Thread.sleep(10);
         }
         return sum;
     }
