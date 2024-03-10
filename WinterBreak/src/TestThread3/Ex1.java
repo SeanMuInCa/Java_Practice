@@ -35,7 +35,7 @@ public class Ex1
         };
         Runnable t2 = ()->{
             String str = input.next();
-            if("q".equals(str.toLowerCase()))
+            if("q".equalsIgnoreCase(str))
             {
                 System.out.println("ok");
                 flag.set(false);
