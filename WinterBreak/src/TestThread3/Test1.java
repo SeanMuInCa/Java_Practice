@@ -1,7 +1,5 @@
 package TestThread3;
 
-import org.junit.Test;
-
 /**
  * Purpose:             TestThread3<br />
  * Data Submitted:      2024/2/17 <br />
@@ -15,8 +13,8 @@ import org.junit.Test;
  */
 public class Test1
 {
-    @Test
-    public void test(){
+
+    public static void main(String[] args){
 
         Runnable t1 = new Runnable()
         {
@@ -28,8 +26,7 @@ public class Test1
                     int n = 10;
                     while (n > 0)
                     {
-                        System.out.println(Thread.currentThread().getName());
-                        n--;
+                        System.out.println(Thread.currentThread().getName() + n--);
                         Thread.sleep(1000);
                     }
                 } catch (InterruptedException e)
@@ -45,7 +42,7 @@ public class Test1
                 int n = 10;
                 while (n-- > 0)
                 {
-                    System.out.println(Thread.currentThread().getName());
+                    System.out.println(Thread.currentThread().getName() + n);
                     Thread.sleep(1000);
                 }
                 System.out.println("finish");

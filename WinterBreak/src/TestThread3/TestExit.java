@@ -18,13 +18,14 @@ public class TestExit
 
         Th thread = new Th();
         thread.start();
-        //Thread.sleep(3000);
+//        Thread.sleep(3000);
 
         Th t2 = new Th();
         t2.start();
-        //t2.join();
-        //thread.interrupt();
-        //thread.setFlag(false);//叫停线程
+        t2.join();
+        thread.interrupt();
+        thread.setFlag(false);//叫停线程
+        System.out.println(thread.isFlag());
         //和interrupt不同，
         // 如果线城是休眠，那么interrupt是唤醒线程，让线程继续工作
         //如果线程是进行中，那么没有效果，除非你抛出异常
@@ -40,10 +41,11 @@ class Th extends Thread
 
         while (flag)
         {
-            System.out.println(Thread.currentThread().getName() + n++);
+            System.out.println(Thread.currentThread().getName() +" " + n++);
             try
             {
                 Thread.sleep(50);
+                if(n > 50) this.setFlag(false);
             } catch (InterruptedException e)
             {
                 System.out.println(e.getMessage());
