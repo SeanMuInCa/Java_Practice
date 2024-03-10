@@ -74,7 +74,7 @@ public class ParallelMax
 
                 right.fork();
                 left.fork();
-                return Math.max(left.join().intValue(), right.join().intValue());
+                return Math.max(left.join(), right.join());
             }
         }
     }
