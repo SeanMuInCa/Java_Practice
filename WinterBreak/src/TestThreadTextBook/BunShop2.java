@@ -30,7 +30,6 @@ public class BunShop2
     {
         if (isHasLeft())
         {
-            System.out.println("we have " + count + " buns left");
             try
             {
                 Thread.sleep(100);
@@ -38,6 +37,7 @@ public class BunShop2
             {
                 throw new RuntimeException(e);
             }
+            System.out.println("we have " + count + " buns left");
             setHasLeft(false);
             notifyAll();
         } else
@@ -62,10 +62,6 @@ public class BunShop2
     {
         if (!isHasLeft())
         {
-            this.count++;
-            System.out.println("we make one more, now we have " + count + " buns");
-            setHasLeft(true);
-            notifyAll();
             try
             {
                 Thread.sleep(100);
@@ -73,6 +69,10 @@ public class BunShop2
             {
                 throw new RuntimeException(e);
             }
+            this.count++;
+            System.out.println("we make one more, now we have " + count + " buns");
+            setHasLeft(true);
+            notifyAll();
         } else
         {
             try
