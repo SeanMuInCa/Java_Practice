@@ -92,17 +92,17 @@ public class BunShop1
 
     public static void main(String[] args)
     {
-        BunShop shop = new BunShop();
-        new Thread(new Produce(shop)).start();
-        new Thread(new Consumer(shop)).start();
+        BunShop1 shop = new BunShop1();
+        new Thread(new Produce1(shop)).start();
+        new Thread(new Consumer1(shop)).start();
     }
 }
 
 class Produce1 implements Runnable
 {
-    BunShop shop;
+    BunShop1 shop;
 
-    public Produce1(BunShop shop)
+    public Produce1(BunShop1 shop)
     {
         this.shop = shop;
     }
@@ -119,9 +119,9 @@ class Produce1 implements Runnable
 
 class Consumer1 implements Runnable
 {
-    BunShop shop;
+    BunShop1 shop;
 
-    public Consumer1(BunShop shop)
+    public Consumer1(BunShop1 shop)
     {
         this.shop = shop;
     }
