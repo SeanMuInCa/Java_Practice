@@ -28,7 +28,7 @@ public class BunShop2
 
     public synchronized void getCount()
     {
-        if (isHasLeft())
+        while (isHasLeft())
         {
             try
             {
@@ -40,16 +40,16 @@ public class BunShop2
             System.out.println("we have " + count + " buns left");
             setHasLeft(false);
             notifyAll();
-        } else
-        {
-            try
-            {
-                wait();
-            } catch (InterruptedException e)
-            {
-                throw new RuntimeException(e);
-            }
         }
+
+        try
+        {
+            wait();
+        } catch (InterruptedException e)
+        {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -60,7 +60,7 @@ public class BunShop2
 
     public synchronized void setCount()
     {
-        if (!isHasLeft())
+        while (!isHasLeft())
         {
             try
             {
@@ -73,16 +73,16 @@ public class BunShop2
             System.out.println("we make one more, now we have " + count + " buns");
             setHasLeft(true);
             notifyAll();
-        } else
-        {
-            try
-            {
-                wait();
-            } catch (InterruptedException e)
-            {
-                throw new RuntimeException(e);
-            }
         }
+
+        try
+        {
+            wait();
+        } catch (InterruptedException e)
+        {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void setHasLeft(boolean hasLeft)
@@ -93,6 +93,7 @@ public class BunShop2
     public static void main(String[] args)
     {
         BunShop2 shop = new BunShop2();
+        //应对多个线程的情况，首先要notifyAll并且为了让线程每次都判断，需要改成while，以让线程循环进行判断
         new Thread(new Produce2(shop)).start();
         new Thread(new Produce2(shop)).start();
         new Thread(new Consumer2(shop)).start();
