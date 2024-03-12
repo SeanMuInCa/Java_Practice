@@ -94,6 +94,7 @@ public class BunShop2
     {
         BunShop2 shop = new BunShop2();
         //应对多个线程的情况，首先要notifyAll并且为了让线程每次都判断，需要改成while，以让线程循环进行判断
+        //notifyAll 和 while 配合在这里使用才行
         new Thread(new Produce2(shop)).start();
         new Thread(new Produce2(shop)).start();
         new Thread(new Consumer2(shop)).start();
