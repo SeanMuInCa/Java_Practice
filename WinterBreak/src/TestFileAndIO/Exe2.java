@@ -27,8 +27,10 @@ public class Exe2
                 return name.contains(".jar");
             }
         };
+
+        FilenameFilter filter1 = (dir, name) -> name.contains(".jar");
         File file = new File("d:\\Java");
-        String[] list = file.list(filter);
+        String[] list = file.list(filter1);
         for (String s : list)
         {
             System.out.println(s);
