@@ -35,7 +35,6 @@ public class CheckIdentical
                 FileInputStream fis2 = new FileInputStream(name2);
                 )
         {
-
             int byte1, byte2;
             while ((byte1 = fis1.read()) != -1 && (byte2 = fis2.read()) != -1) {
                 if (byte1 != byte2) {
