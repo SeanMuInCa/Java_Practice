@@ -1,8 +1,6 @@
 package TestThreadTextBook;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * Purpose:             TestThreadTextBook<br />
@@ -17,13 +15,14 @@ import java.util.concurrent.Executors;
  */
 public class TestThreadPool
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws ExecutionException, InterruptedException
     {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         executorService.submit(new MyRunable());
         executorService.submit(new MyRunable());
         executorService.execute(new MyRunable());
-        executorService.submit(new MyCallableTest());
+        Future<Integer> future = executorService.submit(new MyCallableTest());
+        System.out.println(future.get());//获取返回值
         executorService.shutdown();
     }
 }
