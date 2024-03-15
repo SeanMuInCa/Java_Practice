@@ -23,7 +23,7 @@ public class TestCallable
         //相比较runable没有返回值也不能抛出异常
         //用funtureTask来接收返回值
         MyCallable myCallable = new MyCallable();
-        FutureTask<Integer> integerFutureTask = new FutureTask<Integer>(myCallable);//这个也实现了runable接口
+        FutureTask<Integer> integerFutureTask = new FutureTask<>(myCallable);//这个也实现了runable接口
 
         new Thread(integerFutureTask).start();
         System.out.println(integerFutureTask.get());
