@@ -193,7 +193,7 @@ public class MyHashSet<E> implements Collection<E>
      */
     private class MyHashSetIterator implements java.util.Iterator<E>
     {
-        // Store the elements in a li
+        // Store the elements in a list
         private ArrayList<E> list;
         private int current = 0; // Point to the current element in list
         private MyHashSet<E> set;
