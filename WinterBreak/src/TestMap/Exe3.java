@@ -19,9 +19,10 @@ public class Exe3
     public static void main(String[] args)
     {
         Map<Character, Integer> map = new HashMap<>();
-        String str = "aaaabbb";
+        String str = "asdfasdfasfw efsdaf sadf";
         for (char c : str.toCharArray())
         {
+            if(c == ' ') continue;
             int count = 1;
             count = map.containsKey(c) ? map.get(c) + 1: count;
             map.put(c, count);
