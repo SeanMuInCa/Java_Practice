@@ -26,6 +26,23 @@ public class Poker
         ArrayList<Integer> fold = new ArrayList<>();
 
 
+        startToHandle(poker,fold,player1,player2,player3);
+
+        System.out.print("player1: ");
+        player1.forEach(i -> System.out.print(poker.get(i) + " "));
+        System.out.println();
+        System.out.print("player2: ");
+        player2.forEach(i -> System.out.print(poker.get(i) + " "));
+        System.out.println();
+        System.out.print("player3: ");
+        player3.forEach(i -> System.out.print(poker.get(i) + " "));
+        System.out.println();
+        System.out.print("fold: ");
+        fold.forEach(i -> System.out.print(poker.get(i) + " "));
+    }
+
+    private static void startToHandle(Map<Integer, String> poker, ArrayList<Integer> fold, ArrayList<Integer> player1, ArrayList<Integer> player2, ArrayList<Integer> player3)
+    {
         ArrayList<Integer> indexes = new ArrayList<>(poker.keySet());
         Collections.shuffle(indexes);
 
@@ -51,18 +68,6 @@ public class Poker
         Collections.sort(player2);
         Collections.sort(player3);
         Collections.sort(fold);
-
-        System.out.print("player1: ");
-        player1.forEach(i -> System.out.print(poker.get(i) + " "));
-        System.out.println();
-        System.out.print("player2: ");
-        player2.forEach(i -> System.out.print(poker.get(i) + " "));
-        System.out.println();
-        System.out.print("player3: ");
-        player3.forEach(i -> System.out.print(poker.get(i) + " "));
-        System.out.println();
-        System.out.print("fold: ");
-        fold.forEach(i -> System.out.print(poker.get(i) + " "));
     }
 
     private static Map<Integer, String> getPoker()
@@ -81,8 +86,8 @@ public class Poker
             }
         }
 
-        poker.put(count++, "🃏");
-        poker.put(count++, "🃏");
+        poker.put(53, "🃏");
+        poker.put(54, "🃏");
         return poker;
     }
 }
