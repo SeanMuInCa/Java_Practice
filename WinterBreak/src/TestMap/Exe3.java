@@ -19,10 +19,10 @@ public class Exe3
     public static void main(String[] args)
     {
         Map<Character, Integer> map = new HashMap<>();
-        String str = "fdsajfoiweqhboinvlkqnoiuwehqirojwe";
-        int count = 1;
+        String str = "aaaabbb";
         for (char c : str.toCharArray())
         {
+            int count = 1;
             if(map.containsKey(c)){
                 count = map.get(c);
                 count++;
