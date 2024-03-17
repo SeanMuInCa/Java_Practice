@@ -23,11 +23,8 @@ public class Exe3
         for (char c : str.toCharArray())
         {
             int count = 1;
-            if(map.containsKey(c)){
-                count = map.get(c);
-                count++;
-            }
-            map.put(c,count);
+            count = map.containsKey(c) ? map.get(c) + 1: count;
+            map.put(c, count);
         }
         System.out.println(map);
     }
