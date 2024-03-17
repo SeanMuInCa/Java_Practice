@@ -24,7 +24,7 @@ public class Exe1
         list.add("ccc");
         list.add("ddd");
 
-        Map<String, List> map = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
         map.put(singer, list);
 
         String singer1 = "def";
@@ -36,11 +36,19 @@ public class Exe1
 
         map.put(singer1, list1);
 
-        Iterator iterator = map.entrySet().iterator();
+        Set<Map.Entry<String, List<String>>> set = map.entrySet();
+        for (Map.Entry<String,List<String>> entry : set)
+        {
+            for (String str : entry.getValue())
+            {
+                System.out.println(entry.getKey() + " ---- " + str);
+            }
+        }
+        /*Iterator iterator = map.entrySet().iterator();
         while (iterator.hasNext()){
             Map.Entry entry = (Map.Entry) iterator.next();
             System.out.println(entry.getKey() + " --- " + entry.getValue());
 //            System.out.println(iterator.next());
-        }
+        }*/
     }
 }
