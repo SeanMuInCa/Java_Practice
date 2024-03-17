@@ -19,24 +19,27 @@ public class Poker
     {
         ArrayList<String> signs = new ArrayList<>(Arrays.asList("♦,♥,♠,♣".split(",")));
         ArrayList<String> numbers = new ArrayList<>(Arrays.asList("2,3,4,5,6,7,8,9,10,J,Q,K,A".split(",")));
-        Map<Integer,String> poker = new HashMap<>();
+        Map<Integer, String> poker = new HashMap<>();
         int count = 1;
-        for (String sign : signs)
+
+        for (String number : numbers)
         {
-            for (String number : numbers)
+            for (String sign : signs)
             {
-                poker.put(count,sign+number);
+                poker.put(count, sign + number);
                 count++;
             }
+
         }
+
         poker.put(count++, "🃏");
         poker.put(count++, "🃏");
         System.out.println(poker);
 
-        ArrayList<String> player1 = new ArrayList<>();
-        ArrayList<String> player2 = new ArrayList<>();
-        ArrayList<String> player3 = new ArrayList<>();
-        ArrayList<String> fold = new ArrayList<>();
+        ArrayList<Integer> player1 = new ArrayList<>();
+        ArrayList<Integer> player2 = new ArrayList<>();
+        ArrayList<Integer> player3 = new ArrayList<>();
+        ArrayList<Integer> fold = new ArrayList<>();
         Set<Integer> set = poker.keySet();
         List<Object> list = Arrays.asList(set.toArray());
         Collections.shuffle(list);
@@ -44,23 +47,36 @@ public class Poker
         System.out.println(list);
         for (int i = 0; i < list.size(); i++)
         {
-            if(i > 50) {
-                fold.add(poker.get(list.get(i)));
-            }else {
+            if (i > 50)
+            {
+                fold.add((Integer) list.get(i));
+            } else
+            {
                 int temp = i % 3;
                 switch (temp)
                 {
-                    case 0 -> player1.add(poker.get(list.get(i)));
-                    case 1 -> player2.add(poker.get(list.get(i)));
-                    case 2 -> player3.add(poker.get(list.get(i)));
+                    case 0 -> player1.add((Integer) list.get(i));
+                    case 1 -> player2.add((Integer) list.get(i));
+                    case 2 -> player3.add((Integer) list.get(i));
                 }
             }
 
         }
+        Collections.sort(player1);
+        Collections.sort(player2);
+        Collections.sort(player3);
+        Collections.sort(fold);
 
-        System.out.println(player1);
-        System.out.println(player2);
-        System.out.println(player3);
-        System.out.println(fold);
+        System.out.print("player1: ");
+        player1.forEach(i -> System.out.print(poker.get(i) + " "));
+        System.out.println();
+        System.out.print("player2: ");
+        player2.forEach(i -> System.out.print(poker.get(i) + " "));
+        System.out.println();
+        System.out.print("player3: ");
+        player3.forEach(i -> System.out.print(poker.get(i) + " "));
+        System.out.println();
+        System.out.print("fold: ");
+        fold.forEach(i -> System.out.print(poker.get(i) + " "));
     }
 }
