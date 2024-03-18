@@ -48,6 +48,7 @@ public class MyHashSet<E> implements Collection<E>
 
     private int trimToPowerOf2(int initialCapacity)
     {
+        //8,4,2,1规则，不论你输入多少，必须要计算成2的次幂才行，并非以用户输入为准
         int capacity = 1;
         while (capacity < initialCapacity)
         {
