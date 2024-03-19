@@ -18,14 +18,16 @@ import java.io.*;
 public class BufferedReaderWriterTest
 {
     @Test
-    public void test(){
+    public void test()
+    {
         FileReader fr = null;
         FileWriter fw = null;
         BufferedReader br = null;
         BufferedWriter bw = null;
         try
         {
-            File file1 = new File("d:\\Java\\test.txt");
+            //跨系统通用
+            File file1 = new File("d:" + File.separator + "Java" + File.separator + "test.txt");
             fr = new FileReader(file1);
 
             File file2 = new File("d:\\Java\\res_copy1.txt");
@@ -44,7 +46,7 @@ public class BufferedReaderWriterTest
             }*/
             //方式2
             String data;
-            while ((data = br.readLine())!= null)
+            while ((data = br.readLine()) != null)
             {
                 bw.write(data);
                 bw.newLine();
