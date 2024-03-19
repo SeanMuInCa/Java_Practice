@@ -32,6 +32,10 @@ public class Controller extends HBox implements Serializable
     Student[] array;
     ArrayList<Integer> saved = new ArrayList<>();
 
+    /**
+     * initial everything
+     * @param form data form
+     */
     public Controller(StudentForm form)
     {
         btLoad.setPadding(new Insets(6));
@@ -80,11 +84,19 @@ public class Controller extends HBox implements Serializable
         });
     }
 
+    /**
+     * set next and pre button's status
+     */
     private void setButton()
     {
         btPre.setDisable(index == 0);
         btNext.setDisable(index == 9);
     }
+
+    /**
+     * set save button's status based on current data is saved or not
+     * @param i index
+     */
     private void setSaveBtn(int i)
     {
         System.out.println(saved);
@@ -97,6 +109,10 @@ public class Controller extends HBox implements Serializable
         btSave.setDisable(false);
     }
 
+    /**
+     * load the data from the file by index
+     * @param index index
+     */
     private void loadData(int index)
     {
         try (
@@ -128,6 +144,10 @@ public class Controller extends HBox implements Serializable
         }
     }
 
+    /**
+     * save the data to file by index
+     * @param index index
+     */
     private void saveData(int index)
     {
         try (
@@ -135,7 +155,6 @@ public class Controller extends HBox implements Serializable
         )
         {
             Student student = array[index];
-            System.out.println(student);
             oos.writeObject(student);
 
         } catch (IOException e)
