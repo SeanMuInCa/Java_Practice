@@ -3,15 +3,12 @@ package com.example.assignment1_fx;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Purpose:             com.example.assignment1_fx<br />
@@ -27,10 +24,10 @@ import java.util.Arrays;
 public class Controller extends HBox implements Serializable
 {
     StudentForm form;
-    private Button btLoad = new Button("Load Data");
-    private Button btPre = new Button("< Previous");
-    private Button btNext = new Button("Next >");
-    private Button btSave = new Button("Save");
+    private final Button btLoad = new Button("Load Data");
+    private final Button btPre = new Button("< Previous");
+    private final Button btNext = new Button("Next >");
+    private final Button btSave = new Button("Save");
     int index = 0;
     Student[] array;
     ArrayList<Integer> saved = new ArrayList<>();
@@ -85,10 +82,8 @@ public class Controller extends HBox implements Serializable
 
     private void setButton()
     {
-        if (index == 0) btPre.setDisable(true);
-        else btPre.setDisable(false);
-        if (index == 9) btNext.setDisable(true);
-        else btNext.setDisable(false);
+        btPre.setDisable(index == 0);
+        btNext.setDisable(index == 9);
     }
     private void setSaveBtn(int i)
     {
@@ -105,7 +100,7 @@ public class Controller extends HBox implements Serializable
     private void loadData(int index)
     {
         try (
-                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("objforarray.dat"));
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("objforarray.dat"))
         )
         {
 
@@ -115,15 +110,15 @@ public class Controller extends HBox implements Serializable
             form.number.setText(s.getStudentNumber());
             form.program.setText(s.getProgram());
             String[] courses = s.getCourses();
-            String res = "";
+            StringBuilder res = new StringBuilder();
             if (courses != null)
             {
-                for (int i = 0; i < courses.length; i++)
+                for (String cours : courses)
                 {
-                    res += courses[i] + "\n";
+                    res.append(cours).append("\n");
                 }
             }
-            form.textArea.setText(res);
+            form.textArea.setText(res.toString());
         } catch (IOException e)
         {
             throw new RuntimeException(e);
@@ -136,16 +131,13 @@ public class Controller extends HBox implements Serializable
     private void saveData(int index)
     {
         try (
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("students.dat"));
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("students.dat"))
         )
         {
             Student student = array[index];
             System.out.println(student);
             oos.writeObject(student);
 
-        } catch (FileNotFoundException e)
-        {
-            throw new RuntimeException(e);
         } catch (IOException e)
         {
             throw new RuntimeException(e);
