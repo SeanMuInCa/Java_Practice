@@ -2,7 +2,6 @@ package com.example.assignment1_fx;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.Date;
 
 /**
  * Purpose:             com.example.assignment1_fx<br />
@@ -41,9 +40,9 @@ public class CreateData
 
 class Student implements Serializable
 {
-    private String studentNumber;
-    private String name;
-    private String program;
+    private final String studentNumber;
+    private final String name;
+    private final String program;
     private String[] courses = null;
 
     public Student(String studentNumber, String name, String program)
@@ -66,40 +65,28 @@ class Student implements Serializable
         return studentNumber;
     }
 
-    public void setStudentNumber(String studentNumber)
-    {
-        this.studentNumber = studentNumber;
-    }
+
 
     public String getName()
     {
         return name;
     }
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+
 
     public String getProgram()
     {
         return program;
     }
 
-    public void setProgram(String program)
-    {
-        this.program = program;
-    }
+
 
     public String[] getCourses()
     {
         return courses;
     }
 
-    public void setCourses(String[] courses)
-    {
-        this.courses = courses;
-    }
+
 
     @Override
     public String toString()
