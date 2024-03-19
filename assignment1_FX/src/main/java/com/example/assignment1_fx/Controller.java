@@ -51,9 +51,12 @@ public class Controller extends HBox implements Serializable
         GridPane.setHalignment(btNext, HPos.RIGHT);
         this.form = form;
         btSave.setDisable(true);
+        btNext.setDisable(true);
+        btPre.setDisable(true);
         btLoad.setOnAction(e ->
         {
             loadData(index);
+            btLoad.setDisable(true);
             setButton();
             btSave.setDisable(false);
             setSaveBtn(index);
