@@ -29,6 +29,7 @@ public class Controller extends HBox implements Serializable
     private final Button btNext = new Button("Next >");
     private final Button btSave = new Button("Save");
     int index = 0;
+    int position = 0;
     Student[] array;
     ArrayList<Integer> saved = new ArrayList<>();
 
@@ -150,16 +151,28 @@ public class Controller extends HBox implements Serializable
      */
     private void saveData(int index)
     {
+
         try (
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("students.dat"))
+
+                RandomAccessFile operator = new RandomAccessFile("test.dat", "rw");
         )
         {
+            System.out.println("position = " + position);
             Student student = array[index];
-            oos.writeObject(student);
+            operator.seek(position);
+            writeObject(student);
+            position += operator.length();
 
         } catch (IOException e)
         {
             throw new RuntimeException(e);
         }
+    }
+
+    private static void writeObject(Student student) throws IOException {
+
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("test.dat"));
+        oos.writeObject(student);
+        oos.flush();
     }
 }
