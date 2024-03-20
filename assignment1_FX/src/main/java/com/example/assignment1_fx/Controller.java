@@ -154,13 +154,13 @@ public class Controller extends HBox implements Serializable
 
         try (
 
-                RandomAccessFile operator = new RandomAccessFile("test.dat", "rw");
+                RandomAccessFile operator = new RandomAccessFile("students.dat", "rw");
         )
         {
             System.out.println("position = " + position);
             Student student = array[index];
-            operator.seek(position);
-            writeObject(student);
+
+            writeObject(student,operator,position);
             position += operator.length();
 
         } catch (IOException e)
@@ -169,9 +169,10 @@ public class Controller extends HBox implements Serializable
         }
     }
 
-    private static void writeObject(Student student) throws IOException {
+    private static void writeObject(Student student, RandomAccessFile operator, long position) throws IOException {
 
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("test.dat"));
+        operator.seek(position);
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("students.dat"));
         oos.writeObject(student);
         oos.flush();
     }
