@@ -22,8 +22,11 @@ public class FileInputOutputStreamTest
     public void test()
     {
         try (
-                FileInputStream fis = new FileInputStream("d:\\Java\\原型链.png");
-                FileOutputStream fos = new FileOutputStream("d:\\Java\\原型链_copy.png");
+                //字节流是万能拷贝流
+//                FileInputStream fis = new FileInputStream("d:\\Java\\原型链.png");
+                FileInputStream fis = new FileInputStream("d:\\Java\\res.txt");
+//                FileOutputStream fos = new FileOutputStream("d:\\Java\\原型链_copy.png");
+                FileOutputStream fos = new FileOutputStream("d:\\Java\\res_copy.txt");
         )
         {
             byte[] buffer = new byte[1024];
