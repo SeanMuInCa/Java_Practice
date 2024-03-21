@@ -172,7 +172,7 @@ public class Controller extends HBox implements Serializable
     private static void writeObject(Student student, RandomAccessFile operator, long position) throws IOException {
 
         operator.seek(position);
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("students.dat"));
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("students.dat",true));
         oos.writeObject(student);
         oos.flush();
     }
