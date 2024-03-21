@@ -21,42 +21,20 @@ public class FileInputOutputStreamTest
     @Test
     public void test()
     {
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
-        try
+        try (
+                FileInputStream fis = new FileInputStream("d:\\Java\\原型链.png");
+                FileOutputStream fos = new FileOutputStream("d:\\Java\\原型链_copy.png");
+        )
         {
-            File src = new File("d:\\Java\\原型链.png");
-            File des = new File("d:\\Java\\原型链_copy.png");
-            fis = new FileInputStream(src);
-            fos = new FileOutputStream(des);
-
             byte[] buffer = new byte[1024];
             int length;
-            while((length = fis.read(buffer)) != -1){
+            while ((length = fis.read(buffer)) != -1)
+            {
                 fos.write(buffer, 0, length);
             }
         } catch (IOException e)
         {
             e.printStackTrace();
-        } finally
-        {
-            try
-            {
-                if (fis != null)
-                    fis.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                if (fos != null)
-                    fos.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-
         }
     }
 }
