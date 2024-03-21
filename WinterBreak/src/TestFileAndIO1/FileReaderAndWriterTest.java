@@ -147,16 +147,11 @@ public class FileReaderAndWriterTest
     public void test4()
     {
         //final version of text
-        FileReader fr = null;
-        FileWriter fw = null;
-        try
+        try(
+                FileReader fr = new FileReader("d:\\Java\\test.txt");
+                FileWriter fw = new FileWriter("d:\\Java\\res.txt");
+                )
         {
-            File file1 = new File("d:\\Java\\test.txt");
-            fr = new FileReader(file1);
-
-            File file2 = new File("d:\\Java\\res.txt");
-            fw = new FileWriter(file2);
-
             char[] buffer = new char[1024];
 
             int length;
@@ -167,24 +162,6 @@ public class FileReaderAndWriterTest
         } catch (IOException e)
         {
             e.printStackTrace();
-        } finally
-        {
-            try
-            {
-                if (fr != null)
-                    fr.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                if (fw != null)
-                    fw.close();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
         }
     }
 }
