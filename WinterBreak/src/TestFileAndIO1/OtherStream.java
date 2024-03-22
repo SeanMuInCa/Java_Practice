@@ -24,7 +24,7 @@ public class OtherStream
     public void test(){
         System.out.println("input a string(e for exit): ");
 
-        String str = "";
+        String str;
         try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in)))
         {
             while ((str = br.readLine())!= null)
