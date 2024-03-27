@@ -33,6 +33,8 @@ public class ThreadPool
 
         //3.关闭连接池
         executorService.shutdown();
+        while (!executorService.isTerminated()){}//判断线程池运行结束
+        System.out.println("over");
     }
 }
 class NumberThread implements Runnable{
