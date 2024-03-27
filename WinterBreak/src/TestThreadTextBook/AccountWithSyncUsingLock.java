@@ -33,8 +33,9 @@ public class AccountWithSyncUsingLock
 
         while (!executor.isTerminated())
         {
-            System.out.println("Balance? " + account.getBalance());
+//            System.out.println("Balance? " + account.getBalance());
         }
+        System.out.println("Balance? " + account.getBalance());
     }
     private static class AddAPennyTask implements Runnable
     {
@@ -55,13 +56,11 @@ public class AccountWithSyncUsingLock
             lock.lock();
             try
             {
-                int newBalance = balance + amount;//this is the problem
-                Thread.sleep(5);
-                balance = newBalance;
-            }catch (InterruptedException e)
-            {
-                System.out.println(e.getMessage());
-            }finally
+//                int newBalance = balance + amount;//this is the problem
+//                Thread.sleep(5);
+//                balance = newBalance;
+                balance += amount;
+            } finally
             {
                 lock.unlock();
             }
