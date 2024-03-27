@@ -23,7 +23,7 @@ public class ParallelMax
 //        int[] list = new int[]{1,2,5,4,3};
         for (int i = 0; i < list.length; i++)
         {
-            list[i] = i;
+            list[i] = (int)(Math.random() * N);
         }
         long startTime = System.currentTimeMillis();
         System.out.println("\nThe maximal number is " + max(list));
@@ -73,8 +73,9 @@ public class ParallelMax
                 RecursiveTask<Integer> left = new MaxTask(list,low,mid);
                 RecursiveTask<Integer> right = new MaxTask(list,mid,high);
 
-                right.fork();
-                left.fork();
+//                right.fork();
+//                left.fork();
+                invokeAll(left,right);//一样的
                 return Math.max(left.join(), right.join());
             }
         }
